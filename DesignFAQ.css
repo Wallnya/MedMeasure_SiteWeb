@@ -1,0 +1,33 @@
+header
+{
+	background-color: #86cbe2;
+	line-height : 200px;
+	color : #4d59cb;
+	font-size: 80px;
+	margin-top: -8px;
+	margin-right: -8px;
+	margin-left: -8px;
+	text-align: center;
+	font-family: Arial;
+}
+div
+{
+	font-family: Arial;
+	line-height: 50px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+footer
+{
+	background-color: #f6f6f6;
+	line-height : 200px;
+	font-size : small;
+	font-family: Arial;
+	margin-right: -8px;
+	margin-left: -8px;
+	margin-bottom: -50px;
+	text-align: center;
+	font-family: Arial;
+
+}
