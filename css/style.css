@@ -1,8 +1,20 @@
 
+/* Body */
+
+body{
+	background-color: #dcd4c9;
+	text-align: justify;
+	margin-top: 60px;
+	font-family: Trebuchet MS, sans-serif;
+}
+
+
 /* Formulaires */
-label{
+
+form label{
+	position: relative;
 	display: inline-block;
-    width: 500px;
+    width: 45%;
     text-align: right;
 	align-items: flex-start;
 	margin-right: 10px;
@@ -10,6 +22,40 @@ label{
 
 input, textarea, select{
 	width: 200px;
+	border-radius: 5px; 
+	
+}
+
+form{
+	width: 60%;
+	margin-top: 100px;
+	margin: 100px auto;
+}
+
+form h3{
+	text-align: center;
+}
+
+form div{
+	margin: 5px;
+}
+
+form .section{
+	margin: 50px auto;
+}
+
+form button
+{
+	display: block;
+	margin: auto;
+	font-size: 1.20em;
+    padding: 5px 15px; 
+    background-color: #a89986;
+	border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px; 
+    margin-top: 15px;
+	width : 150px;
 }
 
 
@@ -23,22 +69,37 @@ input, textarea, select{
 }
 
 .checkbox input{
-	width: 10px;
+	width: 15px;
 	display: inline-block;
 }
 
 
+/* Formulaires : checkbox CGU */
 
-
-
-
-body{
-	height: 100%;
-	background-color: #dcd4c9;
-	text-align: justify;
-	margin-left: 20px;
-	margin-top: 60px;
+.checkbox_cgu input{
+	width: 15px;
+	display: inline-block;
 }
+
+.checkbox_cgu label{
+	display: inline;
+}
+
+.checkbox_cgu{
+	text-align: center;
+	margin: 30px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @font-face
 {
@@ -51,10 +112,10 @@ header
 	border-bottom: 2px solid white;
 	background-color: #dcd4c9;
 	text-align: center;
-	font: small-caps bold 35px Calibri;
+	font: small-caps bold 35px Trebuchet MS, sans-serif;
 	letter-spacing: 5px;
 	position: fixed;
-	margin-top: -60px;
+	margin-top: -100px;
 	width: calc(100% - 6px);
 }
 
@@ -95,19 +156,6 @@ span
 	color: red;
 }
 
-button
-{
-	font-size: 1.30em;
-	font-weight: bold;
-    padding: 5px 15px; 
-    background-color: #a89986;
-    border: 1px solid black;
-    cursor: pointer;
-    border-radius: 5px; 
-    margin-top: 15px;
-    width : 150px;
-	
-}
 
 /* Table */
 /*table
