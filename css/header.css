@@ -2,8 +2,21 @@ header {
 	color: blue;
 	background-color: skyblue;
 	height: 160px;
+	font-size: 30px ;
+	padding : 20px;
 }
+
 .logo img {
 	width : 100px;
-	height: : 100px;
+	height: : 100px
+	padding : 30px;
+	margin: 20px ;
+}
+
+.boutonaccueil button {
+	background-color: orange;
+	font-size: 16px;
+	border-radius: 8px;
+	float: right;
+	margin : 30px ;
 }
