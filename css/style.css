@@ -1,0 +1,155 @@
+
+/* Formulaires */
+label{
+	display: inline-block;
+    width: 500px;
+    text-align: right;
+	align-items: flex-start;
+	margin-right: 10px;
+}
+
+input, textarea, select{
+	width: 200px;
+}
+
+
+/* Formulaires : checkbox */
+.checkbox{
+	display: inline;
+}
+
+.checkbox label{
+    width: 50px;
+}
+
+.checkbox input{
+	width: 10px;
+	display: inline-block;
+}
+
+
+
+
+
+
+body{
+	height: 100%;
+	background-color: #dcd4c9;
+	text-align: justify;
+	margin-left: 20px;
+	margin-top: 60px;
+}
+
+@font-face
+{
+	font-family: PolicePerso;
+	src: url('../Fonts/SourceSansPro-Regular.otf');
+}
+
+header
+{
+	border-bottom: 2px solid white;
+	background-color: #dcd4c9;
+	text-align: center;
+	font: small-caps bold 35px Calibri;
+	letter-spacing: 5px;
+	position: fixed;
+	margin-top: -60px;
+	width: calc(100% - 6px);
+}
+
+footer
+{
+	width: calc(100% - 6px);
+	text-align: right;
+	margin-top: 30px;
+	border-top: 2px solid white;
+}
+
+#sections
+{
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: space-around;
+	flex-wrap: wrap;
+/*	margin-top: 70px;
+	margin-bottom: 70px;*/
+}
+
+section
+{	
+	border: 3px black solid;
+	margin: 10px;
+	text-align: center;
+	border-collapse: collapse;
+	border-radius: 3px;
+	/*box-shadow: 6px 6px 3px black;*/
+	padding: 10px;
+	min-width: 200px;
+	width: 80%;
+}
+
+span
+{
+	color: red;
+}
+
+button
+{
+	font-size: 1.30em;
+	font-weight: bold;
+    padding: 5px 15px; 
+    background-color: #a89986;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px; 
+    margin-top: 15px;
+    width : 150px;
+	
+}
+
+/* Table */
+/*table
+{
+	border: 2px black solid;
+	border-collapse: collapse;
+    margin-bottom: 50px;
+}
+
+caption
+{
+	color: #BC263A;
+	font-weight: bold;
+	font-size: 26px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+th
+{
+	font-size: 1.30em;
+	text-align: center;
+}
+
+td
+{
+	font-size: 1.15em;
+	text-align: center;
+}
+
+td, th
+{
+	padding: 5px 10px;
+	border : 2px black solid;
+}
+
+table
+{
+	margin : auto;
+}
+
+input 
+{ 
+    text-align: center; 
+}*/
