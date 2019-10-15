@@ -10,24 +10,58 @@ header
 	text-align: center;
 	font-family: Arial;
 }
-div
+
+.questions
 {
 	font-family: Arial;
-	line-height: 50px;
+	line-height: 100px;
 	text-align: left;
-	vertical-align: middle;
+	margin-left: 400px;
+	margin-top: 50px;
+
+	font-size : large;
+	font-family: Arial;
 }
 
+.contact
+{
+	font-family: Arial;
+	line-height: 100px;
+	text-align: left;
+
+	margin-left: 400px;
+	margin-top: 150px;
+	margin-bottom: 150px;
+
+	font-size : large;
+	font-family: Arial;
+}
 footer
 {
 	background-color: #f6f6f6;
-	line-height : 200px;
+
 	font-size : small;
 	font-family: Arial;
+
 	margin-right: -8px;
 	margin-left: -8px;
-	margin-bottom: -50px;
-	text-align: center;
-	font-family: Arial;
+	margin-bottom: -8px;
 
+	text-align: center;
+	background-height: 200px;
+
+}
+.btnacc, .btndeco
+
+{
+	font-size : small;
+	font-family: Arial;
+	background-color: #ffab40;
+	border-radius: 5px;
+}
+#logo img
+{
+	width:10%;
+	height: 10%;
+	float:left;
 }
