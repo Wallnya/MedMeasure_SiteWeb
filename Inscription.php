@@ -1,8 +1,32 @@
+<?php 
+
+    include('include/connexion.php'); 
+
+    if (isset($_POST["boutonInscription"]))
+    {
+        $reqAjoutConnexion = $db -> prepare("
+        INSERT INTO Connexion(email, mdp, type, idUtilisateur)
+        VALUES (:value1, :value2, :value3, :value4)
+        ");
+            
+        $reqAjoutConnexion -> execute(array(
+            "value1" => $_POST['email'],
+            "value2" => $_POST['mdp'],
+            "value3" => "Pilote",
+            "value4" => 1
+            ));
+
+        $reqAjoutConnexion -> closeCursor();	
+            
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/inscription.css">
         <title>Inscription</title>
     </head>
     <body>
@@ -86,8 +110,7 @@
             </div>	
         </form>
 
-
-
+   
 
     </body>
 </html>
