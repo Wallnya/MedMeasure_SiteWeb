@@ -18,7 +18,8 @@
 			<b><center>Informations personnelles</center></b>
 		</div>
 
-		<p>Photo</p>
+		<form>
+		<div class="photo">Photo</div>
 		<hr size="1" width="50%" color="gainsboro">
 
 		<label for="surname">Prénom:</label>
@@ -27,18 +28,18 @@
 		<hr size="1" width="50%" color="gainsboro">
 		<br>
 
+		<div>
 		<label for="name">Nom:</label>
 		<input type="text" id="name" name="name" required minlength="1" size="20">
+		</div>
 
 		<hr size="1" width="50%" color="gainsboro">
 
-		<form method="post" action="ton_action">
-		       <label for="Sexe">Sexe</label>
-		       <select name="Sexe" id="Sexe">
-		           <option value="ta_valeur">Femme</option>
-		           <option value="ta_valeur">Homme</option>    
-				</select>
-		</form>
+		<label for="Sexe">Sexe</label>
+		<select name="Sexe" id="Sexe">
+			<option value="femme">Femme</option>
+			<option value="homme">Homme</option>    
+		</select>
 
 		<hr size="1" width="50%" color="gainsboro">
 		<br>
@@ -73,7 +74,8 @@
 		<hr size="1" width="50%" color="gainsboro">
 		<br>
 
-		<div class="boutonenregistrer" ><button>Enregistrer</button></div>
+		<button type="submit" name ="boutonEnregistrer">Enregistrer</button>
+	</form>
 	</body>
 
 	<footer>
