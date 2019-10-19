@@ -10,12 +10,10 @@ body {
   min-height:7em;
 }
 
-footer {
-  background-color:#EFE9E0;
-  min-height:15%;
-  min-width:100px;
-  padding: 1em;
-  text-align : center;
+body p {
+  color:black;
+  font-size: 20px;
+  text-align: center;
 }
 
 .texte{
@@ -56,4 +54,39 @@ table {
 th, td {
   text-align: left;
   padding: 16px;
+}
+
+.collapsible {
+  background-color: #AED6F1;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-bottom: 1px groove black;
+}
+
+.active, .collapsible:hover {
+  background-color: #5890B6;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
