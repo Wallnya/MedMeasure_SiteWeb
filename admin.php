@@ -59,19 +59,24 @@
       $requete2="select numero_test, frequence from testpartiel where idUtilisateur = ".$data['idUtilisateur'];
       $resultat2=mysqli_query($connexion,$requete2);
       //On affiche le tout dans un tableau
-      echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-      echo "<tr><td>Numéro du test partiel</td></td><td>fréquence</td></tr>";
       while($ligne=mysqli_fetch_row($resultat2)){
+          //On crée un bouton collapse pour chaque test.
+          echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$ligne[0]."</button>";
+          echo "<div class=\"content\">";
+          echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
+          echo "<tr><td>Numéro du test partiel</td></td><td>fréquence</td></tr>";
           echo "<tr>";
           for ($i =0;$i<2;$i++){
               echo "<td>".$ligne[$i]."</td>";
           }
           /*A REVOIR POUR QUE CA SOIT JOLI!!!!*/
           echo "<td><a href='supprimerdonnes.php?id=".$data['idUtilisateur']."&numero_test=".$ligne[0]."'>supprimer</a></td>";
+          echo "</tr>
+            </table>
+            </center>
+            </div>";
       }
-      echo"</table>
-      </center>
-      </div>";
+      echo"</div>";
     }//fin if
     //S'il fait parti de la liste, c'est qu'on a déjà créé son bouton
     //donc on ne s'en occupe pas.
