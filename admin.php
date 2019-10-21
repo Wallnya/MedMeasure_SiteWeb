@@ -19,12 +19,12 @@
   $connexion = mysqli_connect("localhost","root","")
   or die ("Tu es nul. Recommence.");
 
-  $bd="test";
+  $bd="medmeasure";
 
   mysqli_select_db($connexion,$bd)
   or die ("Toujours pas.");
 
-  $requete="select * from personnel";
+  $requete="select * from utilisateur";
   $resultat=mysqli_query($connexion,$requete);
   echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
 
@@ -53,7 +53,7 @@
       //On ajoute à la liste
       array_push($numero_utilisateur,$data['idUtilisateur']);
       //et on lui crée le bouton associé.
-      echo "  <button type=\"button\" class=\"collapsible\">Utilisateur".$data['idUtilisateur']."</button>";
+      echo "<button type=\"button\" class=\"collapsible\">Utilisateur".$data['idUtilisateur']."</button>";
       echo "<div class=\"content\">";
       //On récupère le numéro du test ainsi que les différentes valeurs.
       $requete2="select numero_test, frequence from testpartiel where idUtilisateur = ".$data['idUtilisateur'];
@@ -66,7 +66,8 @@
           for ($i =0;$i<2;$i++){
               echo "<td>".$ligne[$i]."</td>";
           }
-          echo "</tr>";
+          /*A REVOIR POUR QUE CA SOIT JOLI!!!!*/
+          echo "<td><a href='supprimerdonnes.php?id=".$data['idUtilisateur']."&numero_test=".$ligne[0]."'>supprimer</a></td>";
       }
       echo"</table>
       </center>
@@ -92,7 +93,6 @@
     });
   }
   </script>
-
   <?php  mysqli_close($connexion);?>
 
 </body>
