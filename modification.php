@@ -25,10 +25,19 @@
     $adresse_ville = $_POST['AdresseVille'];
     $adresse_cp = $_POST['AdresseCP'];
     $tel = $_POST['Tel'];
-mysqli_stmt_bind_param($reqprepare,'ssssssss', $nom, $prenom, $dn, $sexe, $adresse_voie, $adresse_ville, $adresse_cp, $tel);   #nb de S pour le nb de ?
+    mysqli_stmt_bind_param($reqprepare,'ssssssss', $nom, $prenom, $dn, $sexe, $adresse_voie, $adresse_ville, $adresse_cp, $tel);   #nb de S pour le nb de ?
     mysqli_stmt_execute($reqprepare); #le serveur execute la requête demandée
 
-    mysqli_close($connexion);
+    $requete = "SELECT * FROM Utilisateur WHERE idUtilisateur = 1";
+    $resultat = mysqli_query($connexion,$requete);
 
-    header('Location: Modification-profil.html'); #rediriger
-?>
+    while($ligne = mysqli_fetch_row($resultat)) {
+        echo "<tr>";
+        for ($i = 0;$i < 9; $i++) {
+            echo "<td>".$ligne[$i]."</td>";
+        }
+        echo "</tr>";
+    }
+    
+    mysqli_close($connexion);
+    header ('Location: Modification-profil.php'); #redirection
