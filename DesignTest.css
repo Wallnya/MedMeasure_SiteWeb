@@ -1,0 +1,116 @@
+header
+{
+	background-color: #86cbe2;
+	
+	margin: -8px -8px 0 -8px;
+	display: flex;
+	text-align: center;
+
+}
+
+header h1{
+	color : #4d59cb;
+	font-size: 80px;
+	font-family: Arial;
+	margin-left: 650px;
+	font-weight: normal;
+}
+
+footer
+{
+	background-color: #f6f6f6;
+
+	font-size : small;
+	font-family: Arial;
+
+	margin-right: -8px;
+	margin-left: -8px;
+	margin-bottom: -8px;
+
+	text-align: center;
+	padding-top: 150px;
+}
+
+header img
+{
+	width:150px;
+	height: 150px;
+	margin-top: 20px;
+	margin-left: 15px
+}
+
+.Test1
+{
+	font-family: Arial;
+	line-height: 30px;
+	text-align: left;
+	font-size : large;
+	
+}
+
+p
+{
+	margin-left: 100px;
+	display: flex;
+	align-items:center;
+}
+
+
+button
+{
+	background-color: #FFFFFF;
+	font-size : small;
+	font-family: Arial;
+	border-radius: 10px;
+}
+
+strong
+{
+	font-size: xx-large;
+	display:block;
+	text-align: center;
+}
+
+.btn1
+{
+	margin-left: 400px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+
+	width: 1000px;
+	height: 350px;
+}
+.btn2
+{
+	margin-left: 400px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+
+	width: 1000px;
+	height: 500px;
+}
+
+.btnacc, .btndeco
+{
+	margin-right: 10px;
+	margin-top: 5px;
+
+	width: 100px;
+	height: 30px;
+
+	font-size : small;
+	font-family: Arial;
+	font-weight: bold;
+	background-color: #ffab40;
+	border-radius: 5px;
+}
+.boutonHeader
+{
+	position: absolute;
+	right:0;
+	display: flex;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
