@@ -4,7 +4,17 @@
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <header>
+  <script type='text/javascript'>
+    function bascule(id)
+    {
+      if (document.getElementById(id).style.visibility == 'hidden')
+          document.getElementById(id).style.visibility = 'visible';
+      else{
+        document.getElementById(id).style.visibility = 'hidden';
+      }
+    }
+    </script>
+  <header>
     <div class="barre_navigation">
       <a href="#deconnexion">Deconnexion</a>
       <a href="#accueil">Accueil</a>
@@ -52,8 +62,18 @@
       for ($i =0;$i<3;$i++){
         echo "<td>".$ligne[$i];
         if ($i == 2 ){
-          echo "<a href=\"supprimerUtilisateur.php\"><i class=\"fa fa-trash\"></i></a>";
-          echo "<a href=\"modifierUtilisateur.php\"><i class=\"fa fa-pencil\"></i></a>";
+          echo "<button href=\"supprimerUtilisateur.php\"><i class=\"fa fa-trash\"></i></button>";
+          echo"<button onclick=\"bascule('header2');\"><i class=\"fa fa-pencil\"></i></button>";
+          echo "<div id='header2' style=\"visibility:hidden;\">";
+          echo "<form action='modifierUtilisateur.php' method='POST'>
+          <SELECT id =\"Type\" name=\"Type\">
+          <OPTION>Administrateur
+          <OPTION>Gestionnaire
+          <OPTION>Utilisateur
+          </SELECT>
+          <button type=\"submit\">Valider</button>
+          </form>
+          </div>";
         }
         echo "</td>";
       }
