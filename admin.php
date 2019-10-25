@@ -3,6 +3,7 @@
 <meta charset="utf-8">
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <header>
     <div class="barre_navigation">
       <a href="#deconnexion">Deconnexion</a>
@@ -28,16 +29,39 @@
   $resultat=mysqli_query($connexion,$requete);
   echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
 
-  echo "<tr><td></td><td>nom</td><td>prenom</td></tr>";
+  echo "<tr><td></td><td>Nom</td><td>Prenom</td><td>Date de Naissance</td><td>Sexe</td><td>Adresse voie</td><td>Adresse Ville</td>
+  <td>Code Postal</td><td>Téléphone</td></tr>";
   while($ligne=mysqli_fetch_row($resultat)){
     echo "<tr>";
-    for ($i =0;$i<3;$i++){
+    for ($i =0;$i<9;$i++){
         echo "<td>".$ligne[$i]."</td>";
     }
   }
   echo"</table></center>";
 
   ?>
+  <p>Gestion des utilisateurs</p>
+  <?php
+    $requete="select * from connexion";
+    $resultat=mysqli_query($connexion,$requete);
+    echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
+
+    echo "<tr><td>Email</td><td>Mot de passe</td><td>Type</td></tr>";
+    while($ligne=mysqli_fetch_row($resultat)){
+      echo "<tr>";
+      for ($i =0;$i<3;$i++){
+        echo "<td>".$ligne[$i];
+        if ($i == 2 ){
+          echo "<a href=\"supprimerUtilisateur.php\"><i class=\"fa fa-trash\"></i></a>";
+          echo "<a href=\"modifierUtilisateur.php\"><i class=\"fa fa-pencil\"></i></a>";
+        }
+        echo "</td>";
+      }
+    }
+    echo"</table></center>";
+
+    ?>
+
   <p>Récapitulatif pour chaque utilisateur</p>
   <?php
   //Récupération totale de la table
@@ -56,7 +80,7 @@
       echo "<button type=\"button\" class=\"collapsible\">Utilisateur".$data['idUtilisateur']."</button>";
       echo "<div class=\"content\">";
       //On récupère le numéro du test ainsi que les différentes valeurs.
-      $requete2="select numero_test, frequence from testpartiel where idUtilisateur = ".$data['idUtilisateur'];
+      $requete2="select numero_test, date,frequence from testpartiel where idUtilisateur = ".$data['idUtilisateur'];
       $resultat2=mysqli_query($connexion,$requete2);
       //On affiche le tout dans un tableau
       while($ligne=mysqli_fetch_row($resultat2)){
@@ -64,13 +88,13 @@
           echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$ligne[0]."</button>";
           echo "<div class=\"content\">";
           echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-          echo "<tr><td>Numéro du test partiel</td></td><td>fréquence</td></tr>";
+          echo "<tr><td>Numéro du test partiel</td></td><td>Date du test</td><td>fréquence</td><td></td></tr>";
           echo "<tr>";
-          for ($i =0;$i<2;$i++){
+          for ($i =0;$i<3;$i++){
               echo "<td>".$ligne[$i]."</td>";
           }
           /*A REVOIR POUR QUE CA SOIT JOLI!!!!*/
-          echo "<td><a href='supprimerdonnes.php?id=".$data['idUtilisateur']."&numero_test=".$ligne[0]."'>supprimer</a></td>";
+          echo "<td><a href=\"supprimerdonnes.php?id=".$data['idUtilisateur']."&numero_test=".$ligne[0]."'\"><i class=\"fa fa-trash\"></i></a></td>";
           echo "</tr>
             </table>
             </center>
