@@ -41,19 +41,23 @@
 
 		$ligne = mysqli_fetch_row($resultat);
 
-		echo "<div input type =\"file\" name = \"file\" class=\"photo\">Photo</div>
-		<center> <button type = \"submit\" name = \"submit\">Changer de photo</button></center>
-		<hr size=\"1\" width=\"50%\" color=\"gainsboro\">";
+		echo "<div action=\"upload.php\" method=\"post\" enctype=\"multipart/form-data\">
+    	<center>Télécharger une nouvelle image:
+    	<input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\">
+		</center>
+		</div>";
+
+		echo "<hr size=\"1\" width=\"50%\" color=\"gainsboro\">";
 
 		echo "<label for=\"Prenom\">Prénom:</label>
-		<input type=\"text\" id=\"Prenom\" name=\"Prenom\" required minlength=\"1\" size=\"20\" value=\"".$ligne[1]."\">";
+		<input type=\"text\" id=\"Prenom\" name=\"Prenom\" required minlength=\"1\" size=\"20\" value=\"".$ligne[2]."\">";
 
 		echo "<hr size=\"1\" width=\"50%\" color=\"gainsboro\">
 		<br>";
 
 		echo "<div>
 		<label for=\"Nom\">Nom:</label>
-		<input type=\"text\" id=\"Nom\" name=\"Nom\" required minlength=\"1\" size=\"20\" value=\"".$ligne[2]."\">
+		<input type=\"text\" id=\"Nom\" name=\"Nom\" required minlength=\"1\" size=\"20\" value=\"".$ligne[1]."\">
 		</div>";
 
 		echo "<hr size=\"1\" width=\"50%\" color=\"gainsboro\">";

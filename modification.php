@@ -14,18 +14,18 @@
     mysqli_select_db($connexion,$bd)
     or die ("Impossible d'accéder à la base de données");
 
-    $requpdate = "UPDATE Utilisateur SET Nom = ?, Prenom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = 1";
+    $requpdate = "UPDATE Utilisateur SET Prenom = ?, Nom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = 1";
     $reqprepare = mysqli_prepare($connexion,$requpdate);
 
-    $nom = $_POST['Nom']; #on récupère le nom que l'utilisateur va écrire
-    $prenom = $_POST['Prenom'];
+    $prenom = $_POST['Prenom']; #on récupère le nom que l'utilisateur va écrire
+    $nom = $_POST['Nom'];
     $dn = $_POST['DN'];
     $sexe = $_POST['Sexe'];
     $adresse_voie = $_POST['AdresseVoie'];
     $adresse_ville = $_POST['AdresseVille'];
     $adresse_cp = $_POST['AdresseCP'];
     $tel = $_POST['Tel'];
-    mysqli_stmt_bind_param($reqprepare,'ssssssss', $nom, $prenom, $dn, $sexe, $adresse_voie, $adresse_ville, $adresse_cp, $tel);   #nb de S pour le nb de ?
+    mysqli_stmt_bind_param($reqprepare,'ssssssss', $prenom, $nom, $dn, $sexe, $adresse_voie, $adresse_ville, $adresse_cp, $tel);   #nb de S pour le nb de ?
     mysqli_stmt_execute($reqprepare); #le serveur execute la requête demandée
 
     $requete = "SELECT * FROM Utilisateur WHERE idUtilisateur = 1";
@@ -41,3 +41,4 @@
     
     mysqli_close($connexion);
     header ('Location: Modification-profil.php'); #redirection
+?>
