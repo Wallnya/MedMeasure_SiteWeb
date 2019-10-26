@@ -41,8 +41,8 @@
 
 		$ligne = mysqli_fetch_row($resultat);
 
-		echo "<div input type =\"file\" class=\"photo\">Photo</div>
-		<center> <input type = \"submit\" value=\"Changer de photo\" name = \"submit\"/> </center>
+		echo "<div input type =\"file\" name = \"file\" class=\"photo\">Photo</div>
+		<center> <button type = \"submit\" name = \"submit\">Changer de photo</button></center>
 		<hr size=\"1\" width=\"50%\" color=\"gainsboro\">";
 
 		echo "<label for=\"Prenom\">Prénom:</label>
