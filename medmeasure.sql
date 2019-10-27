@@ -40,9 +40,9 @@ CREATE TABLE `connexion` (
 --
 
 INSERT INTO `connexion` (`email`, `mdp`, `type`, `idUtilisateur`) VALUES
-('admin@admin.fr', 'admin', 'admin', '1'),
-('test2@test.fr', 'unmotdepasse', 'gestionnaire', '3'),
-('test@test.fr', 'mdp', 'utilisateur', '2');
+('admin@admin.fr', 'admin', 'Administrateur', '1'),
+('test2@test.fr', 'unmotdepasse', 'Gestionnaire', '3'),
+('test@test.fr', 'mdp', 'Utilisateur', '2');
 
 -- --------------------------------------------------------
 
