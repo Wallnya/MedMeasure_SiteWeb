@@ -4,16 +4,6 @@
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script type='text/javascript'>
-    function bascule(id)
-    {
-      if (document.getElementById(id).style.visibility == 'hidden')
-          document.getElementById(id).style.visibility = 'visible';
-      else{
-        document.getElementById(id).style.visibility = 'hidden';
-      }
-    }
-    </script>
   <header>
     <div class="barre_navigation">
       <a href="#deconnexion">Deconnexion</a>
@@ -38,8 +28,7 @@
   $requete="select * from utilisateur";
   $resultat=mysqli_query($connexion,$requete);
   echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-
-  echo "<tr><td></td><td>Nom</td><td>Prenom</td><td>Date de Naissance</td><td>Sexe</td><td>Adresse voie</td><td>Adresse Ville</td>
+  echo "<tr class=\"entete\"><td></td><td>Nom</td><td>Prenom</td><td>Date de Naissance</td><td>Sexe</td><td>Adresse voie</td><td>Adresse Ville</td>
   <td>Code Postal</td><td>Téléphone</td></tr>";
   while($ligne=mysqli_fetch_row($resultat)){
     echo "<tr>";
@@ -56,26 +45,43 @@
     $resultat=mysqli_query($connexion,$requete);
     echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
 
-    echo "<tr><td>Email</td><td>Mot de passe</td><td>Type</td></tr>";
+    echo "<tr class=\"entete\"><td>Email</td><td>Mot de passe</td><td>Type</td></tr>";
     while($ligne=mysqli_fetch_row($resultat)){
       echo "<tr>";
       for ($i =0;$i<3;$i++){
-        echo "<td>".$ligne[$i];
-        if ($i == 2 ){
-          echo "<button href=\"supprimerUtilisateur.php\"><i class=\"fa fa-trash\"></i></button>";
-          echo"<button onclick=\"bascule('header2');\"><i class=\"fa fa-pencil\"></i></button>";
-          echo "<div id='header2' style=\"visibility:hidden;\">";
-          echo "<form action='modifierUtilisateur.php' method='POST'>
-          <SELECT id =\"Type\" name=\"Type\">
-          <OPTION>Administrateur
-          <OPTION>Gestionnaire
-          <OPTION>Utilisateur
-          </SELECT>
-          <button type=\"submit\">Valider</button>
-          </form>
-          </div>";
+        if($i != 2){
+        echo "<td>".$ligne[$i]."</td>";
         }
-        echo "</td>";
+        else{
+          echo "<td>";
+          echo "<form action=\"modification_admin.php\" method=\"POST\">";
+          if ($ligne[2]=='Administrateur') {
+      			echo "<select name=\"Type\" id=\"Type\">
+      				<option value=\"Administrateur\" selected>Administrateur</option>
+      				<option value=\"Gestionnaire\">Gestionnaire</option>
+              <option value=\"Utilisateur\">Utilisateur</option>
+      			</select>";
+      		}
+          else if ($ligne[2]=='Gestionnaire') {
+            echo "<select name=\"Type\" id=\"Type\">
+              <option value=\"Administrateur\" >Administrateur</option>
+              <option value=\"Gestionnaire\" selected>Gestionnaire</option>
+              <option value=\"Utilisateur\">Utilisateur</option>
+            </select>";
+          }
+      		else {
+            echo "<select name=\"Type\" id=\"Type\">
+              <option value=\"Administrateur\" >Administrateur</option>
+              <option value=\"Gestionnaire\" >Gestionnaire</option>
+              <option value=\"Utilisateur\"selected>Utilisateur</option>
+            </select>";
+      		}
+          echo "<input type=\"hidden\"  name=\"idUtilisateur\" value=\"".$ligne[3]."\">";
+          echo "<button type=\"submit\" name=\"supprimer\"><i class=\"fa fa-trash\"></i></button>";
+          echo "<button type=\"submit\" name=\"modifier\"><i class=\"fa fa-pencil\"></i></button>";
+          echo"</form>";
+          echo "</td>";
+        }
       }
     }
     echo"</table></center>";
@@ -108,7 +114,7 @@
           echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$ligne[0]."</button>";
           echo "<div class=\"content\">";
           echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-          echo "<tr><td>Numéro du test partiel</td></td><td>Date du test</td><td>fréquence</td><td></td></tr>";
+          echo "<tr class=\"entete\"><td>Numéro du test partiel</td></td><td>Date du test</td><td>fréquence</td><td></td></tr>";
           echo "<tr>";
           for ($i =0;$i<3;$i++){
               echo "<td>".$ligne[$i]."</td>";

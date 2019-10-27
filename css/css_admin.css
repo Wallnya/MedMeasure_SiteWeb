@@ -55,6 +55,11 @@ th, td {
   padding: 16px;
 }
 
+.entete{
+  /*background: : orange;*/
+  background: ORANGE;
+}
+
 .collapsible {
   background-color: #AED6F1;
   cursor: pointer;
@@ -75,7 +80,7 @@ th, td {
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: white;
 }
 
 .collapsible:after {
@@ -90,7 +95,18 @@ th, td {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-table button {
+table button{
+  background-color: #FFFFFF;
+  border: none;
+  float: right;
+  text-align: center; /* Center-align text */
+  padding: 16px; /* Add some padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: black; /* White text color */
+  font-size: 36px; /* Increased font-size */
+}
+
+table a{
   background-color: #FFFFFF;
   border: none;
   float: right;
