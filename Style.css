@@ -1,0 +1,132 @@
+header{
+	color: blue;
+	background-color: #70C3CC;
+	font-size: 40px;
+}
+
+.logo img {
+	width: 200px;
+	height: 200px;
+	padding: 5px;
+	margin-right: 1000px;
+	margin-top: -3%;
+}
+
+.boutonaccueil button {
+	background-color: orange;
+	font-size: 16px;
+	border-radius: 8px;
+	float: right;
+	margin : 10px ;
+}
+
+.boutondeconnexion button {
+	background-color: orange;
+	font-size: 16px;
+	border-radius: 8px;
+	float: right;
+	margin : 10px;
+	margin-top: -1.5%;
+	margin-right: -5.5%;
+}
+
+
+
+form label {
+	position: relative;
+	display: inline-block;
+    width: 45%;
+    text-align: right;
+	margin-right: 10px
+}
+
+input, textarea, select{
+	width: 250px;
+	border-radius: 5px; 
+	margin-right: 50%;
+
+}
+
+.info{
+	text-align: left;
+	vertical-align: top;
+	border: black 1px solid;
+	border-radius: 20px;
+	border-width: 5px;
+	font-size: 20px;
+	margin-right: 25%;
+	margin-left: 25%;
+	padding: 150px;
+	margin-top: 30px;
+	
+
+}
+
+.boutonmodifier{
+	
+
+}
+
+.Test{
+	border: black 1px solid;
+	border-radius: 5px;
+	border-width: 2px;
+	margin-right: 40%;
+	margin-left: 40%;
+	padding: 30px;
+}
+
+
+.choixTest{
+	margin-top: 20px;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+
+.boutonDernierRes{
+	background-color: white;
+	border-radius: 7px;
+	padding: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+	padding-left: 50px;
+	padding-right: 50px;
+
+	
+}
+
+
+.boutonHistRes{
+	background-color: white;
+	border-radius: 7px;
+	padding: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+
+
+footer {
+	margin-top : 10px;
+	color : black;
+	background-color: lightgrey;
+	height: 80px;
+	min-width: 50%;
+	bottom:0;
+	position: relative;
+	font-size: 15px;
+	padding: 30px;
+}
+
+
+
+body{
+	font-family: "Verdana";
+	text-align: center;
+}
+
+
+
