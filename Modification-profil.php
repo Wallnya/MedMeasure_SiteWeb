@@ -20,6 +20,7 @@
 
 
 		<form action='modification.php' method='POST'>
+
 		<?php
 		$serveur = "localhost";
 		$login = "root";
@@ -41,11 +42,16 @@
 
 		$ligne = mysqli_fetch_row($resultat);
 
-		echo "<div action=\"upload.php\" method=\"post\" enctype=\"multipart/form-data\">
-    	<center>Télécharger une nouvelle image:
-    	<input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\">
-		</center>
-		</div>";
+		
+
+		echo "<div method=\"POST\" action=\"upload.php\" enctype=\"multipart/form-data\">
+		<center>Télécharger une nouvelle image:
+		<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"250000\">
+		<input type=\"file\" name=\"image\" id=\"image\">
+		</center>";
+		
+
+	
 
 		echo "<hr size=\"1\" width=\"50%\" color=\"gainsboro\">";
 
