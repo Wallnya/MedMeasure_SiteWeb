@@ -77,7 +77,7 @@
             </select>";
       		}
           echo "<input type=\"hidden\"  name=\"idUtilisateur\" value=\"".$ligne[3]."\">";
-          echo "<button type=\"submit\" name=\"supprimer\"><i class=\"fa fa-trash\"></i></button>";
+          echo "<button type=\"submit\"  onClick=\"return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')\" name=\"supprimer\"><i class=\"fa fa-trash\"></i></button>";
           echo "<button type=\"submit\" name=\"modifier\"><i class=\"fa fa-pencil\"></i></button>";
           echo"</form>";
           echo "</td>";
