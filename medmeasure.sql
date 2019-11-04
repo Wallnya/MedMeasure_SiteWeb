@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 25 oct. 2019 à 09:21
+-- Généré le :  lun. 04 nov. 2019 à 14:11
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.2
 
@@ -54,6 +54,7 @@ CREATE TABLE `testpartiel` (
   `idTestPartiel` int(11) NOT NULL,
   `idUtilisateur` int(11) NOT NULL,
   `Frequence` int(11) NOT NULL,
+  `date` date NOT NULL,
   `numero_test` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -61,12 +62,12 @@ CREATE TABLE `testpartiel` (
 -- Déchargement des données de la table `testpartiel`
 --
 
-INSERT INTO `testpartiel` (`idTestPartiel`, `idUtilisateur`, `Frequence`, `numero_test`) VALUES
-(1, 1, 10, 0),
-(2, 1, 165, 1),
-(3, 2, 180, 0),
-(4, 3, 80, 0),
-(5, 2, 40, 1);
+INSERT INTO `testpartiel` (`idTestPartiel`, `idUtilisateur`, `Frequence`, `date`, `numero_test`) VALUES
+(1, 1, 10, '2019-11-12', 0),
+(2, 1, 165, '2019-08-20', 1),
+(3, 2, 180, '2019-11-20', 0),
+(4, 3, 80, '2019-04-07', 0),
+(5, 2, 40, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
