@@ -14,6 +14,7 @@
     mysqli_select_db($connexion,$bd)
     or die ("Impossible d'accéder à la base de données");
 
+    if (isset($_POST['boutonEnregistrer'])){
     $requpdate = "UPDATE Utilisateur SET Prenom = ?, Nom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = 1";
     $reqprepare = mysqli_prepare($connexion,$requpdate);
 
@@ -38,46 +39,59 @@
         }
         echo "</tr>";
     }
+}
 
-    $ret        = false;
-    $img_blob   = '';
-    $img_taille = 0;
-    $img_type   = '';
-    $img_nom    = '';
-    $taille_max = 250000;
-    $ret        = is_uploaded_file($_FILES['image']['tmp_name']);
-    echo $_FILES['image'];
-
-    if (!$ret) {
-        echo "Problème de transfert";
-        return false;
-    } else {
-        // Le fichier a bien été reçu
-        $img_taille = $_FILES['image']['size'];
-        
-        if ($img_taille > $taille_max) {
-            echo "Trop gros !";
-            return false;
-        }
-
-        $img_type = $_FILES['image']['type'];
-        $img_nom  = $_FILES['image']['name'];
-        //include("modification.php");
-
-        //stocker le contenu binaire dans une variable
-        $img_blob = file_get_contents ($_FILES['image']['tmp_name']);
-
+$message = '';
+if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
+{
+  if (isset($_FILES['uploadedFile']) && $_FILES['uploadedFile']['error'] === UPLOAD_ERR_OK)
+  {
+    echo "test";
+    // get details of the uploaded file
+    $fileTmpPath = $_FILES['uploadedFile']['tmp_name'];
+    $fileName = $_FILES['uploadedFile']['name'];
+    $fileSize = $_FILES['uploadedFile']['size'];
+    $fileType = $_FILES['uploadedFile']['type'];
+    $fileNameCmps = explode(".", $fileName);
+    $fileExtension = strtolower(end($fileNameCmps));
+    // sanitize file-name
+    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+    // check if file has one of the following extensions
+    $allowedfileExtensions = array('jpg', 'gif', 'png', 'zip', 'txt', 'xls', 'doc');
+    if (in_array($fileExtension, $allowedfileExtensions))
+    {
+      // directory in which the uploaded file will be moved
+      $uploadFileDir = './uploaded_files/';
+      $dest_path = $uploadFileDir . $newFileName;
+      if(move_uploaded_file($fileTmpPath, $dest_path))
+      {
+        $message ='File is successfully uploaded.';
         //enregistrer dans la base MySQL
-        $req = "INSERT INTO Images (" . 
+        $req = "INSERT INTO Images (" .
                                 "img_nom, img_taille, img_type, img_blob " .
                                 ") VALUES (" .
-                                "'" . $img_nom . "', " .
-                                "'" . $img_taille . "', " .
-                                "'" . $img_type . "', " .
-                                "'" . addslashes ($img_blob) . "') "; // N'oublions pas d'échapper le contenu binaire
+                                "'" . $fileName . "', " .
+                                "'" . $fileSize . "', " .
+                                "'" . $fileType . "', " .
+                                "'" . addslashes ($fileTmpPath) . "') "; // N'oublions pas d'échapper le contenu binaire
         $ret = mysql_query ($req) or die (mysql_error ());
+      }
+      else
+      {
+        $message = 'There was some error moving the file to upload directory. Please make sure the upload directory is writable by web server.';
+      }
     }
-    
+    else
+    {
+      $message = 'Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions);
+    }
+  }
+  else
+  {
+    $message = 'There is some error in the file upload. Please check the following error.<br>';
+    $message .= 'Error:' . $_FILES['uploadedFile']['error'];
+  }
+}
     mysqli_close($connexion);
-    //header ('Location: Modification-profil.php'); #redirection
+    header ('Location: Modification-profil.php'); #redirection
 ?>

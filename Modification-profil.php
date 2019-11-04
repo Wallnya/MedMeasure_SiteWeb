@@ -19,39 +19,37 @@
 		</div>
 
 
-		<form action='modification.php' method='POST'>
+		<form action='modification.php' method='POST' enctype="multipart/form-data">
 
 		<?php
 		$serveur = "localhost";
 		$login = "root";
 		$mdp = "";
-		
+
 		#connexion au serveur de la base de données
 		$connexion = mysqli_connect($serveur,$login,$mdp)
 		or die ("Connexion au serveur $serveur impossible pour $login");
-		
+
 		#nom de la base de données
 		$bd = "medmeasure";
-		
+
 		#connexion à la base de données
 		mysqli_select_db($connexion,$bd)
 		or die ("Impossible d'accéder à la base de données");
-		
+
 		$requete = "SELECT * FROM Utilisateur WHERE idUtilisateur = 1";
 		$resultat = mysqli_query($connexion,$requete);
 
 		$ligne = mysqli_fetch_row($resultat);
 
-		
 
-		echo "<div method=\"POST\" action=\"upload.php\" enctype=\"multipart/form-data\">
+
+		echo "
 		<center>Télécharger une nouvelle image:
 		<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"250000\">
-		<input type=\"file\" name=\"image\" id=\"image\">
+		<input type=\"file\" name=\"uploadedFile\" />
+		<input type=\"submit\" name=\"uploadBtn\" value=\"Upload\" />
 		</center>";
-		
-
-	
 
 		echo "<hr size=\"1\" width=\"50%\" color=\"gainsboro\">";
 
@@ -71,9 +69,9 @@
 			echo "<label for=\"Sexe\">Sexe</label>
 			<select name=\"Sexe\" id=\"Sexe\">
 				<option value=\"Femme\" selected>Femme</option>
-				<option value=\"Homme\">Homme</option>    
+				<option value=\"Homme\">Homme</option>
 			</select>
-	
+
 			<hr size=\"1\" width=\"50%\" color=\"gainsboro\">
 			<br>";
 		}
@@ -81,13 +79,13 @@
 			echo "<label for=\"Sexe\">Sexe</label>
 			<select name=\"Sexe\" id=\"Sexe\">
 			<option value=\"Femme\">Femme</option>
-			<option value=\"Homme\" selected >Homme</option>    
+			<option value=\"Homme\" selected >Homme</option>
 			</select>
 
 			<hr size=\"1\" width=\"50%\" color=\"gainsboro\">
 			<br>";
 		}
-		
+
 
 		echo "<label for=\"AdresseVoie\">Adresse:</label>
 		<input type=\"text\" id=\"AdresseVoie\" name=\"AdresseVoie\" required minlength=\"1\" size=\"30\" value=\"".$ligne[5]."\">
