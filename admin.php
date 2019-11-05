@@ -9,6 +9,11 @@
       <a href="#deconnexion">Deconnexion</a>
       <a href="#accueil">Accueil</a>
     </div>
+    <div class="barre_navigation">
+      <a href="admin.php">Gestion Utilisateur</a>
+      <a href="admin_faq.php">Gestion FAQ</a>
+      <a href="admin_ticket.php">Gestion Tickets</a>
+    </div>
     <div class="texte">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
       Page de l'administrateur - Gestion
@@ -79,7 +84,6 @@
           echo "<input type=\"hidden\"  name=\"idUtilisateur\" value=\"".$ligne[3]."\">";
           echo "<button type=\"submit\"  onClick=\"return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')\" name=\"supprimer\"><i class=\"fa fa-trash\"></i></button>";
           echo "<button type=\"submit\" name=\"modifier\"><i class=\"fa fa-pencil\"></i></button>";
-          echo"</form>";
           echo "</td>";
         }
       }
@@ -109,18 +113,18 @@
       $requete2="select numero_test, date,frequence from testpartiel where idUtilisateur = ".$data['idUtilisateur'];
       $resultat2=mysqli_query($connexion,$requete2);
       //On affiche le tout dans un tableau
-      while($ligne=mysqli_fetch_row($resultat2)){
+      while($ligne2=mysqli_fetch_row($resultat2)){
           //On crée un bouton collapse pour chaque test.
-          echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$ligne[0]."</button>";
+          echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$ligne2[0]."</button>";
           echo "<div class=\"content\">";
           echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
           echo "<tr class=\"entete\"><td>Numéro du test partiel</td></td><td>Date du test</td><td>fréquence</td><td></td></tr>";
           echo "<tr>";
           for ($i =0;$i<3;$i++){
-              echo "<td>".$ligne[$i]."</td>";
+              echo "<td>".$ligne2[$i]."</td>";
           }
           /*A REVOIR POUR QUE CA SOIT JOLI!!!!*/
-          echo "<td><a href=\"supprimerdonnes.php?id=".$data['idUtilisateur']."&numero_test=".$ligne[0]."'\"><i class=\"fa fa-trash\"></i></a></td>";
+          echo "<td><a href=\"supprimerdonnes.php?id=".$data['idUtilisateur']."&numero_test=".$ligne2[0]."'\"><i class=\"fa fa-trash\"></i></a></td>";
           echo "</tr>
             </table>
             </center>
@@ -131,7 +135,8 @@
     //S'il fait parti de la liste, c'est qu'on a déjà créé son bouton
     //donc on ne s'en occupe pas.
   }
-    ?>
+  echo"</form>";
+?>
   <script>
   var coll = document.getElementsByClassName("collapsible");
   var i;
@@ -152,5 +157,4 @@
 
 </body>
   <?php Include("footer.html"); ?>
-
 </html>
