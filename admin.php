@@ -7,9 +7,6 @@
   <header>
     <div class="barre_navigation">
       <a href="#deconnexion">Deconnexion</a>
-      <a href="#accueil">Accueil</a>
-    </div>
-    <div class="barre_navigation">
       <a href="admin.php">Gestion Utilisateur</a>
       <a href="admin_faq.php">Gestion FAQ</a>
       <a href="admin_ticket.php">Gestion Tickets</a>

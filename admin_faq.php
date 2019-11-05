@@ -3,13 +3,11 @@
 <meta charset="utf-8">
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
+  <link rel="stylesheet" href="css/css_adminfaq.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <header>
     <div class="barre_navigation">
       <a href="#deconnexion">Deconnexion</a>
-      <a href="#accueil">Accueil</a>
-    </div>
-    <div class="barre_navigation">
       <a href="admin.php">Gestion Utilisateur</a>
       <a href="admin_faq.php">Gestion FAQ</a>
       <a href="admin_ticket.php">Gestion Tickets</a>
@@ -20,7 +18,7 @@
     </div>
   </header>
   <body>
-  <p>Récapitulatif des données générales</p>
+  <p>Récapitulatif des questions de la FAQ</p>
 <?php
   $connexion = mysqli_connect("localhost","root","")
   or die ("Tu es nul. Recommence.");
@@ -49,11 +47,26 @@
         echo "<td>".$ligne[$i]."</td>";
 
       }
-        echo"</form>";
+       echo"</form>";
     }
   }
   echo"</table></center>";
 ?>
+<p>Création d'une nouvelle question</p>
+<center>
+<?php echo "<form action=\"modification_FAQ.php\" method=\"POST\">";?>
+<fieldset>
+    <legend>Formulaire de la création d'une question</legend>
+      <label for="question">Intitulé de la question</label>
+      <textarea name="question"></textarea>
+      <label for="reponse">Reponse de la question</label>
+      <textarea name="reponse"></textarea>
+      <br>
+      <button type="submit" name="enregistrerFAQ"><i class="fa fa-save"></i></button>
+  </fieldset>
+  <?php echo"</form>";?>
+</center>
+
   <script>
   var coll = document.getElementsByClassName("collapsible");
   var i;

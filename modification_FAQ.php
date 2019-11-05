@@ -31,7 +31,17 @@ if (isset($_POST['supprimerFAQ'])){
     die( 'stmt error: '.mysqli_stmt_error($stmt1) );
   }
 }
+
+if(isset($_POST['enregistrerFAQ'])){
+  $question = $_POST['question'];
+  $reponse = $_POST['reponse'];
+  $max = "select max(idFAQ) from FAQ";
+  $resultat=mysqli_query($connexion,$max);
+  $insertion = "INSERT INTO faq(idFAQ,intitule,reponse) VALUES (?,?,?)";
+  $reqprepare = mysqli_prepare($connexion,$insertion);
+  mysqli_stmt_bind_param($reqprepare,'sss', $max,$question,$reponse);
+  mysqli_stmt_execute($reqprepare);
 }
 mysqli_close($connexion);
-//header ('Location: admin_faq.php');
+header ('Location: admin_faq.php');
 ?>
