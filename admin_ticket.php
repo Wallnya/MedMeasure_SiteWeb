@@ -28,44 +28,48 @@
   mysqli_select_db($connexion,$bd)
   or die ("Toujours pas.");
 
-  $requete="select * from faq";
+  $requete="select * from ticket";
   $resultat=mysqli_query($connexion,$requete);
   echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-  echo "<tr class=\"entete\"><td>Numéro question</td><td>Intitulé</td><td>Reponse</td></tr>";
+  echo "<tr class=\"entete\"><td>Numéro ticket</td><td>Utilisateur</td><td>Date d'envoie</td><td>Intitulé</td><td>Contenu</td><td>Statut</td></tr>";
   while($ligne=mysqli_fetch_row($resultat)){
     echo "<tr>";
-    for ($i =0;$i<3;$i++){
-      if ($i==2){
-        echo "<form action=\"modification_FAQ.php\" method=\"POST\"><td>";
-        echo "<input type=\"text\" name=\"message\" value=\"".$ligne[$i]."\">";
-        echo "<input type=\"hidden\" name=\"idFAQ\" value=\"".$ligne[0]."\">";
-        echo "<button type=\"submit\" name=\"supprimerFAQ\"><i class=\"fa fa-trash\"></i></button>";
-        echo "<button type=\"submit\" name=\"modifierFAQ\"><i class=\"fa fa-pencil\"></i></button>";
-        echo "</td>";
+    for($i=0;$i<6;$i++){
+      if ($i == 1){
+        $requete2="select nom from utilisateur where idUtilisateur=".$ligne[$i];
+        $resultat2=mysqli_query($connexion,$requete2);
+        $ligne2=mysqli_fetch_row($resultat2);
+        echo "<td>".$ligne2[0]."</td>";
       }
-      else{
+      else if ($i != 5){
         echo "<td>".$ligne[$i]."</td>";
-
       }
-       echo"</form>";
+
+      else {
+        echo "<td>";
+        echo "<form action=\"modification_ticket.php\" method=\"POST\">";
+      if ($ligne[5]=='1') {
+        echo "<select name=\"Statut\" id=\"Statut\">
+          <option value=\"1\" selected>Terminé</option>
+          <option value=\"0\">En cours</option>
+        </select>";
+      }
+      else {
+        echo "<select name=\"Statut\" id=\"Statut\">
+          <option value=\"1\" >Terminé</option>
+          <option value=\"0\" selected>En cours</option>
+        </select>";
+      }
+      echo "<input type=\"hidden\" name=\"idTicket\" value=\"".$ligne[0]."\">";
+      echo "<button type=\"submit\" name=\"modifier\"><i class=\"fa fa-pencil\"></i></button>";
+      echo"</form>";
+      echo "</td>";
     }
+  }
+    echo "</tr>";
   }
   echo"</table></center>";
 ?>
-<p>Création d'une nouvelle question</p>
-<center>
-<?php echo "<form action=\"modification_FAQ.php\" method=\"POST\">";?>
-<fieldset>
-    <legend>Formulaire de la création d'une question</legend>
-      <label for="question">Intitulé de la question</label>
-      <textarea name="question"></textarea>
-      <label for="reponse">Reponse de la question</label>
-      <textarea name="reponse"></textarea>
-      <br>
-      <button type="submit" name="enregistrerFAQ"><i class="fa fa-save"></i></button>
-  </fieldset>
-  <?php echo"</form>";?>
-</center>
   <?php  mysqli_close($connexion);?>
 
 </body>
