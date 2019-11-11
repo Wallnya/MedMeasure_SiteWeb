@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  if ($_SESSION["type"]=="Administrateur"){
+?>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -6,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <header>
     <div class="barre_navigation">
-      <a href="#deconnexion">Deconnexion</a>
+      <a href="deconnexion.php">Deconnexion</a>
       <a href="admin.php">Gestion Utilisateur</a>
       <a href="admin_faq.php">Gestion FAQ</a>
       <a href="admin_ticket.php">Gestion Tickets</a>
@@ -155,3 +159,9 @@
 </body>
   <?php Include("footer.html"); ?>
 </html>
+<?php
+ }
+ else {
+  header('Location: Accueil.php');
+ }
+ ?>

@@ -27,6 +27,7 @@ div#droite {
 	width: 50%;
 	height: 100%;
 	float: left;
+  background-color: white;
 }
 
 div#droite img  {

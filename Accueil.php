@@ -1,3 +1,13 @@
+<?php
+ session_start();
+// Si deja connecter !
+//On détruit tout et on recommence
+if (isset($_SESSION['id']) and !empty($_SESSION['id'])){
+  $_SESSION = Array();
+  session_destroy();
+  session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
      <head>
@@ -17,7 +27,7 @@
       </p>
     </div>
     <div id="droite">
-      <form method="post" action="Connexion.php">
+      <form method="post" action="connexion.php">
 
           <label for="mail"></label>
           <input type="text" name="mail" id="mail" placeholder="Adresse mail"/>
@@ -35,4 +45,5 @@
         <input type="submit" name="inscription" value="S'incrire">
       </p>
     </div>
+    <?php Include("footer.html"); ?>
 </html>
