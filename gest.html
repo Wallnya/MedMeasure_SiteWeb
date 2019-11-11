@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Gestionère</title>
+        <link rel="stylesheet" href="gest.css" />
+    </head>
+
+    <body>
+    <header>
+
+<div class="topi">
+             <h1>Gestionnaire</h1>
+         <img src="logo.png">
+
+</div>
+
+         <div class="bout">
+         <form action="">
+             <button type="submit" class="btndeco">
+                 Déconnexion
+             </button>
+         </form>
+         </div>
+
+        </header>	
+ <div class="topnav">
+  <input type="text" placeholder="Recherche d'utilisateur">
+   </div> 
+      <div class="filtres">
+  <form method="post" action="traitement.php">
+
+   <p>
+
+       <label for="sexe"></label><br />
+       <select name="sexe" style="width:200px; height:30px; font-size: 15px;" id="sexe">
+       		<option value="Sexe" selected>Sexe</option>
+            <option value="Femme">Femme</option>
+            <option value="Homme">Homme</option>
+       </select>
+   </p>
+</form>
+
+ <form method="post" action="traitement.php">
+   <p>
+       <label for="score"></label><br />
+       <select name="score" style="width:200px; height:30px; font-size: 15px;" id="score">
+       	    <option value="Score" selected>Score</option>
+       		<option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+       </select>
+   </p>
+</form> <form method="post" action="traitement.php">
+   <p>
+       <label for="Test"></label><br />
+       <select name="Test" style="width:200px; height:30px; font-size: 15px;" id="test">
+           	<option value="Test" selected>Test</option>
+       		<option value="Temp. peau">Temp. peau</option>
+            <option value="Test tonalité">Test tonalité</option>
+            <option value="Rythme cardiaque">Rythme cardiaque</option>
+       </select>
+   </p>
+</form>
+</div>
+<div class="diag">
+<div class="pie"></div>
+<div class="pie2"></div>
+</div>
+<div class="DescriptifDiag">
+  <div class ="diag1">Répartition H/F</div>
+   <div class ="diag2">Je sais plus le titre</div>
+ </div>
+
+
+    </body>
+</html>

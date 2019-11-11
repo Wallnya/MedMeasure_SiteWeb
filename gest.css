@@ -1,0 +1,96 @@
+header
+{
+  background-color: #86cbe2;
+  margin: -8px -8px 0 -8px;
+  display: flex;
+  text-align: center;
+
+}
+h1{
+  color : #4d59cb;
+  font-size: 80px;
+
+  text-align: center;
+  font-family: Arial;
+  margin-left: 10%;
+  font-weight: normal;
+}
+img
+{
+  width:150px;
+  height: 150px;
+  margin-left: 10%;
+
+}
+.topi{
+  padding-top:-15px;
+  display:block;
+  width:100%;
+}
+
+.bout{
+    position:relative; 
+    display:inline-block; 
+    float:right;
+  display:flex;
+}
+
+.btndeco
+
+{
+
+  margin-top: 5px;
+  width: 100px;
+  height: 30px;
+  font-size : small;
+  font-family: Arial;
+  font-weight: bold;
+  background-color: #ffab40;
+  border-radius: 5px;
+}
+
+.topnav{
+  margin-top:35px;
+  margin-left:35%;
+  width: 1000px;
+}
+
+.topnav input {
+  height:50px;
+  width:60%;
+  font-size: 35px;
+}
+
+.filtres{
+  display:flex;
+  margin-left:35%;
+}
+
+.diag{
+  display:flex;
+  margin-left:20%;
+    margin-top:10%;
+}
+.pie {
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: yellowgreen;
+  background-image: linear-gradient(to right, transparent 50%, #655 0);
+  margin-right:100px;
+}
+
+.pie2 {
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: firebrick;
+  background-image: linear-gradient(to right, transparent 50%, #655 0);
+}
+.DescriptifDiag{
+display:flex;
+margin-left:30%;
+font-size: 20px;
+}
+
+.diag2{
+  margin-left:39%;
+}
