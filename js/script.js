@@ -22,6 +22,7 @@ $element
     checkState($handle[0], this.value);
   });
 
+
 // Update the value inside the slider handle
 function updateHandle(el, val) {
   el.textContent = val;

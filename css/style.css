@@ -23,14 +23,14 @@ body {
 label {
   display: block;
   margin-bottom: 2.5em;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .rangeslider__tooltip {
   display: block;
   margin-top: 2.5em;
-  font-size: 12px;
+  font-size: 16px;
   color: #a59eb5;
 }
 
