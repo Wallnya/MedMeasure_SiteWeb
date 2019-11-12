@@ -23,7 +23,6 @@ form label{
 input, textarea, select{
 	width: 200px;
 	border-radius: 5px; 
-	
 }
 
 form{
@@ -44,8 +43,7 @@ form .section{
 	margin: 50px auto;
 }
 
-form button
-{
+form button{
 	display: block;
 	margin: auto;
 	font-size: 1.20em;
@@ -57,6 +55,7 @@ form button
     margin-top: 15px;
 	width : 150px;
 }
+
 
 
 /* Formulaires : checkbox */

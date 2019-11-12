@@ -1,6 +1,6 @@
 <?php
 	$errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-	$db = new PDO('mysql:host=localhost;dbname=medmesure', 'root', '', $errormanagement);
+	$db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
 	
 	
 	/*$rep = $db -> query("
