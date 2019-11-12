@@ -17,7 +17,7 @@
 
             // Ajout à la table utilisateur
             $reqAjoutUtilisateur = $db -> prepare("
-            INSERT INTO Utilisateur(Nom, Prenom, DN, Sexe, AdresseVoix, AdresseVille, AdresseCP, Tel)
+            INSERT INTO Utilisateur(Nom, Prenom, DN, Sexe, AdresseVoie, AdresseVille, AdresseCP, Tel)
             VALUES (:value1, :value2, :value3, :value4, :value5, :value6, :value7, :value8)
             ");
                 
@@ -115,13 +115,13 @@
                     <div class="checkbox" id="sexe">
                         <input type="radio" name="sexe" id="sexeH" value="H" required/>
                         <label for="sexeH">Homme</label>
-                        <input type="radio" name="sexe" id="sexeF" value="F" required checked/>
+                        <input type="radio" name="sexe" id="sexeF" value="F" required/>
                         <label for="sexeF">Femme</label>
                     </div>
                 </div>
                 <div>
                     <label for="dn">Date de naissance</label>
-                    <input type="date" name="dn" id="dn" value="1997-03-05" required/>
+                    <input type="date" name="dn" id="dn" required/>
                 </div>
                 <div>
                     <label for="adresse">Adresse</label>
