@@ -11,11 +11,13 @@
 
 
   $id = $_POST['idUtilisateur'];
+  echo $id;
   if (isset($_POST['modifier'])){
     $requpdate = "UPDATE Connexion SET Type = ? WHERE idUtilisateur = ".$id;
     $reqprepare = mysqli_prepare($connexion,$requpdate);
 
     $type = $_POST['Type'];
+    echo $type;
     mysqli_stmt_bind_param($reqprepare,'s', $type);
     mysqli_stmt_execute($reqprepare);
   }
@@ -53,38 +55,6 @@
     }
   }
 }
-
-
-$idFAQ = $_POST['idFAQ'];
-
-if (isset($_POST['supprimerFAQ'])){
-  $query = "DELETE FROM FAQ WHERE idFAQ = ".$idFAQ;
-
-  $stmt1 = mysqli_prepare($connexion, $query);
-  if ( !$stmt1 ) {
-    die('mysqli error: '.mysqli_error($connexion));
-  }
-  mysqli_stmt_bind_param($stmt1, 's',$idFAQ);
-  if ( !mysqli_execute($stmt1) ) {
-    die( 'stmt error: '.mysqli_stmt_error($stmt1) );
-  }
-}
-
-
-
-if (isset($_POST['modifierFAQ'])){
-  echo "test";
-  echo $idFAQ;
-  $requpdate = "UPDATE FAQ SET reponse = ? WHERE idFAQ = ".$idFAQ;
-  $reqprepare = mysqli_prepare($connexion,$requpdate);
-
-  $contenu = $_POST['message'];
-  echo $contenu;
-  mysqli_stmt_bind_param($reqprepare,'s', $contenu);
-  mysqli_stmt_execute($reqprepare);
-}
-
-
-  mysqli_close($connexion);
-  header ('Location: admin.php');
+mysqli_close($connexion);
+//  header ('Location: admin.php');
 ?>

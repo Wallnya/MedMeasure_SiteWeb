@@ -42,7 +42,7 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id'])){
       <p>
         Découvrez l'aventure MedMeasure pour connaître vos résultats en temps réel sur votre aptitude de vol<br><br>
         Rejoignez nous aujourd'hui ! <br>
-        <input type="submit" name="inscription" value="S'incrire">
+        <a href="Inscription.php" target="_blank"> <input type="submit" name="inscription" value="S'incrire"> </a>
       </p>
     </div>
     <?php Include("footer.html"); ?>

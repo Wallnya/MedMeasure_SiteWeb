@@ -26,7 +26,7 @@ function prenomEnMaj()
 		i++;
 	}
 	prenommaj = tabprenom1.join('-');
-	
+
 	// Pour les noms multiples
 	var tabprenom2 = prenommaj.split(' ');
 	var i = 0;
@@ -52,7 +52,7 @@ bouton.onclick = verifValidite;
 
 
 function verifValidite(){
-	
+
 	/* Correspondance des mdp */
 	var mdp1 = document.getElementById('mdp');
 	var mdp2 = document.getElementById('mdp2');
@@ -116,7 +116,7 @@ function verifValidite(){
 	if (ville.checkValidity() == false) {
 		ville.setCustomValidity('Veuillez saisir une ville sans chiffre ni symbole autre que espace, tiret et accent.');
 	};
-		
+
 	/* Pattern du code postal */
 	var cp = document.getElementById('cp');
 	cp.setCustomValidity('');

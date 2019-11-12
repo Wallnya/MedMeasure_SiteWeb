@@ -43,9 +43,9 @@ if(isset($_POST['mail']) and isset($_POST['mdp'])){
       $_SESSION['type'] = "Gestionnaire";
       header ('Location: gestionnaire.php');
     }
-    else if ($type == "Utilisateur"){
-      $_SESSION['type'] = "Utilisateur";
-      header ('Location: accueil.php');
+    else if ($type == "Pilote"){
+      $_SESSION['type'] = "Pilote";
+      header ('Location: test.php');
     }
     //Problème dans la connexion
     else{

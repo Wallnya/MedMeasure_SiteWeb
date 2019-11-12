@@ -65,21 +65,21 @@
       			echo "<select name=\"Type\" id=\"Type\">
       				<option value=\"Administrateur\" selected>Administrateur</option>
       				<option value=\"Gestionnaire\">Gestionnaire</option>
-              <option value=\"Utilisateur\">Utilisateur</option>
+              <option value=\"Pilote\">Pilote</option>
       			</select>";
       		}
           else if ($ligne[2]=='Gestionnaire') {
             echo "<select name=\"Type\" id=\"Type\">
               <option value=\"Administrateur\" >Administrateur</option>
               <option value=\"Gestionnaire\" selected>Gestionnaire</option>
-              <option value=\"Utilisateur\">Utilisateur</option>
+              <option value=\"Pilote\">Pilote</option>
             </select>";
           }
       		else {
             echo "<select name=\"Type\" id=\"Type\">
               <option value=\"Administrateur\" >Administrateur</option>
               <option value=\"Gestionnaire\" >Gestionnaire</option>
-              <option value=\"Utilisateur\"selected>Utilisateur</option>
+              <option value=\"Pilote\"selected>Pilote</option>
             </select>";
       		}
           echo "<input type=\"hidden\"  name=\"idUtilisateur\" value=\"".$ligne[3]."\">";
@@ -87,6 +87,8 @@
           echo "<button type=\"submit\" name=\"modifier\"><i class=\"fa fa-pencil\"></i></button>";
           echo "</td>";
         }
+        echo"</form>";
+
       }
     }
     echo"</table></center>";
@@ -100,6 +102,7 @@
   $resultat=mysqli_query($connexion,$requete);
   //Liste permettant de savoir quels utilisateur ont été vu
   $numero_utilisateur = array();
+  echo "<form action=\"modification_admin.php\" method=\"POST\">";
   //On boucle sur les résultats de la table en générale
   while ($data = mysqli_fetch_assoc($resultat)) {
     //Est-ce que la liste contient l'utilisateur / est-ce qu'il a déjà un bouton

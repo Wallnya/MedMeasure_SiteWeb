@@ -1,202 +1,50 @@
-
-/* Body */
-
-body{
-	background-color: #dcd4c9;
-	text-align: justify;
-	margin-top: 60px;
-	font-family: Trebuchet MS, sans-serif;
+body {
+  background: #AED6F1;
 }
 
-
-/* Formulaires */
-
-form label{
-	position: relative;
-	display: inline-block;
-    width: 45%;
-    text-align: right;
-	align-items: flex-start;
-	margin-right: 10px;
+.formulaire-login {
+  width: 500px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.formulaire {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-input, textarea, select{
-	width: 200px;
-	border-radius: 5px; 
+.formulaire input, select{
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.formulaire button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #AED6F1;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.formulaire button:hover,.formulaire button:active,.formulaire button:focus {
+  background: #70B1CB;
 }
 
-form{
-	width: 60%;
-	margin-top: 100px;
-	margin: 100px auto;
+img{
+	width: 50px;
+	height: 50px;
 }
-
-form h3{
-	text-align: center;
-}
-
-form div{
-	margin: 5px;
-}
-
-form .section{
-	margin: 50px auto;
-}
-
-form button{
-	display: block;
-	margin: auto;
-	font-size: 1.20em;
-    padding: 5px 15px; 
-    background-color: #a89986;
-	border: 1px solid black;
-    cursor: pointer;
-    border-radius: 5px; 
-    margin-top: 15px;
-	width : 150px;
-}
-
-
-
-/* Formulaires : checkbox */
-.checkbox{
-	display: inline;
-}
-
-.checkbox label{
-    width: 50px;
-}
-
-.checkbox input{
-	width: 15px;
-	display: inline-block;
-}
-
-
-/* Formulaires : checkbox CGU */
-
-.checkbox_cgu input{
-	width: 15px;
-	display: inline-block;
-}
-
-.checkbox_cgu label{
-	display: inline;
-}
-
-.checkbox_cgu{
-	text-align: center;
-	margin: 30px auto;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-@font-face
-{
-	font-family: PolicePerso;
-	src: url('../Fonts/SourceSansPro-Regular.otf');
-}
-
-header
-{
-	border-bottom: 2px solid white;
-	background-color: #dcd4c9;
-	text-align: center;
-	font: small-caps bold 35px Trebuchet MS, sans-serif;
-	letter-spacing: 5px;
-	position: fixed;
-	margin-top: -100px;
-	width: calc(100% - 6px);
-}
-
-footer
-{
-	width: calc(100% - 6px);
-	text-align: right;
-	margin-top: 30px;
-	border-top: 2px solid white;
-}
-
-#sections
-{
-	display: flex;
-	justify-content: space-around;
-	align-items: stretch;
-	align-content: space-around;
-	flex-wrap: wrap;
-/*	margin-top: 70px;
-	margin-bottom: 70px;*/
-}
-
-section
-{	
-	border: 3px black solid;
-	margin: 10px;
-	text-align: center;
-	border-collapse: collapse;
-	border-radius: 3px;
-	/*box-shadow: 6px 6px 3px black;*/
-	padding: 10px;
-	min-width: 200px;
-	width: 80%;
-}
-
-span
-{
-	color: red;
-}
-
-
-/* Table */
-/*table
-{
-	border: 2px black solid;
-	border-collapse: collapse;
-    margin-bottom: 50px;
-}
-
-caption
-{
-	color: #BC263A;
-	font-weight: bold;
-	font-size: 26px;
-	margin-bottom: 10px;
-	margin-top: 20px;
-}
-
-th
-{
-	font-size: 1.30em;
-	text-align: center;
-}
-
-td
-{
-	font-size: 1.15em;
-	text-align: center;
-}
-
-td, th
-{
-	padding: 5px 10px;
-	border : 2px black solid;
-}
-
-table
-{
-	margin : auto;
-}
-
-input 
-{ 
-    text-align: center; 
-}*/
