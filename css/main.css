@@ -1,0 +1,9 @@
+#grad1 {
+  height: 250px;
+  width: 250px;
+  background-image: repeating-linear-gradient(to top, #cc208e 0%, #6713d2 20%);
+}
+
+p, h1{
+  color: white;
+}

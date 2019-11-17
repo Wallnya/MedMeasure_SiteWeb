@@ -1,0 +1,41 @@
+form {
+ padding:10px;
+ width:500px;
+ }
+fieldset {
+ padding:0 20px 20px 20px;
+ margin-bottom:10px;
+ width : 100%;
+ border:1px solid #F5B041;
+ }
+legend {
+ color:#F5B041;
+ font-weight:bold
+ }
+label {
+ margin-top:10px;
+ display:block;
+ }
+label.inline {
+ display:inline;
+ margin-right:50px;
+ }
+
+textarea {
+ padding:3px;
+ border:1px solid #F5B041;
+ border-radius:5px;
+ width:300px;
+ height: 100px;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+ 
+ button{
+   background-color: #FFFFFF;
+   border: none;
+   text-align: center; /* Center-align text */
+   padding: 16px; /* Add some padding */
+   transition: all 0.3s ease; /* Add transition for hover effects */
+   color: black; /* White text color */
+   font-size: 36px; /* Increased font-size */
+ }
