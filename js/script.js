@@ -41,13 +41,17 @@ function updateState(el, val) {
   for (var j = 0; j < sliderStates.length; j++){
     if (_.contains(sliderStates[j].range, parseInt(val))) {
       currentState = sliderStates[j];
-      // updateSlider();
     }
   }
-  // If the state is high, update the handle count to read 50+
-  if (currentState.name == "high") {
-    updateHandle($handle[0], val);
+
+  if (currentState.name == "low") {
+    //window.location.href = "https://www.doctolib.fr/";
+    document.getElementById("click").style.display="block";
   }
+  else {
+    document.getElementById("click").style.display="none";
+  }
+ 
   // Update handle color
   $handle
     .removeClass (function (index, css) {

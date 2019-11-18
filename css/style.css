@@ -1,21 +1,49 @@
-html,
+header{
+  background-color:#AED6F1;
+  height:250px;
+  min-height:15%;
+}
+
+.texte img{
+  height: 300px;
+  width: 100%;
+}
+
+.barre_navigation img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+.barre_navigation {
+  overflow: hidden;
+}
+
+.barre_navigation a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.barre_navigation a:hover {
+  border-bottom: 2px solid rgb(69, 81, 187);
+  color: rgb(69, 81, 187);
+}
+
 body {
   font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-  color: #404040;
   height: 100%;
   margin: 0;
 }
 
-body {
-  padding: 0 20px;
-  color: #716894;
-}
 
 .main {
   width: 400px;
   margin: auto;
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -31,7 +59,7 @@ label {
   display: block;
   margin-top: 2.5em;
   font-size: 16px;
-  color: #a59eb5;
+  color: #1e3ada;
 }
 
 .rangeslider,
@@ -145,4 +173,10 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
   -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
   -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
   box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+input[type="button"] {
+  background-color: rgb(174, 204, 216);
+  font-size: 16px;
+  border-radius: 8px;
 }
