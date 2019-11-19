@@ -31,3 +31,21 @@ header{
     border-bottom: 2px solid rgb(69, 81, 187);
     color: rgb(69, 81, 187);
   }
+
+  .topnav{
+    margin-top:100px;
+    margin-left:40%;
+    width: 500px;
+  }
+  
+  .topnav input {
+    height:50px;
+    width:60%;
+    font-size: 20px;
+  }
+  
+  .filtres{
+    display:flex;
+    margin-left:30%;
+  }
+  
