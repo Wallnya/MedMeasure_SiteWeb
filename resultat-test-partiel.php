@@ -40,7 +40,7 @@
 		mysqli_select_db($connexion,$bd)
     or die ("Impossible d'accéder à la base de données");
     
-		$requete = "SELECT * FROM testpartiel WHERE idUtilisateur = 1";
+		$requete = "SELECT * FROM testpartiel WHERE idUtilisateur = 3";
     $resultat = mysqli_query($connexion,$requete);
     
     $ligne = mysqli_fetch_row($resultat);
@@ -48,6 +48,7 @@
 
 <div class="main">
   <label for="panel_size">Résultat du test partiel</label>
+  <p> Date : <?php echo htmlspecialchars($ligne[7]) ?> </p>
   <input
       type="range"
       name="participants"
