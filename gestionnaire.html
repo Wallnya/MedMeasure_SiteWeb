@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <meta charset="UTF-8">
+  <title>Gestionnaire</title>
+  <link rel="stylesheet" href="./css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+<header>
+  <div class="barre_navigation">
+    <img src="images/MedMeasure.png" alt="logo de MedMeasure">
+    <a href="accueil.php">Accueil</a>
+    <a href="deconnexion.php">Déconnexion</a>
+  </div>
+  <div class="texte">
+    <img src="images/gestion.png" alt="Image pour la page resultat">
+  </div>
+</header>
+<div class="topnav">
+    <input type="text" placeholder="Recherche d'utilisateur">
+</div> 
+<div class="filtres">
+    <form method="post" action="traitement.php">
+  
+     <p>
+  
+         <label for="sexe"></label><br />
+         <select name="sexe" style="width:200px; height:30px; font-size: 15px;" id="sexe">
+                 <option value="Sexe" selected>Sexe</option>
+              <option value="Femme">Femme</option>
+              <option value="Homme">Homme</option>
+         </select>
+     </p>
+  </form>
+</div>
+<form method="post" action="traitement.php">
+    <p>
+        <label for="score"></label><br />
+        <select name="score" style="width:200px; height:30px; font-size: 15px;" id="score">
+                <option value="Score" selected>Score</option>
+                <option value="50">50</option>
+             <option value="100">100</option>
+             <option value="150">150</option>
+        </select>
+    </p>
+ </form>
+ <form method="post" action="traitement.php">
+    <p>
+        <label for="Test"></label><br />
+        <select name="Test" style="width:200px; height:30px; font-size: 15px;" id="test">
+            <option value="Test" selected>Test</option>
+            <option value="Rythme cardiaque">Rythme cardiaque</option>
+            <option value="Test tonalité">Perception auditive</option>
+            <option value="Test tonalité">Réaction à un stimulus visuel</option>
+            <option value="Temp. peau">Température de la peau</option>
+            <option value="Temp. peau">Reconnaissance de la tonalité</option>
+        </select>
+    </p>
+ </form>
+</html>
