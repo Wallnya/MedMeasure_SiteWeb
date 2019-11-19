@@ -17,10 +17,10 @@ $element
       updateState($handle[0], this.value);
     }
   })
-  .on('input', function() {
+  /*.on('input', function() {
     updateHandle($handle[0], this.value);
     checkState($handle[0], this.value);
-  });
+  });*/
 
 
 // Update the value inside the slider handle
@@ -29,12 +29,12 @@ function updateHandle(el, val) {
 }
 
 // Check if the slider state has changed
-function checkState(el, val) {
+/*function checkState(el, val) {
   // if the value does not fall in the range of the current state, update that shit.
   if (!_.contains(currentState.range, parseInt(val))) {
     updateState(el, val);
   }
-}
+}*/
 
 // Change the state of the slider
 function updateState(el, val) {
@@ -45,7 +45,6 @@ function updateState(el, val) {
   }
 
   if (currentState.name == "low") {
-    //window.location.href = "https://www.doctolib.fr/";
     document.getElementById("click").style.display="block";
   }
   else {

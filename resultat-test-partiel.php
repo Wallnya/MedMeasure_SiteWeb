@@ -39,29 +39,65 @@
 		#connexion à la base de données
 		mysqli_select_db($connexion,$bd)
     or die ("Impossible d'accéder à la base de données");
+
+    $test = "partiel";
     
-		$requete = "SELECT * FROM testpartiel WHERE idUtilisateur = 3";
+    if ($test=="partiel") {
+      $requete = "SELECT * FROM testpartiel WHERE idUtilisateur = 1";
+    }
+    else {
+      $requete = "SELECT * FROM testcomplet WHERE idUtilisateur = 1";
+    }
     $resultat = mysqli_query($connexion,$requete);
     
     $ligne = mysqli_fetch_row($resultat);
+
 ?>
 
 <div class="main">
-  <label for="panel_size">Résultat du test partiel</label>
-  <p> Date : <?php echo htmlspecialchars($ligne[7]) ?> </p>
+  <?php
+    if ($test=="partiel") {
+      echo "<label for=\"panel_size\">Résultat du test partiel</label>";
+    }
+    else {
+      echo "<label for=\"panel_size\">Résultat du test complet</label>";
+    }
+    ?>
+  <p> Date : <?php echo htmlspecialchars($ligne[3]) ?> </p>
   <input
       type="range"
       name="participants"
       min="0"
       max="100"
-      value="<?php echo htmlspecialchars($ligne[6]) ?>"
+      <?php
+      if ($test=="partiel") {
+        echo "value=".htmlspecialchars($ligne[8])."";
+      }
+      else {
+        echo "value=".htmlspecialchars($ligne[10])."";
+      }
+      ?>
   >
   <span class="rangeslider__tooltip" id ="range-tooltip"></span>
   <input name="cliquez-ici" type="button" style="display:none;" id="click" value="cliquez ici" onclick="document.location.href='https://www.doctolib.fr'">
 
-  <p> Rythme cardiaque : <?php echo htmlspecialchars($ligne[2]) ?> bpm </p>
-  <p> Perception auditive : <?php echo htmlspecialchars($ligne[3]) ?> dBA </p>
-  <p> Réaction à un stimulus visuel : <?php echo htmlspecialchars($ligne[4]) ?> ms </p>
+  <p> Rythme cardiaque : <?php echo htmlspecialchars($ligne[4]) ?> bpm </p>
+  <p> Perception auditive : <?php echo htmlspecialchars($ligne[5]) ?> dBA </p>
+  <p> Réaction à un stimulus visuel : <?php echo htmlspecialchars($ligne[6]) ?> ms </p>
+
+  <?php
+  if ($test=="partiel") {
+    echo "<div hidden>
+    <p> Température superficielle de la peau :".htmlspecialchars($ligne[7])."°C </p>
+    <p> Reconnaissance de la tonalité :".htmlspecialchars($ligne[8])."Hz </p>
+    </div>";
+  }
+  else {
+    echo "<p> Température superficielle de la peau :".htmlspecialchars($ligne[7])."°C</p>";
+    echo "<p> Reconnaissance de la tonalité :".htmlspecialchars($ligne[8])."Hz </p>";
+  }
+  ?>
+
 
 </div>
 <!-- partial -->
