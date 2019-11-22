@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
   <meta charset="UTF-8">
-  <title>Range Slider with Feedback</title>
+  <title>Dernier Résultat</title>
   <link rel="stylesheet" href="./css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
