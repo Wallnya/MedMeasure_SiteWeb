@@ -171,3 +171,52 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
   }
   return $count;
 }
+
+
+function getCountUser(){
+  $db = dbConnect();
+  $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur');
+  return $req;
+}
+
+function getCountPilote(){
+  $db = dbConnect();
+  $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur where idUtilisateur in (select idUtilisateur from connexion where type="Pilote")');
+  return $req;
+}
+
+function getCountTestReussis(){
+  $db = dbConnect();
+  $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel where score >= "75"');
+  /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');*/
+
+  $reqTotal = $req1 /*+ $req2*/;
+  return $reqTotal;
+}
+
+function getCountTest(){
+  $db = dbConnect();
+  $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
+  /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet ');*/
+
+  $reqTotal = $req1 /*+ $req2*/;
+  return $reqTotal;
+}
+
+function getCountTicket(){
+  $db = dbConnect();
+  $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket');
+  return $req;
+}
+
+function getCountTicketEnCours(){
+  $db = dbConnect();
+  $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="0"');
+  return $req;
+}
+
+function getCountTicketValide(){
+  $db = dbConnect();
+  $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="1"');
+  return $req;
+}

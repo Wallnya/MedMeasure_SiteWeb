@@ -34,5 +34,4 @@
         <a href="index.php?page=inscription"> <input type="submit" name="inscription" value="S'incrire"> </a>
       </p>
     </div>
-    <?php Include("footer.html"); ?>
 </html>

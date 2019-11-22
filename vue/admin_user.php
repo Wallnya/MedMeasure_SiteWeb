@@ -20,7 +20,58 @@ if ($_SESSION["type"]=="Administrateur"){
     </div>
   </header>
   <body>
+    <div class="container-fluid">
+      <div class="rectangle-donnee">
+        <div class="rectangle">
+          <i class="fa fa-users"></i>
+          <?php
+          while ($data = $nbuser->fetch())
+          {
+          ?>
+          <p> Nombre utilisateurs : <?= htmlspecialchars($data['uti']) ?></p>
+          <?php
+          }
+          $nbuser->closeCursor();
+          ?>
+        </div>
+        <div class="rectangle">
+          <?php
+          while ($data = $nbpilote->fetch())
+          {
+          ?>
+          <p>Nombres de pilotes : <?= htmlspecialchars($data['uti']) ?></p>
+          <?php
+          }
+          $nbpilote->closeCursor();
+          ?>
+        </div>
+        <div class="rectangle">
+          <i class="fa fa-notes-medical"></i>
+          <?php
+          while ($data = $nbTest->fetch())
+          {
+          ?>
+          <p>Nombres de tests: <?= htmlspecialchars($data['nbtestPartiel']) ?> </p>
+          <?php
+          }
+          $nbTest->closeCursor();
+          ?>
+        </div>
+        <div class="rectangle">
+          <?php
+          while ($data = $nbTestReussis->fetch())
+          {
+          ?>
+          <p>Nombres de tests réussis: <?= htmlspecialchars($data['nbtestPartiel']) ?></p>
+          <?php
+          }
+          $nbTestReussis->closeCursor();
+          ?>
+        </div>
+      </div>
+    </div>
   <p>Récapitulatif des données générales</p>
+  <div class="container-fluid">
   <center>
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
@@ -69,8 +120,10 @@ if ($_SESSION["type"]=="Administrateur"){
       ?>
     </table>
   </center>
+</div>
 
   <p>Gestion des utilisateurs</p>
+  <div class="container-fluid">
   <center>
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
@@ -78,7 +131,6 @@ if ($_SESSION["type"]=="Administrateur"){
         <td>Mot de passe</td>
         <td>Type</td>
       </tr>
-      <?php ob_start(); ?>
     <?php
     while ($data2 = $dataconnexion->fetch())
     {
@@ -131,9 +183,10 @@ if ($_SESSION["type"]=="Administrateur"){
     ?>
     </table>
   </center>
-  <?php $content = ob_get_clean(); ?>
+</div>
+<br>
+<div class="container-fluid">
 
-  <?php require('template.php'); ?>
   <?php
 $connexion = mysqli_connect("localhost","root","")
  or die ("Tu es nul. Recommence.");
@@ -200,6 +253,8 @@ for (i = 0; i < coll.length; i++) {
 }
 </script>
 <?php  mysqli_close($connexion);?>
+</div>
+
 </body>
 </html>
 <?php

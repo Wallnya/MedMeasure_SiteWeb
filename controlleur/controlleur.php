@@ -10,10 +10,6 @@ function modifyUser($type,$id)
 
 }
 
-function test(){
-  require('vue/test.php');
-}
-
 function login(){
   require('vue/inscription.php');
 }
@@ -41,13 +37,20 @@ function dataUser()
   $user = getUser();
   $dataconnexion = getDataConnexion();
   $testpartiel = getTestPartiel();
-
+  $nbuser = getCountUser();
+  $nbpilote = getCountPilote();
+  $nbTestReussis = getCountTestReussis();
+  $nbTest = getCountTest();
   require('vue/admin_user.php');
 }
 
 function dataTicket()
 {
   $ticket = getTicket();
+  $nbTicket = getCountTicket();
+  $nbTicketEnCours = getCountTicketEnCours();
+  $nbTicketValide = getCountTicketValide();
+
   require('vue/admin_ticket.php');
 }
 

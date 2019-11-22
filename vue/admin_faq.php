@@ -23,7 +23,7 @@ if ($_SESSION["type"]=="Administrateur"){
   </header>
   <body>
   <p>Récapitulatif des questions de la FAQ</p>
-
+  <div class="container-fluid">
   <center>
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
@@ -57,6 +57,7 @@ if ($_SESSION["type"]=="Administrateur"){
     ?>
     </table>
   </center>
+</div>
 
   <p>Création d'une nouvelle question</p>
   <center>
