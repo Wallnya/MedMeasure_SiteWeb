@@ -8,16 +8,39 @@ var gradients = [
 ];
 
 var data = [];
+var pourcentage_femmes = document.getElementById("pourcentage_femmes").value;
+var pourcentage_hommes = 100-pourcentage_femmes;
+var score_tests_partiels_30 = document.getElementById("score_tests_partiels_30").value;
+var score_tests_partiels_60 = document.getElementById("score_tests_partiels_60").value;
+var score_tests_partiels_75 = 100 - score_tests_partiels_60 - score_tests_partiels_30;
+var score_tests_complets_30 = document.getElementById("score_tests_complets_30").value;
+var score_tests_complets_60 = document.getElementById("score_tests_complets_60").value;
+var score_tests_complets_75 = 100 - score_tests_complets_60 - score_tests_complets_30;
+var score_total_30 = document.getElementById("score_total_30").value;
+var score_total_60 = document.getElementById("score_total_60").value;
+var score_total_75 = 100 - score_total_30 - score_total_60;
 
 data['piedata'] = [
-  { label: "< 30", value: 35, color: 'red' },
-  { label: "< 60", value: 25, color: 'other' },
-  { label: " > 75", value: 40, color: 'pink' }
+  { label: "< 30", value: score_total_30, color: 'red' },
+  { label: "< 60", value: score_total_60, color: 'other' },
+  { label: " > 75", value: score_total_75, color: 'pink' }
 ];
 
 data['piedata2'] = [
-  { label: "Hommes", value: 54, color: 'other' },
-  { label: "Femmes", value: 46, color: 'pink' }
+  { label: "Hommes", value: pourcentage_hommes, color: 'other' },
+  { label: "Femmes", value: pourcentage_femmes, color: 'pink' }
+];
+
+data['piedata3'] = [
+  { label: "< 30", value: score_tests_partiels_30, color: 'red' },
+  { label: "< 60", value: score_tests_partiels_60, color: 'other' },
+  { label: " > 75", value: score_tests_partiels_75, color: 'pink' }
+];
+
+data['piedata4'] = [
+  { label: "< 30", value: score_tests_complets_30, color: 'red' },
+  { label: "< 60", value: score_tests_complets_60, color: 'other' },
+  { label: " > 75", value: score_tests_complets_75, color: 'pink' }
 ];
 
 $(document).ready(function() {
