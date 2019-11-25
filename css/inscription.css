@@ -90,8 +90,15 @@ form button{
 }
 
 
+/* Graphiques */
 
-
+#area-chart,
+#line-chart,
+#bar-chart,
+#stacked,
+#pie-chart{
+  min-height: 250px;
+}
 
 
 
@@ -114,7 +121,7 @@ header
 	font: small-caps bold 35px Trebuchet MS, sans-serif;
 	letter-spacing: 5px;
 	position: fixed;
-	margin-top: -100px;
+	margin-top: -50px;
 	width: calc(100% - 6px);
 }
 
@@ -141,7 +148,6 @@ section
 {	
 	border: 3px black solid;
 	margin: 10px;
-	text-align: center;
 	border-collapse: collapse;
 	border-radius: 3px;
 	/*box-shadow: 6px 6px 3px black;*/
@@ -155,7 +161,10 @@ span
 	color: red;
 }
 
-
+h3{
+	text-align : center;
+	color : black;
+}
 /* Table */
 /*table
 {
