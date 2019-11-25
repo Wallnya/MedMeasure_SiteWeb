@@ -60,6 +60,7 @@ if (isset($_GET['page'])) {
       isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel']) && isset($_POST['mdp'])){
         checkUser($_POST['email'],$_POST['nom'],$_POST['prenom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mdp']);
       }
+      deconnexion();
       accueil();
     }
     else{

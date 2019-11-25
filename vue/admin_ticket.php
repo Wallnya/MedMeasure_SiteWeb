@@ -20,10 +20,10 @@ if ($_SESSION["type"]=="Administrateur"){
     </div>
   </header>
   <body>
-    <div class="container-fluid">
-      <div class="rectangle-donnee">
-        <div class="rectangle">
-          <i class="fa fa-users"></i>
+    <div class="container-fluid-ticket">
+      <div class="rectangle-donnee-ticket">
+        <div class="rectangle-ticket">
+          <i class="fa fa-comment"></i>
           <?php
           while ($data = $nbTicket->fetch())
           {
@@ -34,24 +34,25 @@ if ($_SESSION["type"]=="Administrateur"){
           $nbTicket->closeCursor();
           ?>
         </div>
-        <div class="rectangle">
+        <div class="rectangle-ticket">
+          <i class="fa fa-envelope-open"></i>
           <?php
           while ($data = $nbTicketEnCours->fetch())
           {
           ?>
-          <p>Nombres de tickets en cours : <?= htmlspecialchars($data['nbTicket']) ?></p>
+          <p>Tickets en cours : <?= htmlspecialchars($data['nbTicket']) ?></p>
           <?php
           }
           $nbTicketEnCours->closeCursor();
           ?>
         </div>
-        <div class="rectangle">
-          <i class="fa fa-notes-medical"></i>
+        <div class="rectangle-ticket">
+          <i class="fa fa-envelope"></i>
           <?php
           while ($data = $nbTicketValide->fetch())
           {
           ?>
-          <p>Nombres de tickets validés: <?= htmlspecialchars($data['nbTicket']) ?> </p>
+          <p>Tickets traités: <?= htmlspecialchars($data['nbTicket']) ?> </p>
           <?php
           }
           $nbTicketValide->closeCursor();

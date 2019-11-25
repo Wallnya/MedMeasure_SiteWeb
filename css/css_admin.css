@@ -158,7 +158,15 @@ display: inline-block;
     margin-left: auto;
 }
 
-.rectangle{
+.rectangle img {
+  width: 25px;
+  height: 25px;
+}
+
+
+
+
+.rectangle-ticket{
     padding: 18px 25px;
     box-shadow: 0 10px 20px 0 rgba(26, 44, 57, 0.14);
     background: #fff;
@@ -166,5 +174,19 @@ display: inline-block;
     margin-bottom: 35px;
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 20%;
+}
+
+.rectangle-donnee-ticket{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.container-fluid-ticket {
+    width: 75%;
+    left:22.5%;
+    position: relative;
 }

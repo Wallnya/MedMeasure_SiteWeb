@@ -35,6 +35,7 @@ if ($_SESSION["type"]=="Administrateur"){
           ?>
         </div>
         <div class="rectangle">
+          <i class="fa fa-plane"></i>
           <?php
           while ($data = $nbpilote->fetch())
           {
@@ -46,7 +47,7 @@ if ($_SESSION["type"]=="Administrateur"){
           ?>
         </div>
         <div class="rectangle">
-          <i class="fa fa-notes-medical"></i>
+          <img src="images/notes-medical-solid.svg" alt="logo test">
           <?php
           while ($data = $nbTest->fetch())
           {
@@ -58,11 +59,12 @@ if ($_SESSION["type"]=="Administrateur"){
           ?>
         </div>
         <div class="rectangle">
+          <i class="fa fa-check"></i>
           <?php
           while ($data = $nbTestReussis->fetch())
           {
           ?>
-          <p>Nombres de tests réussis: <?= htmlspecialchars($data['nbtestPartiel']) ?></p>
+          <p>Tests réussis: <?= htmlspecialchars($data['nbtestPartiel']) ?></p>
           <?php
           }
           $nbTestReussis->closeCursor();
