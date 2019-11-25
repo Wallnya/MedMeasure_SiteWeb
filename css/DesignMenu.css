@@ -1,0 +1,160 @@
+header{
+	background-color:#AED6F1;
+	height:250px;
+	min-height:15%;
+}
+
+.texte img{
+	height: 200px;
+	width: 100%;
+}
+
+.barre_navigation img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+.barre_navigation {
+  overflow: hidden;
+}
+
+.barre_navigation a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.barre_navigation a:hover {
+  border-bottom: 2px solid #82AFCC;
+  color: #82AFCC;
+}
+
+footer
+{
+	background-color: #f6f6f6;
+
+	font-size : small;
+	font-family: Arial;
+
+	margin-right: -8px;
+	margin-left: -8px;
+	margin-bottom: -8px;
+
+	text-align: center;
+	padding-top: 150px;
+
+}
+
+.btndeco
+{
+	margin-right: 10px;
+	margin-top: 5px;
+
+	width: 100px;
+	height: 30px;
+
+	font-size : small;
+	font-family: Arial;
+	font-weight: bold;
+	background-color: #ffab40;
+	border-radius: 5px;
+}
+
+.boutonHeader
+{
+	position: absolute;
+	right:0;
+	display: flex;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+button
+{
+	background-color: #FFFFFF;
+	font-size : small;
+	font-family: Arial;
+	border-radius: 3px;
+}
+
+.btnRésultats
+{
+	margin-left: 550px;
+	margin-top: 40px;
+
+	width: 400px;
+	height: 70px;
+}
+
+.Resultat{
+	font-family: Arial;
+	line-height: 0px;
+	text-align: center;
+	font-size : xx-large;
+
+}
+
+.btnTest
+{
+	margin-left: 550px;
+	margin-top: 40px;
+	margin-bottom: 0px;
+
+	width: 400px;
+	height: 70px;
+
+	border-radius: 15px;
+
+}
+
+.Test{
+	font-family: Arial;
+	line-height: 0px;
+	text-align: center;
+	font-size : xx-large;
+
+}
+
+.Profil
+{
+	font-family: Arial;
+	line-height: 50px;
+	font-size : xx-large;
+
+	margin-left: 250px;
+	margin-top: 40px;
+	margin-bottom: 0px;
+
+	padding-left: 50px;
+
+	width: 1000px;
+	height: 300px;
+
+	border: outset black 2px;
+	border-radius: 7px;
+
+}
+
+.btnProfil
+{
+	margin-left: 780px;
+	margin-top: 150px;
+	width: 200px;
+	height: 30px;
+
+	border-radius: 5px;
+
+}
+
+.ModificationProfil{
+	font-family: Arial;
+	line-height: 0px;
+	text-align: center;
+	font-size : large;
+}

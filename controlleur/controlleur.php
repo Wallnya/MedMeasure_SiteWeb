@@ -81,6 +81,11 @@ function addFAQ($question,$reponse){
   header('Location: index.php?page=admin_faq');
 }
 
+function page_user($id){
+  $datauser = getDataUser($id);
+  require('vue/Menu.php');
+}
+
 function accueil(){
   require('vue/Accueil.php');
 }

@@ -52,7 +52,7 @@ if (isset($_GET['page'])) {
     }
   }
   else if ($_GET['page']== 'user'){
-    test();
+    page_user($_SESSION['id']);
   }
   if ($_GET['page'] == 'inscription'){
     if (isset($_POST["boutonInscription"])){

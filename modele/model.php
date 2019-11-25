@@ -220,3 +220,9 @@ function getCountTicketValide(){
   $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="1"');
   return $req;
 }
+
+function getDataUser($id){
+  $db = dbConnect();
+  $req = $db->query('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur='.$id);
+  return $req;
+}
