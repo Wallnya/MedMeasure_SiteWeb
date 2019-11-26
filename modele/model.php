@@ -1,34 +1,34 @@
 <?php
 function getUser()
 {
-    $db = dbConnect();
-    $req = $db->query('SELECT * FROM utilisateur');
+  $db = dbConnect();
+  $req = $db->query('SELECT * FROM utilisateur');
 
-    return $req;
+  return $req;
 }
 
 function getUserProfil($id)
 {
-    $db = dbConnect();
-    $req = $db->query('SELECT * FROM utilisateur where idUtilisateur='.$id);
+  $db = dbConnect();
+  $req = $db->query('SELECT * FROM utilisateur where idUtilisateur='.$id);
 
-    return $req;
+  return $req;
 }
 
 
 function getDataConnexion()
 {
-    $db = dbConnect();
-    $req = $db->query('SELECT * FROM connexion');
+  $db = dbConnect();
+  $req = $db->query('SELECT * FROM connexion');
 
-    return $req;
+  return $req;
 }
 function getTestPartiel()
 {
-    $db = dbConnect();
-    $req = $db->query('SELECT * FROM `testpartiel` order by idUtilisateur, numero_test');
+  $db = dbConnect();
+  $req = $db->query('SELECT * FROM `testpartiel` order by idUtilisateur, numero_test');
 
-    return $req;
+  return $req;
 }
 
 function getTicket(){
@@ -116,15 +116,15 @@ function getDeleteUser($id)
 
 function dbConnect()
 {
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=medmeasure;charset=utf8', 'root', '');
-        return $db;
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
+  try
+  {
+    $db = new PDO('mysql:host=localhost;dbname=medmeasure;charset=utf8', 'root', '');
+    return $db;
+  }
+  catch(Exception $e)
+  {
+    die('Erreur : '.$e->getMessage());
+  }
 }
 
 function getConnexion($email,$mdp){
@@ -140,29 +140,29 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
   $reqVerif = $db -> query("SELECT * FROM connexion WHERE email = '".$email."';");
   $count = $reqVerif->rowCount(); // On compte le nombre de lignes réponse
   if ($count == 0){
-      // Ajout à la table utilisateur
-      $reqAjoutUtilisateur = $db -> prepare("
-      INSERT INTO Utilisateur(Nom, Prenom, DN, Sexe, AdresseVoie, AdresseVille, AdresseCP, Tel)
-      VALUES (:value1, :value2, :value3, :value4, :value5, :value6, :value7, :value8)
-      ");
-      $reqAjoutUtilisateur -> execute(array(
-          "value1" => $nom,
-          "value2" => $prenom,
-          "value3" => $dn,
-          "value4" => $sexe,
-          "value5" => $adresse,
-          "value6" => $ville,
-          "value7" => $cp,
-          "value8" => $tel
-          ));
-      $reqAjoutUtilisateur -> closeCursor();
-      // On récupère l'id qui vient d'être créé
-      $reqid = $db -> query("SELECT idUtilisateur
-                          FROM utilisateur
-                          ORDER BY idUtilisateur DESC LIMIT 1");
+    // Ajout à la table utilisateur
+    $reqAjoutUtilisateur = $db -> prepare("
+    INSERT INTO Utilisateur(Nom, Prenom, DN, Sexe, AdresseVoie, AdresseVille, AdresseCP, Tel)
+    VALUES (:value1, :value2, :value3, :value4, :value5, :value6, :value7, :value8)
+    ");
+    $reqAjoutUtilisateur -> execute(array(
+      "value1" => $nom,
+      "value2" => $prenom,
+      "value3" => $dn,
+      "value4" => $sexe,
+      "value5" => $adresse,
+      "value6" => $ville,
+      "value7" => $cp,
+      "value8" => $tel
+    ));
+    $reqAjoutUtilisateur -> closeCursor();
+    // On récupère l'id qui vient d'être créé
+    $reqid = $db -> query("SELECT idUtilisateur
+      FROM utilisateur
+      ORDER BY idUtilisateur DESC LIMIT 1");
       $reqid -> setFetchMode(PDO::FETCH_ASSOC);
       foreach ($reqid as $ligne){
-          $id = $ligne['idUtilisateur'];
+        $id = $ligne['idUtilisateur'];
       }
       // Ajout à la table connexion
       $reqAjoutConnexion = $db -> prepare("
@@ -170,76 +170,76 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
       VALUES (:value1, :value2, :value3, :value4)
       ");
       $reqAjoutConnexion -> execute(array(
-          "value1" => $email,
-          "value2" => md5($mdp),
-          "value3" => "Pilote",
-          "value4" => $id
-          ));
+        "value1" => $email,
+        "value2" => md5($mdp),
+        "value3" => "Pilote",
+        "value4" => $id
+      ));
       $reqAjoutConnexion -> closeCursor();
+    }
+    return $count;
   }
-  return $count;
-}
 
 
-function getCountUser(){
-  $db = dbConnect();
-  $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur');
-  return $req;
-}
+  function getCountUser(){
+    $db = dbConnect();
+    $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur');
+    return $req;
+  }
 
-function getCountPilote(){
-  $db = dbConnect();
-  $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur where idUtilisateur in (select idUtilisateur from connexion where type="Pilote")');
-  return $req;
-}
+  function getCountPilote(){
+    $db = dbConnect();
+    $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur where idUtilisateur in (select idUtilisateur from connexion where type="Pilote")');
+    return $req;
+  }
 
-function getCountTestReussis(){
-  $db = dbConnect();
-  $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel where score >= "75"');
-  /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');*/
+  function getCountTestReussis(){
+    $db = dbConnect();
+    $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel where score >= "75"');
+    /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');*/
 
-  $reqTotal = $req1 /*+ $req2*/;
-  return $reqTotal;
-}
+    $reqTotal = $req1 /*+ $req2*/;
+    return $reqTotal;
+  }
 
-function getCountTest(){
-  $db = dbConnect();
-  $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
-  /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet ');*/
+  function getCountTest(){
+    $db = dbConnect();
+    $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
+    /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet ');*/
 
-  $reqTotal = $req1 /*+ $req2*/;
-  return $reqTotal;
-}
+    $reqTotal = $req1 /*+ $req2*/;
+    return $reqTotal;
+  }
 
-function getCountTicket(){
-  $db = dbConnect();
-  $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket');
-  return $req;
-}
+  function getCountTicket(){
+    $db = dbConnect();
+    $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket');
+    return $req;
+  }
 
-function getCountTicketEnCours(){
-  $db = dbConnect();
-  $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="0"');
-  return $req;
-}
+  function getCountTicketEnCours(){
+    $db = dbConnect();
+    $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="0"');
+    return $req;
+  }
 
-function getCountTicketValide(){
-  $db = dbConnect();
-  $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="1"');
-  return $req;
-}
+  function getCountTicketValide(){
+    $db = dbConnect();
+    $req = $db->query('SELECT count(idTicket) as nbTicket FROM ticket where statut="1"');
+    return $req;
+  }
 
-function getDataUser($id){
-  $db = dbConnect();
-  $req = $db->query('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur='.$id);
-  return $req;
-}
+  function getDataUser($id){
+    $db = dbConnect();
+    $req = $db->query('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur='.$id);
+    return $req;
+  }
 
 
-function getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
-  $db = dbConnect();
-  $req = $db->prepare('UPDATE Utilisateur SET Prenom = ?, Nom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = '.$id);
-  $req->execute(array($prenom,$nom,$dn,$sexe,$adresse,$ville,$cp,$tel));
-  $modify = $req->fetch();
-  return $modify;
-}
+  function getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
+    $db = dbConnect();
+    $req = $db->prepare('UPDATE Utilisateur SET Prenom = ?, Nom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = '.$id);
+    $req->execute(array($prenom,$nom,$dn,$sexe,$adresse,$ville,$cp,$tel));
+    $modify = $req->fetch();
+    return $modify;
+  }

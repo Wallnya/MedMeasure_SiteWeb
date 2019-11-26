@@ -102,31 +102,31 @@ function accueil(){
 function connexion($email,$mdp){
   $connexion = getConnexion($email,$mdp);
   if (isset($connexion)){
-      while ($data = $connexion->fetch()){
-       $_SESSION['id'] = $data['idUtilisateur'];
-       if ($data['type'] == "Administrateur"){
-         $_SESSION['type'] = "Administrateur";
-         header ('Location: index.php?page=admin_user');
-       }
-       else if ($data['type'] == "Gestionnaire"){
-         $_SESSION['type'] = "Gestionnaire";
-         header ('Location: gestionnaire.php');
-       }
-       else if ($data['type'] == "Pilote"){
-         $_SESSION['type'] = "Pilote";
-         header ('Location: index.php?page=user');
-       }
-     }
-   }
-   else{
-     header('Location: index.php');
-   }
+    while ($data = $connexion->fetch()){
+      $_SESSION['id'] = $data['idUtilisateur'];
+      if ($data['type'] == "Administrateur"){
+        $_SESSION['type'] = "Administrateur";
+        header ('Location: index.php?page=admin_user');
+      }
+      else if ($data['type'] == "Gestionnaire"){
+        $_SESSION['type'] = "Gestionnaire";
+        header ('Location: gestionnaire.php');
+      }
+      else if ($data['type'] == "Pilote"){
+        $_SESSION['type'] = "Pilote";
+        header ('Location: index.php?page=user');
+      }
+    }
+  }
+  else{
+    header('Location: index.php');
+  }
 }
 
 function deconnexion()
 {
-    $_SESSION = array();
-    session_destroy();
-    header('Location: index.php');
-    exit;
+  $_SESSION = array();
+  session_destroy();
+  header('Location: index.php');
+  exit;
 }
