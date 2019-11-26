@@ -17,7 +17,7 @@ if ($_SESSION["type"]=="Pilote"){
     <a href="index.php?deco=deconnexion">Deconnexion</a>
   </div>
   <div class="texte">
-    <img src="images/image_pilote.jpg" alt="Image pour la page user">
+    <img src="images/cockpit.jpg" alt="Image pour la page user">
   </div>
 
 </header>
