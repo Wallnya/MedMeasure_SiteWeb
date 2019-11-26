@@ -34,8 +34,8 @@ if ($_SESSION["type"]=="Pilote"){
     }
     $datauser->closeCursor();
     ?>
-    <form action="">
-      <button type="submit" class="btnProfil">
+    <form method="POST" action="index.php?page=user" id="formInscription">
+      <button type="submit" name="modifProfil" class="btnProfil">
         <div class="ModificationProfil">
           Modifier le profil
         </div>

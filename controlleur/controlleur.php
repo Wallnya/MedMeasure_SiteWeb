@@ -86,6 +86,15 @@ function page_user($id){
   require('vue/Menu.php');
 }
 
+function page_modif_profil($id){
+  $user = getUserProfil($id);
+  require('vue/Modification-profil.php');
+}
+function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
+  $modifprofil = getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
+  header('Location: index.php?page=user');
+}
+
 function accueil(){
   require('vue/Accueil.php');
 }

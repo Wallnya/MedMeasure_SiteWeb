@@ -7,6 +7,14 @@ function getUser()
     return $req;
 }
 
+function getUserProfil($id)
+{
+    $db = dbConnect();
+    $req = $db->query('SELECT * FROM utilisateur where idUtilisateur='.$id);
+
+    return $req;
+}
+
 
 function getDataConnexion()
 {
@@ -225,4 +233,13 @@ function getDataUser($id){
   $db = dbConnect();
   $req = $db->query('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur='.$id);
   return $req;
+}
+
+
+function getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
+  $db = dbConnect();
+  $req = $db->prepare('UPDATE Utilisateur SET Prenom = ?, Nom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = '.$id);
+  $req->execute(array($prenom,$nom,$dn,$sexe,$adresse,$ville,$cp,$tel));
+  $modify = $req->fetch();
+  return $modify;
 }
