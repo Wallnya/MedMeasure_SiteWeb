@@ -70,21 +70,62 @@
     $score_tests_complets_30 = round(($nb_tests_complets_30[0]/$nombre_tests_complets[0])*100);
     $score_tests_complets_60 = round(($nb_tests_complets_60[0]/$nombre_tests_complets[0])*100);
 
-    $score_total_30 = round(($nb_tests_partiels_30[0]+$nb_tests_complets_30[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0])*100);
-    $score_total_60 = round(($nb_tests_partiels_60[0]+$nb_tests_complets_60[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0])*100);
+    $score_total_30 = round((($nb_tests_partiels_30[0]+$nb_tests_complets_30[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+    $score_total_60 = round((($nb_tests_partiels_60[0]+$nb_tests_complets_60[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
 
-    $requete9 = "SELECT count(*) FROM testpartiel WHERE idUtilisateur in (SELECT idUtilisateur FROM Utilisateur WHERE Sexe = 'Femme')";
-    $requete10 = "SELECT count(*) FROM testpartiel WHERE score <= 30 AND idUtilisateur in (SELECT idUtilisateur FROM Utilisateur WHERE Sexe = 'Femme')";
+    $requete9 = "SELECT count(*) FROM testpartiel WHERE frequence <= 40";
+    $requete10 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 40 and 60";
+    $requete11 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 60 and 80";
+    $requete12 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 80 and 100";
+    $requete13 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 100 and 120";
+
     $resultat9 = mysqli_query($connexion,$requete9);
     $resultat10 = mysqli_query($connexion,$requete10);
-    $tests_partiels_femmes = mysqli_fetch_row($resultat9);
-    $tests_partiels_femmes_30 = mysqli_fetch_row($resultat10);
+    $resultat11 = mysqli_query($connexion,$requete11);
+    $resultat12 = mysqli_query($connexion,$requete12);
+    $resultat13 = mysqli_query($connexion,$requete13);
+    $tests_partiels_freq_40 = mysqli_fetch_row($resultat9);
+    $tests_partiels_freq_60 = mysqli_fetch_row($resultat10);
+    $tests_partiels_freq_80 = mysqli_fetch_row($resultat11);
+    $tests_partiels_freq_100 = mysqli_fetch_row($resultat12);
+    $tests_partiels_freq_120 = mysqli_fetch_row($resultat13);
 
-    if(isset($_POST['submit'])) {
+    $requete14 = "SELECT count(*) FROM testcomplet WHERE frequence <= 40";
+    $requete15 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 40 and 60";
+    $requete16 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 60 and 80";
+    $requete17 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 80 and 100";
+    $requete18 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 100 and 120";
+    $requete19 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 120 and 140";
+    $requete20 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 120 and 140";
+
+    $resultat14 = mysqli_query($connexion,$requete14);
+    $resultat15 = mysqli_query($connexion,$requete15);
+    $resultat16 = mysqli_query($connexion,$requete16);
+    $resultat17 = mysqli_query($connexion,$requete17);
+    $resultat18 = mysqli_query($connexion,$requete18);
+    $resultat19 = mysqli_query($connexion,$requete19);
+    $resultat20 = mysqli_query($connexion,$requete20);
+    $tests_complets_freq_40 = mysqli_fetch_row($resultat14);
+    $tests_complets_freq_60 = mysqli_fetch_row($resultat15);
+    $tests_complets_freq_80 = mysqli_fetch_row($resultat16);
+    $tests_complets_freq_100 = mysqli_fetch_row($resultat17);
+    $tests_complets_freq_120 = mysqli_fetch_row($resultat18);
+    $tests_complets_freq_140 = mysqli_fetch_row($resultat19);
+    $tests_partiels_freq_140 = mysqli_fetch_row($resultat20);
+
+    $score_freq_40 = round((($tests_partiels_freq_40[0]+$tests_complets_freq_40[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+    $score_freq_60 = round((($tests_partiels_freq_60[0]+$tests_complets_freq_60[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+    $score_freq_80 = round((($tests_partiels_freq_80[0]+$tests_complets_freq_80[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+    $score_freq_100 = round((($tests_partiels_freq_100[0]+$tests_complets_freq_100[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+    $score_freq_120 = round((($tests_partiels_freq_120[0]+$tests_complets_freq_120[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+    $score_freq_140 = round((($tests_partiels_freq_140[0]+$tests_complets_freq_140[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
+
+
+    /*if(isset($_POST['submit'])) {
       if ($_POST['sexe']=="'Femme") {
           
       }
-  }
+    }*/
 
 ?>
 
@@ -110,7 +151,7 @@
               <option value="Homme">Homme</option>
          </select>
      </p>
-     <input type="submit" name="submit" value="Get Selected Values" />
+     <input type="submit" name="submit" value="Rechercher" />
   </form>
 
   <form method="post" action="traitement.php">
@@ -173,12 +214,12 @@
     </ul>
     
     <ul id="bars">
-      <li><div data-percentage="56" class="bar"></div><span> < 40 bpm</span></li>
-      <li><div data-percentage="33" class="bar"></div><span>40 - 60 bpm</span></li>
-      <li><div data-percentage="54" class="bar"></div><span>60 - 80 bpm</span></li>
-      <li><div data-percentage="94" class="bar"></div><span>80 - 100 bpm</span></li>
-      <li><div data-percentage="44" class="bar"></div><span>100 - 120 bpm</span></li>
-      <li><div data-percentage="23" class="bar"></div><span>120 - 140 bpm</span>
+      <li><div data-percentage="<?php echo $score_freq_40 ?>" class="bar"></div><span> < 40 bpm</span></li>
+      <li><div data-percentage="<?php echo $score_freq_60 ?>" class="bar"></div><span>40 - 60 bpm</span></li>
+      <li><div data-percentage="<?php echo $score_freq_80 ?>" class="bar"></div><span>60 - 80 bpm</span></li>
+      <li><div data-percentage="<?php echo $score_freq_100 ?>" class="bar"></div><span>80 - 100 bpm</span></li>
+      <li><div data-percentage="<?php echo $score_freq_120 ?>" class="bar"></div><span>100 - 120 bpm</span></li>
+      <li><div data-percentage="<?php echo $score_freq_140 ?>" class="bar"></div><span>120 - 140 bpm</span>
       </li>
     </ul>
   </div>
