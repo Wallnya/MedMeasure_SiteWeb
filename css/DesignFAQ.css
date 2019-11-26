@@ -1,0 +1,85 @@
+header{
+	background-color:#AED6F1;
+	height:250px;
+	min-height:15%;
+}
+
+.texte img{
+	height: 200px;
+	width: 100%;
+}
+
+.barre_navigation img {
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+.barre_navigation {
+	overflow: hidden;
+}
+
+.barre_navigation a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.barre_navigation a:hover {
+	border-bottom: 2px solid #82AFCC;
+	color: #82AFCC;
+}
+
+.contact
+{
+	font-family: Arial;
+	line-height: 100px;
+	text-align: left;
+
+	left: 50%;
+
+	font-size : large;
+	font-family: Arial;
+}
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+	background-color: #fff;
+	color: black;
+	cursor: pointer;
+	padding: 18px;
+	width: 50%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: large;
+	font-family: arial;
+
+	margin-left: 350px;
+	margin-top: 50px;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.collapsible:after {
+	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	font-size: 13px;
+	color: white;
+	float: right;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.content {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	font-family: Arial;
+	color: black;
+	margin-left: 350px;
+}

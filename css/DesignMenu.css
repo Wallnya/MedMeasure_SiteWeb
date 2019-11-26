@@ -143,12 +143,9 @@ button
 
 .btnProfil
 {
-	margin-left: 780px;
+	margin-left: 600px;
 	margin-top: 150px;
-	width: 200px;
 	height: 30px;
-
-	border-radius: 5px;
 
 }
 
@@ -157,4 +154,16 @@ button
 	line-height: 0px;
 	text-align: center;
 	font-size : large;
+	width:150px;
+
+}
+
+.EnvoyerTicket{
+	font-family: Arial;
+	line-height: 0px;
+	text-align: center;
+	font-size : large;
+	margin-left:200px;
+	width:150px;
+
 }

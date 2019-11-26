@@ -86,6 +86,19 @@ function page_user($id){
   require('vue/Menu.php');
 }
 
+function page_modif_profil($id){
+  $user = getUserProfil($id);
+  require('vue/Modification-profil.php');
+}
+function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
+  $modifprofil = getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
+  header('Location: index.php?page=user');
+}
+function page_faq(){
+  require('vue/FAQ.html');
+
+}
+
 function accueil(){
   require('vue/Accueil.php');
 }
@@ -93,31 +106,31 @@ function accueil(){
 function connexion($email,$mdp){
   $connexion = getConnexion($email,$mdp);
   if (isset($connexion)){
-      while ($data = $connexion->fetch()){
-       $_SESSION['id'] = $data['idUtilisateur'];
-       if ($data['type'] == "Administrateur"){
-         $_SESSION['type'] = "Administrateur";
-         header ('Location: index.php?page=admin_user');
-       }
-       else if ($data['type'] == "Gestionnaire"){
-         $_SESSION['type'] = "Gestionnaire";
-         header ('Location: gestionnaire.php');
-       }
-       else if ($data['type'] == "Pilote"){
-         $_SESSION['type'] = "Pilote";
-         header ('Location: index.php?page=user');
-       }
-     }
-   }
-   else{
-     header('Location: index.php');
-   }
+    while ($data = $connexion->fetch()){
+      $_SESSION['id'] = $data['idUtilisateur'];
+      if ($data['type'] == "Administrateur"){
+        $_SESSION['type'] = "Administrateur";
+        header ('Location: index.php?page=admin_user');
+      }
+      else if ($data['type'] == "Gestionnaire"){
+        $_SESSION['type'] = "Gestionnaire";
+        header ('Location: gestionnaire.php');
+      }
+      else if ($data['type'] == "Pilote"){
+        $_SESSION['type'] = "Pilote";
+        header ('Location: index.php?page=user');
+      }
+    }
+  }
+  else{
+    header('Location: index.php');
+  }
 }
 
 function deconnexion()
 {
-    $_SESSION = array();
-    session_destroy();
-    header('Location: index.php');
-    exit;
+  $_SESSION = array();
+  session_destroy();
+  header('Location: index.php');
+  exit;
 }

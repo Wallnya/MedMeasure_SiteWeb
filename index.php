@@ -2,28 +2,31 @@
 require('controlleur/controlleur.php');
 session_start();
 if (isset($_GET['page'])) {
+  /********************************/
+  /*            ADMIN             */
+  /********************************/
   if ($_GET['page']== 'admin_user'){
-      if (isset($_POST['modifier'])){
-              if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
-                if (isset($_POST["Type"])){
-                      modifyUser($_POST["Type"],$_POST['idUtilisateur']);
-                    }
-              }
-      }
-      else if (isset($_POST['supprimer'])){
-        if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
-          deleteUser($_POST['idUtilisateur']);
+    if (isset($_POST['modifier'])){
+      if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
+        if (isset($_POST["Type"])){
+          modifyUser($_POST["Type"],$_POST['idUtilisateur']);
         }
       }
-      else {
-        dataUser();
+    }
+    else if (isset($_POST['supprimer'])){
+      if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
+        deleteUser($_POST['idUtilisateur']);
       }
+    }
+    else {
+      dataUser();
+    }
   }
   else if ($_GET['page']=='admin_ticket'){
     if (isset($_POST['modifier'])){
-            if (isset($_POST['idTicket']) && $_POST['idTicket'] > 0) {
-                modifyTicket($_POST["Statut"],$_POST['idTicket']);
-            }
+      if (isset($_POST['idTicket']) && $_POST['idTicket'] > 0) {
+        modifyTicket($_POST["Statut"],$_POST['idTicket']);
+      }
     }
     else{
       dataTicket();
@@ -31,11 +34,11 @@ if (isset($_GET['page'])) {
   }
   else if ($_GET['page']=='admin_faq'){
     if (isset($_POST['modifier'])){
-            if (isset($_POST['idFAQ']) && $_POST['idFAQ'] > 0) {
-              if (isset($_POST["message"])){
-                    modifyFAQ($_POST["message"],$_POST['idFAQ']);
-                  }
-            }
+      if (isset($_POST['idFAQ']) && $_POST['idFAQ'] > 0) {
+        if (isset($_POST["message"])){
+          modifyFAQ($_POST["message"],$_POST['idFAQ']);
+        }
+      }
     }
     else if (isset($_POST['supprimer'])){
       if (isset($_POST['idFAQ']) && $_POST['idFAQ'] > 0) {
@@ -51,9 +54,32 @@ if (isset($_GET['page'])) {
       dataFAQ();
     }
   }
+  /********************************/
+  /*            USER              */
+  /********************************/
   else if ($_GET['page']== 'user'){
-    page_user($_SESSION['id']);
+    if (isset($_POST["boutonEnregistrer"])){
+      if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
+      isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel'])){
+        modif_profil($_SESSION['id'],$_POST['prenom'],$_POST['nom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel']);
+      }
+    }
+    else if (isset($_POST["modifProfil"])){
+      page_modif_profil($_SESSION['id']);
+    }
+    else{
+      page_user($_SESSION['id']);
+    }
   }
+  /********************************/
+  /*            FAQ               */
+  /********************************/
+  else if ($_GET['page']== 'faq'){
+      page_faq();
+  }
+  /********************************/
+  /*          INSCRIPTION         */
+  /********************************/
   if ($_GET['page'] == 'inscription'){
     if (isset($_POST["boutonInscription"])){
       if (isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
@@ -68,12 +94,17 @@ if (isset($_GET['page'])) {
     }
   }
 }
-
+/********************************/
+/*          DECONNEXION         */
+/********************************/
 else if (isset($_GET['deco'])) {
   if ($_GET['deco']== 'deconnexion'){
     deconnexion();
   }
 }
+/********************************/
+/*          CONNEXION           */
+/********************************/
 else if (isset($_POST['connexion'])){
   if (isset($_POST['mail']) && isset($_POST['mdp'])){
     connexion($_POST['mail'],$_POST['mdp']);
