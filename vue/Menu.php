@@ -14,6 +14,7 @@ if ($_SESSION["type"]=="Pilote"){
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=user">Accueil</a>
+    <a href="index.php?page=faq">FAQ</a>
     <a href="index.php?deco=deconnexion">Deconnexion</a>
   </div>
   <div class="texte">
@@ -42,6 +43,7 @@ if ($_SESSION["type"]=="Pilote"){
       </button>
     </form>
   </div>
+  <!--BOUTON ENVOYER UN TICKET/MESSAGE A L ADMIN-->
 
   <form action="Page Test.html">
     <button type="submit" class="btnTest">

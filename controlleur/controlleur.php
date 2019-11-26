@@ -94,6 +94,10 @@ function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
   $modifprofil = getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
   header('Location: index.php?page=user');
 }
+function page_faq(){
+  require('vue/FAQ.html');
+
+}
 
 function accueil(){
   require('vue/Accueil.php');
