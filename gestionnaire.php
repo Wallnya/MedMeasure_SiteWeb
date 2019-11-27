@@ -73,11 +73,11 @@
     $score_total_30 = round((($nb_tests_partiels_30[0]+$nb_tests_complets_30[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
     $score_total_60 = round((($nb_tests_partiels_60[0]+$nb_tests_complets_60[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
 
-    $requete9 = "SELECT count(*) FROM testpartiel WHERE frequence <= 40";
-    $requete10 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 40 and 60";
-    $requete11 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 60 and 80";
-    $requete12 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 80 and 100";
-    $requete13 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 100 and 120";
+    $requete9 = "SELECT count(*) FROM testpartiel WHERE frequence <= 39";
+    $requete10 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 40 and 59";
+    $requete11 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 60 and 79";
+    $requete12 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 80 and 99";
+    $requete13 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 100 and 119";
 
     $resultat9 = mysqli_query($connexion,$requete9);
     $resultat10 = mysqli_query($connexion,$requete10);
@@ -90,11 +90,11 @@
     $tests_partiels_freq_100 = mysqli_fetch_row($resultat12);
     $tests_partiels_freq_120 = mysqli_fetch_row($resultat13);
 
-    $requete14 = "SELECT count(*) FROM testcomplet WHERE frequence <= 40";
-    $requete15 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 40 and 60";
-    $requete16 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 60 and 80";
-    $requete17 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 80 and 100";
-    $requete18 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 100 and 120";
+    $requete14 = "SELECT count(*) FROM testcomplet WHERE frequence <= 39";
+    $requete15 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 40 and 59";
+    $requete16 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 60 and 79";
+    $requete17 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 80 and 99";
+    $requete18 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 100 and 119";
     $requete19 = "SELECT count(*) FROM testcomplet WHERE frequence BETWEEN 120 and 140";
     $requete20 = "SELECT count(*) FROM testpartiel WHERE frequence BETWEEN 120 and 140";
 
