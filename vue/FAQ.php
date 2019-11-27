@@ -16,39 +16,23 @@
     <img src="images/question.jpg" alt="Image pour la FAQ">
   </div>
 </header>
-
 <body>
-  <button type="button" class="collapsible">Comment lancer un test sur le site ?</button>
-  <div class="content">
-    <p> Depuis le menu, sélectionnez dans le menu déroulant le test que vous souhaitez faire.</p>
-  </div>
-
-  <button type="button" class="collapsible">Comment effectuer les mesures demandées avec l'appareil électronique ainsi que les différents capteurs ?</button>
-  <div class="content">
-    <p> ...</p>
-  </div>
-
-  <button type="button" class="collapsible">Comment contacter le gestionnaire ?</button>
-  <div class="content">
-    <p>Vous pouvez contacter le gestionnaire depuis le support
-    </p>
-  </div>
-
-  <button type="button" class="collapsible">Quels sont les tests effectués ?</button>
-  <div class="content">
-    <p>Il y a deux types de test, le test complet qui comprend les mesures du rythme cardiaque, de la perception auditive, de la température de la peau</p>
-  </div>
-
-  <button type="button" class="collapsible"> Combien de temps mes données sont-elles enegistrées ?</button>
-  <div class="content">
-    <p>Vos résultats restent enregistrées pendant 6 mois.</p>
-  </div>
-
-
+  <?php
+  while ($data2 = $faq->fetch())
+  {
+    ?>
+    <button type="button" class="collapsible"><?= htmlspecialchars($data2['intitule']) ?></button>
+    <div class="content">
+      <p><?= htmlspecialchars($data2['reponse']) ?></p>
+    </div>
+    <?php
+  }
+  $faq->closeCursor();
+  ?>
   <div class="contact">
     <strong>D'autres questions ?</strong> Contactez-nous à l'adresse suivant <strong>MedMeasure@gmail.com</strong> ou par téléphone au <strong>01 23 45 67 89</strong>
   </div>
-  
+
   <script>
   var coll = document.getElementsByClassName("collapsible");
   var i;

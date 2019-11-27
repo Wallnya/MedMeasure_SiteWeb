@@ -83,6 +83,10 @@ function addFAQ($question,$reponse){
 
 function page_user($id){
   $datauser = getDataUser($id);
+  $nbtest = getCountTestUser($id);
+  $nbvalide = getCountTestCheckUser($id);
+  $datepartiel = getLastTestPartielUser($id);
+  $datecomplet = getLastTestCompletUser($id);
   require('vue/Menu.php');
 }
 
@@ -95,8 +99,8 @@ function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
   header('Location: index.php?page=user');
 }
 function page_faq(){
-  require('vue/FAQ.html');
-
+  $faq = getFAQ();
+  require('vue/FAQ.php');
 }
 
 function accueil(){

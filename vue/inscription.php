@@ -18,11 +18,11 @@
                   </div>
                   <div>
                       <label for="mdp">Mot de passe</label>
-                      <input type="password" name="mdp" id="mdp" minlength="8" maxlength="20" value="azeazeaze" required/>
+                      <input type="password" name="mdp" id="mdp" minlength="8" maxlength="20" required/>
                   </div>
                   <div>
                       <label for="mdp2">Confirmer le mot de passe</label>
-                      <input type="password" name="mdp2" id="mdp2" minlength="8" maxlength="20" value="azeazeaze" required/>
+                      <input type="password" name="mdp2" id="mdp2" minlength="8" maxlength="20" required/>
                   </div>
               </div>
 

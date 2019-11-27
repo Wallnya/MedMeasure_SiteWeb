@@ -196,19 +196,31 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
   function getCountTestReussis(){
     $db = dbConnect();
     $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel where score >= "75"');
-    /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');*/
+    $req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');
 
-    $reqTotal = $req1 /*+ $req2*/;
-    return $reqTotal;
+    $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestPartiel = $invNum['nbtestPartiel'];
+
+    $invNum1 = $req2 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestComplet = $invNum1['nbtestComplet'];
+
+    $total = $nbTestPartiel + $nbTestComplet;
+    return $total;
   }
 
   function getCountTest(){
     $db = dbConnect();
     $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
-    /*$req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet ');*/
+    $req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet ');
 
-    $reqTotal = $req1 /*+ $req2*/;
-    return $reqTotal;
+    $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestPartiel = $invNum['nbtestPartiel'];
+
+    $invNum1 = $req2 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestComplet = $invNum1['nbtestComplet'];
+
+    $total = $nbTestPartiel + $nbTestComplet;
+    return $total;
   }
 
   function getCountTicket(){
@@ -232,6 +244,52 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
   function getDataUser($id){
     $db = dbConnect();
     $req = $db->query('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur='.$id);
+    return $req;
+  }
+
+  function getCountTestUser($id){
+    $db = dbConnect();
+    $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel WHERE idUtilisateur='.$id);
+    $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet WHERE idUtilisateur='.$id);
+    $req1 -> execute();
+    $req2 -> execute();
+
+    $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestPartiel = $invNum['nbtestPartiel'];
+
+    $invNum1 = $req2 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestComplet = $invNum1['nbtestComplet'];
+
+    $total = $nbTestPartiel + $nbTestComplet;
+    return $total;
+  }
+
+  function getCountTestCheckUser($id){
+    $db = dbConnect();
+    $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel WHERE score >="75" and idUtilisateur='.$id);
+    $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet WHERE score >="75" and idUtilisateur='.$id);
+    $req1 -> execute();
+    $req2 -> execute();
+
+    $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestPartiel = $invNum['nbtestPartiel'];
+
+    $invNum1 = $req2 -> fetch(PDO::FETCH_ASSOC);
+    $nbTestComplet = $invNum1['nbtestComplet'];
+
+    $total = $nbTestPartiel + $nbTestComplet;
+    return $total;
+  }
+
+  function getLastTestPartielUser($id){
+    $db = dbConnect();
+    $req = $db->query('SELECT max(date) AS date_max_partiel FROM testpartiel WHERE idUtilisateur='.$id);
+    return $req;
+  }
+
+  function getLastTestCompletUser($id){
+    $db = dbConnect();
+    $req = $db->query('SELECT max(date) AS date_max_complet FROM testcomplet WHERE idUtilisateur='.$id);
     return $req;
   }
 
