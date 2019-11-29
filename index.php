@@ -67,6 +67,9 @@ if (isset($_GET['page'])) {
     else if (isset($_POST["modifProfil"])){
       page_modif_profil($_SESSION['id']);
     }
+    else if (isset($_POST['test'])){
+      page_test($_SESSION['id']);
+    }
     else{
       page_user($_SESSION['id']);
     }

@@ -13,7 +13,7 @@ if ($_SESSION["type"]=="Administrateur"){
       <a href="index.php?page=admin_user">Gestion Utilisateur</a>
       <a href="index.php?page=admin_faq">Gestion FAQ</a>
       <a href="index.php?page=admin_ticket">Gestion Tickets</a>
-      <a href="index.php?deco=deconnexion">Deconnexion</a>
+      <a href="index.php?deco=deconnexion">Déconnexion</a>
     </div>
     <div class="texte">
       <img src="images/image_admin.jpg" alt="Image pour la page admin">

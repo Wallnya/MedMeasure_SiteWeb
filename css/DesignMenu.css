@@ -26,59 +26,6 @@ header{
   border-bottom: 2px solid #82AFCC;
   color: #82AFCC;
 }
-.btndeco
-{
-	margin-right: 10px;
-	margin-top: 5px;
-
-	width: 100px;
-	height: 30px;
-
-	font-size : small;
-	font-family: Arial;
-	font-weight: bold;
-	background-color: #ffab40;
-	border-radius: 5px;
-}
-
-.btnRésultats
-{
-	margin-left: 550px;
-	margin-top: 40px;
-
-	width: 400px;
-	height: 70px;
-}
-
-.Resultat{
-	font-family: Arial;
-	line-height: 0px;
-	text-align: center;
-	font-size : xx-large;
-
-}
-
-.btnTest
-{
-	margin-left: 550px;
-	margin-top: 40px;
-	margin-bottom: 0px;
-
-	width: 400px;
-	height: 70px;
-
-	border-radius: 15px;
-
-}
-
-.Test{
-	font-family: Arial;
-	line-height: 0px;
-	text-align: center;
-	font-size : xx-large;
-
-}
-
 .btnProfil
 {
 	margin-left: 600px;
@@ -125,7 +72,7 @@ header{
   padding: 25px 0 50px;
   margin: 50px auto;
 	background: #5C7180;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .rectangle-ticket{
@@ -222,7 +169,7 @@ header{
 
 
 .gauche {
-	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 10px 0px 5px 0px rgba(0, 0, 0, 0.2);
 	width: 50%;
 	height: 500px;
 	float: left;
@@ -238,7 +185,7 @@ header{
 }
 
 .droite {
-	box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 	width: 50%;
 	height: 500px;
 	float: right;
@@ -248,14 +195,6 @@ header{
   position: absolute;
 	top: 60%;
   left: 75%;
-  transform:translate(-50%, -50%);
-  font-size: 20px;
-}
-
-.droite input[name=inscription]  {
-  position: absolute;
-  top: 85%;
-  left: 81%;
   transform:translate(-50%, -50%);
   font-size: 20px;
 }

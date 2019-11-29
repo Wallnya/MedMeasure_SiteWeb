@@ -11,7 +11,6 @@ if ($_SESSION["type"]=="Pilote"){
   </head>
 
   <header>
-
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
       <a href="index.php?page=user">Accueil</a>
@@ -54,81 +53,29 @@ if ($_SESSION["type"]=="Pilote"){
             </div>
           </div>
           <div class="gauche">
-         <p>
-           Prêt pour un test ?
-           <div class="formulaire">
-               <button type="submit" name="test" id="test">C'est partit</button>
-           </div>
-         </p>
-       </div>
-       <div class="droite">
-         <div class="formulaireBouton">
-           <form method="POST" action="index.php?page=user" id="formInscription">
-             <button type="submit" name="modifProfil">Modifier le profil</button>
-             <button type="submit" name="ticket" id="ticket">Envoyer un ticket</button>
-             <button type="submit" name="Dernierresultat" id="Dernierresultat">Dernier resultat</button>
-             <button type="submit" name="histo" id="histo">Historique</button>
-         </div>
-       </form>
-       </div>
+            <p>
+              Prêt pour un test ?
+              <div class="formulaire">
+                <form method="POST" action="index.php?page=user" id="formInscription">
+                <button type="submit" name="test" id="test">C'est parti</button>
+              </div>
+            </p>
+          </div>
+          <div class="droite">
+            <div class="formulaireBouton">
+                <button type="submit" name="modifProfil">Modifier le profil</button>
+                <button type="submit" name="ticket" id="ticket">Envoyer un ticket</button>
+                <button type="submit" name="Dernierresultat" id="Dernierresultat">Dernier resultat</button>
+                <button type="submit" name="histo" id="histo">Historique</button>
+              </div>
+            </form>
+          </div>
         </div>
-
-
-
-
-        <!--
-        <div class="Profil">
-        <?php
-        while ($data = $datauser->fetch())
-        {
-        ?>
-        <p> <?= htmlspecialchars($data['nom']) ?>
-        <?= htmlspecialchars($data['prenom']) ?></p>
-        <?php
-      }
-      $datauser->closeCursor();
-      ?>
-      <form method="POST" action="index.php?page=user" id="formInscription">
-      <button type="submit" name="modifProfil" class="btnProfil">
-      <div class="ModificationProfil">
-      Modifier le profil
-    </div>
-  </button>
-</form>
-</div>
-
-<form action="Page Test.html">
-<button type="submit" class="btnTest">
-
-<div class="Test">
-Test
-</div>
-
-</button>
-</form>
-<form action="">
-<button type="submit" class="btnRésultats">
-
-<div class="Resultat">
-Dernier résultat
-</div>
-
-</button>
-</form>
-<form action="">
-<button type="submit" class="btnRésultats">
-
-<div class="Resultat">
-Historique des résultats
-</div>
-
-</button>
-</form>-->
-</body>
-</html>
-<?php
-}
-else {
-  header('Location: index.php');
-}
-?>
+      </body>
+      </html>
+      <?php
+    }
+    else {
+      header('Location: index.php');
+    }
+    ?>

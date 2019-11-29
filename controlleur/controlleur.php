@@ -90,6 +90,10 @@ function page_user($id){
   require('vue/Menu.php');
 }
 
+function page_test($id){
+  require('vue/PageTest.php');
+}
+
 function page_modif_profil($id){
   $user = getUserProfil($id);
   require('vue/Modification-profil.php');

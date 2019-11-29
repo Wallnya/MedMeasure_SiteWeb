@@ -10,7 +10,7 @@
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=user">Accueil</a>
     <a href="index.php?page=faq">FAQ</a>
-    <a href="index.php?deco=deconnexion">Deconnexion</a>
+    <a href="index.php?deco=deconnexion">Déconnexion</a>
   </div>
   <div class="texte">
     <img src="images/question.jpg" alt="Image pour la FAQ">
