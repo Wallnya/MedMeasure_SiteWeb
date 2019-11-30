@@ -66,7 +66,7 @@ function getDernierTypeTest($id){
   $today_dt = date_create($r1);
   $expire_dt = date_create($r2);
 
-  if ($expire_dt <= $today_dt) {
+  if ($expire_dt < $today_dt) {
     return "partiel";
   }
   else{
@@ -350,13 +350,27 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
   function getLastTestPartielUser($id){
     $db = dbConnect();
     $req = $db->query('SELECT max(date) AS date_max_partiel FROM testpartiel WHERE idUtilisateur='.$id);
-    return $req;
+    $invNum = $req -> fetch(PDO::FETCH_ASSOC);
+    $date = $invNum['date_max_partiel'];
+    if ($date ==""){
+      return "0000-00-00";
+    }
+    else{
+      return $date;
+    }
   }
 
   function getLastTestCompletUser($id){
     $db = dbConnect();
     $req = $db->query('SELECT max(date) AS date_max_complet FROM testcomplet WHERE idUtilisateur='.$id);
-    return $req;
+    $invNum = $req -> fetch(PDO::FETCH_ASSOC);
+    $date = $invNum['date_max_complet'];
+    if ($date ==""){
+      return "0000-00-00";
+    }
+    else{
+      return $date;
+    }
   }
 
 

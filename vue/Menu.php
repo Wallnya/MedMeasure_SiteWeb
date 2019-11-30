@@ -45,11 +45,11 @@ if ($_SESSION["type"]=="Pilote"){
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-calendar"></i>
-              <p>Date du dernier test partiel</p>
+              <p>Date du dernier test partiel <?= $datepartiel ?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-hourglass"></i>
-              <p>Date du dernier test complet</p>
+              <p>Date du dernier test complet <?= $datecomplet ?></p>
             </div>
           </div>
           <div class="gauche">
