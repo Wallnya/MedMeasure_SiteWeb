@@ -125,7 +125,7 @@ function accueil(){
 }
 
 function connexion($email,$mdp){
-  $connexion = getConnexion($email,$mdp);
+  $connexion = getConnexion($email,md5($mdp));
   if (isset($connexion)){
     while ($data = $connexion->fetch()){
       $_SESSION['id'] = $data['idUtilisateur'];

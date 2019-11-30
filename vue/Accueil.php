@@ -24,6 +24,8 @@
           <input type="password" name="mdp" id="mdp" placeholder="Mot de passe"/>
 
           <input type="submit" name="connexion" value="Se connecter">
+          <input type="submit" name="connexionTwitter" value="Se connecter avec Twitter">
+          <input type="submit" name="connexionFacebook" value="Se connecter avec Facebook">
 
       </form>
 

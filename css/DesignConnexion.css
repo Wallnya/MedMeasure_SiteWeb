@@ -79,3 +79,16 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #70B1CB;
 }
+
+
+input[name="connexionFacebook"]{
+  margin-left: 10%;
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+input[name="connexionTwitter"]{
+  margin-left: 10%;
+  background-color: #006dbf;
+      border-color: #006dbf;
+}
