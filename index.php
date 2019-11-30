@@ -18,6 +18,16 @@ if (isset($_GET['page'])) {
         deleteUser($_POST['idUtilisateur']);
       }
     }
+    else if(isset($_POST['supprimerTestPartiel'])){
+      if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
+        deleteTestPartiel($_POST['idUtilisateur'],$_POST['idtest']);
+      }
+    }
+    else if(isset($_POST['supprimerTestComplet'])){
+      if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
+        deleteTestComplet($_POST['idUtilisateur'],$_POST['idtest']);
+      }
+    }
     else {
       dataUser();
     }
