@@ -50,7 +50,7 @@ function updateState(el, val) {
   else {
     document.getElementById("click").style.display="none";
   }
- 
+
   // Update handle color
   $handle
     .removeClass (function (index, css) {

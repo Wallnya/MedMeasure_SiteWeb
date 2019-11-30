@@ -65,12 +65,24 @@ if ($_SESSION["type"]=="Pilote"){
             <div class="formulaireBouton">
                 <button type="submit" name="modifProfil">Modifier le profil</button>
                 <button type="submit" name="ticket" id="ticket">Envoyer un ticket</button>
-                <button type="submit" name="Dernierresultat" id="Dernierresultat">Dernier resultat</button>
-                <button type="submit" name="histo" id="histo">Historique</button>
+                <button type="submit" name="Dernierresultat" id="Dernierresultat" onclick="myFunction()">Dernier resultat</button>
+                <button type="submit" name="histo" id="histo" onclick="myFunction()">Historique</button>
               </div>
             </form>
           </div>
         </div>
+        <script>
+        function myFunction(){
+          <?php if ($nbtest == 0){?>
+            document.getElementById("Dernierresultat").disabled = true;
+            document.getElementById("histo").disabled = true;
+        <?php } else { ?>
+          document.getElementById("Dernierresultat").disabled = false;
+          document.getElementById("histo").disabled = false;
+
+<?php } ?>
+        }
+      </script>
       </body>
       </html>
       <?php

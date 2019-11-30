@@ -66,6 +66,12 @@ function getDernierTypeTest($id){
   $today_dt = date_create($r1);
   $expire_dt = date_create($r2);
 
+  if ($r1 ==""){
+    return "complet";
+  }
+  else if ($r2 ==""){
+    return "partiel";
+  }
   if ($expire_dt < $today_dt) {
     return "partiel";
   }
@@ -376,8 +382,8 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
 
   function getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
     $db = dbConnect();
-    $req = $db->prepare('UPDATE Utilisateur SET Prenom = ?, Nom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = '.$id);
-    $req->execute(array($prenom,$nom,$dn,$sexe,$adresse,$ville,$cp,$tel));
+    $req = $db->prepare('UPDATE Utilisateur SET Nom = ?, Prenom = ?, DN = ?, Sexe = ?, AdresseVoie = ?, AdresseVille = ?, AdresseCP = ?, Tel = ? WHERE idUtilisateur = '.$id);
+    $req->execute(array($nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel));
     $modify = $req->fetch();
     return $modify;
   }

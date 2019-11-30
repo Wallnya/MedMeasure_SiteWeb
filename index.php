@@ -61,7 +61,7 @@ if (isset($_GET['page'])) {
     if (isset($_POST["boutonEnregistrer"])){
       if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
       isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel'])){
-        modif_profil($_SESSION['id'],$_POST['prenom'],$_POST['nom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel']);
+        modif_profil($_SESSION['id'],$_POST['nom'],$_POST['prenom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel']);
       }
     }
     else if (isset($_POST["modifProfil"])){
