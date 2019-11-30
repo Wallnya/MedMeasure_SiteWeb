@@ -96,6 +96,12 @@ function page_dernierresultat($id){
   require ('vue/resultat-test-partiel.php');
 }
 
+function page_historique($id){
+  $nbTest = getNbTestPerUser($id);
+  $tabTest = getDateScoreForUser($id);
+  require('vue/Historique.php');
+}
+
 
 function page_test($id){
   require('vue/PageTest.php');

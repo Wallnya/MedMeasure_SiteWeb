@@ -1,3 +1,6 @@
+<?php
+if ($_SESSION["type"]=="Pilote"){
+  ?>
 <!DOCTYPE html>
 <html lang="en" >
 <meta charset="UTF-8">
@@ -63,3 +66,10 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js'></script><script  src="./js/script.js"></script>
 </body>
 </html>
+
+<?php
+}
+else {
+header('Location: index.php');
+}
+?>

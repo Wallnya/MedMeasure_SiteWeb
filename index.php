@@ -73,6 +73,9 @@ if (isset($_GET['page'])) {
     else if(isset($_POST['Dernierresultat'])){
       page_dernierresultat($_SESSION['id']);
     }
+    else if(isset($_POST['histo'])){
+      page_historique($_SESSION['id']);
+    }
     else{
       page_user($_SESSION['id']);
     }
