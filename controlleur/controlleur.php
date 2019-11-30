@@ -39,8 +39,8 @@ function dataUser()
   $testpartiel = getTestPartiel();
   $nbuser = getCountUser();
   $nbpilote = getCountPilote();
-  $nbTestReussis = getCountTestReussis();
   $nbTest = getCountTest();
+  $nbTestReussis = getCountTestReussis();
   require('vue/admin_user.php');
 }
 
@@ -89,6 +89,13 @@ function page_user($id){
   $datecomplet = getLastTestCompletUser($id);
   require('vue/Menu.php');
 }
+
+function page_dernierresultat($id){
+  $resultat = getDernierTypeTest($id);
+  $resultatTest = getDernierTest($id,$resultat);
+  require ('vue/resultat-test-partiel.php');
+}
+
 
 function page_test($id){
   require('vue/PageTest.php');

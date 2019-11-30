@@ -15,6 +15,35 @@ function getUserProfil($id)
   return $req;
 }
 
+function getDernierTypeTest($id){
+  $db = dbConnect();
+  $req1 = $db->query('SELECT max(date) as resultatpartiel FROM testpartiel  where idUtilisateur='.$id);
+  $req2 = $db->query('SELECT max(date) as resultatcomplet FROM testcomplet  where idUtilisateur='.$id);
+
+  $invNum1 = $req1 -> fetch(PDO::FETCH_ASSOC);
+  $invNum2 = $req2 -> fetch(PDO::FETCH_ASSOC);
+
+  $r1 = $invNum1['resultatpartiel'];
+  $r2 = $invNum2['resultatcomplet'];
+
+  $today_dt = date_create($r1);
+  $expire_dt = date_create($r2);
+
+  if ($expire_dt < $today_dt) {
+    return "partiel";
+  }
+  else{
+    return "complet";
+  }
+}
+
+function getDernierTest($id,$type){
+  $db = dbConnect();
+  $nomtable = "test".$type;
+  $chaine = "SELECT * FROM $nomtable where date = (select max(date) from $nomtable where idUtilisateur=$id)";
+  $req = $db->query($chaine);
+  return $req;
+}
 
 function getDataConnexion()
 {
@@ -211,7 +240,7 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
   function getCountTest(){
     $db = dbConnect();
     $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
-    $req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet ');
+    $req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet');
 
     $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
     $nbTestPartiel = $invNum['nbtestPartiel'];
