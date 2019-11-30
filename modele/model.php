@@ -1,4 +1,34 @@
 <?php
+
+function getDeleteTestPartiel($idUtilisateur,$idtest){
+  $db = dbConnect();
+  $req = $db->prepare('DELETE FROM testpartiel WHERE idUtilisateur = ? and numero_test = ?');
+  $req->execute(array($idUtilisateur,$idtest));
+  $delete = $req->fetch();
+  return $delete;
+}
+
+function getDeleteTestComplet($idUtilisateur,$idtest){
+  $db = dbConnect();
+  $req = $db->prepare('DELETE FROM testcomplet WHERE idUtilisateur = ? and numero_test = ?');
+  $req->execute(array($idUtilisateur,$idtest));
+  $delete = $req->fetch();
+  return $delete;
+}
+
+
+function getTestPartiel2(){
+  $db = dbConnect();
+  $req1 = $db->query('SELECT * FROM testpartiel INNER JOIN utilisateur where testpartiel.idUtilisateur = utilisateur.idUtilisateur order by testpartiel.idUtilisateur, testpartiel.numero_test');
+  return $req1;
+}
+
+function getTestComplet2(){
+  $db = dbConnect();
+  $req1 = $db->query('SELECT * FROM testcomplet INNER JOIN utilisateur where testcomplet.idUtilisateur = utilisateur.idUtilisateur order by testcomplet.idUtilisateur, testcomplet.numero_test');
+  return $req1;
+}
+
 function getNbTestPerUser($id){
   $db = dbConnect();
   $reqTest = $db -> query("SELECT date, score

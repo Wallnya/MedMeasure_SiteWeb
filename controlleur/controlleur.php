@@ -32,6 +32,16 @@ function deleteUser($id){
   header('Location: index.php?page=admin_user');
 }
 
+function  deleteTestPartiel($idUtilisateur,$idtest){
+  $deletetestpartiel = getDeleteTestPartiel($idUtilisateur,$idtest);
+  header('Location: index.php?page=admin_user');
+}
+
+function  deleteTestComplet($idUtilisateur,$idtest){
+  $deletetestcomplet = getDeleteTestComplet($idUtilisateur,$idtest);
+  header('Location: index.php?page=admin_user');
+}
+
 function dataUser()
 {
   $user = getUser();
@@ -41,6 +51,8 @@ function dataUser()
   $nbpilote = getCountPilote();
   $nbTest = getCountTest();
   $nbTestReussis = getCountTestReussis();
+  $total = getTestPartiel2();
+  $total2 = getTestComplet2();
   require('vue/admin_user.php');
 }
 
