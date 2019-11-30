@@ -25,7 +25,7 @@ function prenomEnMaj()
 		i++;
 	}
 	prenommaj = tabprenom1.join('-');
-
+  
 	// Pour les noms multiples
 	var tabprenom2 = prenommaj.split(' ');
 	var i = 0;
