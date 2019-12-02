@@ -37,12 +37,16 @@
 
     $requete = "SELECT count(*) FROM Utilisateur";
     $requete2 = "SELECT count(*) FROM Utilisateur WHERE Sexe = 'Femme'";
+    $requete2_bis = "SELECT count(*) FROM Utilisateur WHERE Sexe = 'Homme'";
     $resultat = mysqli_query($connexion,$requete);
     $resultat2 = mysqli_query($connexion,$requete2);
+    $resultat2_bis = mysqli_query($connexion,$requete2_bis);
     $nombre_utilisateurs = mysqli_fetch_row($resultat);
     $nombre_femmes = mysqli_fetch_row($resultat2);
+    $nombre_hommes = mysqli_fetch_row($resultat2_bis);
 
     $pourcentage_femmes = round(($nombre_femmes[0]/$nombre_utilisateurs[0])*100);
+    $pourcentage_hommes = round(($nombre_hommes[0]/$nombre_utilisateurs[0])*100);
 
     $requete3 = "SELECT count(*) FROM testpartiel";
     $requete4 = "SELECT count(*) FROM testpartiel WHERE score <= 30";
@@ -130,6 +134,7 @@
 ?>
 
 <input type="hidden" id="pourcentage_femmes" value="<?php echo $pourcentage_femmes ?>">
+<input type="hidden" id="pourcentage_hommes" value="<?php echo $pourcentage_hommes ?>">
 <input type="hidden" id="score_tests_partiels_30" value="<?php echo $score_tests_partiels_30 ?>">
 <input type="hidden" id="score_tests_partiels_60" value="<?php echo $score_tests_partiels_60 ?>">
 <input type="hidden" id="score_tests_complets_30" value="<?php echo $score_tests_complets_30 ?>">

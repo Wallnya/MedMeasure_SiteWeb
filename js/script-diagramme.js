@@ -8,8 +8,8 @@ var gradients = [
 ];
 
 var data = [];
-var pourcentage_femmes = document.getElementById("pourcentage_femmes").value;
-var pourcentage_hommes = 100-pourcentage_femmes;
+var pourcentage_femmes = document.getElementById("pourcentage_femmes").value - 0;
+var pourcentage_hommes = document.getElementById("pourcentage_hommes").value - 0;
 var score_tests_partiels_30 = document.getElementById("score_tests_partiels_30").value;
 var score_tests_partiels_60 = document.getElementById("score_tests_partiels_60").value;
 var score_tests_partiels_75 = 100 - score_tests_partiels_60 - score_tests_partiels_30;
