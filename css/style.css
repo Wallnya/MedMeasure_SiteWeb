@@ -17,6 +17,7 @@ header{
   .barre_navigation {
     overflow: hidden;
   }
+
   
   .barre_navigation a {
     float: left;
@@ -43,8 +44,18 @@ header{
     width:60%;
     font-size: 20px;
   }
+
+  .Rechercher{
+    background: #AED6F1;
+    display: block;
+    margin: auto;
+    border: 0;
+    font-size: 16px;
+    border-radius: 4px;
+  }
   
   .filtres{
     display:flex;
     margin-left:30%;
   }
+

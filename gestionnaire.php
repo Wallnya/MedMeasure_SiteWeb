@@ -124,13 +124,6 @@
     $score_freq_120 = round((($tests_partiels_freq_120[0]+$tests_complets_freq_120[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
     $score_freq_140 = round((($tests_partiels_freq_140[0]+$tests_complets_freq_140[0])/($nombre_tests_partiels[0]+$nombre_tests_complets[0]))*100);
 
-
-    /*if(isset($_POST['submit'])) {
-      if ($_POST['sexe']=="'Femme") {
-          
-      }
-    }*/
-
 ?>
 
 <input type="hidden" id="pourcentage_femmes" value="<?php echo $pourcentage_femmes ?>">
@@ -142,9 +135,10 @@
 <input type="hidden" id="score_total_30" value="<?php echo $score_total_30 ?>">
 <input type="hidden" id="score_total_60" value="<?php echo $score_total_60 ?>">
 
-<div class="topnav">
-    <input type="text" placeholder="Recherche d'utilisateur">
-</div> 
+<form method="get" action = "./search.php" class="topnav">
+    <input type="text" name="search" placeholder="Recherche d'utilisateur">
+    <button type="submit" class="Rechercher">Rechercher</button>
+</form> 
 <div class="filtres">
     <form method="post" action="gestionnaire.php">
   
@@ -156,7 +150,6 @@
               <option value="Homme">Homme</option>
          </select>
      </p>
-     <input type="submit" name="submit" value="Rechercher" />
   </form>
 
   <form method="post" action="traitement.php">
@@ -184,7 +177,6 @@
     </p>
  </form>
 </div>
-
 
 <body>
     <!-- partial:index.partial.html -->
