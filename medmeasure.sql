@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 30 nov. 2019 à 19:48
+-- Généré le :  mar. 03 déc. 2019 à 14:30
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.2
 
@@ -68,8 +68,9 @@ INSERT INTO `faq` (`idFAQ`, `intitule`, `reponse`) VALUES
 (1, 'Comment lancer un test sur le site ?', 'Depuis le menu, sélectionnez dans le menu déroulant le test que vous souhaitez faire.'),
 (2, 'Comment effectuer les mesures demandées avec l\'appareil électronique ainsi que les différents capteurs ?', '........'),
 (3, 'Comment contacter le gestionnaire ?', 'Vous pouvez contacter le gestionnaire depuis le support.'),
-(4, 'Quels sont les tests effectués ?', 'Il y a deux types de test: \r\nLe test complet qui comprend les mesures du rythme cardiaque, de la perception auditive, de la température de la peau, du temps de réaction à un stimulus visuel et de la reconnaissance de tonalité.\r\nLe test partiel qui comprend les mesures du rythme cardiaque, de la perception auditive et du temps de réaction à un stimulus visuel.'),
+(4, 'Quels sont les tests effectués ?', 'Il y a deux types de test: \r\nLe test complet qui comprend les mesures du rythme cardiaque, de la perception auditive, de la température de la peau, du temps de réaction à un stimulus visuel et de la reconnaissance de tonalité.\r\nLe test partiel qui co'),
 (5, 'Combien de temps mes données sont-elles enregistrées ?', 'Vos résultats restent enregistrées pendant 6 mois.');
+
 -- --------------------------------------------------------
 
 --
@@ -94,12 +95,10 @@ CREATE TABLE `testcomplet` (
 --
 
 INSERT INTO `testcomplet` (`idTestComplet`, `idUtilisateur`, `Numero_Test`, `date`, `Frequence`, `PerceptionAuditive`, `StimulusVisuel`, `TemperaturePeau`, `RecoTonalite`, `score`) VALUES
-(1, 1, 0, '2019-11-03', 89, 30, 300, 34, 2000, 70),
 (2, 2, 0, '2019-11-18', 67, 37, 224, 21, 1570, 88),
 (3, 3, 0, '2019-11-14', 113, 22, 509, 37, 870, 54),
-(4, 1, 0, '2019-11-01', 89, 37, 440, 22, 3620, 74),
-(5, 5, 0, '2019-11-25', 78, 34, 415, 25, 1200, 66),
-(6, 6, 0, '2019-11-29', 102, 20, 769, 29, 740, 47);
+(4, 1, 1, '2019-11-01', 89, 37, 440, 22, 3620, 74),
+(5, 5, 0, '2019-11-25', 78, 34, 415, 25, 1200, 66);
 
 -- --------------------------------------------------------
 
@@ -124,17 +123,14 @@ CREATE TABLE `testpartiel` (
 --
 
 INSERT INTO `testpartiel` (`idTestPartiel`, `idUtilisateur`, `numero_test`, `date`, `Frequence`, `PerceptionAuditive`, `StimulusVisuel`, `id_boitier`, `score`) VALUES
-(1, 1, 0, '2019-10-14', 102, 36, 270, 0, 67),
 (2, 1, 1, '2019-09-17', 56, 22, 330, 0, 78),
 (3, 3, 0, '2019-10-09', 76, 33, 240, 0, 86),
 (4, 7, 0, '2019-09-12', 87, 36, 890, 0, 38),
 (5, 7, 1, '2019-12-12', 84, 28, 570, 0, 55),
 (6, 3, 1, '2019-11-21', 113, 39, 120, 0, 57),
-(7, 5, 0, '2019-08-19', 66, 42, 450, 0, 60),
 (8, 5, 1, '2019-07-03', 90, 21, 670, 0, 58),
 (9, 6, 0, '2019-07-01', 68, 35, 350, 0, 82),
-(10, 6, 1, '2019-06-03', 124, 21, 210, 0, 77),
-(11, 1, 0, '2019-07-26', 90, 33, 150, 0, 92);
+(10, 6, 1, '2019-06-03', 124, 21, 210, 0, 77);
 
 -- --------------------------------------------------------
 
@@ -156,7 +152,7 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`idTicket`, `idUtilisateur`, `dateEnvoi`, `intitule`, `contenu`, `statut`) VALUES
-(1, 1, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 0),
+(1, 1, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 1),
 (2, 2, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 0),
 (3, 2, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 1),
 (4, 3, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 0),
@@ -251,19 +247,19 @@ ALTER TABLE `connexion`
 -- AUTO_INCREMENT pour la table `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `idFAQ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idFAQ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `testcomplet`
 --
 ALTER TABLE `testcomplet`
-  MODIFY `idTestComplet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idTestComplet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `testpartiel`
 --
 ALTER TABLE `testpartiel`
-  MODIFY `idTestPartiel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idTestPartiel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `ticket`
