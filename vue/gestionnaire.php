@@ -1,3 +1,6 @@
+<?php
+if ($_SESSION["type"]=="Gestionnaire"){
+?>
 <!DOCTYPE html>
 <html lang="en" >
   <meta charset="UTF-8">
@@ -230,5 +233,10 @@
   <script  src="./js/script-histogramme.js"></script>
 
 </body>
-
 </html>
+<?php
+ }
+ else {
+  header('Location: index.php');
+ }
+ ?
