@@ -1,0 +1,61 @@
+header{
+    background-color:#AED6F1;
+    height:250px;
+    min-height:15%;
+  }
+  
+  .texte img{
+    height: 300px;
+    width: 100%;
+  }
+  
+  .barre_navigation img {
+    height: 50px;
+    width: 50px;
+    float: left;
+  }
+  .barre_navigation {
+    overflow: hidden;
+  }
+
+  
+  .barre_navigation a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .barre_navigation a:hover {
+    border-bottom: 2px solid rgb(69, 81, 187);
+    color: rgb(69, 81, 187);
+  }
+
+  .topnav{
+    margin-top:100px;
+    margin-left:40%;
+    width: 500px;
+  }
+  
+  .topnav input {
+    height:50px;
+    width:60%;
+    font-size: 20px;
+  }
+
+  .Rechercher{
+    background: #AED6F1;
+    display: block;
+    margin: auto;
+    border: 0;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
+  .filtres{
+    display:flex;
+    margin-left:30%;
+  }
+
