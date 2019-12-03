@@ -70,10 +70,13 @@ INSERT INTO `faq` (`idFAQ`, `intitule`, `reponse`) VALUES
 (3, 'Comment contacter le gestionnaire ?', 'Vous pouvez contacter le gestionnaire depuis le support.'),
 (4, 'Quels sont les tests effectués ?', 'Il y a deux types de test: \r\nLe test complet qui comprend les mesures du rythme cardiaque, de la perception auditive, de la température de la peau, du temps de réaction à un stimulus visuel et de la reconnaissance de tonalité.\r\nLe test partiel qui co'),
 (5, 'Combien de temps mes données sont-elles enregistrées ?', 'Vos résultats restent enregistrées pendant 6 mois.');
+
 -- --------------------------------------------------------
+
 --
 -- Structure de la table `testcomplet`
 --
+
 CREATE TABLE `testcomplet` (
   `idTestComplet` int(11) NOT NULL,
   `idUtilisateur` int(11) NOT NULL,
@@ -86,18 +89,23 @@ CREATE TABLE `testcomplet` (
   `RecoTonalite` int(11) NOT NULL,
   `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Déchargement des données de la table `testcomplet`
 --
+
 INSERT INTO `testcomplet` (`idTestComplet`, `idUtilisateur`, `Numero_Test`, `date`, `Frequence`, `PerceptionAuditive`, `StimulusVisuel`, `TemperaturePeau`, `RecoTonalite`, `score`) VALUES
 (2, 2, 0, '2019-11-18', 67, 37, 224, 21, 1570, 88),
 (3, 3, 0, '2019-11-14', 113, 22, 509, 37, 870, 54),
 (4, 1, 1, '2019-11-01', 89, 37, 440, 22, 3620, 74),
 (5, 5, 0, '2019-11-25', 78, 34, 415, 25, 1200, 66);
+
 -- --------------------------------------------------------
+
 --
 -- Structure de la table `testpartiel`
 --
+
 CREATE TABLE `testpartiel` (
   `idTestPartiel` int(11) NOT NULL,
   `idUtilisateur` int(11) NOT NULL,
@@ -109,9 +117,11 @@ CREATE TABLE `testpartiel` (
   `id_boitier` int(11) NOT NULL,
   `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Déchargement des données de la table `testpartiel`
 --
+
 INSERT INTO `testpartiel` (`idTestPartiel`, `idUtilisateur`, `numero_test`, `date`, `Frequence`, `PerceptionAuditive`, `StimulusVisuel`, `id_boitier`, `score`) VALUES
 (2, 1, 1, '2019-09-17', 56, 22, 330, 0, 78),
 (3, 3, 0, '2019-10-09', 76, 33, 240, 0, 86),
@@ -121,10 +131,13 @@ INSERT INTO `testpartiel` (`idTestPartiel`, `idUtilisateur`, `numero_test`, `dat
 (8, 5, 1, '2019-07-03', 90, 21, 670, 0, 58),
 (9, 6, 0, '2019-07-01', 68, 35, 350, 0, 82),
 (10, 6, 1, '2019-06-03', 124, 21, 210, 0, 77);
+
 -- --------------------------------------------------------
+
 --
 -- Structure de la table `ticket`
 --
+
 CREATE TABLE `ticket` (
   `idTicket` int(11) NOT NULL,
   `idUtilisateur` int(11) NOT NULL,
@@ -133,9 +146,11 @@ CREATE TABLE `ticket` (
   `contenu` varchar(250) NOT NULL,
   `statut` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Déchargement des données de la table `ticket`
 --
+
 INSERT INTO `ticket` (`idTicket`, `idUtilisateur`, `dateEnvoi`, `intitule`, `contenu`, `statut`) VALUES
 (1, 1, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 1),
 (2, 2, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 0),
@@ -146,10 +161,13 @@ INSERT INTO `ticket` (`idTicket`, `idUtilisateur`, `dateEnvoi`, `intitule`, `con
 (7, 6, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 0),
 (8, 8, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 1),
 (9, 1, '2019-11-05', '  Regum tuis ponere tuis nec.', '\r\n\r\n\r\n\r\nSed tamen haec cum ita tutius observentur, quidam vigore artuum inminuto rogati ad nuptias ubi aurum dextris manibus cavatis offertur, inpigre vel usque Spoletium pergunt. haec nobilium sunt instituta.\r\n\r\n', 0);
+
 -- --------------------------------------------------------
+
 --
 -- Structure de la table `utilisateur`
 --
+
 CREATE TABLE `utilisateur` (
   `idUtilisateur` int(11) NOT NULL,
   `nom` varchar(256) DEFAULT NULL,
@@ -161,9 +179,11 @@ CREATE TABLE `utilisateur` (
   `AdresseCP` int(11) NOT NULL,
   `Tel` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Déchargement des données de la table `utilisateur`
 --
+
 INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `DN`, `Sexe`, `AdresseVoie`, `AdresseVille`, `AdresseCP`, `Tel`) VALUES
 (1, 'Hugues', 'Hugues', '2000-10-15', 'Homme', '26 rue de la paix', 'Issy', 78350, '0605040203'),
 (2, 'Parapluie', 'Jeanne', '1999-01-01', 'Femme', '75 rue albert', 'Vanves', 95860, '0405060708'),
@@ -172,73 +192,88 @@ INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `DN`, `Sexe`, `Adre
 (5, 'Adrien', 'Adrien', '1980-04-15', 'Homme', '56 boulevard henrie', 'fdsdfsfd', 45144, '0605040203'),
 (6, 'Ludivine', 'Ludivine', '1970-03-26', 'Femme', '33 rue des champs', 'Sèvres', 92310, '0508091245'),
 (7, 'JOHN', 'Doe', '2019-11-28', 'Homme', '11 rue des sablons', 'Paris', 33700, '0650493912');
+
 --
 -- Index pour les tables déchargées
 --
+
 --
 -- Index pour la table `connexion`
 --
 ALTER TABLE `connexion`
   ADD PRIMARY KEY (`idUtilisateur`);
+
 --
 -- Index pour la table `faq`
 --
 ALTER TABLE `faq`
   ADD PRIMARY KEY (`idFAQ`);
+
 --
 -- Index pour la table `testcomplet`
 --
 ALTER TABLE `testcomplet`
   ADD PRIMARY KEY (`idTestComplet`);
+
 --
 -- Index pour la table `testpartiel`
 --
 ALTER TABLE `testpartiel`
   ADD PRIMARY KEY (`idTestPartiel`);
+
 --
 -- Index pour la table `ticket`
 --
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`idTicket`);
+
 --
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`idUtilisateur`);
+
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
 --
 -- AUTO_INCREMENT pour la table `connexion`
 --
 ALTER TABLE `connexion`
   MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT pour la table `faq`
 --
 ALTER TABLE `faq`
   MODIFY `idFAQ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT pour la table `testcomplet`
 --
 ALTER TABLE `testcomplet`
   MODIFY `idTestComplet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT pour la table `testpartiel`
 --
 ALTER TABLE `testpartiel`
   MODIFY `idTestPartiel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT pour la table `ticket`
 --
 ALTER TABLE `ticket`
   MODIFY `idTicket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

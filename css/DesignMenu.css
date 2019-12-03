@@ -1,0 +1,198 @@
+header{
+	background-color:#AED6F1;
+	height:50px;
+	min-height:15%;
+}
+
+.barre_navigation img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+.barre_navigation {
+  overflow: hidden;
+}
+
+.barre_navigation a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.barre_navigation a:hover {
+  border-bottom: 2px solid #82AFCC;
+  color: #82AFCC;
+}
+.btnProfil
+{
+	margin-left: 600px;
+	margin-top: 150px;
+	height: 30px;
+
+}
+
+.ModificationProfil{
+	font-family: Arial;
+	line-height: 0px;
+	text-align: center;
+	font-size : large;
+	width:150px;
+
+}
+
+.EnvoyerTicket{
+	font-family: Arial;
+	line-height: 0px;
+	text-align: center;
+	font-size : large;
+	margin-left:200px;
+	width:150px;
+
+}
+
+
+.formulaire-login p{
+	padding:10px;
+	font-size: 35px;
+}
+
+.formulaire-login img{
+		width: 100px;
+		height: 100px;
+		float: left;
+		padding: 20px;
+}
+
+.formulaire-login {
+  width: 75%;
+	height: 750px;
+  padding: 25px 0 50px;
+  margin: 50px auto;
+	background: #5C7180;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.rectangle-ticket{
+    padding: 0px 25px 0px 0px;
+    box-shadow: 0 10px 20px 0 rgba(26, 44, 57, 0.14);
+    background: #8AAABF;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+		width:20%;
+}
+.rectangle-ticket p{
+	font-size: 20px;
+}
+.rectangle-donnee-ticket{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.container-fluid-ticket {
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.rectangle-ticket img {
+  width: 25px;
+  height: 25px;
+}
+
+.formulaire {
+  position: relative;
+	top:25%;
+  z-index: 1;
+  margin: 75px 0 0 0;
+  padding: 45px;
+  text-align: center;
+}
+
+.formulaire button {
+  text-transform: uppercase;
+  outline: 0;
+  width: 50%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+	background: #8AAABF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.formulaire button:hover,.formulaire button:active,.formulaire button:focus {
+  background: #70B1CB;
+}
+
+
+
+
+
+
+.formulaireBouton {
+  position: relative;
+	top:10%;
+  z-index: 1;
+  margin: 75px 0 0 0;
+  padding: 45px;
+  text-align: center;
+}
+
+.formulaireBouton button {
+	margin-bottom: 25px;
+  text-transform: uppercase;
+  outline: 0;
+  width: 50%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+	background: #8AAABF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.formulaireBouton button:hover,.formulaireBouton button:active,.formulaireBouton button:focus {
+  background: #70B1CB;
+}
+
+
+
+
+
+.gauche {
+	box-shadow: 10px 0px 5px 0px rgba(0, 0, 0, 0.2);
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+
+.gauche p {
+  position: absolute;
+	text-align: center;
+  top: 60%;
+  left: 30%;
+  transform:translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.droite {
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+	width: 50%;
+	height: 500px;
+	float: right;
+}
+
+.droite p  {
+  position: absolute;
+	top: 60%;
+  left: 75%;
+  transform:translate(-50%, -50%);
+  font-size: 20px;
+}
