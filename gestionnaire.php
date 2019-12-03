@@ -135,9 +135,41 @@
 <input type="hidden" id="score_total_30" value="<?php echo $score_total_30 ?>">
 <input type="hidden" id="score_total_60" value="<?php echo $score_total_60 ?>">
 
-<form method="get" action = "./search.php" class="topnav">
+<form method="get" action = "gestionnaire.php" class="topnav">
     <input type="text" name="search" placeholder="Recherche d'utilisateur">
     <button type="submit" class="Rechercher">Rechercher</button>
+    <?php
+      $serveur = "localhost";
+      $login = "root";
+      $mdp = "";
+
+      #connexion au serveur de la base de données
+      $connexion = mysqli_connect($serveur,$login,$mdp)
+      or die ("Connexion au serveur $serveur impossible pour $login");
+
+      #nom de la base de données
+      $bd = "medmeasure";
+
+      #connexion à la base de données
+      mysqli_select_db($connexion,$bd)
+      or die ("Impossible d'accéder à la base de données");
+
+      if (isset($_GET['search']) && !empty($_GET['search']) && $_GET['search'] !== '  ') {
+        $search = $_GET['search'];
+        $query = mysqli_query($connexion, "SELECT * FROM Utilisateur WHERE Nom LIKE '%$search%' OR Prenom LIKE '%$search%'") or die(mysqli_error());
+        $result = mysqli_num_rows($query);
+        if ($result == 0) {
+          $output = 'Pas de résultat pour <b>"'.$search.'"</b>';
+        }
+        else {
+          echo "<div class=\"recherche-menu-deroulant\"><select>";
+          while ($row = mysqli_fetch_array($query)) {
+            echo "<option value=\"Nom\">".$row['Nom'].' '.$row['Prenom']."</option>";
+          }
+          echo "</select></div>";
+        }
+  }
+  ?>
 </form> 
 <div class="filtres">
     <form method="post" action="gestionnaire.php">

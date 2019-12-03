@@ -45,6 +45,10 @@ header{
     font-size: 20px;
   }
 
+  .recherche-menu-deroulant {
+    margin: 0;
+  }
+
   .Rechercher{
     background: #AED6F1;
     display: block;
