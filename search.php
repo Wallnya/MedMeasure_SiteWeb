@@ -14,8 +14,7 @@
   mysqli_select_db($connexion,$bd)
   or die ("Impossible d'accéder à la base de données");
 
-  $output = '';
-  if (isset($_GET['search']) && !empty($_GET['search']) && $_GET['search'] !== ' ') {
+  if (isset($_GET['search']) && !empty($_GET['search']) && $_GET['search'] !== '  ') {
     $search = $_GET['search'];
     $query = mysqli_query($connexion, "SELECT * FROM Utilisateur WHERE Nom LIKE '%$search%' OR Prenom LIKE '%$search%'") or die(mysqli_error());
     $result = mysqli_num_rows($query);
@@ -24,15 +23,11 @@
     }
     else {
       while ($row = mysqli_fetch_array($query)) {
-        $prenom = $row['Prenom'];
-        $nom = $row['Nom'];
-
-        $output = $prenom.$nom;
+        echo 'Résultat de la recherche: '.$row['Nom'].', '.$row['Prenom'].' <br />';
       }
     }
   }
   else {
     header('Location: gestionnaire.php');
   }
-  print($output);
   ?>
