@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <title>Gestionnaire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style2.css">
   <link rel="stylesheet" href="./css/diagramme.css">
   <link rel="stylesheet" href="./css/histogramme.css">
 
@@ -23,14 +23,14 @@
 		$serveur = "localhost";
 		$login = "root";
     $mdp = "";
-    
+
 		#connexion au serveur de la base de données
 		$connexion = mysqli_connect($serveur,$login,$mdp)
     or die ("Connexion au serveur $serveur impossible pour $login");
-    
+
 		#nom de la base de données
     $bd = "medmeasure";
-    
+
 		#connexion à la base de données
 		mysqli_select_db($connexion,$bd)
     or die ("Impossible d'accéder à la base de données");
@@ -138,10 +138,10 @@
 <form method="get" action = "./search.php" class="topnav">
     <input type="text" name="search" placeholder="Recherche d'utilisateur">
     <button type="submit" class="Rechercher">Rechercher</button>
-</form> 
+</form>
 <div class="filtres">
     <form method="post" action="gestionnaire.php">
-  
+
      <p>
          <label for="sexe"></label><br />
          <select name="sexe" style="width:200px; height:30px; font-size: 15px;" id="sexe">
@@ -190,7 +190,7 @@
     <!-- partial -->
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-    <script  src="./js/script-diagramme.js"></script>  
+    <script  src="./js/script-diagramme.js"></script>
 
 
 
@@ -209,7 +209,7 @@
       <li><span>10%</span></li>
       <li><span>0%</span></li>
     </ul>
-    
+
     <ul id="bars">
       <li><div data-percentage="<?php echo $score_freq_40 ?>" class="bar"></div><span> < 40 bpm</span></li>
       <li><div data-percentage="<?php echo $score_freq_60 ?>" class="bar"></div><span>40 - 60 bpm</span></li>
