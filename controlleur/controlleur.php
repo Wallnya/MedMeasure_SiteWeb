@@ -2,6 +2,10 @@
 
 require('modele/model.php');
 
+
+function page_gestionnaire(){
+  require('vue/gestionnaire.php');
+}
 function modifyUser($type,$id)
 {
   $modify = getModifyUser($type,$id);
@@ -147,7 +151,7 @@ function connexion($email,$mdp){
       }
       else if ($data['type'] == "Gestionnaire"){
         $_SESSION['type'] = "Gestionnaire";
-        header ('Location: gestionnaire.php');
+        header ('Location: index.php?page=gestionnaire');
       }
       else if ($data['type'] == "Pilote"){
         $_SESSION['type'] = "Pilote";

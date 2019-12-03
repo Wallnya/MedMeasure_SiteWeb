@@ -10,8 +10,8 @@
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-    <a href="accueil.php">Accueil</a>
-    <a href="deconnexion.php">Déconnexion</a>
+    <a href="index.php?page=gestionnaire">Accueil</a>
+    <a href="index.php?deco=deconnexion">Deconnexion</a>
   </div>
   <div class="texte">
     <img src="images/gestion.png" alt="Image pour la page resultat">
