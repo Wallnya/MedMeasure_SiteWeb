@@ -1,0 +1,67 @@
+header {
+	color: blue;
+	background-color: skyblue;
+	height: 160px;
+	font-size: 30px ;
+}
+
+.logo img {
+	width : 100px;
+	height: 100px;
+	padding : 10px;
+	margin-right: 1000px ;
+}
+
+.boutonaccueil button {
+	background-color: orange;
+	font-size: 16px;
+	border-radius: 8px;
+	float: right;
+	margin : 30px ;
+}
+
+form label {
+	position: relative;
+	display: inline-block;
+    width: 45%;
+    text-align: right;
+	align-items: flex-start;
+	margin-right: 10px
+}
+
+input, textarea, select{
+	width: 200px;
+	border-radius: 5px; 
+	
+}
+
+.photo{
+	text-align: center;
+	border: black 1px solid;
+	width: 200px;
+	height: 200px;
+	margin : auto;
+}
+
+.Infos {
+	font-size: 20px;
+	padding: 20px;
+}
+
+button{
+	display : block;
+	margin : auto;
+	background-color: springgreen;
+	font-size: 16px;
+	border-radius: 8px;
+}
+
+footer {
+	margin-top : 30px;
+	color : black;
+	background-color: lightgrey;
+	height: 80px;
+	min-width: 100%;
+	bottom:0;
+	position: relative;
+}
