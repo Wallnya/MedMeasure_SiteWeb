@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  mar. 03 déc. 2019 à 14:30
--- Version du serveur :  10.1.38-MariaDB
--- Version de PHP :  7.3.2
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mer. 04 déc. 2019 à 21:17
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,12 +28,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `connexion`
 --
 
-CREATE TABLE `connexion` (
+DROP TABLE IF EXISTS `connexion`;
+CREATE TABLE IF NOT EXISTS `connexion` (
   `email` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
-  `idUtilisateur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idUtilisateur`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `connexion`
@@ -54,22 +56,24 @@ INSERT INTO `connexion` (`email`, `mdp`, `type`, `idUtilisateur`) VALUES
 -- Structure de la table `faq`
 --
 
-CREATE TABLE `faq` (
-  `idFAQ` int(11) NOT NULL,
-  `intitule` varchar(250) NOT NULL,
-  `reponse` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `idFAQ` int(11) NOT NULL AUTO_INCREMENT,
+  `intitule` varchar(500) NOT NULL,
+  `reponse` varchar(500) NOT NULL,
+  PRIMARY KEY (`idFAQ`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `faq`
 --
 
 INSERT INTO `faq` (`idFAQ`, `intitule`, `reponse`) VALUES
-(1, 'Comment lancer un test sur le site ?', 'Depuis le menu, sélectionnez dans le menu déroulant le test que vous souhaitez faire.'),
-(2, 'Comment effectuer les mesures demandées avec l\'appareil électronique ainsi que les différents capteurs ?', '........'),
-(3, 'Comment contacter le gestionnaire ?', 'Vous pouvez contacter le gestionnaire depuis le support.'),
-(4, 'Quels sont les tests effectués ?', 'Il y a deux types de test: \r\nLe test complet qui comprend les mesures du rythme cardiaque, de la perception auditive, de la température de la peau, du temps de réaction à un stimulus visuel et de la reconnaissance de tonalité.\r\nLe test partiel qui co'),
-(5, 'Combien de temps mes données sont-elles enregistrées ?', 'Vos résultats restent enregistrées pendant 6 mois.');
+(1, 'Comment lancer un test sur le site ?', 'Depuis la page d\'accueil, appuyez sur \" C\'est parti \" puis sélectionnez le test que vous souhaitez faire.'),
+(2, 'Comment effectuer les mesures demandées avec l\'appareil électronique ainsi que les différents capteurs ?', 'Pendant le déroulement des tests, des instructions vous seront données avant chaque mesures.'),
+(4, 'Quels sont les tests effectués ?', 'Il y a deux types de test: Le test complet qui comprend les mesures du rythme cardiaque, de la perception auditive, de la température de la peau, du temps de réaction à un stimulus visuel et de la reconnaissance de tonalité.Le test partiel qui comprend les mesures du rythme cardiaque, de la perception auditive et du temps de réaction à un stimulus visuel.'),
+(5, 'Combien de temps mes données sont-elles enregistrées ?', 'Vos résultats restent enregistrées pendant 6 mois.'),
+(6, 'Comment contacter un administrateur ?', 'Vous pouvez contacter un administrateur en lui envoyant un ticket depuis la page d\'accueil.');
 
 -- --------------------------------------------------------
 
@@ -77,8 +81,9 @@ INSERT INTO `faq` (`idFAQ`, `intitule`, `reponse`) VALUES
 -- Structure de la table `testcomplet`
 --
 
-CREATE TABLE `testcomplet` (
-  `idTestComplet` int(11) NOT NULL,
+DROP TABLE IF EXISTS `testcomplet`;
+CREATE TABLE IF NOT EXISTS `testcomplet` (
+  `idTestComplet` int(11) NOT NULL AUTO_INCREMENT,
   `idUtilisateur` int(11) NOT NULL,
   `Numero_Test` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -87,8 +92,9 @@ CREATE TABLE `testcomplet` (
   `StimulusVisuel` int(11) NOT NULL,
   `TemperaturePeau` int(11) NOT NULL,
   `RecoTonalite` int(11) NOT NULL,
-  `score` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `score` int(11) NOT NULL,
+  PRIMARY KEY (`idTestComplet`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `testcomplet`
@@ -106,8 +112,9 @@ INSERT INTO `testcomplet` (`idTestComplet`, `idUtilisateur`, `Numero_Test`, `dat
 -- Structure de la table `testpartiel`
 --
 
-CREATE TABLE `testpartiel` (
-  `idTestPartiel` int(11) NOT NULL,
+DROP TABLE IF EXISTS `testpartiel`;
+CREATE TABLE IF NOT EXISTS `testpartiel` (
+  `idTestPartiel` int(11) NOT NULL AUTO_INCREMENT,
   `idUtilisateur` int(11) NOT NULL,
   `numero_test` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -115,8 +122,9 @@ CREATE TABLE `testpartiel` (
   `PerceptionAuditive` int(11) NOT NULL,
   `StimulusVisuel` int(11) NOT NULL,
   `id_boitier` int(11) NOT NULL,
-  `score` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `score` int(11) NOT NULL,
+  PRIMARY KEY (`idTestPartiel`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `testpartiel`
@@ -138,14 +146,16 @@ INSERT INTO `testpartiel` (`idTestPartiel`, `idUtilisateur`, `numero_test`, `dat
 -- Structure de la table `ticket`
 --
 
-CREATE TABLE `ticket` (
-  `idTicket` int(11) NOT NULL,
+DROP TABLE IF EXISTS `ticket`;
+CREATE TABLE IF NOT EXISTS `ticket` (
+  `idTicket` int(11) NOT NULL AUTO_INCREMENT,
   `idUtilisateur` int(11) NOT NULL,
   `dateEnvoi` date NOT NULL,
   `intitule` varchar(50) NOT NULL,
   `contenu` varchar(250) NOT NULL,
-  `statut` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `statut` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idTicket`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `ticket`
@@ -168,8 +178,9 @@ INSERT INTO `ticket` (`idTicket`, `idUtilisateur`, `dateEnvoi`, `intitule`, `con
 -- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `utilisateur` (
-  `idUtilisateur` int(11) NOT NULL,
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(256) DEFAULT NULL,
   `prenom` varchar(256) DEFAULT NULL,
   `DN` date NOT NULL,
@@ -177,8 +188,9 @@ CREATE TABLE `utilisateur` (
   `AdresseVoie` varchar(50) NOT NULL,
   `AdresseVille` varchar(50) NOT NULL,
   `AdresseCP` int(11) NOT NULL,
-  `Tel` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Tel` varchar(50) NOT NULL,
+  PRIMARY KEY (`idUtilisateur`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -192,86 +204,6 @@ INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `DN`, `Sexe`, `Adre
 (5, 'Adrien', 'Adrien', '1980-04-15', 'Homme', '56 boulevard henrie', 'fdsdfsfd', 45144, '0605040203'),
 (6, 'Ludivine', 'Ludivine', '1970-03-26', 'Femme', '33 rue des champs', 'Sèvres', 92310, '0508091245'),
 (7, 'JOHN', 'Doe', '2019-11-28', 'Homme', '11 rue des sablons', 'Paris', 33700, '0650493912');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `connexion`
---
-ALTER TABLE `connexion`
-  ADD PRIMARY KEY (`idUtilisateur`);
-
---
--- Index pour la table `faq`
---
-ALTER TABLE `faq`
-  ADD PRIMARY KEY (`idFAQ`);
-
---
--- Index pour la table `testcomplet`
---
-ALTER TABLE `testcomplet`
-  ADD PRIMARY KEY (`idTestComplet`);
-
---
--- Index pour la table `testpartiel`
---
-ALTER TABLE `testpartiel`
-  ADD PRIMARY KEY (`idTestPartiel`);
-
---
--- Index pour la table `ticket`
---
-ALTER TABLE `ticket`
-  ADD PRIMARY KEY (`idTicket`);
-
---
--- Index pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`idUtilisateur`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `connexion`
---
-ALTER TABLE `connexion`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT pour la table `faq`
---
-ALTER TABLE `faq`
-  MODIFY `idFAQ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT pour la table `testcomplet`
---
-ALTER TABLE `testcomplet`
-  MODIFY `idTestComplet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `testpartiel`
---
-ALTER TABLE `testpartiel`
-  MODIFY `idTestPartiel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT pour la table `ticket`
---
-ALTER TABLE `ticket`
-  MODIFY `idTicket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
