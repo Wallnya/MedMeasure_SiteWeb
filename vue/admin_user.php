@@ -7,6 +7,7 @@ if ($_SESSION["type"]=="Administrateur"){
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <header>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
@@ -14,6 +15,8 @@ if ($_SESSION["type"]=="Administrateur"){
       <a href="index.php?page=admin_faq">Gestion FAQ</a>
       <a href="index.php?page=admin_ticket">Gestion Tickets</a>
       <a href="index.php?deco=deconnexion">Déconnexion</a>
+      <button class="test">FR</button>
+      <button class="test">EN</button>
     </div>
     <div class="texte">
       <img src="images/image_admin.jpg" alt="Image pour la page admin">

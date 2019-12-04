@@ -16,6 +16,8 @@ if ($_SESSION["type"]=="Administrateur"){
       <a href="index.php?page=admin_faq">Gestion FAQ</a>
       <a href="index.php?page=admin_ticket">Gestion Tickets</a>
       <a href="index.php?deco=deconnexion">Déconnexion</a>
+      <button class="test">FR</button>
+      <button class="test">EN</button>
     </div>
     <div class="texte">
       <img src="images/image_admin.jpg" alt="Image pour la page admin">

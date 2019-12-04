@@ -15,6 +15,8 @@ if ($_SESSION["type"]=="Gestionnaire"){
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=gestionnaire">Accueil</a>
     <a href="index.php?deco=deconnexion">Deconnexion</a>
+    <button class="test">FR</button>
+    <button class="test">EN</button>
   </div>
   <div class="texte">
     <img src="images/gestion.png" alt="Image pour la page resultat">
@@ -239,4 +241,4 @@ if ($_SESSION["type"]=="Gestionnaire"){
  else {
   header('Location: index.php');
  }
- ?
+ ?>

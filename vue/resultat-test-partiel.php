@@ -14,6 +14,8 @@ if ($_SESSION["type"]=="Pilote"){
     <a href="index.php?page=user">Accueil</a>
     <a href="index.php?page=faq">FAQ</a>
     <a href="index.php?deco=deconnexion">Déconnexion</a>
+    <button class="test">FR</button>
+    <button class="test">EN</button>
   </div>
   <div class="texte">
     <img src="images/Avion06.jpg" alt="Image pour la page resultat">
