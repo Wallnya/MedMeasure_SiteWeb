@@ -68,7 +68,7 @@
               </div>
 
               <div class="checkbox_cgu">
-                  <label for="cgu">J'ai lu et j'accepte les <a href="">conditions générales d'utilisation</a></label>
+                  <label for="cgu">J'ai lu et j'accepte les <a href="index.php?page=cgu">conditions générales d'utilisation</a></label>
                   <input type="checkbox" name="cgu" id="cgu" value="cgu" required/>
               </div>
 

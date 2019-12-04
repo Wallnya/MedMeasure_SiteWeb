@@ -14,6 +14,11 @@ function modifyUser($type,$id)
 
 }
 
+function cgu(){
+  require('vue/cgu.php');
+
+}
+
 function login(){
   require('vue/inscription.php');
 }

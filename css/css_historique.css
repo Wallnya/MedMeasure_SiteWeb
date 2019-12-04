@@ -2,7 +2,20 @@ header{
 	background-color:#AED6F1;
 	height:50px;
 	min-height:15%;
+	font-family: Helvetica Neue;
 }
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+body p {
+  color:black;
+  font-size: 20px;
+  text-align: center;
+}
+
 
 .barre_navigation img {
   height: 50px;

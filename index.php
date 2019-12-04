@@ -105,7 +105,7 @@ if (isset($_GET['page'])) {
   /********************************/
   /*          INSCRIPTION         */
   /********************************/
-  if ($_GET['page'] == 'inscription'){
+  else   if ($_GET['page'] == 'inscription'){
     if (isset($_POST["boutonInscription"])){
       if (isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
       isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel']) && isset($_POST['mdp'])){
@@ -118,7 +118,15 @@ if (isset($_GET['page'])) {
       login();
     }
   }
+  /********************************/
+  /*          CGU                 */
+  /********************************/
+  else if ($_GET['page']== 'cgu'){
+      cgu();
+  }
 }
+
+
 /********************************/
 /*          DECONNEXION         */
 /********************************/

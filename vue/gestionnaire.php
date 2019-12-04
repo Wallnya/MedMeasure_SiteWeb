@@ -14,7 +14,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=gestionnaire">Accueil</a>
-    <a href="index.php?deco=deconnexion">Deconnexion</a>
+    <a href="index.php?deco=deconnexion">Déconnexion</a>
     <button class="test">FR</button>
     <button class="test">EN</button>
   </div>

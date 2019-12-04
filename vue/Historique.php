@@ -3,8 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Historique des résultats</title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-            <link rel='stylesheet' href='https://cdn.oesmith.co.uk/morris-0.5.1.css'>
             <link rel="stylesheet" href="css/css_historique.css">
     </head>
     <header>
