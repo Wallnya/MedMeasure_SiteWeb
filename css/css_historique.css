@@ -1,21 +1,54 @@
 header{
 	background-color:#AED6F1;
 	height:50px;
-	min-height:15%;
-	font-family: Helvetica Neue;
+  min-height:15%;
+  font-family: Trebuchet MS, sans-serif;
 }
 
-body {
-    display: block;
-    margin: 8px;
+body{
+  font-family: Trebuchet MS, sans-serif;
 }
 
-body p {
-  color:black;
-  font-size: 20px;
+section{
+  margin: 30px 10% 30px 10%;
+  border: solid black 2px;
+}
+
+h3{
   text-align: center;
 }
 
+#area-chart{
+  text-align: center;
+}
+
+#graph{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#titre
+{
+	text-align: center;
+	font: small-caps bold 35px Trebuchet MS, sans-serif;
+	letter-spacing: 5px;
+	position: fixed;
+	margin-top: -50px;
+	width: calc(100% - 6px);
+}
+
+#histo{
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#listeHisto{
+  text-align: center;
+  font-size: 1.1em;
+  margin: 20px 0;
+}
 
 .barre_navigation img {
   height: 50px;
@@ -40,13 +73,3 @@ body p {
   color: #82AFCC;
 }
 
-.barre_navigation .test{
-   float: right;
-  width:50px;
- 	height:50px;
- 	background:#fafafa;
- 	box-shadow:2px 2px 8px #aaa;
- 	font:bold 13px Arial;
- 	border-radius:50%;
- 	color:#555;
-}

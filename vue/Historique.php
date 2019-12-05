@@ -3,35 +3,40 @@
     <head>
         <meta charset="UTF-8">
         <title>Historique des résultats</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+            <link rel='stylesheet' href='https://cdn.oesmith.co.uk/morris-0.5.1.css'>
             <link rel="stylesheet" href="css/css_historique.css">
     </head>
-    <header>
-      <div class="barre_navigation">
-        <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-        <a href="index.php?page=user">Accueil</a>
-        <a href="index.php?page=faq">FAQ</a>
-        <a href="index.php?deco=deconnexion">Déconnexion</a>
-        <button class="test">FR</button>
-        <button class="test">EN</button>
-      </div>
-    </header>
     <body>
-        <section style="text-align: center">
+        <header>
+            <div class="barre_navigation">
+                <img src="images/MedMeasure.png" alt="logo de MedMeasure">
+                <a href="index.php?page=user">Accueil</a>
+                <a href="index.php?page=faq">FAQ</a>
+                <a href="index.php?deco=deconnexion">Déconnexion</a>
+                <!--button class="test">FR</button>
+                <button class="test">EN</button-->
+            </div>
+            <div id="titre">Historique des résultats</div>
+        </header>
+        <section id="graph">
             <div>
                 <h3>Evolution des scores</h3>
                 <div id="area-chart"></div>
             </div>
         </section>
-        <section>
+        <section id="histo">
             <h3>Historique </h3>
-            <ol>
-              <?php foreach($tabTest as list($valeur1,$valeur2)){ ?>
-                <li style='color:blue'>
-                  <?php echo $valeur1. " : ". $valeur2;?>
-                      points <a href='#'>- Détails</a>
-            <?php  }?>
-               </li>
-            </ol>
+            <div id="listeHisto">
+                <ol>
+                <?php foreach($tabTest as list($valeur1,$valeur2)){  ?>
+                    <li style='color:blue'>
+                    <?php echo $valeur1. " : ". $valeur2;?>
+                        points <a href='#'>- Détails</a>
+                <?php  }?>
+                </li>
+                </ol>
+            </div>
         </section>
     </body>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
@@ -54,7 +59,7 @@
             resize: true,
             pointFillColors:['#ffffff',],
             pointStrokeColors: ['black'],
-            lineColors:['red']
+            lineColors:['#ff42d0']
             };
             config.element = 'area-chart';
             Morris.Area(config);
