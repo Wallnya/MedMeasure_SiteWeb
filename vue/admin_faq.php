@@ -31,7 +31,7 @@ if ($_SESSION["type"]=="Administrateur"){
       <tr class="entete">
         <td>Numéro question</td>
         <td>Intitulé</td>
-        <td>Reponse</td>
+        <td>Réponse</td>
       </tr>
     <?php
     while ($data2 = $faq->fetch())
@@ -68,7 +68,7 @@ if ($_SESSION["type"]=="Administrateur"){
           <legend>Formulaire de la création d'une question</legend>
             <label for="question">Intitulé de la question</label>
             <textarea name="question"></textarea>
-            <label for="reponse">Reponse de la question</label>
+            <label for="reponse">Réponse de la question</label>
             <textarea name="reponse"></textarea>
             <br>
             <button type="submit" name="enregistrerFAQ"><i class="fa fa-save"></i></button>

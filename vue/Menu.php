@@ -39,7 +39,7 @@ if ($_SESSION["type"]=="Pilote"){
           <div class="rectangle-donnee-ticket">
             <div class="rectangle-ticket">
               <img src="images/notes-medical-solid.svg" alt="logo test">
-              <p>Nombres de tests: <?= $nbtest?></p>
+              <p>Nombre de tests: <?= $nbtest?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-check"></i>
@@ -56,8 +56,8 @@ if ($_SESSION["type"]=="Pilote"){
           </div>
           <div class="gauche">
             <p>
-              Prêt pour un test ?
               <div class="formulaire">
+                Prêt pour un test ?
                 <form method="POST" action="index.php?page=user" id="formInscription">
                 <button type="submit" name="test" id="test">C'est parti</button>
               </div>

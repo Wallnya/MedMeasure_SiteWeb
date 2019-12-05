@@ -140,12 +140,12 @@ if ($_SESSION["type"]=="Gestionnaire"){
 <input type="hidden" id="score_total_30" value="<?php echo $score_total_30 ?>">
 <input type="hidden" id="score_total_60" value="<?php echo $score_total_60 ?>">
 
-<form method="get" action = "./search.php" class="topnav">
+<form method="get" action = "" class="topnav">
     <input type="text" name="search" placeholder="Recherche d'utilisateur">
     <button type="submit" class="Rechercher">Rechercher</button>
 </form>
 <div class="filtres">
-    <form method="post" action="gestionnaire.php">
+    <form method="post" action="">
 
      <p>
          <label for="sexe"></label><br />
@@ -157,7 +157,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
      </p>
   </form>
 
-  <form method="post" action="traitement.php">
+  <form method="post" action="">
     <p>
         <label for="score"></label><br />
         <select name="score" style="width:200px; height:30px; font-size: 15px;" id="score">
@@ -168,7 +168,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
         </select>
     </p>
  </form>
- <form method="post" action="traitement.php">
+ <form method="post" action="">
     <p>
         <label for="Test"></label><br />
         <select name="Test" style="width:200px; height:30px; font-size: 15px;" id="test">

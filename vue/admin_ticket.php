@@ -71,8 +71,8 @@ if ($_SESSION["type"]=="Administrateur"){
         <tr class="entete">
           <td>Nom de l'utilisateur</td>
           <td>Date d'envoi</td>
-          <td>Intitule</td>
-          <td>Reponse</td>
+          <td>Intitulé</td>
+          <td>Réponse</td>
           <td>Statut</td>
         </tr>
       <?php

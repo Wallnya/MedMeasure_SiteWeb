@@ -27,8 +27,8 @@ data['piedata'] = [
 ];
 
 data['piedata2'] = [
-  { label: "Hommes", value: pourcentage_hommes, color: 'other' },
-  { label: "Femmes", value: pourcentage_femmes, color: 'pink' }
+  { label: "Homme", value: pourcentage_hommes, color: 'other' },
+  { label: "Femme", value: pourcentage_femmes, color: 'pink' }
 ];
 
 data['piedata3'] = [
@@ -48,7 +48,7 @@ $(document).ready(function() {
     var chartId = '#' + $(this).attr('id');
     var chartLabel = $(this).attr('data-pie-label');
     var piedata = data[$(this).attr('data-pie')];
-    
+
     var width = 300,
     height = 300,
     radius = 140;

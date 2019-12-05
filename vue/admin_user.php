@@ -46,7 +46,7 @@ if ($_SESSION["type"]=="Administrateur"){
       while ($data = $nbpilote->fetch())
       {
         ?>
-        <p>Nombres de pilotes : <?= htmlspecialchars($data['uti']) ?></p>
+        <p>Nombre de pilotes : <?= htmlspecialchars($data['uti']) ?></p>
         <?php
       }
       $nbpilote->closeCursor();
@@ -54,7 +54,7 @@ if ($_SESSION["type"]=="Administrateur"){
     </div>
     <div class="rectangle">
       <img src="images/notes-medical-solid.svg" alt="logo test">
-      <p>Nombres de tests: <?= $nbTest ?> </p>
+      <p>Nombre de tests: <?= $nbTest ?> </p>
     </div>
     <div class="rectangle">
       <i class="fa fa-check"></i>
@@ -252,7 +252,7 @@ $total->closeCursor();
       echo "<div class=\"content\">";
       echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
       echo "<tr class=\"entete\"><td>Date du test</td><td>Fréquence</td><td>Perception Auditive</td>
-      <td>Stimulus Visuel</td><td>Temperature peau</td> <td>Reconnaissance de la tonalité</td><td>Score</td><td></td></tr>";
+      <td>Stimulus Visuel</td><td>Temperature de la peau</td> <td>Reconnaissance de la tonalité</td><td>Score</td><td></td></tr>";
       echo "<tr>";
       ?>
       <td>
