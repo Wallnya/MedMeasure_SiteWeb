@@ -6,6 +6,8 @@ if ($_SESSION["type"]=="Administrateur"){
 <meta charset="utf-8">
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
+  <link rel="stylesheet" href="css/css_ticket.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <header>
     <div class="barre_navigation">
@@ -68,7 +70,7 @@ if ($_SESSION["type"]=="Administrateur"){
       <table border='1' cellpadding='5' cellpacing='9'>
         <tr class="entete">
           <td>Nom de l'utilisateur</td>
-          <td>Date d'envoie</td>
+          <td>Date d'envoi</td>
           <td>Intitule</td>
           <td>Reponse</td>
           <td>Statut</td>
@@ -79,7 +81,7 @@ if ($_SESSION["type"]=="Administrateur"){
       ?>
       <tr>
           <td>
-            <?= htmlspecialchars($data['idUtilisateur']) ?>
+            <?= htmlspecialchars($data['prenom']) ?>
           </td>
           <td>
             <?= htmlspecialchars($data['dateEnvoi']) ?>

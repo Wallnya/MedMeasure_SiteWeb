@@ -135,7 +135,7 @@ function getTestPartiel()
 
 function getTicket(){
   $db = dbConnect();
-  $req = $db->query('SELECT * FROM ticket');
+  $req = $db->query('SELECT idTicket, intitule, contenu, statut, prenom, dateEnvoi FROM ticket natural join utilisateur');
   return $req;
 }
 

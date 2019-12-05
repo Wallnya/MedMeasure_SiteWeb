@@ -91,7 +91,7 @@ if (isset($_GET['page'])) {
     }
   }
   /********************************/
-  /*            USER              */
+  /*      GESTIONNAIRE            */
   /********************************/
   else if ($_GET['page']== 'gestionnaire'){
       page_gestionnaire();
