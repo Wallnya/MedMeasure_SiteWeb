@@ -30,7 +30,17 @@ div#droite {
   background-color: white;
 }
 
-div#droite img  {
+#boutonsReseau{
+  text-align: center;
+  margin-top: 25px;
+}
+
+.boutonReseau{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.logo {
   position: absolute;
   top: 40%;
   left: 75%;

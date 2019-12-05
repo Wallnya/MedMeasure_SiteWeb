@@ -22,14 +22,18 @@
           <input type="text" name="mail" id="mail" placeholder="Adresse mail"/>
           <label for="mdp"></label>
           <input type="password" name="mdp" id="mdp" placeholder="Mot de passe"/>
-
           <input type="submit" name="connexion" value="Se connecter">
-          <input type="submit" name="connexionTwitter" value="Se connecter avec Twitter">
-          <input type="submit" name="connexionFacebook" value="Se connecter avec Facebook">
-
+ 
+          <div id="fb-root"></div>
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0&appId=572612350206643&autoLogAppEvents=1"></script>
+            
+          <div id="boutonsReseau">
+            <div class="fb-login-button boutonReseau" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false" scope="email"></div>
+            <img class="boutonReseau" src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/images/sign-in-with-twitter-gray.png">
+        </div>
       </form>
 
-      <img class ="logo" src="images/MedMeasureLogo.png" alt="Logo" />
+      <img class="logo" src="images/MedMeasureLogo.png" alt="Logo" />
       <p>
         Découvrez l'aventure MedMeasure pour connaître vos résultats en temps réel sur votre aptitude de vol<br><br>
         Rejoignez nous aujourd'hui ! <br>
