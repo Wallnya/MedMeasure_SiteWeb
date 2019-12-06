@@ -9,6 +9,7 @@ if ($_SESSION["type"]=="Pilote"){
     <meta charset="utf-8" />
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/DesignTest.css" />
+    <link rel="stylesheet" href="css/header2.css" />
   </head>
 
   <header>

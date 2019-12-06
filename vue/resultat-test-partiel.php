@@ -6,6 +6,8 @@ if ($_SESSION["type"]=="Pilote"){
 <meta charset="UTF-8">
 <title>Dernier Résultat</title>
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="css/header3.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 <header>

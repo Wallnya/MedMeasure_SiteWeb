@@ -6,6 +6,7 @@ if ($_SESSION["type"]=="Administrateur"){
   <meta charset="utf-8">
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
+  <link rel="stylesheet" href="css/header1.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <header>
@@ -120,7 +121,6 @@ if ($_SESSION["type"]=="Administrateur"){
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
         <td>Email</td>
-        <td>Mot de passe</td>
         <td>Type</td>
       </tr>
       <?php
@@ -130,9 +130,6 @@ if ($_SESSION["type"]=="Administrateur"){
         <tr>
           <td>
             <?= htmlspecialchars($data2['email']) ?>
-          </td>
-          <td>
-            <?= htmlspecialchars($data2['mdp']) ?>
           </td>
           <td>
             <form method="POST" action="index.php?page=admin_user">

@@ -7,6 +7,7 @@ if ($_SESSION["type"]=="Administrateur"){
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="css/css_ticket.css">
+  <link rel="stylesheet" href="css/header1.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <header>

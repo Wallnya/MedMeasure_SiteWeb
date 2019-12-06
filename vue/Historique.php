@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Historique des résultats</title>
             <link rel="stylesheet" href="css/css_historique.css">
+            <link rel="stylesheet" href="css/header2.css" />
     </head>
     <body>
         <header>

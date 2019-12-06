@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/cgu.css">
+  <link rel="stylesheet" type="text/css" href="css/css_cgu.css">
   <title>CGU</title>
 </head>
 <body>

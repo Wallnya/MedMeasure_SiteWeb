@@ -7,6 +7,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
   <title>Gestionnaire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="css/header3.css">
   <link rel="stylesheet" href="./css/diagramme.css">
   <link rel="stylesheet" href="./css/histogramme.css">
 

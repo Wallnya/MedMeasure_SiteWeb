@@ -121,7 +121,7 @@ function getDernierTest($id,$type){
 function getDataConnexion()
 {
   $db = dbConnect();
-  $req = $db->query('SELECT * FROM connexion');
+  $req = $db->query('SELECT email, type FROM connexion');
 
   return $req;
 }
