@@ -1,22 +1,22 @@
 <?php
-
-require('modele/model.php');
-
+require('modele/model_AdminUser.php');
+require('modele/model_AdminEtFAQ.php');
+require('modele/model_AdminTicket.php');
+require('modele/model_User.php');
+require('modele/model_UserHistorique.php');
+require('modele/model_Connexion.php');
+require('modele/model_Inscription.php');
 
 function page_gestionnaire(){
   require('vue/gestionnaire.php');
 }
-function modifyUser($type,$id)
-{
+function modifyUser($type,$id){
   $modify = getModifyUser($type,$id);
-
   header('Location: index.php?page=admin_user');
-
 }
 
 function cgu(){
   require('vue/cgu.php');
-
 }
 
 function login(){
@@ -25,7 +25,6 @@ function login(){
 
 function checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp){
   $check = getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp);
-
   if ($check == 0){
     header('Location: index.php');
   }
@@ -35,9 +34,7 @@ function checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp){
 }
 
 function deleteUser($id){
-
   $delete = getDeleteUser($id);
-
   header('Location: index.php?page=admin_user');
 }
 
@@ -51,8 +48,7 @@ function  deleteTestComplet($idUtilisateur,$idtest){
   header('Location: index.php?page=admin_user');
 }
 
-function dataUser()
-{
+function dataUser(){
   $user = getUser();
   $dataconnexion = getDataConnexion();
   $testpartiel = getTestPartiel();
@@ -65,19 +61,16 @@ function dataUser()
   require('vue/admin_user.php');
 }
 
-function dataTicket()
-{
+function dataTicket(){
   $ticket = getTicket();
   $nbTicket = getCountTicket();
   $nbTicketEnCours = getCountTicketEnCours();
   $nbTicketValide = getCountTicketValide();
-
   require('vue/admin_ticket.php');
 }
 
 function modifyTicket($statut,$id){
   $modify = getModifyTicket($statut,$id);
-
   header('Location: index.php?page=admin_ticket');
 }
 
@@ -86,8 +79,7 @@ function dataFAQ(){
   require('vue/admin_faq.php');
 }
 
-function modifyFAQ($texte,$id)
-{
+function modifyFAQ($texte,$id){
   $modify = getModifyFAQ($texte,$id);
   header('Location: index.php?page=admin_faq');
 }
@@ -114,7 +106,7 @@ function page_user($id){
 function page_dernierresultat($id){
   $resultat = getDernierTypeTest($id);
   $resultatTest = getDernierTest($id,$resultat);
-  require ('vue/resultat-test-partiel.php');
+  require('vue/resultat-test-partiel.php');
 }
 
 function page_historique($id){
@@ -122,7 +114,6 @@ function page_historique($id){
   $tabTest = getDateScoreForUser($id);
   require('vue/Historique.php');
 }
-
 
 function page_test($id){
   require('vue/PageTest.php');
@@ -169,8 +160,7 @@ function connexion($email,$mdp){
   }
 }
 
-function deconnexion()
-{
+function deconnexion(){
   $_SESSION = array();
   session_destroy();
   header('Location: index.php');
