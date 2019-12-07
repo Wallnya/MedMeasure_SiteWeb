@@ -28,12 +28,16 @@
             <h3>Historique </h3>
             <div id="listeHisto">
                 <ol>
-                <?php foreach($tabTest as list($valeur1,$valeur2)){  ?>
-                    <li style='color:blue'>
+                <?php foreach($tabTest as list($valeur1,$valeur2,$valeur3,$valeur4)){  ?>
+                    <li style='color:black'>
                     <?php echo $valeur1. " : ". $valeur2;?>
-                        points <a href='#'>- Détails</a>
+                        points <form method="POST" action="index.php?page=user">
+                          <input type="hidden"  name="type" value="<?= $valeur3 ?>">
+                          <input type="hidden"  name="idTest" value="<?= $valeur4 ?>">
+                          <button class="button" name="detail">- Détails</buttons>
+                        </form>
+                      </li>
                 <?php  }?>
-                </li>
                 </ol>
             </div>
         </section>
@@ -62,5 +66,10 @@
             };
             config.element = 'area-chart';
             Morris.Area(config);
+
+function Go()
+{
+document.monForm.submit();
+}
     </script>
 </html>

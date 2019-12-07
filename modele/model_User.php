@@ -116,3 +116,12 @@
     $req = $db->query($chaine);
     return $req;
   }
+
+  function getTest($idtest,$type,$id){
+    $db = dbConnect();
+    $nomtest = "idTest".$type;
+    $nomtable = "test".$type;
+    $chaine = "SELECT * FROM $nomtable where $nomtest=$idtest and idUtilisateur=$id";
+    $req = $db->query($chaine);
+    return $req;
+  }

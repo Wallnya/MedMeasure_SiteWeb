@@ -7,6 +7,12 @@ require('modele/model_UserHistorique.php');
 require('modele/model_Connexion.php');
 require('modele/model_Inscription.php');
 
+function page_resultat($type,$idtest,$id){
+  $resultat = $type;
+  $resultatTest = getTest($idtest,$type,$id);
+  require('vue/resultat-test-partiel.php');
+}
+
 function page_gestionnaire(){
   require('vue/gestionnaire.php');
 }
