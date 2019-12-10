@@ -7,6 +7,11 @@ require('modele/model_UserHistorique.php');
 require('modele/model_Connexion.php');
 require('modele/model_Inscription.php');
 
+
+function banUser($id){
+  $modify = getBanUser($id);
+  header('Location: index.php?page=admin_user');
+}
 function page_resultat($type,$idtest,$id){
   $resultat = $type;
   $resultatTest = getTest($idtest,$type,$id);
@@ -146,18 +151,21 @@ function connexion($email,$mdp){
   $connexion = getConnexion($email,md5($mdp));
   if (isset($connexion)){
     while ($data = $connexion->fetch()){
-      $_SESSION['id'] = $data['idUtilisateur'];
-      if ($data['type'] == "Administrateur"){
-        $_SESSION['type'] = "Administrateur";
-        header ('Location: index.php?page=admin_user');
-      }
-      else if ($data['type'] == "Gestionnaire"){
-        $_SESSION['type'] = "Gestionnaire";
-        header ('Location: index.php?page=gestionnaire');
-      }
-      else if ($data['type'] == "Pilote"){
-        $_SESSION['type'] = "Pilote";
-        header ('Location: index.php?page=user');
+      /*Si tu n'es pas banni*/
+      if ($data['banni'] == 0){
+        $_SESSION['id'] = $data['idUtilisateur'];
+        if ($data['type'] == "Administrateur"){
+          $_SESSION['type'] = "Administrateur";
+          header ('Location: index.php?page=admin_user');
+        }
+        else if ($data['type'] == "Gestionnaire"){
+          $_SESSION['type'] = "Gestionnaire";
+          header ('Location: index.php?page=gestionnaire');
+        }
+        else if ($data['type'] == "Pilote"){
+          $_SESSION['type'] = "Pilote";
+          header ('Location: index.php?page=user');
+        }
       }
     }
   }

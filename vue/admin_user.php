@@ -161,6 +161,7 @@ if ($_SESSION["type"]=="Administrateur"){
                 ?>
               </select>
               <input type="hidden"  name="idUtilisateur" value="<?= htmlspecialchars($data2['idUtilisateur']) ?>">
+              <button type="submit"  onClick="return confirm('Êtes-vous sûr de vouloir BANNIR cet utilisateur?')" name="bannir"><i class="fa fa-ban"></i></button>
               <button type="submit"  onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" name="supprimer"><i class="fa fa-trash"></i></button>
               <button type="submit" name="modifier"><i class="fa fa-check"></i></button>
             </td>

@@ -114,4 +114,14 @@ function getTestComplet2(){
   $req1 = $db->query('SELECT * FROM testcomplet INNER JOIN utilisateur where testcomplet.idUtilisateur = utilisateur.idUtilisateur order by testcomplet.idUtilisateur, testcomplet.numero_test');
   return $req1;
 }
+
+function getBanUser($id){
+  $db = dbConnect();
+  $req = $db->prepare('UPDATE Connexion SET banni = ? WHERE idUtilisateur = '.$id);
+  $req->execute(array('1'));
+  $modify = $req->fetch();
+
+  return $modify;
+}
+
 ?>

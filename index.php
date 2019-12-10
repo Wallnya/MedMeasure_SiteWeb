@@ -18,6 +18,11 @@ if (isset($_GET['page'])) {
         deleteUser($_POST['idUtilisateur']);
       }
     }
+    else if (isset($_POST['bannir'])){
+      if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
+        banUser($_POST['idUtilisateur']);
+      }
+    }
     else if(isset($_POST['supprimerTestPartiel'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
         deleteTestPartiel($_POST['idUtilisateur'],$_POST['idtest']);
