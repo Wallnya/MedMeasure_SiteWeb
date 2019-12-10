@@ -1,6 +1,6 @@
 <?php
 if ($_SESSION["type"]=="Pilote"){
-  ?>
+?>
   <!DOCTYPE html>
   <html>
   <head>

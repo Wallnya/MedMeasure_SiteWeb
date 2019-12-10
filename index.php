@@ -23,6 +23,13 @@ if (isset($_GET['page'])) {
         banUser($_POST['idUtilisateur']);
       }
     }
+    if (isset($_POST['modifierValide'])){
+      if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
+        if (isset($_POST["Valide"])){
+          modifyValide($_POST["Valide"],$_POST['idUtilisateur']);
+        }
+      }
+    }
     else if(isset($_POST['supprimerTestPartiel'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
         deleteTestPartiel($_POST['idUtilisateur'],$_POST['idtest']);
@@ -119,7 +126,7 @@ if (isset($_GET['page'])) {
     if (isset($_POST["boutonInscription"])){
       if (isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
       isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel']) && isset($_POST['mdp'])){
-        checkUser($_POST['email'],$_POST['nom'],$_POST['prenom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mdp']);
+        checkUser($_POST['email'],$_POST['nom'],$_POST['prenom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mdp'],$_POST['case']);
       }
       deconnexion();
       accueil();

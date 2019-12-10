@@ -8,6 +8,16 @@ function getModifyUser($type,$id){
   return $modify;
 }
 
+
+function getModifyValide($valide,$id){
+  $db = dbConnect();
+  $req = $db->prepare('UPDATE Connexion SET Valide = ? WHERE idUtilisateur = '.$id);
+  $req->execute(array($valide));
+  $modify = $req->fetch();
+
+  return $modify;
+}
+
 function getDeleteUser($id){
   $db = dbConnect();
   $req = $db->prepare('DELETE FROM connexion WHERE idUtilisateur = '.$id);
@@ -49,7 +59,7 @@ function getUser(){
 
 function getDataConnexion(){
   $db = dbConnect();
-  $req = $db->query('SELECT idUtilisateur,email, type FROM connexion');
+  $req = $db->query('SELECT idUtilisateur,email,type, valide FROM connexion');
 
   return $req;
 }

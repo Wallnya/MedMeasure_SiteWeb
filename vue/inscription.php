@@ -13,6 +13,10 @@
                 <img class ="logo" src="images/MedMeasureLogo.png" alt="Logo" />
                   <h3>Informations de connexion</h3>
                   <div>
+                      <label for="test">Inscription gestionnaire</label>
+                      <input type='checkbox' name='case' value='on'>
+                  </div>
+                  <div>
                       <label for="email">Email</label>
                       <input type="email" name="email" id="email" required/>
                   </div>

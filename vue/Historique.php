@@ -1,3 +1,6 @@
+<?php
+if ($_SESSION["type"]=="Pilote"){
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -73,3 +76,9 @@ document.monForm.submit();
 }
     </script>
 </html>
+<?php
+}
+else {
+header('Location: index.php');
+}
+?>

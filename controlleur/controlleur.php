@@ -21,8 +21,14 @@ function page_resultat($type,$idtest,$id){
 function page_gestionnaire(){
   require('vue/gestionnaire.php');
 }
+
 function modifyUser($type,$id){
   $modify = getModifyUser($type,$id);
+  header('Location: index.php?page=admin_user');
+}
+
+function modifyValide($valide,$id){
+  $modify = getModifyValide($valide,$id);
   header('Location: index.php?page=admin_user');
 }
 
@@ -34,8 +40,8 @@ function login(){
   require('vue/inscription.php');
 }
 
-function checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp){
-  $check = getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp);
+function checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges){
+  $check = getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges);
   if ($check == 0){
     header('Location: index.php');
   }
@@ -152,7 +158,7 @@ function connexion($email,$mdp){
   if (isset($connexion)){
     while ($data = $connexion->fetch()){
       /*Si tu n'es pas banni*/
-      if ($data['banni'] == 0){
+      if ($data['banni'] == 0 && $data['valide'] == 1){
         $_SESSION['id'] = $data['idUtilisateur'];
         if ($data['type'] == "Administrateur"){
           $_SESSION['type'] = "Administrateur";

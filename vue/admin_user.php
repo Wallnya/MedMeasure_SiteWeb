@@ -122,6 +122,7 @@ if ($_SESSION["type"]=="Administrateur"){
       <tr class="entete">
         <td>Email</td>
         <td>Type</td>
+        <td>Validé ?</td>
       </tr>
       <?php
       while ($data2 = $dataconnexion->fetch())
@@ -164,6 +165,26 @@ if ($_SESSION["type"]=="Administrateur"){
               <button type="submit"  onClick="return confirm('Êtes-vous sûr de vouloir BANNIR cet utilisateur?')" name="bannir"><i class="fa fa-ban"></i></button>
               <button type="submit"  onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" name="supprimer"><i class="fa fa-trash"></i></button>
               <button type="submit" name="modifier"><i class="fa fa-check"></i></button>
+            </td>
+            <td>
+              <select name="Valide" id="Valide">
+                <?php if (strcmp (htmlspecialchars($data2['valide']),"0") == 0)
+                {
+                  ?>
+                  <option value="0" selected>Non validé</option>
+                  <option value="1" >Validé</option>
+                  <?php
+                }
+                else if (strcmp (htmlspecialchars($data2['valide']),"1") == 0)
+                {
+                  ?>
+                  <option value="0" >Non validé</option>
+                  <option value="1" selected>Validé</option>
+                  <?php
+                }
+                  ?>
+              </select>
+              <button type="submit" name="modifierValide"><i class="fa fa-check"></i></button>
             </td>
           </form>
         </tr>
