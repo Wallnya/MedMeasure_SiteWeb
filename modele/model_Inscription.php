@@ -31,20 +31,23 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
       }
       // Ajout à la table connexion
       $reqAjoutConnexion = $db -> prepare("
-      INSERT INTO Connexion(email, mdp, type, idUtilisateur)
-      VALUES (:value1, :value2, :value3, :value4)
+      INSERT INTO Connexion(email, mdp, type, idUtilisateur, valide)
+      VALUES (:value1, :value2, :value3, :value4, :value5)
       ");
       if($ges == "on"){
         $val = "Gestionnaire";
+        $valide = 0;
       }
       else{
         $val = "Pilote";
+        $valide = 1;
       }
       $reqAjoutConnexion -> execute(array(
           "value1" => $email,
           "value2" => md5($mdp),
           "value3" => $val,
-          "value4" => $id
+          "value4" => $id,
+          "value5" => $valide
         ));
       $reqAjoutConnexion -> closeCursor();
     }

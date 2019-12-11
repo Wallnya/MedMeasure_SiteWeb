@@ -7,19 +7,12 @@ require('modele/model_UserHistorique.php');
 require('modele/model_Connexion.php');
 require('modele/model_Inscription.php');
 
-
+/********************************/
+/*            ADMIN             */
+/********************************/
 function banUser($id){
   $modify = getBanUser($id);
   header('Location: index.php?page=admin_user');
-}
-function page_resultat($type,$idtest,$id){
-  $resultat = $type;
-  $resultatTest = getTest($idtest,$type,$id);
-  require('vue/resultat-test-partiel.php');
-}
-
-function page_gestionnaire(){
-  require('vue/gestionnaire.php');
 }
 
 function modifyUser($type,$id){
@@ -30,24 +23,6 @@ function modifyUser($type,$id){
 function modifyValide($valide,$id){
   $modify = getModifyValide($valide,$id);
   header('Location: index.php?page=admin_user');
-}
-
-function cgu(){
-  require('vue/cgu.php');
-}
-
-function login(){
-  require('vue/inscription.php');
-}
-
-function checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges){
-  $check = getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges);
-  if ($check == 0){
-    header('Location: index.php');
-  }
-  else{
-    header('Location: index.php?page=inscription');
-  }
 }
 
 function deleteUser($id){
@@ -111,6 +86,16 @@ function addFAQ($question,$reponse){
   header('Location: index.php?page=admin_faq');
 }
 
+/********************************/
+/*            USER              */
+/********************************/
+function page_resultat($type,$idtest,$id){
+  $resultat = $type;
+  $resultatTest = getTest($idtest,$type,$id);
+  require('vue/resultat-test-partiel.php');
+}
+
+
 function page_user($id){
   $datauser = getDataUser($id);
   $nbtest = getCountTestUser($id);
@@ -144,15 +129,53 @@ function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
   $modifprofil = getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
   header('Location: index.php?page=user');
 }
+
+/********************************/
+/*      GESTIONNAIRE            */
+/********************************/
+function page_gestionnaire(){
+  require('vue/gestionnaire.php');
+}
+
+/********************************/
+/*          CGU                 */
+/********************************/
+function cgu(){
+  require('vue/cgu.php');
+}
+
+/********************************/
+/*          INSCRIPTION         */
+/********************************/
+function login(){
+  require('vue/inscription.php');
+}
+
+function checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges){
+  $check = getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges);
+  if ($check == 0){
+    header('Location: index.php');
+  }
+  else{
+    header('Location: index.php?page=inscription');
+  }
+}
+/********************************/
+/*          FAQ                 */
+/********************************/
 function page_faq(){
   $faq = getFAQ();
   require('vue/FAQ.php');
 }
-
+/********************************/
+/*          ACCUEIL             */
+/********************************/
 function accueil(){
   require('vue/Accueil.php');
 }
-
+/********************************/
+/*          CONNEXION           */
+/********************************/
 function connexion($email,$mdp){
   $connexion = getConnexion($email,md5($mdp));
   if (isset($connexion)){
@@ -179,7 +202,9 @@ function connexion($email,$mdp){
     header('Location: index.php');
   }
 }
-
+/********************************/
+/*          DECONNEXION         */
+/********************************/
 function deconnexion(){
   $_SESSION = array();
   session_destroy();
