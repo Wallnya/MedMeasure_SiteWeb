@@ -54,7 +54,14 @@ header{
     border-radius: 4px;
   }
   
-  .filtres{
-    display:flex;
-    margin-left:35%;
+
+  .tableau {
+    width: 75%;
+    border: 1px solid #ddd;
+    align-content: center;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 16px;
   }

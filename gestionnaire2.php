@@ -57,15 +57,83 @@
       echo "</select>";
   }
   }
+?>
+
+</input>
+</div>
+</form>
+
+<?php
+
+echo "<div class=\"tableau\">";
+  $requete="SELECT * FROM utilisateur WHERE nom='Ludivine'";
+  $resultat=mysqli_query($connexion,$requete);
+  $requete2="SELECT count(*) FROM testPartiel WHERE idUtilisateur IN (SELECT idUtilisateur FROM utilisateur WHERE nom='Ludivine')";
+  $requete3="SELECT count(*) FROM testComplet WHERE idUtilisateur IN (SELECT idUtilisateur FROM utilisateur WHERE nom='Ludivine')";
+  $requete4="SELECT count(*) FROM testPartiel WHERE idUtilisateur IN (SELECT idUtilisateur FROM utilisateur WHERE nom='Ludivine') AND score > 75";
+  $requete5="SELECT count(*) FROM testComplet WHERE idUtilisateur IN (SELECT idUtilisateur FROM utilisateur WHERE nom='Ludivine') AND score > 75";
+  $requete6="SELECT score FROM testPartiel WHERE idUtilisateur IN (SELECT idUtilisateur FROM utilisateur WHERE nom='Ludivine')";
+  $requete7="SELECT score FROM testComplet WHERE idUtilisateur IN (SELECT idUtilisateur FROM utilisateur WHERE nom='Ludivine')";
+  $resultat2=mysqli_query($connexion,$requete2);
+  $resultat3=mysqli_query($connexion,$requete3);
+  $resultat4=mysqli_query($connexion,$requete4);
+  $resultat5=mysqli_query($connexion,$requete5);
+  $resultat6=mysqli_query($connexion,$requete6);
+  $resultat7=mysqli_query($connexion,$requete7);
+  $tests_partiels_pilote = mysqli_fetch_row($resultat2);
+  $tests_complets_pilote = mysqli_fetch_row($resultat3);
+  $tests_partiels_reussis = mysqli_fetch_row($resultat4);
+  $tests_complets_reussis = mysqli_fetch_row($resultat5);
+  $score_tests_partiels = mysqli_fetch_row($resultat6);
+  $score_tests_complets = mysqli_fetch_row($resultat7);
+  $tests_pilote = $tests_partiels_pilote[0]+$tests_complets_pilote[0];
+  $tests_reussis = $tests_partiels_reussis[0]+$tests_complets_reussis[0];
+  $moyenne_score = ($score_tests_partiels[0]+$score_tests_complets[0])/$tests_pilote;
+  echo "<table border='1' cellpadding='5' cellpacing='9'>";
+  echo "<tr class=\"entete\">
+  <td>id</td>
+  <td>Nom</td>
+  <td>Prenom</td>
+  <td>Date de Naissance</td>
+  <td>Nombre de tests effectuées</td>
+  <td>Nombre de tests réussis</td>
+  <td>Moyenne des scores</td>
+  </tr>";
+  while($ligne=mysqli_fetch_row($resultat)){
+    echo "<tr>";
+    for ($i = 0; $i < 4; $i++){
+        echo "<td>".$ligne[$i]."</td>";
+    }
+    echo "<td>".$tests_pilote."</td>";
+    echo "<td>".$tests_reussis."</td>";
+    echo "<td".$moyenne_score."</td>";
+  }
+  echo"</table>";
+  echo "</div>";
 
 ?>
-</body>
+
+
 <script>
 
 function change(element)
 {
   alert(element);
+  $.ajax ({
+      type: 'GET',
+      url: 'gestionnaire2.php',
+      data: {element},
+      datatype: script,
+      cache: false,
+      success: function(data){
+        alert(data);;
+      }
+    })
+  
 }
  </script>
+
+</body>
+
 
 </html>
