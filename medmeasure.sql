@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 10 déc. 2019 à 17:06
+-- Généré le :  ven. 20 déc. 2019 à 11:17
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.2
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `connexion` (
   `email` varchar(50) NOT NULL,
-  `mdp` varchar(50) NOT NULL,
+  `mdp` varchar(150) NOT NULL,
   `type` varchar(50) NOT NULL,
   `idUtilisateur` int(11) NOT NULL,
   `banni` tinyint(1) NOT NULL DEFAULT '0',
@@ -42,13 +42,13 @@ CREATE TABLE `connexion` (
 --
 
 INSERT INTO `connexion` (`email`, `mdp`, `type`, `idUtilisateur`, `banni`, `valide`) VALUES
-('admin@admin.fr', '21232f297a57a5a743894a0e4a801fc3', 'Administrateur', 1, 0, 1),
-('test@test.fr', 'aa36dc6e81e2ac7ad03e12fedcb6a2c0', 'Pilote', 2, 1, 1),
-('test2@test.fr', '7daf939b91ca6416e5b5c7c96ca5c075', 'Gestionnaire', 3, 0, 0),
-('test3@test.fr', 'aa36dc6e81e2ac7ad03e12fedcb6a2c0', 'Pilote', 4, 0, 1),
-('test5@test.fr', 'e3d704f3542b44a621ebed70dc0efe13', 'Pilote', 5, 0, 1),
-('test6@test.fr', '4cfad7076129962ee70c36839a1e3e15', 'Pilote', 6, 0, 1),
-('test4@test.fr', '05a671c66aefea124cc08b76ea6d30bb', 'Pilote', 7, 0, 1);
+('admin@admin.fr', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Administrateur', 1, 0, 1),
+('test@test.fr', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'Pilote', 2, 1, 1),
+('test2@test.fr', '60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752', 'Gestionnaire', 3, 0, 0),
+('test3@test.fr', 'fd61a03af4f77d870fc21e05e7e80678095c92d808cfb3b5c279ee04c74aca13', 'Pilote', 4, 0, 1),
+('test5@test.fr', 'a140c0c1eda2def2b830363ba362aa4d7d255c262960544821f556e16661b6ff', 'Pilote', 5, 0, 1),
+('test6@test.fr', 'ed0cb90bdfa4f93981a7d03cff99213a86aa96a6cbcf89ec5e8889871f088727', 'Pilote', 6, 0, 1),
+('test4@test.fr', 'a4e624d686e03ed2767c0abd85c14426b0b1157d2ce81d27bb4fe4f6f01d688a', 'Pilote', 7, 0, 1);
 
 -- --------------------------------------------------------
 
