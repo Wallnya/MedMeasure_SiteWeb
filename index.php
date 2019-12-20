@@ -9,35 +9,45 @@ if (isset($_GET['page'])) {
     if (isset($_POST['modifier'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
         if (isset($_POST["Type"])){
-          modifyUser($_POST["Type"],$_POST['idUtilisateur']);
+          $type=htmlspecialchars($_POST['Type']);
+          $id=htmlspecialchars($_POST['idUtilisateur']);
+          modifyUser($type,$id);
         }
       }
     }
     else if (isset($_POST['supprimer'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
-        deleteUser($_POST['idUtilisateur']);
+        $id=htmlspecialchars($_POST['idUtilisateur']);
+        deleteUser($id);
       }
     }
     else if (isset($_POST['bannir'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
-        banUser($_POST['idUtilisateur']);
+        $id=htmlspecialchars($_POST['idUtilisateur']);
+        banUser($id);
       }
     }
     if (isset($_POST['modifierValide'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
         if (isset($_POST["Valide"])){
-          modifyValide($_POST["Valide"],$_POST['idUtilisateur']);
+          $id=htmlspecialchars($_POST['idUtilisateur']);
+          $valide=htmlspecialchars($_POST['Valide']);
+          modifyValide($valide,$id);
         }
       }
     }
     else if(isset($_POST['supprimerTestPartiel'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
-        deleteTestPartiel($_POST['idUtilisateur'],$_POST['idtest']);
+        $id=htmlspecialchars($_POST['idUtilisateur']);
+        $idtest=htmlspecialchars($_POST['idtest']);
+        deleteTestPartiel($id,$idtest);
       }
     }
     else if(isset($_POST['supprimerTestComplet'])){
       if (isset($_POST['idUtilisateur']) && $_POST['idUtilisateur'] > 0) {
-        deleteTestComplet($_POST['idUtilisateur'],$_POST['idtest']);
+        $id=htmlspecialchars($_POST['idUtilisateur']);
+        $idtest=htmlspecialchars($_POST['idtest']);
+        deleteTestComplet($id,$idtest);
       }
     }
     else {
@@ -47,7 +57,9 @@ if (isset($_GET['page'])) {
   else if ($_GET['page']=='admin_ticket'){
     if (isset($_POST['modifier'])){
       if (isset($_POST['idTicket']) && $_POST['idTicket'] > 0) {
-        modifyTicket($_POST["Statut"],$_POST['idTicket']);
+        $statut=htmlspecialchars($_POST['idUtilisateur']);
+        $idTicket=htmlspecialchars($_POST['idtest']);
+        modifyTicket($statut,$idTicket);
       }
     }
     else{
@@ -58,18 +70,23 @@ if (isset($_GET['page'])) {
     if (isset($_POST['modifier'])){
       if (isset($_POST['idFAQ']) && $_POST['idFAQ'] > 0) {
         if (isset($_POST["message"])){
-          modifyFAQ($_POST["message"],$_POST['idFAQ']);
+          $message=htmlspecialchars($_POST['message']);
+          $idFAQ=htmlspecialchars($_POST['idFAQ']);
+          modifyFAQ($message,$idFAQ);
         }
       }
     }
     else if (isset($_POST['supprimer'])){
       if (isset($_POST['idFAQ']) && $_POST['idFAQ'] > 0) {
-        deleteFAQ($_POST['idFAQ']);
+        $idFAQ=htmlspecialchars($_POST['idFAQ']);
+        deleteFAQ($idFAQ);
       }
     }
     else if (isset($_POST['enregistrerFAQ'])){
       if (isset($_POST["question"]) && isset($_POST["reponse"])){
-        addFAQ($_POST['question'],$_POST['reponse']);
+        $question=htmlspecialchars($_POST['question']);
+        $reponse=htmlspecialchars($_POST['reponse']);
+        addFAQ($question,$reponse);
       }
     }
     else {
@@ -83,28 +100,45 @@ if (isset($_GET['page'])) {
     if (isset($_POST["boutonEnregistrer"])){
       if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
       isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel'])){
-        modif_profil($_SESSION['id'],$_POST['nom'],$_POST['prenom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel']);
+        $id=htmlspecialchars($_SESSION['id']);
+        $nom=htmlspecialchars($_POST['nom']);
+        $prenom=htmlspecialchars($_POST['prenom']);
+        $dn=htmlspecialchars($_POST['dn']);
+        $sexe=htmlspecialchars($_POST['sexe']);
+        $adresse=htmlspecialchars($_POST['adresse']);
+        $ville=htmlspecialchars($_POST['ville']);
+        $cp=htmlspecialchars($_POST['cp']);
+        $tel=htmlspecialchars($_POST['tel']);
+        modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
       }
     }
     else if (isset($_POST["modifProfil"])){
-      page_modif_profil($_SESSION['id']);
+      $id=htmlspecialchars($_SESSION['id']);
+      page_modif_profil($id);
     }
     else if (isset($_POST['test'])){
-      page_test($_SESSION['id']);
+      $id=htmlspecialchars($_SESSION['id']);
+      page_test($id);
     }
     else if(isset($_POST['Dernierresultat'])){
-      page_dernierresultat($_SESSION['id']);
+      $id=htmlspecialchars($_SESSION['id']);
+      page_dernierresultat($id);
     }
     else if(isset($_POST['histo'])){
-      page_historique($_SESSION['id']);
+      $id=htmlspecialchars($_SESSION['id']);
+      page_historique($id);
     }
     else if(isset($_POST['detail'])){
       if (isset($_POST['type']) && isset($_POST['idTest'])){
-        page_resultat($_POST['type'],$_POST['idTest'],$_SESSION['id']);
+        $id=htmlspecialchars($_SESSION['id']);
+        $type=htmlspecialchars($_POST['type']);
+        $idTest=htmlspecialchars($_POST['idTest']);
+        page_resultat($type,$idTest,$id);
       }
     }
     else{
-      page_user($_SESSION['id']);
+      $id=htmlspecialchars($_SESSION['id']);
+      page_user($id);
     }
   }
   /********************************/
@@ -126,7 +160,19 @@ if (isset($_GET['page'])) {
     if (isset($_POST["boutonInscription"])){
       if (isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['dn']) && isset($_POST['sexe']) &&
       isset($_POST['adresse']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['tel']) && isset($_POST['mdp'])){
-        checkUser($_POST['email'],$_POST['nom'],$_POST['prenom'],$_POST['dn'],$_POST['sexe'],$_POST['adresse'],$_POST['ville'],$_POST['cp'],$_POST['tel'],$_POST['mdp'],$_POST['case']);
+        $id=htmlspecialchars($_SESSION['id']);
+        $nom=htmlspecialchars($_POST['nom']);
+        $prenom=htmlspecialchars($_POST['prenom']);
+        $dn=htmlspecialchars($_POST['dn']);
+        $sexe=htmlspecialchars($_POST['sexe']);
+        $adresse=htmlspecialchars($_POST['adresse']);
+        $ville=htmlspecialchars($_POST['ville']);
+        $cp=htmlspecialchars($_POST['cp']);
+        $tel=htmlspecialchars($_POST['tel']);
+        $email=htmlspecialchars($_POST['email']);
+        $mdp=htmlspecialchars($_POST['mdp']);
+        $case=htmlspecialchars($_POST['case']);
+        checkUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$case);
       }
       deconnexion();
       accueil();
@@ -155,7 +201,9 @@ else if (isset($_GET['deco'])) {
 /********************************/
 else if (isset($_POST['connexion'])){
   if (isset($_POST['mail']) && isset($_POST['mdp'])){
-    connexion($_POST['mail'],$_POST['mdp']);
+    $email=htmlspecialchars($_POST['mail']);
+    $mdp=htmlspecialchars($_POST['mdp']);
+    connexion($email,$mdp);
   }
   accueil();
 }
