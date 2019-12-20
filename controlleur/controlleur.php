@@ -177,7 +177,7 @@ function accueil(){
 /*          CONNEXION           */
 /********************************/
 function connexion($email,$mdp){
-  $connexion = getConnexion($email,md5($mdp));
+  $connexion = getConnexion($email,hash('sha256', $mdp));
   if (isset($connexion)){
     while ($data = $connexion->fetch()){
       /*Si tu n'es pas banni*/

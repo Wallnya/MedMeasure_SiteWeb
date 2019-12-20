@@ -46,7 +46,7 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
       }
       $reqAjoutConnexion -> execute(array(
           "value1" => $email,
-          "value2" => md5($mdp),
+          "value2" => hash('sha256', $mdp),
           "value3" => $val,
           "value4" => $id,
           "value5" => $valide

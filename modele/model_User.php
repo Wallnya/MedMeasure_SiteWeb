@@ -127,8 +127,8 @@
     $db = dbConnect();
     $nomtest = "idTest".$type;
     $nomtable = "test".$type;
-    $chaine = "SELECT * FROM $nomtable where $nomtest=$idtest and idUtilisateur=?";
-    $req = $db->prepare($chaine);
+    $chaine = "SELECT * FROM $nomtable where $nomtest=? and idUtilisateur=?";
+    $req = $db->prepare($idtest,$chaine);
     $req -> execute(array($id));
       return $req;
   }
