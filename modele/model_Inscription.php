@@ -2,7 +2,8 @@
 function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$mdp,$ges){
   $db = dbConnect();
   // On regarde si l'email est déjà utilisée
-  $reqVerif = $db -> query("SELECT * FROM connexion WHERE email = '".$email."';");
+  $reqVerif = $db -> prepare("SELECT * FROM connexion WHERE email = ?;");
+  $reqVerif -> execute(array($email));
   $count = $reqVerif->rowCount(); // On compte le nombre de lignes réponse
   if ($count == 0){
     // Ajout à la table utilisateur
@@ -22,9 +23,10 @@ function getCheckUser($email,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel,$md
     ));
     $reqAjoutUtilisateur -> closeCursor();
     // On récupère l'id qui vient d'être créé
-    $reqid = $db -> query("SELECT idUtilisateur
+    $reqid = $db -> prepare("SELECT idUtilisateur
       FROM utilisateur
       ORDER BY idUtilisateur DESC LIMIT 1");
+      $reqid -> execute();
       $reqid -> setFetchMode(PDO::FETCH_ASSOC);
       foreach ($reqid as $ligne){
         $id = $ligne['idUtilisateur'];

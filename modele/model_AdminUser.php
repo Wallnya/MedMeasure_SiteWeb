@@ -1,32 +1,29 @@
 <?php
 function getModifyUser($type,$id){
   $db = dbConnect();
-  $req = $db->prepare('UPDATE Connexion SET Type = ? WHERE idUtilisateur = '.$id);
-  $req->execute(array($type));
+  $req = $db->prepare('UPDATE Connexion SET Type = ? WHERE idUtilisateur = ?');
+  $req->execute(array($type,$id));
   $modify = $req->fetch();
-
   return $modify;
 }
 
-
 function getModifyValide($valide,$id){
   $db = dbConnect();
-  $req = $db->prepare('UPDATE Connexion SET Valide = ? WHERE idUtilisateur = '.$id);
-  $req->execute(array($valide));
+  $req = $db->prepare('UPDATE Connexion SET Valide = ? WHERE idUtilisateur = ?');
+  $req->execute(array($valide,$id));
   $modify = $req->fetch();
-
   return $modify;
 }
 
 function getDeleteUser($id){
   $db = dbConnect();
-  $req = $db->prepare('DELETE FROM connexion WHERE idUtilisateur = '.$id);
+  $req = $db->prepare('DELETE FROM connexion WHERE idUtilisateur = ?');
   $req->execute(array($id));
   $delete = $req->fetch();
-  $req = $db->prepare('DELETE FROM testpartiel WHERE idUtilisateur = '.$id);
+  $req = $db->prepare('DELETE FROM testpartiel WHERE idUtilisateur = ?');
   $req->execute(array($id));
   $delete = $req->fetch();
-  $req = $db->prepare('DELETE FROM utilisateur WHERE idUtilisateur = '.$id);
+  $req = $db->prepare('DELETE FROM utilisateur WHERE idUtilisateur = ?');
   $req->execute(array($id));
   $delete = $req->fetch();
   return $delete;
@@ -48,45 +45,47 @@ function getDeleteTestComplet($idUtilisateur,$idtest){
   return $delete;
 }
 
-
 function getUser(){
   $db = dbConnect();
-  $req = $db->query('SELECT * FROM utilisateur');
-
+  $req = $db->prepare('SELECT * FROM utilisateur');
+  $req->execute();
   return $req;
 }
 
-
 function getDataConnexion(){
   $db = dbConnect();
-  $req = $db->query('SELECT idUtilisateur,email,type, valide FROM connexion');
-
+  $req = $db->prepare('SELECT idUtilisateur,email,type, valide FROM connexion');
+  $req->execute();
   return $req;
 }
 
 function getTestPartiel(){
   $db = dbConnect();
-  $req = $db->query('SELECT * FROM `testpartiel` order by idUtilisateur, numero_test');
-
+  $req = $db->prepare('SELECT * FROM `testpartiel` order by idUtilisateur, numero_test');
+  $req->execute();
   return $req;
 }
 
 function getCountUser(){
   $db = dbConnect();
-  $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur');
+  $req = $db->prepare('SELECT count(idUtilisateur) as uti FROM utilisateur');
+  $req->execute();
   return $req;
 }
 
 function getCountPilote(){
   $db = dbConnect();
-  $req = $db->query('SELECT count(idUtilisateur) as uti FROM utilisateur where idUtilisateur in (select idUtilisateur from connexion where type="Pilote")');
+  $req = $db->prepare('SELECT count(idUtilisateur) as uti FROM utilisateur where idUtilisateur in (select idUtilisateur from connexion where type="Pilote")');
+  $req->execute();
   return $req;
 }
 
 function getCountTestReussis(){
   $db = dbConnect();
-  $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel where score >= "75"');
-  $req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');
+  $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel where score >= "75"');
+  $req1->execute();
+  $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet where score >= "75"');
+  $req2->execute();
 
   $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
   $nbTestPartiel = $invNum['nbtestPartiel'];
@@ -100,8 +99,10 @@ function getCountTestReussis(){
 
 function getCountTest(){
   $db = dbConnect();
-  $req1 = $db->query('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
-  $req2 = $db->query('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet');
+  $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel');
+  $req1->execute();
+  $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet');
+  $req2->execute();
 
   $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
   $nbTestPartiel = $invNum['nbtestPartiel'];
@@ -115,23 +116,23 @@ function getCountTest(){
 
 function getTestPartiel2(){
   $db = dbConnect();
-  $req1 = $db->query('SELECT * FROM testpartiel INNER JOIN utilisateur where testpartiel.idUtilisateur = utilisateur.idUtilisateur order by testpartiel.idUtilisateur, testpartiel.numero_test');
-  return $req1;
+  $req = $db->prepare('SELECT * FROM testpartiel INNER JOIN utilisateur where testpartiel.idUtilisateur = utilisateur.idUtilisateur order by testpartiel.idUtilisateur, testpartiel.numero_test');
+  $req->execute();
+  return $req;
 }
 
 function getTestComplet2(){
   $db = dbConnect();
-  $req1 = $db->query('SELECT * FROM testcomplet INNER JOIN utilisateur where testcomplet.idUtilisateur = utilisateur.idUtilisateur order by testcomplet.idUtilisateur, testcomplet.numero_test');
-  return $req1;
+  $req = $db->prepare('SELECT * FROM testcomplet INNER JOIN utilisateur where testcomplet.idUtilisateur = utilisateur.idUtilisateur order by testcomplet.idUtilisateur, testcomplet.numero_test');
+  $req->execute();
+  return $req;
 }
 
 function getBanUser($id){
   $db = dbConnect();
-  $req = $db->prepare('UPDATE Connexion SET banni = ? WHERE idUtilisateur = '.$id);
+  $req = $db->prepare('UPDATE Connexion SET banni = ? WHERE idUtilisateur = ?');
   $req->execute(array('1'));
   $modify = $req->fetch();
-
   return $modify;
 }
-
 ?>

@@ -1,16 +1,17 @@
 <?php
   function getDataUser($id){
     $db = dbConnect();
-    $req = $db->query('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur='.$id);
+    $req = $db->prepare('SELECT nom, prenom FROM utilisateur WHERE idUtilisateur= ?');
+    $req->execute(array($id));
     return $req;
   }
 
   function getCountTestUser($id){
     $db = dbConnect();
-    $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel WHERE idUtilisateur='.$id);
-    $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet WHERE idUtilisateur='.$id);
-    $req1 -> execute();
-    $req2 -> execute();
+    $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel WHERE idUtilisateur= ?');
+    $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet WHERE idUtilisateur=?');
+    $req1 -> execute(array($id));
+    $req2 -> execute(array($id));
 
     $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
     $nbTestPartiel = $invNum['nbtestPartiel'];
@@ -24,10 +25,10 @@
 
   function getCountTestCheckUser($id){
     $db = dbConnect();
-    $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel WHERE score >="75" and idUtilisateur='.$id);
-    $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet WHERE score >="75" and idUtilisateur='.$id);
-    $req1 -> execute();
-    $req2 -> execute();
+    $req1 = $db->prepare('SELECT count(idTestPartiel) as nbtestPartiel FROM testpartiel WHERE score >="75" and idUtilisateur= ?');
+    $req2 = $db->prepare('SELECT count(idTestComplet) as nbtestComplet FROM testcomplet WHERE score >="75" and idUtilisateur=?');
+    $req1 -> execute(array($id));
+    $req2 -> execute(array($id));
 
     $invNum = $req1 -> fetch(PDO::FETCH_ASSOC);
     $nbTestPartiel = $invNum['nbtestPartiel'];
@@ -41,7 +42,8 @@
 
   function getLastTestPartielUser($id){
     $db = dbConnect();
-    $req = $db->query('SELECT max(date) AS date_max_partiel FROM testpartiel WHERE idUtilisateur='.$id);
+    $req = $db->prepare('SELECT max(date) AS date_max_partiel FROM testpartiel WHERE idUtilisateur=?');
+    $req -> execute(array($id));
     $invNum = $req -> fetch(PDO::FETCH_ASSOC);
     $date = $invNum['date_max_partiel'];
     if ($date ==""){
@@ -54,7 +56,8 @@
 
   function getLastTestCompletUser($id){
     $db = dbConnect();
-    $req = $db->query('SELECT max(date) AS date_max_complet FROM testcomplet WHERE idUtilisateur='.$id);
+    $req = $db->prepare('SELECT max(date) AS date_max_complet FROM testcomplet WHERE idUtilisateur= ?');
+    $req -> execute(array($id));
     $invNum = $req -> fetch(PDO::FETCH_ASSOC);
     $date = $invNum['date_max_complet'];
     if ($date ==""){
@@ -68,8 +71,8 @@
 
   function getUserProfil($id){
     $db = dbConnect();
-    $req = $db->query('SELECT * FROM utilisateur where idUtilisateur='.$id);
-
+    $req = $db->prepare('SELECT * FROM utilisateur where idUtilisateur= ?');
+    $req->execute(array($id));
     return $req;
   }
 
@@ -83,8 +86,10 @@
 
   function getDernierTypeTest($id){
     $db = dbConnect();
-    $req1 = $db->query('SELECT max(date) as resultatpartiel FROM testpartiel  where idUtilisateur='.$id);
-    $req2 = $db->query('SELECT max(date) as resultatcomplet FROM testcomplet  where idUtilisateur='.$id);
+    $req1 = $db->prepare('SELECT max(date) as resultatpartiel FROM testpartiel  where idUtilisateur=?');
+    $req2 = $db->prepare('SELECT max(date) as resultatcomplet FROM testcomplet  where idUtilisateur=?');
+    $req1 -> execute(array($id));
+    $req2 -> execute(array($id));
 
     $invNum1 = $req1 -> fetch(PDO::FETCH_ASSOC);
     $invNum2 = $req2 -> fetch(PDO::FETCH_ASSOC);
@@ -112,8 +117,9 @@
   function getDernierTest($id,$type){
     $db = dbConnect();
     $nomtable = "test".$type;
-    $chaine = "SELECT * FROM $nomtable where date = (select max(date) from $nomtable where idUtilisateur=$id)";
-    $req = $db->query($chaine);
+    $chaine = "SELECT * FROM $nomtable where date = (select max(date) from $nomtable where idUtilisateur=?)";
+    $req = $db->prepare($chaine);
+    $req -> execute(array($id));
     return $req;
   }
 
@@ -121,7 +127,8 @@
     $db = dbConnect();
     $nomtest = "idTest".$type;
     $nomtable = "test".$type;
-    $chaine = "SELECT * FROM $nomtable where $nomtest=$idtest and idUtilisateur=$id";
-    $req = $db->query($chaine);
-    return $req;
+    $chaine = "SELECT * FROM $nomtable where $nomtest=$idtest and idUtilisateur=?";
+    $req = $db->prepare($chaine);
+    $req -> execute(array($id));
+      return $req;
   }

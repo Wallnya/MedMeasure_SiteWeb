@@ -2,17 +2,16 @@
 function getModifyFAQ($texte,$id)
 {
   $db = dbConnect();
-  $req = $db->prepare('UPDATE FAQ SET reponse = ? WHERE idFAQ = '.$id);
-  $req->execute(array($texte));
+  $req = $db->prepare('UPDATE FAQ SET reponse = ? WHERE idFAQ = ?');
+  $req->execute(array($texte,$id));
   $modify = $req->fetch();
-
   return $modify;
 }
 
 function getDeleteFAQ($id)
 {
   $db = dbConnect();
-  $req = $db->prepare('DELETE FROM FAQ WHERE idFAQ = '.$id);
+  $req = $db->prepare('DELETE FROM FAQ WHERE idFAQ = ?');
   $req->execute(array($id));
   $delete = $req->fetch();
   return $delete;
@@ -37,6 +36,7 @@ function getAddFAQ($question,$reponse){
 
 function getFAQ(){
   $db = dbConnect();
-  $req = $db->query('SELECT * FROM FAQ');
+  $req = $db->prepare('SELECT * FROM FAQ');
+  $req -> execute();
   return $req;
 }
