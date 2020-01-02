@@ -34,18 +34,25 @@ header{
   }
 
   .topnav{
-    margin-top:100px;
-    margin-left:40%;
+    border:1px solid black;
+    margin-top:50px;
+    margin: auto;
     width: 500px;
   }
   
   .topnav input {
-    height:50px;
-    width:60%;
-    font-size: 20px;
+    font-size: 16px;
+    width: 200px;
   }
 
-  .Rechercher{
+  .validerUser{
+    border:1px solid black;
+    margin-top:50px;
+    margin: auto;
+    width: 500px;
+  }
+
+  button{
     background: #AED6F1;
     display: block;
     margin: auto;
@@ -56,6 +63,23 @@ header{
   
   .filtres{
     display:flex;
-    margin-left:35%;
   }
 
+.onglets{
+  display:flex;
+  width:500px;
+  align-items:center;
+  margin: 10px auto;
+}
+
+.onglet{
+  border: black 1px solid;
+  margin:auto;
+  width: 150px;
+  background-color: #AED6F1;
+  padding: 5px;
+}
+
+.onglet:hover{
+  background-color: #82A0B5;
+}
