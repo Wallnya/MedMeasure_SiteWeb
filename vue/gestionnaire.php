@@ -23,77 +23,6 @@
 
 <body>
   <br/><br/><br/><br/><br/><br/><br/>
-
-  <?php
-  #connexion à la base de données
-  $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-  $db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
-  # Onglet stat profil
-  if (isset($_POST["statprofil"])){
-    # Requêtes tout sexe
-    if ((isset($_POST["sexe"]) && $_POST["sexe"] == '') || isset($_POST["sexe"]) == false) {
-      # Graphique sexe
-      /*$requete = $db -> query("SELECT count(*) FROM utilisateur;");
-      $nbTotal = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE Sexe = 'Femme';");
-      $nbFemmes = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE Sexe = 'Homme';");
-      $nbHommes = $requete -> fetch()[0];
-      $requete -> closeCursor();*/
-      # Graphique âge
-    /*  $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 20");
-      $nbAge020 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 20 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 30");
-      $nbAge2030 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 30 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 40");
-      $nbAge3040 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 40 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 50");
-      $nbAge4050 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 50 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 60");
-      $nbAge5060 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 60");
-      $nbAge60 = $requete -> fetch()[0];
-      $requete -> closeCursor();*/
-      # Graphique score partiel
-      $requete = $db -> query("SELECT count(*) FROM testpartiel;");
-      $nbPartiel = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testpartiel WHERE score < 25;");
-      $nbPartiel025 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testpartiel WHERE score >= 25 and score < 50;");
-      $nbPartiel2550 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testpartiel WHERE score >= 50 and score < 75;");
-      $nbPartiel5075 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testpartiel WHERE score >= 75;");
-      $nbPartiel75100 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      # Graphique score complet
-      $requete = $db -> query("SELECT count(*) FROM testcomplet;");
-      $nbComplet = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testcomplet WHERE score < 25;");
-      $nbComplet025 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testcomplet WHERE score >= 25 and score < 50;");
-      $nbComplet2550 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testcomplet WHERE score >= 50 and score < 75;");
-      $nbComplet5075 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> query("SELECT count(*) FROM testcomplet WHERE score >= 75;");
-      $nbComplet75100 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      ?>
       <!-- Graphique sexe -->
       <input type="hidden" id="pcFemmes" value="<?php echo round(($femme/$nbTotal)*100) ?>">
       <input type="hidden" id="pcHommes" value="<?php echo round(($homme/$nbTotal)*100) ?>">
@@ -124,255 +53,6 @@
       <input type="hidden" id="pcTotal3" value="<?php echo round(($nbPartiel5075+$nbComplet5075)/($nbPartiel+$nbComplet)*100) ?>">
       <input type="hidden" id="pcTotal4" value="<?php echo round(($nbPartiel75100+$nbComplet75100)/($nbPartiel+$nbComplet)*100) ?>">
 
-      <?php
-    }
-
-    # Requêtes sexe
-    if (isset($_POST["sexe"]) && $_POST["sexe"] !== '') {
-      # Graphique sexe
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbTotal = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE Sexe = 'Femme' and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbFemmes = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE Sexe = 'Homme' and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbHommes = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      # Graphique âge
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 20 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbAge020 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 20 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 30 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbAge2030 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 30 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 40 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbAge3040 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 40 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 50 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbAge4050 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 50 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 60 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbAge5060 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 60 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbAge60 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-
-      # Graphique score partiel
-      $requete = $db -> prepare("SELECT count(*) FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbPartiel = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score < 25 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbPartiel025 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 25 and score < 50 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbPartiel2550 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 50 and score < 75 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbPartiel5075 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 75 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbPartiel75100 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      # Graphique score complet
-      $requete = $db -> prepare("SELECT count(*) FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbComplet = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score < 25 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbComplet025 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 25 and score < 50 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbComplet2550 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 50 and score < 75 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbComplet5075 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      $requete = $db -> prepare("SELECT count(*) FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 75 and Sexe = ?;");
-      $requete -> execute(array($_POST["sexe"]));
-      $nbComplet75100 = $requete -> fetch()[0];
-      $requete -> closeCursor();
-      ?>
-
-      <!-- Graphique sexe -->
-      <input type="hidden" id="pcFemmes" value="<?php echo round(($nbFemmes/$nbTotal)*100) ?>">
-      <input type="hidden" id="pcHommes" value="<?php echo round(($nbHommes/$nbTotal)*100) ?>">
-
-      <!-- Graphique âge -->
-      <input type="hidden" id="pcAge1" value="<?php echo round(($nbAge020/$nbTotal)*100) ?>">
-      <input type="hidden" id="pcAge2" value="<?php echo round(($nbAge2030/$nbTotal)*100) ?>">
-      <input type="hidden" id="pcAge3" value="<?php echo round(($nbAge3040/$nbTotal)*100) ?>">
-      <input type="hidden" id="pcAge4" value="<?php echo round(($nbAge4050/$nbTotal)*100) ?>">
-      <input type="hidden" id="pcAge5" value="<?php echo round(($nbAge5060/$nbTotal)*100) ?>">
-      <input type="hidden" id="pcAge6" value="<?php echo round(($nbAge60/$nbTotal)*100) ?>">
-
-      <!-- Graphique score partiel -->
-      <input type="hidden" id="pcPartiel1" value="<?php echo round(($nbPartiel025/$nbPartiel)*100) ?>">
-      <input type="hidden" id="pcPartiel2" value="<?php echo round(($nbPartiel2550/$nbPartiel)*100) ?>">
-      <input type="hidden" id="pcPartiel3" value="<?php echo round(($nbPartiel5075/$nbPartiel)*100) ?>">
-      <input type="hidden" id="pcPartiel4" value="<?php echo round(($nbPartiel75100/$nbPartiel)*100) ?>">
-
-      <!-- Graphique score complet -->
-      <input type="hidden" id="pcComplet1" value="<?php echo round(($nbComplet025/$nbComplet)*100) ?>">
-      <input type="hidden" id="pcComplet2" value="<?php echo round(($nbComplet2550/$nbComplet)*100) ?>">
-      <input type="hidden" id="pcComplet3" value="<?php echo round(($nbComplet5075/$nbComplet)*100) ?>">
-      <input type="hidden" id="pcComplet4" value="<?php echo round(($nbComplet75100/$nbComplet)*100) ?>">
-
-      <!-- Graphique score total -->
-      <input type="hidden" id="pcTotal1" value="<?php echo round(($nbPartiel025+$nbComplet025)/($nbPartiel+$nbComplet)*100) ?>">
-      <input type="hidden" id="pcTotal2" value="<?php echo round(($nbPartiel2550+$nbComplet2550)/($nbPartiel+$nbComplet)*100) ?>">
-      <input type="hidden" id="pcTotal3" value="<?php echo round(($nbPartiel5075+$nbComplet5075)/($nbPartiel+$nbComplet)*100) ?>">
-      <input type="hidden" id="pcTotal4" value="<?php echo round(($nbPartiel75100+$nbComplet75100)/($nbPartiel+$nbComplet)*100) ?>">
-
-      <?php
-    }
-  }
-  if (isset($_GET["stattest"])){
-    # Nombre de tests
-    $requete = $db -> query("SELECT count(*) FROM testpartiel;");
-    $nbPartiel = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT count(*) FROM testcomplet;");
-    $nbComplet = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $nbTest = $nbPartiel + $nbComplet;
-    # Graphique fréquence
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE Frequence < 40) + (SELECT COUNT(*) FROM testcomplet WHERE Frequence < 40);");
-    $nbFrequence1 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE Frequence >= 40 and Frequence < 60) + (SELECT COUNT(*) FROM testcomplet WHERE Frequence >= 40 and Frequence < 60);");
-    $nbFrequence2 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE Frequence >= 60 and Frequence < 80) + (SELECT COUNT(*) FROM testcomplet WHERE Frequence >= 60 and Frequence < 80);");
-    $nbFrequence3 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE Frequence >= 80 and Frequence < 100) + (SELECT COUNT(*) FROM testcomplet WHERE Frequence >= 80 and Frequence < 100);");
-    $nbFrequence4 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE Frequence >= 100 and Frequence < 120) + (SELECT COUNT(*) FROM testcomplet WHERE Frequence >= 100 and Frequence < 120);");
-    $nbFrequence5 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE Frequence >= 120) + (SELECT COUNT(*) FROM testcomplet WHERE Frequence >= 120);");
-    $nbFrequence6 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $pcFrequence1 = round(($nbFrequence1/$nbTest)*100);
-    $pcFrequence2 = round(($nbFrequence2/$nbTest)*100);
-    $pcFrequence3 = round(($nbFrequence3/$nbTest)*100);
-    $pcFrequence4 = round(($nbFrequence4/$nbTest)*100);
-    $pcFrequence5 = round(($nbFrequence5/$nbTest)*100);
-    $pcFrequence6 = round(($nbFrequence6/$nbTest)*100);
-    # Graphique perception auditive
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE PerceptionAuditive < 35) + (SELECT COUNT(*) FROM testcomplet WHERE PerceptionAuditive < 35);");
-    $nbPerceptionAuditive1 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE PerceptionAuditive >= 35) + (SELECT COUNT(*) FROM testcomplet WHERE PerceptionAuditive >= 35);");
-    $nbPerceptionAuditive2 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $pcPerceptionAuditive1 = round(($nbPerceptionAuditive1/$nbTest)*100);
-    $pcPerceptionAuditive2 = round(($nbPerceptionAuditive2/$nbTest)*100);
-    # Graphique stimulus visuel
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE StimulusVisuel < 200) + (SELECT COUNT(*) FROM testcomplet WHERE StimulusVisuel < 200);");
-    $nbStimulusVisuel1 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE StimulusVisuel >= 200 and StimulusVisuel < 400) + (SELECT COUNT(*) FROM testcomplet WHERE StimulusVisuel >= 200 and StimulusVisuel < 400);");
-    $nbStimulusVisuel2 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE StimulusVisuel >= 400 and StimulusVisuel < 600) + (SELECT COUNT(*) FROM testcomplet WHERE StimulusVisuel >= 400 and StimulusVisuel < 600);");
-    $nbStimulusVisuel3 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE StimulusVisuel >= 600 and StimulusVisuel < 800) + (SELECT COUNT(*) FROM testcomplet WHERE StimulusVisuel >= 600 and StimulusVisuel < 800);");
-    $nbStimulusVisuel4 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE StimulusVisuel >= 800 and StimulusVisuel < 1000) + (SELECT COUNT(*) FROM testcomplet WHERE StimulusVisuel >= 800 and StimulusVisuel < 1000);");
-    $nbStimulusVisuel5 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT (SELECT COUNT(*) FROM testpartiel WHERE StimulusVisuel >= 1000) + (SELECT COUNT(*) FROM testcomplet WHERE StimulusVisuel >= 1000);");
-    $nbStimulusVisuel6 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $pcStimulusVisuel1 = round(($nbStimulusVisuel1/$nbTest)*100);
-    $pcStimulusVisuel2 = round(($nbStimulusVisuel2/$nbTest)*100);
-    $pcStimulusVisuel3 = round(($nbStimulusVisuel3/$nbTest)*100);
-    $pcStimulusVisuel4 = round(($nbStimulusVisuel4/$nbTest)*100);
-    $pcStimulusVisuel5 = round(($nbStimulusVisuel5/$nbTest)*100);
-    $pcStimulusVisuel6 = round(($nbStimulusVisuel6/$nbTest)*100);
-    # Graphique température peau
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE TemperaturePeau < 20;");
-    $nbTemperaturePeau1 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE TemperaturePeau >= 20 and TemperaturePeau < 25;");
-    $nbTemperaturePeau2 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE TemperaturePeau >= 25 and TemperaturePeau < 30;");
-    $nbTemperaturePeau3 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE TemperaturePeau >= 30 and TemperaturePeau < 35;");
-    $nbTemperaturePeau4 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE TemperaturePeau >= 35 and TemperaturePeau < 40;");
-    $nbTemperaturePeau5 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE TemperaturePeau >= 40;");
-    $nbTemperaturePeau6 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $pcTemperaturePeau1 = round(($nbTemperaturePeau1/$nbComplet)*100);
-    $pcTemperaturePeau2 = round(($nbTemperaturePeau2/$nbComplet)*100);
-    $pcTemperaturePeau3 = round(($nbTemperaturePeau3/$nbComplet)*100);
-    $pcTemperaturePeau4 = round(($nbTemperaturePeau4/$nbComplet)*100);
-    $pcTemperaturePeau5 = round(($nbTemperaturePeau5/$nbComplet)*100);
-    $pcTemperaturePeau6 = round(($nbTemperaturePeau6/$nbComplet)*100);
-    # Graphique reconnaissance tonalité
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite < 130;");
-    $nbReconnaissanceTonalite1 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 130 and RecoTonalite < 775;");
-    $nbReconnaissanceTonalite2 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 775 and RecoTonalite < 1420;");
-    $nbReconnaissanceTonalite3 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 1420 and RecoTonalite < 2065;");
-    $nbReconnaissanceTonalite4 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 2065 and RecoTonalite < 2710;");
-    $nbReconnaissanceTonalite5 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 2710 and RecoTonalite < 3355;");
-    $nbReconnaissanceTonalite6 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 3355 and RecoTonalite < 4000;");
-    $nbReconnaissanceTonalite7 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $requete = $db -> query("SELECT COUNT(*) FROM testcomplet WHERE RecoTonalite >= 4000;");
-    $nbReconnaissanceTonalite8 = $requete -> fetch()[0];
-    $requete -> closeCursor();
-    $pcReconnaissanceTonalite1 = round(($nbReconnaissanceTonalite1/$nbComplet)*100);
-    $pcReconnaissanceTonalite2 = round(($nbReconnaissanceTonalite2/$nbComplet)*100);
-    $pcReconnaissanceTonalite3 = round(($nbReconnaissanceTonalite3/$nbComplet)*100);
-    $pcReconnaissanceTonalite4 = round(($nbReconnaissanceTonalite4/$nbComplet)*100);
-    $pcReconnaissanceTonalite5 = round(($nbReconnaissanceTonalite5/$nbComplet)*100);
-    $pcReconnaissanceTonalite6 = round(($nbReconnaissanceTonalite6/$nbComplet)*100);
-    $pcReconnaissanceTonalite7 = round(($nbReconnaissanceTonalite7/$nbComplet)*100);
-    $pcReconnaissanceTonalite8 = round(($nbReconnaissanceTonalite8/$nbComplet)*100);
-  }
-  ?>
   <!-- Menu -->
   <div id="recherche" class="onglets">
     <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
@@ -383,7 +63,7 @@
     </form>
     <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
       <button class="onglet" type="submit" name="statprofil" id="validerFiltre"
-      style="<?php if (isset($_POST["statprofil"]) || (!isset($_POST["recherchenom"])&&!isset($_POST["statprofil"])&&!isset($_POST["stattest"]))) echo "background: #82A0B5" ?>">
+      style="<?php if (isset($_POST["statprofil"])) echo "background: #82A0B5" ?>">
         Statistiques -<br/>Profil
       </button>
     </form>
@@ -397,11 +77,11 @@
 
   <?php
   if (isset($_POST["recherchenom"])){
+    #connexion à la base de données
     ?>
-
     <!-- Recherche -->
     <div class="filtres">
-      <form method="post" action="#recherche" style="margin:auto;">
+      <form method="post" action="index.php?page=gestionnaire" style="margin:auto;">
         <div style="display:flex;margin-top:20px">
           <div style="float:left;margin-left:5px;margin-right:5px">
             <input style="font-size:16px" type="text" name="search" placeholder="Rechercher un utilisateur"
@@ -415,7 +95,13 @@
     </div>
 
     <?php
+
+    if (!isset($_POST["search"]) || $_POST["search"] == ""){
+      echo "coucou";
+    }
     if ((isset($_POST['validerRecherche']) && !empty($_POST['search']) && $_POST['search'] !== '  ') || isset($_POST['validerRecherche2'])) {
+      $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+      $db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
       $listeUser = $db -> prepare("SELECT * FROM utilisateur WHERE nom LIKE ? or prenom LIKE ?;");
       $listeUser -> execute(array('%'.$_POST["search"].'%','%'.$_POST["search"].'%'));
       $listeUser -> setFetchMode(PDO::FETCH_ASSOC);
@@ -436,7 +122,7 @@
             <label>Voici les pilotes qui correspondent à votre recherche :</label>
           </div>
           <div class="filtres">
-            <form method="post" action="#recherche" style="margin:auto;margin-top:5px">
+            <form method="post" action="index.php?page=gestionnaire" style="margin:auto;margin-top:5px">
               <div style="display:flex;">
                 <div style="float:left;margin-left:5px;margin-right:5px">
                   <select style="width:200px; height:30px; font-size: 15px;" name="user">
@@ -466,7 +152,7 @@
     ?>
     <!-- Filtres -->
     <div class="filtres">
-      <form method="post" action="#recherche" style="margin:auto;">
+      <form method="post" action="index.php?page=gestionnaire&traitement=sexe" style="margin:auto;">
         <div style="display:flex;">
           <div style="float:left;margin-left:5px;margin-right:5px">
             <label for="sexe"></label>
@@ -503,7 +189,7 @@
     ?>
     <!-- Filtres -->
     <div class="filtres">
-      <form method="post" action="#recherche" style="margin:auto">
+      <form method="post" action="index.php?page=gestionnaire&traitement=test" style="margin:auto">
         <div style="display:flex;">
           <div style="float:left;margin-left:5px;margin-right:5px">
             <label for="test"></label>
@@ -520,6 +206,43 @@
             <button type="submit" name="validerFiltre" id="validerFiltre">Valider</button>
           </div>
         </div>
+
+        <?php
+      $nbTest = $nbPartiel + $nbComplet;
+
+      $pcFrequence1 = round(($nbFrequence1/$nbTest)*100);
+      $pcFrequence2 = round(($nbFrequence2/$nbTest)*100);
+      $pcFrequence3 = round(($nbFrequence3/$nbTest)*100);
+      $pcFrequence4 = round(($nbFrequence4/$nbTest)*100);
+      $pcFrequence5 = round(($nbFrequence5/$nbTest)*100);
+      $pcFrequence6 = round(($nbFrequence6/$nbTest)*100);
+
+      $pcPerceptionAuditive1 = round(($nbPerceptionAuditive1/$nbTest)*100);
+      $pcPerceptionAuditive2 = round(($nbPerceptionAuditive2/$nbTest)*100);
+
+      $pcStimulusVisuel1 = round(($nbStimulusVisuel1/$nbTest)*100);
+      $pcStimulusVisuel2 = round(($nbStimulusVisuel2/$nbTest)*100);
+      $pcStimulusVisuel3 = round(($nbStimulusVisuel3/$nbTest)*100);
+      $pcStimulusVisuel4 = round(($nbStimulusVisuel4/$nbTest)*100);
+      $pcStimulusVisuel5 = round(($nbStimulusVisuel5/$nbTest)*100);
+      $pcStimulusVisuel6 = round(($nbStimulusVisuel6/$nbTest)*100);
+
+      $pcTemperaturePeau1 = round(($nbTemperaturePeau1/$nbComplet)*100);
+      $pcTemperaturePeau2 = round(($nbTemperaturePeau2/$nbComplet)*100);
+      $pcTemperaturePeau3 = round(($nbTemperaturePeau3/$nbComplet)*100);
+      $pcTemperaturePeau4 = round(($nbTemperaturePeau4/$nbComplet)*100);
+      $pcTemperaturePeau5 = round(($nbTemperaturePeau5/$nbComplet)*100);
+      $pcTemperaturePeau6 = round(($nbTemperaturePeau6/$nbComplet)*100);
+
+      $pcReconnaissanceTonalite1 = round(($nbReconnaissanceTonalite1/$nbComplet)*100);
+      $pcReconnaissanceTonalite2 = round(($nbReconnaissanceTonalite2/$nbComplet)*100);
+      $pcReconnaissanceTonalite3 = round(($nbReconnaissanceTonalite3/$nbComplet)*100);
+      $pcReconnaissanceTonalite4 = round(($nbReconnaissanceTonalite4/$nbComplet)*100);
+      $pcReconnaissanceTonalite5 = round(($nbReconnaissanceTonalite5/$nbComplet)*100);
+      $pcReconnaissanceTonalite6 = round(($nbReconnaissanceTonalite6/$nbComplet)*100);
+      $pcReconnaissanceTonalite7 = round(($nbReconnaissanceTonalite7/$nbComplet)*100);
+      $pcReconnaissanceTonalite8 = round(($nbReconnaissanceTonalite8/$nbComplet)*100);
+    ?>
       </form>
     </div>
 

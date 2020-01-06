@@ -1,47 +1,90 @@
 var gradients = [
+  {id: 'red', start: '#eb1c1c', end: '#eb1c1c'},
+  {id: 'orange', start: '#ff8000', end: '#ff8000'},
+  {id: 'yellow', start: '#f2d600', end: '#f2d600'},
+  {id: 'green', start: '#038f0a', end: '#038f0a'},
+
+  {id: 'blue1', start: '#FFD596', end: '#FFD596'},
+  {id: 'blue2', start: '#E8BE80', end: '#E8BE80'},
+  {id: 'blue3', start: '#BA9966', end: '#BA9966'},
+  {id: 'blue4', start: '#8C734D', end: '#8C734D'},
+  {id: 'blue5', start: '#5D4C33', end: '#5D4C33'},
+  {id: 'blue6', start: '#2F261A', end: '#2F261A'},
+
   {id: 'pink', start: '#b34f53', end: '#dd5b59'},
   {id: 'blue', start: '#095a82', end: '#0170a7'},
-  {id: 'red', start: '#874d2a', end: '#a55724'},
-  {id: 'green', start: '#5b7964', end: '#869d8d'},
-  {id: 'aqua', start: '#3f6071', end: '#588094'},
   {id: 'other', start: '#2272ad', end: '#308cd0'}
 ];
 
-var data = [];
-var pourcentage_femmes = document.getElementById("pourcentage_femmes").value - 0;
-var pourcentage_hommes = document.getElementById("pourcentage_hommes").value - 0;
-var score_tests_partiels_30 = document.getElementById("score_tests_partiels_30").value;
-var score_tests_partiels_60 = document.getElementById("score_tests_partiels_60").value;
-var score_tests_partiels_75 = 100 - score_tests_partiels_60 - score_tests_partiels_30;
-var score_tests_complets_30 = document.getElementById("score_tests_complets_30").value;
-var score_tests_complets_60 = document.getElementById("score_tests_complets_60").value;
-var score_tests_complets_75 = 100 - score_tests_complets_60 - score_tests_complets_30;
-var score_total_30 = document.getElementById("score_total_30").value;
-var score_total_60 = document.getElementById("score_total_60").value;
-var score_total_75 = 100 - score_total_30 - score_total_60;
 
-data['piedata'] = [
-  { label: "< 30", value: score_total_30, color: 'red' },
-  { label: "< 60", value: score_total_60, color: 'other' },
-  { label: " > 75", value: score_total_75, color: 'pink' }
+data = [];
+
+/* Graphique sexe */
+var pourcentage_femmes = document.getElementById("pcFemmes").value;
+var pourcentage_hommes = document.getElementById("pcHommes").value;
+
+data['piedata1'] = [
+  { label: "Hommes", value: pourcentage_hommes, color: 'other' },
+  { label: "Femmes", value: pourcentage_femmes, color: 'pink' }
 ];
+
+/* Graphique âge */
+var pourcentage_age_1 = document.getElementById("pcAge1").value;
+var pourcentage_age_2 = document.getElementById("pcAge2").value;
+var pourcentage_age_3 = document.getElementById("pcAge3").value;
+var pourcentage_age_4 = document.getElementById("pcAge4").value;
+var pourcentage_age_5 = document.getElementById("pcAge5").value;
+var pourcentage_age_6 = document.getElementById("pcAge6").value;
 
 data['piedata2'] = [
-  { label: "Homme", value: pourcentage_hommes, color: 'other' },
-  { label: "Femme", value: pourcentage_femmes, color: 'pink' }
+  { label: "< 20", value: pourcentage_age_1, color: 'blue1' },
+  { label: "20-30", value: pourcentage_age_2, color: 'blue2' },
+  { label: "30-40", value: pourcentage_age_3, color: 'blue3' },
+  { label: "40-50", value: pourcentage_age_4, color: 'blue4' },
+  { label: "50-60", value: pourcentage_age_5, color: 'blue5' },
+  { label: "> 60", value: pourcentage_age_6, color: 'blue6' }
 ];
 
-data['piedata3'] = [
-  { label: "< 30", value: score_tests_partiels_30, color: 'red' },
-  { label: "< 60", value: score_tests_partiels_60, color: 'other' },
-  { label: " > 75", value: score_tests_partiels_75, color: 'pink' }
-];
+/* Graphique score partiel */
+var score_tests_partiels_1 = document.getElementById("pcPartiel1").value;
+var score_tests_partiels_2 = document.getElementById("pcPartiel2").value;
+var score_tests_partiels_3 = document.getElementById("pcPartiel3").value;
+var score_tests_partiels_4 = document.getElementById("pcPartiel4").value;
 
 data['piedata4'] = [
-  { label: "< 30", value: score_tests_complets_30, color: 'red' },
-  { label: "< 60", value: score_tests_complets_60, color: 'other' },
-  { label: " > 75", value: score_tests_complets_75, color: 'pink' }
+  { label: "< 25", value: score_tests_partiels_1, color: 'red' },
+  { label: "25-50", value: score_tests_partiels_2, color: 'orange' },
+  { label: "50-75", value: score_tests_partiels_3, color: 'yellow' },
+  { label: "> 75", value: score_tests_partiels_4, color: 'green' }
 ];
+
+/* Graphique score partiel */
+var score_tests_complets_1 = document.getElementById("pcComplet1").value;
+var score_tests_complets_2 = document.getElementById("pcComplet2").value;
+var score_tests_complets_3 = document.getElementById("pcComplet3").value;
+var score_tests_complets_4 = document.getElementById("pcComplet4").value;
+
+data['piedata5'] = [
+  { label: "< 25", value: score_tests_complets_1, color: 'red' },
+  { label: "25-50", value: score_tests_complets_2, color: 'orange' },
+  { label: "50-75", value: score_tests_complets_3, color: 'yellow' },
+  { label: "> 75", value: score_tests_complets_4, color: 'green' }
+];
+
+/* Graphique score total */
+var score_total_1 = document.getElementById("pcTotal1").value;
+var score_total_2 = document.getElementById("pcTotal2").value;
+var score_total_3 = document.getElementById("pcTotal3").value;
+var score_total_4 = document.getElementById("pcTotal4").value;
+
+data['piedata3'] = [
+  { label: "< 25", value: score_total_1, color: 'red' },
+  { label: "25-50", value: score_total_2, color: 'orange' },
+  { label: "50-75", value: score_total_3, color: 'yellow' },
+  { label: "> 75", value: score_total_4, color: 'green' }
+];
+
+
 
 $(document).ready(function() {
   $('[data-pie]').each(function() {
@@ -117,7 +160,7 @@ $(document).ready(function() {
         })
         .on('mouseout', function(d, i) {
           $(chartId + ' [data-slice]').css('opacity', 1);
-          $(chartId + ' [data-slice=' + i + ']').css('background', 'rgba(0,0,0,0.2)');
+          $(chartId + ' [data-slice=' + i + ']').css('background', '#2e5a87');
         });
 
     var legend = d3.select(chartId)

@@ -148,17 +148,47 @@ if (isset($_GET['page'])) {
   /*      GESTIONNAIRE            */
   /********************************/
   else if ($_GET['page'] == 'gestionnaire'){
-    if (isset($_POST["statprofil"])){
-      # Requêtes tout sexe
-      if ((isset($_POST["sexe"]) && $_POST["sexe"] == '') || isset($_POST["sexe"]) == false) {
-        donnee_sexe_gestionnaire();
-        donnee_age_gestionnaire();
-        donne_partiel_gestionnaire();
+    if (isset($_GET['traitement']) && ($_GET['traitement'] == 'sexe')){
+      if (isset($_POST["sexe"]) && $_POST["sexe"] !== '')
+          donnee_sexe_select_gestionnaire($_POST["sexe"]);
+      else
+        page_gestionnaire();
+    }
+    else if (isset($_GET['traitement']) && $_GET['traitement'] == 'test'){
+          $_POST["stattest"] = true;
+          page_gestionnaire();
+    }
+    else if (isset($_GET['traitement']) && $_GET['traitement'] == 'recherche'){
+          $_POST["search"] = true;
+          $_POST['validerRecherche'] = true;
+          $_POST['validerRecherche2'] = true;
+          print_r($_POST);
+          page_gestionnaire();
 
-      }
-    }else{
+    }
+    else{
       page_gestionnaire();
     }
+    // if (isset($_POST["statprofil"])){
+    //   # Requêtes tout sexe
+    //   /*if ((isset($_POST["sexe"]) && $_POST["sexe"] == '') || isset($_POST["sexe"]) == false) {
+    //
+    //   }*/
+    //   if (isset($_POST["statprofil"]) || (!isset($_POST["recherchenom"]) && !isset($_POST["statprofil"]) && !isset($_POST["stattest"]))){
+    //
+    //       if (isset($_POST["sexe"]) && $_POST["sexe"] !== '') {
+    //         donnee_sexe_select_gestionnaire($_POST["sexe"]);
+    //         }
+    //           echo $_POST["sexe"];
+    //     }
+    // }
+    // else if (isset($_GET["stattest"])){
+    //   donne_cardiaque();
+    //   donne_auditif();
+    //   page_gestionnaire();
+    //
+    // }else
+
   }
 
   /********************************/
