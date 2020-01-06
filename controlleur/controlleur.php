@@ -6,7 +6,21 @@ require('modele/model_User.php');
 require('modele/model_UserHistorique.php');
 require('modele/model_Connexion.php');
 require('modele/model_Inscription.php');
+require('modele/model_Gestionnaire.php');
 
+require('modele/model_Ticket.php');
+
+
+function page_ticket(){
+  $ticket = getTicket();
+  require('vue/Ticket.php');
+}
+////
+function addTicket($intitule,$contenu){
+  $add = createTicket($intitule,$contenu);
+  header('Location: index.php?page=ticket');
+}
+////
 /********************************/
 /*            ADMIN             */
 /********************************/
@@ -135,6 +149,23 @@ function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
 /********************************/
 function page_gestionnaire(){
   require('vue/gestionnaire.php');
+}
+
+function donnee_sexe_gestionnaire(){
+  $nbTotal = getNbUtilisateur();
+  $femme = getSexeFemme();
+  $homme = getSexeHomme();
+  header('Location: index.php?page=gestionnaire');
+}
+
+function donnee_age_gestionnaire(){
+  $nbAge20 = getAge20();
+  $nbAge2030 = getAge2030();
+  $nbAge3040 = getAge3040();
+  $nbAge4050 = getAge4050();
+  $nbAge5060 = getAge5060();
+  $nbAge60 = getAge60();
+  header('Location: index.php?page=gestionnaire');
 }
 
 /********************************/

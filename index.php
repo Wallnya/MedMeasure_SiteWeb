@@ -136,6 +136,9 @@ if (isset($_GET['page'])) {
         page_resultat($type,$idTest,$id);
       }
     }
+    else if(isset($_POST['ticket'])){
+      page_ticket($_SESSION['id']);
+    }
     else{
       $id=htmlspecialchars($_SESSION['id']);
       page_user($id);
@@ -145,8 +148,31 @@ if (isset($_GET['page'])) {
   /*      GESTIONNAIRE            */
   /********************************/
   else if ($_GET['page'] == 'gestionnaire'){
+    if (isset($_POST["statprofil"])){
+      # Requêtes tout sexe
+      if ((isset($_POST["sexe"]) && $_POST["sexe"] == '') || isset($_POST["sexe"]) == false) {
+        donnee_sexe_gestionnaire();
+        donnee_age_gestionnaire();
+        donne_partiel_gestionnaire();
+
+      }
+    }else{
       page_gestionnaire();
+    }
   }
+
+  /********************************/
+/*            TICKET            */
+/********************************/
+else if ($_GET['page']=='ticket'){
+   if (isset($_POST['EnvoyerTicket'])){
+    if (isset($_POST["intitule"]) && isset($_POST["contenu"])){
+      addTicket($_POST['intitule'],$_POST['contenu']);
+    }
+  }
+  page_ticket();
+
+}
   /********************************/
   /*            FAQ               */
   /********************************/
