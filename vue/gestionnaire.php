@@ -1,3 +1,6 @@
+<?php
+if ($_SESSION["type"]=="Gestionnaire"){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +9,8 @@
   <title>Gestionnaire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="./css/style_gestionnaire.css">
+  <link rel="stylesheet" href="./css/header3.css">
+
   <link rel="stylesheet" href="./css/diagramme.css">
   <link rel="stylesheet" href="./css/histogramme.css">
 </head>
@@ -13,8 +18,10 @@
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-    <a href="accueil.php">Accueil</a>
-    <a href="deconnexion.php">Déconnexion</a>
+    <a href="index.php?page=gestionnaire">Accueil</a>
+    <a href="index.php?deco=deconnexion">Déconnexion</a>
+    <button class="test">FR</button>
+    <button class="test">EN</button>
   </div>
   <div class="texte">
     <img src="images/gestion.png" alt="Image pour la page resultat">
@@ -456,3 +463,10 @@ if (isset($_POST["stattest"])){
 
 </body>
 </html>
+
+<?php
+}
+else {
+header('Location: index.php');
+}
+?>
