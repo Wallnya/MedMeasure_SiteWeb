@@ -159,36 +159,12 @@ if (isset($_GET['page'])) {
           page_gestionnaire();
     }
     else if (isset($_GET['traitement']) && $_GET['traitement'] == 'recherche'){
-          $_POST["search"] = true;
-          $_POST['validerRecherche'] = true;
-          $_POST['validerRecherche2'] = true;
-          print_r($_POST);
+      $_POST['recherchenom'] = true;
           page_gestionnaire();
-
     }
     else{
       page_gestionnaire();
     }
-    // if (isset($_POST["statprofil"])){
-    //   # Requêtes tout sexe
-    //   /*if ((isset($_POST["sexe"]) && $_POST["sexe"] == '') || isset($_POST["sexe"]) == false) {
-    //
-    //   }*/
-    //   if (isset($_POST["statprofil"]) || (!isset($_POST["recherchenom"]) && !isset($_POST["statprofil"]) && !isset($_POST["stattest"]))){
-    //
-    //       if (isset($_POST["sexe"]) && $_POST["sexe"] !== '') {
-    //         donnee_sexe_select_gestionnaire($_POST["sexe"]);
-    //         }
-    //           echo $_POST["sexe"];
-    //     }
-    // }
-    // else if (isset($_GET["stattest"])){
-    //   donne_cardiaque();
-    //   donne_auditif();
-    //   page_gestionnaire();
-    //
-    // }else
-
   }
 
   /********************************/

@@ -439,14 +439,14 @@ function getPeau1(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE TemperaturePeau < 20;");
   $nbTemperaturePeau1 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 function getPeau2(){
   $db = dbConnect();
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE TemperaturePeau >= 20 and TemperaturePeau < 25;");
   $nbTemperaturePeau2 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 function getPeau3(){
   $db = dbConnect();
