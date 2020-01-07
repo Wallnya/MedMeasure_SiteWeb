@@ -6,8 +6,8 @@ window.fbAsyncInit = function() {
         xfbml      : true,
         version    : 'v5.0'
     });
-        
-    FB.AppEvents.logPageView();   
+
+    FB.AppEvents.logPageView();
 
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
@@ -31,7 +31,7 @@ function statusChangeCallback(response) {
 
     // Connecté
     if (response.status === 'connected') {
-    
+
         console.log('Connecté !');
         FB.api('/me', {fields: 'id,name,first_name,last_name,email,picture'}, function (response) {
             console.log('Successful login for: ' + response.name);
@@ -56,20 +56,25 @@ function statusChangeCallback(response) {
 
             // Envoie les données sur la page InscriptionFB.php
             jQuery.ajax({
-                url: 'InscriptionFB.php', 
+                url: 'modele/InscriptionFB.php',
                 type: 'POST',
                 data: 'id='+idFB+'&email='+emailFB+'&prenom='+prenomFB+'&nom='+nomFB,
-                success: function(data){ 
-                    alert("Utilisateur connecté" +
-                            "\n id : " + response.id +
-                            "\n Nom : " + response.last_name +
-                            "\n Prénom : " + response.first_name +
-                            "\n Email : " + response.email +
-                            "\n Photo : " + response.picture.data.url); 
-                }, 
-                error: function(){ 
-                    alert('Erreur'); 
-                } 
+                success: function(data){
+                  var words = data.split(':');
+                  var type = words[2].substr(1, words[2].length-3);
+                  if (type == "Pilote"){
+                    window.location.href = "index.php?page=user";
+                  }
+                  else if(type == "Administrateur"){
+                    window.location.href = "index.php?page=admin_user";
+                  }
+                  else {
+                    window.location.href = "index.php?page=gestionnaire";
+                  }
+                },
+                error: function(){
+                    alert('Erreur');
+                }
             });
         });
 

@@ -26,7 +26,6 @@
         <label for="mdp"></label>
         <input type="password" name="mdp" id="mdp" placeholder="Mot de passe"/>
         <input type="submit" name="connexion" value="Se connecter">
-      </form>
 
       <div class="reseaux">
         <p>Connectez-vous également via les réseaux sociaux !</p>
@@ -40,8 +39,9 @@
         </div>
         <div id="status"></div>
       </div>
+    </form>
 
-      
+
 
       <div class="logodescription">
         <img class="logo" src="images/MedMeasureLogo.png" alt="Logo"/>
