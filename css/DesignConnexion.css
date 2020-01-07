@@ -40,30 +40,50 @@ div#droite {
   margin-right: 15px;
 }
 
-.logo {
-  position: absolute;
-  top: 40%;
-  left: 75%;
-  transform:translate(-50%, -50%);
-  width: 200px;
-	height: 200px;
+.reseaux{
+  margin: 20px 50px;
+  font-size: 17px;
 }
 
-div#droite p  {
+.logodescription .logo {
+  /*position: absolute;
+  top: 40%;
+  left: 75%;
+  transform:translate(-50%, -50%);*/
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+}
+
+.logodescription{
+  margin: 50px 20px;
+}
+
+.logodescription .desc{
+  font-size: 20px;
+  margin: 20px 150px;
+}
+
+.logodescription .desc .lien{
+  margin-left: 30px;
+}
+
+/*div#droite p  {
   position: absolute;
   top: 65%;
   left: 75%;
   transform:translate(-50%, -50%);
   font-size: 20px;
-}
+}*/
 
-div#droite input[name=inscription]  {
+/*div#droite input[name=inscription]  {
   position: absolute;
   top: 85%;
   left: 81%;
   transform:translate(-50%, -50%);
   font-size: 20px;
-}
+}*/
 
 input[type=text], input[type=password] {
   width: 12,5%;
@@ -88,17 +108,4 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #70B1CB;
-}
-
-
-input[name="connexionFacebook"]{
-  margin-left: 10%;
-  background-color: #3b5998;
-  border-color: #3b5998;
-}
-
-input[name="connexionTwitter"]{
-  margin-left: 10%;
-  background-color: #006dbf;
-      border-color: #006dbf;
 }

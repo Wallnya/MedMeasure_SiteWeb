@@ -30,11 +30,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `connexion` (
   `email` varchar(50) NOT NULL,
-  `mdp` varchar(150) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `idUtilisateur` int(11) NOT NULL,
+  `mdp` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `idUtilisateur` varchar(50) DEFAULT NULL,
   `banni` tinyint(1) NOT NULL DEFAULT '0',
-  `valide` tinyint(1) NOT NULL DEFAULT '0'
+  `valide` tinyint(1) NOT NULL DEFAULT '0',
+  `TypeConnexion` varchar(255) DEFAULT NULL,
+  `idReseau` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -172,12 +174,12 @@ CREATE TABLE `utilisateur` (
   `idUtilisateur` int(11) NOT NULL,
   `nom` varchar(256) DEFAULT NULL,
   `prenom` varchar(256) DEFAULT NULL,
-  `DN` date NOT NULL,
-  `Sexe` varchar(50) NOT NULL,
-  `AdresseVoie` varchar(50) NOT NULL,
-  `AdresseVille` varchar(50) NOT NULL,
-  `AdresseCP` int(11) NOT NULL,
-  `Tel` varchar(50) NOT NULL
+  `DN` date DEFAULT NULL,
+  `Sexe` varchar(50) DEFAULT NULL,
+  `AdresseVoie` varchar(50) DEFAULT NULL,
+  `AdresseVille` varchar(50) DEFAULT NULL,
+  `AdresseCP` int(11) DEFAULT NULL,
+  `Tel` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
