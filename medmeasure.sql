@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 20 déc. 2019 à 11:17
--- Version du serveur :  10.1.38-MariaDB
--- Version de PHP :  7.3.2
+-- Généré le :  mar. 07 jan. 2020 à 17:32
+-- Version du serveur :  10.4.11-MariaDB
+-- Version de PHP :  7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `connexion` (
   `email` varchar(50) NOT NULL,
-  `mdp` varchar(50) DEFAULT NULL,
+  `mdp` varchar(300) DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL,
-  `idUtilisateur` varchar(50) DEFAULT NULL,
-  `banni` tinyint(1) NOT NULL DEFAULT '0',
-  `valide` tinyint(1) NOT NULL DEFAULT '0',
+  `idUtilisateur` int(11) NOT NULL,
+  `banni` tinyint(1) NOT NULL DEFAULT 0,
+  `valide` tinyint(1) NOT NULL DEFAULT 0,
   `TypeConnexion` varchar(255) DEFAULT NULL,
   `idReseau` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,14 +43,14 @@ CREATE TABLE `connexion` (
 -- Déchargement des données de la table `connexion`
 --
 
-INSERT INTO `connexion` (`email`, `mdp`, `type`, `idUtilisateur`, `banni`, `valide`) VALUES
-('admin@admin.fr', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Administrateur', 1, 0, 1),
-('test@test.fr', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'Pilote', 2, 1, 1),
-('test2@test.fr', '60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752', 'Gestionnaire', 3, 0, 0),
-('test3@test.fr', 'fd61a03af4f77d870fc21e05e7e80678095c92d808cfb3b5c279ee04c74aca13', 'Pilote', 4, 0, 1),
-('test5@test.fr', 'a140c0c1eda2def2b830363ba362aa4d7d255c262960544821f556e16661b6ff', 'Pilote', 5, 0, 1),
-('test6@test.fr', 'ed0cb90bdfa4f93981a7d03cff99213a86aa96a6cbcf89ec5e8889871f088727', 'Pilote', 6, 0, 1),
-('test4@test.fr', 'a4e624d686e03ed2767c0abd85c14426b0b1157d2ce81d27bb4fe4f6f01d688a', 'Pilote', 7, 0, 1);
+INSERT INTO `connexion` (`email`, `mdp`, `type`, `idUtilisateur`, `banni`, `valide`, `TypeConnexion`, `idReseau`) VALUES
+('admin@admin.fr', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Administrateur', 1, 0, 1, NULL, NULL),
+('test@test.fr', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'Pilote', 2, 1, 1, NULL, NULL),
+('test2@test.fr', '60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752', 'Gestionnaire', 3, 0, 0, NULL, NULL),
+('test3@test.fr', 'fd61a03af4f77d870fc21e05e7e80678095c92d808cfb3b5c279ee04c74aca13', 'Pilote', 4, 0, 1, NULL, NULL),
+('test5@test.fr', 'a140c0c1eda2def2b830363ba362aa4d7d255c262960544821f556e16661b6ff', 'Pilote', 5, 0, 1, NULL, NULL),
+('test6@test.fr', 'ed0cb90bdfa4f93981a7d03cff99213a86aa96a6cbcf89ec5e8889871f088727', 'Pilote', 6, 0, 1, NULL, NULL),
+('test4@test.fr', 'a4e624d686e03ed2767c0abd85c14426b0b1157d2ce81d27bb4fe4f6f01d688a', 'Pilote', 7, 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -243,7 +243,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `connexion`
 --
 ALTER TABLE `connexion`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `faq`
@@ -273,7 +273,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
