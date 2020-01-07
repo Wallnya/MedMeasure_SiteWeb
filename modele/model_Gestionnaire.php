@@ -525,7 +525,7 @@ function getTonalite6(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 2710 and RecoTonalite < 3355;");
   $nbReconnaissanceTonalite6 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-  return $invNum['nb'];
+return $invNum['nb'];
 }
 
 function getTonalite7(){

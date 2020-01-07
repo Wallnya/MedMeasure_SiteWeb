@@ -136,6 +136,9 @@ if (isset($_GET['page'])) {
         page_resultat($type,$idTest,$id);
       }
     }
+    else if(isset($_POST['ticket'])){
+      page_ticket($_SESSION['id']);
+    }
     else{
       $id=htmlspecialchars($_SESSION['id']);
       page_user($id);
@@ -145,8 +148,37 @@ if (isset($_GET['page'])) {
   /*      GESTIONNAIRE            */
   /********************************/
   else if ($_GET['page'] == 'gestionnaire'){
+    if (isset($_GET['traitement']) && ($_GET['traitement'] == 'sexe')){
+      if (isset($_POST["sexe"]) && $_POST["sexe"] !== '')
+          donnee_sexe_select_gestionnaire($_POST["sexe"]);
+      else
+        page_gestionnaire();
+    }
+    else if (isset($_GET['traitement']) && $_GET['traitement'] == 'test'){
+          $_POST["stattest"] = true;
+          page_gestionnaire();
+    }
+    else if (isset($_GET['traitement']) && $_GET['traitement'] == 'recherche'){
+      $_POST['recherchenom'] = true;
+          page_gestionnaire();
+    }
+    else{
       page_gestionnaire();
+    }
   }
+
+  /********************************/
+/*            TICKET            */
+/********************************/
+else if ($_GET['page']=='ticket'){
+   if (isset($_POST['EnvoyerTicket'])){
+    if (isset($_POST["intitule"]) && isset($_POST["contenu"])){
+      addTicket($_POST['intitule'],$_POST['contenu']);
+    }
+  }
+  page_ticket();
+
+}
   /********************************/
   /*            FAQ               */
   /********************************/
