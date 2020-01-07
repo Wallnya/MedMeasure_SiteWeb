@@ -60,17 +60,24 @@ function statusChangeCallback(response) {
                 type: 'POST',
                 data: 'id='+idFB+'&email='+emailFB+'&prenom='+prenomFB+'&nom='+nomFB,
                 success: function(data){
+                  console.log(data);
                   var words = data.split(':');
-                  var type = words[2].substr(1, words[2].length-3);
+                  let type = words[2].substr(1, words[2].length-3);
+                  alert(type);
+                  console.log(type == "Pilote");
+                  console.log(type == "pouet");
+
+                  //<?php $_SESSION["type"] ="Pilote" ?>
+
                   if (type == "Pilote"){
-                    window.location.href = "index.php?page=user";
-                  }
-                  else if(type == "Administrateur"){
-                    window.location.href = "index.php?page=admin_user";
-                  }
-                  else {
-                    window.location.href = "index.php?page=gestionnaire";
-                  }
+                     window.location = "index.php?page=user";
+                   }
+                  // else if(type == "Administrateur"){
+                  //   window.location.href = "index.php?page=admin_user";
+                  // }
+                  // else {
+                  //   window.location.href = "index.php?page=gestionnaire";
+                  // }
                 },
                 error: function(){
                     alert('Erreur');

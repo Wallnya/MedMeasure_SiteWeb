@@ -1,4 +1,6 @@
 <?php
+session_start();
+
     $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
     $idFB = $_POST['id'];
@@ -65,5 +67,5 @@
     $reqAjoutUtilisateur2 -> closeCursor();
     $reponse = array('id' => $_SESSION["id"], 'type' => $_SESSION["type"]);
     header('Content-Type; application/json');
-    //echo json_encode($reponse);
+    echo json_encode($reponse);
 ?>
