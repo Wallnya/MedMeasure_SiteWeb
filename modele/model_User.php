@@ -128,7 +128,7 @@
     $nomtest = "idTest".$type;
     $nomtable = "test".$type;
     $chaine = "SELECT * FROM $nomtable where $nomtest=? and idUtilisateur=?";
-    $req = $db->prepare($idtest,$chaine);
-    $req -> execute(array($id));
+    $req = $db->prepare($chaine);
+    $req -> execute(array($idtest,$id));
       return $req;
   }

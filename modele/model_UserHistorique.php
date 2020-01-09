@@ -42,12 +42,13 @@ function getDateScoreForUser($id){
     $req2 = $db -> prepare("SELECT idTestComplet as idc FROM testComplet WHERE date= ? and score = ? and idUtilisateur = ?");
     $req2->execute(array($date,$score,$id));
 
-    $invNum1 = $req -> fetch(PDO::FETCH_ASSOC);
-    $invNum2 = $req2 -> fetch(PDO::FETCH_ASSOC);
+    $invNum1 = $req -> fetch();
+    $invNum2 = $req2 -> fetch();
+
+  //  if (isset($invNum1) and isset($invNum2) and isset($invNum2['idc']) and isset($invNum1['idp'])){
 
     $r1 = $invNum1['idp'];
     $r2 = $invNum2['idc'];
-
     if ($r1 ==""){
       array_push($temp,"complet");
       array_push($temp,$r2);
@@ -57,6 +58,6 @@ function getDateScoreForUser($id){
       array_push($temp,$r1);
     }
     array_push($a,$temp);
-  }
+}//}
   return $a;
 }
