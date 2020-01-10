@@ -26,29 +26,22 @@ window.fbAsyncInit = function() {
 
 // Renvoie le statut de connexion
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
+    console.log('statusChangeCallback :');
     console.log(response);
 
     // Connecté
     if (response.status === 'connected') {
 
-        console.log('Connecté !');
         FB.api('/me', {fields: 'id,name,first_name,last_name,email,picture'}, function (response) {
-            console.log('Successful login for: ' + response.name);
 
-            console.log("id :");
-            console.log(response.id);
-            console.log("Prénom :");
-            console.log(response.first_name);
-            console.log("Nom :");
-            console.log(response.last_name);
-            console.log("Email :");
-            console.log(response.email);
-            console.log("Photo :");
-            console.log(response.picture.data.url);
-            console.log("reponse");
+            console.log("reponse : ");
             console.log(response);
-
+            console.log("id : " + response.id);
+            console.log("Prénom : " + response.first_name);
+            console.log("Nom : " + response.last_name);
+            console.log("Email : " + response.email);
+            console.log("Photo : " + response.picture.data.url);
+            
             var idFB = response.id,
                 emailFB = response.email,
                 prenomFB = response.first_name,
@@ -63,10 +56,9 @@ function statusChangeCallback(response) {
                   console.log(data);
                   var words = data.split(':');
                   let type = words[2].substr(1, words[2].length-3);
-                  alert(type);
-                  console.log(type == "Pilote");
-                  console.log(type == "pouet");
 
+                  alert("Connecté (" + type + ")");
+  
                   //<?php $_SESSION["type"] ="Pilote" ?>
 
                   if (type == "Pilote"){

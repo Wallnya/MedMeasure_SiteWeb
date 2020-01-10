@@ -1,5 +1,5 @@
 <?php
-require('controlleur/controlleur.php');
+require('controleur/controleur.php');
 session_start();
 if (isset($_GET['page'])) {
   /********************************/
