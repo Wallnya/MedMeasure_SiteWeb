@@ -34,7 +34,7 @@ if ($_SESSION["type"]=="Pilote"){
                 <?php foreach($tabTest as list($valeur1,$valeur2,$valeur3,$valeur4)){  ?>
                     <li style='color:black'>
                     <?php echo $valeur1. " : ". $valeur2;?>
-                        points <form method="POST" action="index.php?page=user">
+                        points <form method="POST" action="index.php?page=user&traitement=histo&bouton=details">
                           <input type="hidden"  name="type" value="<?= $valeur3 ?>">
                           <input type="hidden"  name="idTest" value="<?= $valeur4 ?>">
                           <button class="button" name="detail">- Détails</buttons>
@@ -73,6 +73,9 @@ if ($_SESSION["type"]=="Pilote"){
 function Go()
 {
 document.monForm.submit();
+}
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
 }
     </script>
 </html>

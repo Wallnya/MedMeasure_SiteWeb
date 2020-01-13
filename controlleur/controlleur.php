@@ -108,7 +108,6 @@ function page_resultat($type,$idtest,$id){
   require('vue/resultat-test-partiel.php');
 }
 
-
 function page_user($id){
   $datauser = getDataUser($id);
   $nbtest = getCountTestUser($id);

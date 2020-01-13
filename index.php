@@ -112,33 +112,47 @@ if (isset($_GET['page'])) {
         modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
       }
     }
-    else if (isset($_POST["modifProfil"])){
-      $id=htmlspecialchars($_SESSION['id']);
-      page_modif_profil($id);
+    else if (isset($_GET['traitement'])){
+      if ($_GET['traitement'] == "modifProfil"){
+        if (isset($_POST["modifProfil"])){
+        $id=htmlspecialchars($_SESSION['id']);
+        page_modif_profil($id);
+      }
     }
+      else if ($_GET['traitement'] == "Dernierresultat"){
+        // if(isset($_POST['Dernierresultat'])){
+          $id=htmlspecialchars($_SESSION['id']);
+          page_dernierresultat($id);
+        //}
+      }
+      else if ($_GET['traitement'] == "histo"){
+        if (isset($_GET['bouton']) && $_GET['bouton'] == "details"){
+          if(isset($_POST['detail'])){
+            if (isset($_POST['type']) && isset($_POST['idTest'])){
+              $id=htmlspecialchars($_SESSION['id']);
+              $type=htmlspecialchars($_POST['type']);
+              $idTest=htmlspecialchars($_POST['idTest']);
+              page_resultat($type,$idTest,$id);
+            }
+          }
+        }
+        else{
+          $id=htmlspecialchars($_SESSION['id']);
+          page_historique($id);
+        }
+      }
+      else if ($_GET['traitement'] == "ticket"){
+         //if(isset($_POST['ticket'])){
+          page_ticket($_SESSION['id']);
+        //}
+      }
+    }
+
     else if (isset($_POST['test'])){
       $id=htmlspecialchars($_SESSION['id']);
       page_test($id);
     }
-    else if(isset($_POST['Dernierresultat'])){
-      $id=htmlspecialchars($_SESSION['id']);
-      page_dernierresultat($id);
-    }
-    else if(isset($_POST['histo'])){
-      $id=htmlspecialchars($_SESSION['id']);
-      page_historique($id);
-    }
-    else if(isset($_POST['detail'])){
-      if (isset($_POST['type']) && isset($_POST['idTest'])){
-        $id=htmlspecialchars($_SESSION['id']);
-        $type=htmlspecialchars($_POST['type']);
-        $idTest=htmlspecialchars($_POST['idTest']);
-        page_resultat($type,$idTest,$id);
-      }
-    }
-    else if(isset($_POST['ticket'])){
-      page_ticket($_SESSION['id']);
-    }
+
     else{
       $id=htmlspecialchars($_SESSION['id']);
       page_user($id);

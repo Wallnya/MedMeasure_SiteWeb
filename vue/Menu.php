@@ -1,6 +1,6 @@
 <?php
 if ($_SESSION["type"]=="Pilote"){
-?>
+  ?>
   <!DOCTYPE html>
   <html>
   <head>
@@ -60,37 +60,47 @@ if ($_SESSION["type"]=="Pilote"){
               <div class="formulaire">
                 Prêt pour un test ?
                 <form method="POST" action="index.php?page=user" id="formInscription">
-                <button type="submit" name="test" id="test">C'est parti</button>
+                  <button type="submit" name="test" id="test">C'est parti</button>
+                </form>
               </div>
             </p>
           </div>
           <div class="droite">
             <div class="formulaireBouton">
+              <form method="POST" action="index.php?page=user&traitement=modifProfil" id="formInscription">
                 <button type="submit" name="modifProfil">Modifier le profil</button>
+              </form>
+              <form method="POST" action="index.php?page=user&traitement=ticket" id="formInscription">
                 <button type="submit" name="ticket" id="ticket">Envoyer un ticket</button>
+              </form>
+              <form method="POST" action="index.php?page=user&traitement=Dernierresultat" id="formInscription">
                 <button type="submit" name="Dernierresultat" id="Dernierresultat" onclick="myFunction()">Dernier resultat</button>
+              </form>
+              <form method="POST" action="index.php?page=user&traitement=histo" id="formInscription">
                 <button type="submit" name="histo" id="histo" onclick="myFunction()">Historique</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <script>
-        function myFunction(){
-          <?php if ($nbtest == 0){?>
-            document.getElementById("Dernierresultat").disabled = true;
-            document.getElementById("histo").disabled = true;
-        <?php } else { ?>
-          document.getElementById("Dernierresultat").disabled = false;
-          document.getElementById("histo").disabled = false;
+              </form>
 
-<?php } ?>
-        }
-      </script>
-      </body>
-      </html>
-      <?php
-    }
-    else {
-      //header('Location: index.php');
-    }
-    ?>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script>
+      function myFunction(){
+        <?php if ($nbtest == 0){?>
+          document.getElementById("Dernierresultat").disabled = true;
+          document.getElementById("histo").disabled = true;
+          <?php } else { ?>
+            document.getElementById("Dernierresultat").disabled = false;
+            document.getElementById("histo").disabled = false;
+
+            <?php } ?>
+          }
+          </script>
+        </body>
+        </html>
+        <?php
+      }
+      else {
+        //header('Location: index.php');
+      }
+      ?>
