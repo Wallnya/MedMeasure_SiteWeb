@@ -6,12 +6,19 @@ window.fbAsyncInit = function() {
         xfbml      : true,
         version    : 'v5.0'
     });
+    FB.getLoginStatus(function(response){
+//                    if (response == "unknown"){
+                      statusChangeCallback(response);
+  //                  }
+    //                else{
+      //                FB.login(function(response){
+        //                statusChangeCallback(response);
+        //});
+          //          }
+            }, true);
 
     FB.AppEvents.logPageView();
 
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
 
 };
 
@@ -63,21 +70,18 @@ function statusChangeCallback(response) {
                   console.log(data);
                   var words = data.split(':');
                   let type = words[2].substr(1, words[2].length-3);
-                  alert(type);
-                  console.log(type == "Pilote");
-                  console.log(type == "pouet");
 
                   //<?php $_SESSION["type"] ="Pilote" ?>
 
                   if (type == "Pilote"){
                      window.location = "index.php?page=user";
                    }
-                  // else if(type == "Administrateur"){
-                  //   window.location.href = "index.php?page=admin_user";
-                  // }
-                  // else {
-                  //   window.location.href = "index.php?page=gestionnaire";
-                  // }
+                   else if(type == "Administrateur"){
+                     window.location.href = "index.php?page=admin_user";
+                   }
+                   else {
+                     window.location.href = "index.php?page=gestionnaire";
+                   }
                 },
                 error: function(){
                     alert('Erreur');

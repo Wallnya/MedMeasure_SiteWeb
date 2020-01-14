@@ -43,7 +43,7 @@
 	height: 750px;
   padding: 25px 0 50px;
   margin: 50px auto;
-	background: #5890B6;
+	background: rgba(176, 196, 222, 0.2);
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
