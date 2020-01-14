@@ -63,7 +63,7 @@ function statusChangeCallback(response) {
 
             // Envoie les données sur la page InscriptionFB.php
             jQuery.ajax({
-                url: 'modele/InscriptionFB.php',
+                url: 'modele/model_InscriptionFB.php',
                 type: 'POST',
                 data: 'id='+idFB+'&email='+emailFB+'&prenom='+prenomFB+'&nom='+nomFB,
                 success: function(data){
