@@ -73,7 +73,7 @@ if ($_SESSION["type"]=="Administrateur"){
           <td>Nom de l'utilisateur</td>
           <td>Date d'envoi</td>
           <td>Intitulé</td>
-          <td>Réponse</td>
+          <td class="test">Réponse</td>
           <td>Statut</td>
         </tr>
       <?php
@@ -95,7 +95,7 @@ if ($_SESSION["type"]=="Administrateur"){
           </td>
           <td>
             <form method="POST" action="index.php?page=admin_ticket">
-            <select name="Statut" id="Statut">
+            <select class="Statut" name="Statut" id="Statut">
             <?php if (strcmp (htmlspecialchars($data['statut']),"1") == 0)
             {
             ?>
@@ -113,7 +113,7 @@ if ($_SESSION["type"]=="Administrateur"){
             ?>
             </select>
             <input type="hidden"  name="idTicket" value="<?= htmlspecialchars($data['idTicket']) ?>">
-            <button type="submit" name="modifier"><i class="fa fa-check"></i></button>
+            <button class="check" type="submit" name="modifier"><i class="fa fa-check"></i></button>
           </form>
           </td>
       </tr>

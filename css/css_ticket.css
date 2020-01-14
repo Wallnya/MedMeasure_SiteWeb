@@ -80,3 +80,21 @@ textarea {
 	resize: none;
 	width: 500px;
 }
+
+td{
+	width:100px;
+}
+
+.Statut{
+	width:initial;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.check {
+	float:none;
+}

@@ -2,7 +2,7 @@
 if ($_SESSION["type"]=="Administrateur"){
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <meta charset="utf-8">
   <title>Page de l'administrateur</title>
   <link rel="stylesheet" href="css/css_admin.css">

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/DesignConnexion.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Facebook -->
-    <script type="text/javascript" src="js/connexionFacebook.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/connexionFacebook.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -35,7 +35,7 @@
 
         <div id="boutonsReseau">
           <div class="fb-login-button" onlogin='window.location.reload(true)' data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" scope="email"></div>
-          <img class="boutonReseau" src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/images/sign-in-with-twitter-gray.png">
+          <img alt="Bouton twitter" class="boutonReseau" src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/images/sign-in-with-twitter-gray.png">
         </div>
         <div id="status"></div>
       </div>
