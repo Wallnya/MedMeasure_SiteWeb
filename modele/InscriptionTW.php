@@ -3,24 +3,21 @@ session_start();
 
     $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
-    $idFB = $_POST['id'];
-    $emailFB = $_POST['email'];
-    $prenomFB = $_POST['prenom'];
-    $nomFB = $_POST['nom'];
+    $idTW = $_POST['id'];
+    $emailTW = $_POST['email'];
+    $nomTW = $_POST['nom'];
 
-    /*$idFB = "628521815";
-    $emailFB = "adresse2@mail.fr";
-    $prenomFB = "sarah";
-    $nomFB = "heo";*/
+    /*$idTW = "628521815";
+    $emailTW = "adresse2@mail.fr";
+    $nomTW = "heo";*/
 
     $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
   	$db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
         print_r($_POST);
 
-
-    // On regarde si le compte Facebook est déjà dans la base
-    $reqVerif = $db -> prepare("SELECT * FROM connexion WHERE  TypeConnexion = 'Facebook' and idReseau = ?;");
-    $reqVerif -> execute(array($idFB));
+    // On regarde si le compte Twitter est déjà dans la base
+    $reqVerif = $db -> prepare("SELECT * FROM connexion WHERE TypeConnexion = 'Twitter' and idReseau = ?;");
+    $reqVerif -> execute(array($idTW));
     $count = $reqVerif->rowCount(); // On compte le nombre de lignes réponse
 
     if ($count == 0){
@@ -35,7 +32,7 @@ session_start();
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
 
-        $reqAjoutUtilisateur -> execute(array($nomFB, $prenomFB, null, null, null, null, null, null));
+        $reqAjoutUtilisateur -> execute(array($nomTW, null, null, null, null, null, null, null));
         $reqAjoutUtilisateur -> closeCursor();
 
         // On récupère l'id qui vient d'être créé
@@ -54,13 +51,13 @@ session_start();
         VALUES (?, ?, ?, ?, ?, ?)
         ");
 
-        $reqAjoutConnexion -> execute(array($emailFB, null, "Pilote", $id, "Facebook", $idFB));
+        $reqAjoutConnexion -> execute(array($emailTW, null, "Pilote", $id, "Twitter", $idTW));
         $reqAjoutConnexion -> closeCursor();
     }
 
 
     $reqAjoutUtilisateur2 = $db -> prepare("SELECT idUtilisateur, type from connexion where idReseau = ?");
-    $nbReconnaissanceTonalite6 = $reqAjoutUtilisateur2 -> execute(array($idFB));
+    $nbReconnaissanceTonalite6 = $reqAjoutUtilisateur2 -> execute(array($idTW));
     $invNum = $reqAjoutUtilisateur2 -> fetch(PDO::FETCH_ASSOC);
     $_SESSION["id"] = $invNum['idUtilisateur'];
     $_SESSION["type"] = $invNum['type'];

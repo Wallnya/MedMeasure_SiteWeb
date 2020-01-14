@@ -5,12 +5,20 @@
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/DesignConnexion.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!-- Facebook -->
     <script type="text/javascript" src="js/connexionFacebook.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Twitter --> 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css">
+
   </head>
 
   <body>
+
     <div id="gauche">
       <p>
       <i class="fa fa-search-plus">  Suivez vos résultats</i><br><br>
@@ -29,20 +37,16 @@
 
       <div class="reseaux">
         <p>Connectez-vous également via les réseaux sociaux !</p>
-
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0&appId=572612350206643&autoLogAppEvents=1"></script>
-
         <div id="boutonsReseau">
           <div class="fb-login-button" onlogin='window.location.reload(true)' data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true" scope="email"></div>
-          <img class="boutonReseau" src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/images/sign-in-with-twitter-gray.png">
+          <a id="twitter-button" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i>Se connecter avec Twitter</a>
+          <script type="text/javascript" src="js/connexionTwitter.js"></script> <!-- Ne pas le bouger de place ! -->
         </div>
         <div id="status"></div>
       </div>
     </form>
-
-
-
       <div class="logodescription">
         <img class="logo" src="images/MedMeasureLogo.png" alt="Logo"/>
         <div class="desc">

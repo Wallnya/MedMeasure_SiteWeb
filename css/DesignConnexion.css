@@ -45,6 +45,31 @@ div#droite {
   font-size: 17px;
 }
 
+#twitter-button{
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 5px 10px 30px;
+  border-radius : 3px;
+  text-align: center;
+  width: 250px;
+  margin: 5px auto;
+}
+
+#twitter-button:hover{
+  background-color: #55acee;
+}
+
+.btn-social>:first-child{
+  border-right: none !important;
+  left: 5px !important;
+  top: 2px !important;
+  right: 150px !important;
+}
+
+
 .logodescription .logo {
   /*position: absolute;
   top: 40%;
