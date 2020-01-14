@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 
-test = function(){
+deconnexionFB = function(){
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });

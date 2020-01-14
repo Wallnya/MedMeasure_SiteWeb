@@ -17,7 +17,7 @@ if ($_SESSION["type"]=="Pilote"){
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
       <a href="index.php?page=user">Accueil</a>
       <a href="index.php?page=faq">FAQ</a>
-      <a style="cursor:pointer" onclick="test();">Déconnexion</a>
+      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
       <!-- href="index.php?deco=deconnexion" -->
       <button class="test">FR</button>
       <button class="test">EN</button>
