@@ -34,8 +34,6 @@ define("_TICKETSTRAITES","Tickets traités:");
 define("_RECAPTICKETS","Récapitulatif des Tickets");
 define("_NOMUTILISATEUR","Nom de l'utilisateur");
 define("_DATETICKET","Date d'envoi");
-define("_INTITULE","Intitulé");
-define("_REPONSE","Réponse");
 define("_STATUT","Statut");
 define("_TERMINE","Terminé");
 define("_ENCOURS","En cours");
@@ -98,7 +96,6 @@ define("_ARTICLE5.2","La reproduction et la copie des contenus par l’Utilisate
 //Boutons FAQ.php
 define("_ACCUEIL","Accueil");
 define("_BOUTONSFAQ","FAQ");
-define("_DECONNEXION","Déconnexion");
 
 define("_AUTRESQUESTIONS","D'autres questions ?");
 define("_CONTACTMAIL","Contactez-nous à l'adresse suivant ");
@@ -107,10 +104,8 @@ define("_CONTACTTEL"," ou par téléphone au ");
 define("_TELMEDMEASURE","01 23 45 67 89");
 
 //Gestionnaire gestionnaire.php
-define("_GESTIONNAIRE","Gestionnaire");
 define("_RECHERCHERPILOTE","Rechercher un pilote");
 define("_STATISTIQUES","Statistiques -");
-define("_PROFIL","Profil");
 define("_TEST","Test");
 
 define("_NORESULT", "Pas de résultat pour");
@@ -135,9 +130,6 @@ define("_REPARTITIONRECOTONALITE","Répartition des reconnaissances de la tonali
 
 //Historique.php
 define("_TITREHISTORIQUE","Historique des résultats");
-define("_ACCUEIL","Accueil");
-define("_BOUTONSFAQ","FAQ");
-define("_DECONNEXION","Déconnexion");
 
 define("_EVOLUTIONSCORE","Evolution des scores");
 define("_HISTORIQUE","Historique");
@@ -145,31 +137,18 @@ define("_POINTS","Points");
 define("_DETAILS","Détails");
 
 //Menu.php
-define("_PILOTE","- Pilote");
-define("_NBTESTS","Nombre de tests :");
-define("_NBTESTSREUSSIS","Tests réussis :");
+define("_PILOTE2","- Pilote");
 define("_DATEDERNIERTESTPARTIEL","Date du dernier test partiel ");
 define("_DATEDERNIERTESTCOMPLET","Date du dernier test complet ");
 define("_PRETPOURUNTEST","Prêt pour un test ?");
 define("_LETSGO", "C'est parti");
 define("_MODIFIERPROFIL","Modifier le profil");
-define("_ENVOYERTICKET";"Envoyer un ticket");
+define("_ENVOYERTICKET","Envoyer un ticket");
 define("_DERNIERRESULTAT","Dernier résultat");
-define("_HISTORIQUE","Historique");
 
 //Modification-profil.php
 define("_PROFIL","Profil");
 define("_INFOPERSO","Informations personnelles");
-define("_NOM","Nom");
-define("_PRENOM","Prénom");
-define("_SEXE","Sexe");
-define("_HOMME","Homme");
-define("_FEMME","Femme");
-define("_DATENAISSANCE","Date de naissance");
-define("_ADRESSE","Adresse");
-define("_VILLE","Ville");
-define("_CODEPOSTAL","Code postal");
-define("_TELEPHONE","Téléphone");
 define("_ENREGISTRER","Enregistrer");
 define("_ANNULER","Annuler");
 
@@ -178,7 +157,6 @@ define("_TESTDESUIVI","Test de suivi");
 define("_TESTCOMPLET","Test complet");
 
 //resultat-test-partiel.php
-define("_DERNIERRESULTAT","Dernier résultat");
 define("_RESULTATTESTPARTIEL","Résultat du test partiel");
 define("_RESULTATTESTCOMPLET","Résultat du test complet");
 

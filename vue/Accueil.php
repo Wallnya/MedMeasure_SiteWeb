@@ -1,3 +1,16 @@
+<?php
+if (isset($_SESSION['lang'])){
+  if($_SESSION['lang'] == "en")
+       include "langues/en.inc";
+  else if ($_SESSION['lang'] == "fr"){
+    include "langues/fr.inc";
+  }
+}
+else{
+  include "langues/en.inc";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -13,7 +26,7 @@
   <body>
     <div id="gauche">
       <p>
-      <i class="fa fa-search-plus">  Suivez vos résultats</i><br><br>
+      <i class="fa fa-search-plus">  <?php echo _RESULTATS; ?></i><br><br>
       <i class="fa fa-bar-chart-o">  Découvrez votre progression en temps réel.</i><br><br>
       <i class="fa fa-comments">  Discutez pour en connaître plus</i><br><br>
       <i class="fa fa-check">  Et montrez que vous êtes toujours apte à piloter!</i><br><br>

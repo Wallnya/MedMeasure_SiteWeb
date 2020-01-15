@@ -5,7 +5,6 @@ define("_ADMIN","Administrator page");
 define("_UTILISATEURS","User management");
 define("_FAQ","FAQ management");
 define("_TICKETS","Ticket management");
-define("_DECONNEXION","Log out");
 
 //Accueil.php
 define("_RESULTATS","Track your results");
@@ -18,8 +17,6 @@ define("_JOIN","Join us today!");
 //admin_faq.php
 define("_QUESTIONS","FAQ questions summary");
 define("_NUMBERQUESTION","Question number");
-define("_INTITULE","Title");
-define("_REPONSE","Answer");
 
 define("_NOUVELLEQUESTION","Creation of a new question");
 define("_FORMNOUVELLEQUESTION","Question creation form");
@@ -43,8 +40,6 @@ define("_ENCOURS","Ongoing");
 //admin_user.php
 define("_NBUTILISATEURS","Number of users :");
 define("_NBPILOTES","Number of pilots :");
-define("_NBTESTS","Number of tests :");
-define("_NBTESTSREUSSIS","Successful tests :");
 define("_DONNEESGENERALES","General data summary");
 define("_NOM","Last name");
 define("_PRENOM","First name");
@@ -98,9 +93,6 @@ define("_ARTICLE5.1","The brands, logos and content of the MedMeasure site (grap
 define("_ARTICLE5.2","Reproduction and copy of content by the User requires prior authorization from the site. In this case, any use for commercial or advertising purposes is prohibited.");
 
 //Boutons FAQ.php
-define("_ACCUEIL","Home");
-define("_BOUTONSFAQ","FAQ");
-define("_DECONNEXION","Log out");
 
 define("_AUTRESQUESTIONS","Other questions ?");
 define("_CONTACTMAIL","Contact us at the following address ");
@@ -109,7 +101,6 @@ define("_CONTACTTEL"," or by phone at ");
 define("_TELMEDMEASURE","01 23 45 67 89");
 
 //Gestionnaire gestionnaire.php
-define("_GESTIONNAIRE","Manager");
 define("_RECHERCHERPILOTE","Search for a pilot");
 define("_STATISTIQUES","Statistics -");
 define("_PROFIL","Profile");
@@ -147,7 +138,7 @@ define("_POINTS","Points");
 define("_DETAILS","Details");
 
 //Menu.php
-define("_PILOTE","- Pilot");
+define("_PILOTE2","- Pilot");
 define("_NBTESTS","Number of tests:");
 define("_NBTESTSREUSSIS","Successful tests :");
 define("_DATEDERNIERTESTPARTIEL","Date of the last partial test ");
@@ -155,23 +146,10 @@ define("_DATEDERNIERTESTCOMPLET","Date of the last complete test ");
 define("_PRETPOURUNTEST","Ready for a test ?");
 define("_LETSGO", "Let's go");
 define("_MODIFIERPROFIL","Edit profile");
-define("_ENVOYERTICKET";"Send a ticket");
-define("_DERNIERRESULTAT","Last result");
-define("_HISTORIQUE","History");
+define("_ENVOYERTICKET","Send a ticket");
 
 //Modification-profil.php
-define("_PROFIL","Profile");
 define("_INFOPERSO","Personal information");
-define("_NOM","Last name");
-define("_PRENOM","First name");
-define("_SEXE","Gender");
-define("_HOMME","Male");
-define("_FEMME","Female");
-define("_DATENAISSANCE","Date of birth");
-define("_ADRESSE","Address");
-define("_VILLE","City");
-define("_CODEPOSTAL","Postal code");
-define("_TELEPHONE","Telephone");
 define("_ENREGISTRER","Save");
 define("_ANNULER","Cancel");
 
