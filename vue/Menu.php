@@ -40,11 +40,11 @@ if ($_SESSION["type"]=="Pilote"){
           <div class="rectangle-donnee-ticket">
             <div class="rectangle-ticket">
               <img src="images/notes-medical-solid.svg" alt="logo test">
-              <p>Nombre de tests: <?= $nbtest?></p>
+              <p>Nombre de tests : <?= $nbtest?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-check"></i>
-              <p>Tests réussis: <?= $nbvalide ?></p>
+              <p>Tests réussis : <?= $nbvalide ?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-calendar"></i>
@@ -74,7 +74,7 @@ if ($_SESSION["type"]=="Pilote"){
                 <button type="submit" name="ticket" id="ticket">Envoyer un ticket</button>
               </form>
               <form method="POST" action="index.php?page=user&traitement=Dernierresultat" id="formInscription">
-                <button type="submit" name="Dernierresultat" id="Dernierresultat" onclick="myFunction()">Dernier resultat</button>
+                <button type="submit" name="Dernierresultat" id="Dernierresultat" onclick="myFunction()">Dernier résultat</button>
               </form>
               <form method="POST" action="index.php?page=user&traitement=histo" id="formInscription">
                 <button type="submit" name="histo" id="histo" onclick="myFunction()">Historique</button>

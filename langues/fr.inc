@@ -1,0 +1,185 @@
+<?php
+
+//Boutons admin
+define("_ADMIN","Page de l'administrateur");
+define("_UTILISATEURS","Gestion Utilisateur");
+define("_FAQ","Gestion FAQ");
+define("_TICKETS","Gestion Tickets");
+define("_DECONNEXION","Déconnexion");
+
+//Accueil.php
+define("_RESULTATS","Suivez vos résultats");
+define("_PROGRESSION","Découvrez votre progression en temps réel.");
+define("_CONNAITREPLUS","Discutez pour en connaître plus");
+define("_APTITUDE","Et montrez que vous êtes toujours apte à piloter!");
+define("_AVENTURE","Découvrez l'aventure MedMeasure pour connaître vos résultats en temps réel sur votre aptitude de vol");
+define("_JOIN","Rejoignez nous aujourd'hui !");
+
+//admin_faq.php
+define("_QUESTIONS","Récapitulatif des questions de la FAQ");
+define("_NUMBERQUESTION","Numéro question");
+define("_INTITULE","Intitulé");
+define("_REPONSE","Réponse");
+
+define("_NOUVELLEQUESTION","Création d'une nouvelle question");
+define("_FORMNOUVELLEQUESTION","Formulaire de la création d'une question");
+define("_INTITULENOUVELLESQUESTION","Intitulé de la question");
+define("_REPONSENOUVELLEQUESTION","Réponse de la question");
+
+//admin_ticket.php
+//TICKETS
+define("_NBTICKETS","Nombre de tickets :");
+define("_TICKETSENCOURS","Tickets en cours :");
+define("_TICKETSTRAITES","Tickets traités:");
+define("_RECAPTICKETS","Récapitulatif des Tickets");
+define("_NOMUTILISATEUR","Nom de l'utilisateur");
+define("_DATETICKET","Date d'envoi");
+define("_INTITULE","Intitulé");
+define("_REPONSE","Réponse");
+define("_STATUT","Statut");
+define("_TERMINE","Terminé");
+define("_ENCOURS","En cours");
+
+//admin_user.php
+define("_NBUTILISATEURS","Nombre utilisateurs :");
+define("_NBPILOTES","Nombre de pilotes :");
+define("_NBTESTS","Nombre de tests :");
+define("_NBTESTSREUSSIS","Tests réussis :");
+define("_DONNEESGENERALES","Récapitulatif des données générales");
+define("_NOM","Nom");
+define("_PRENOM","Prénom");
+define("_DATENAISSANCE","Date de naissance");
+define("_SEXE","Sexe");
+define("_ADRESSE","Adresse");
+define("_VILLE","Ville");
+define("_CODEPOSTAL","Code postal");
+define("_TELEPHONE","Téléphone");
+define("_GESTIONUTILISATEURS","Gestion des utilisateurs");
+define("_EMAIL","Email");
+define("_TYPE","Type");
+define("_VALIDE?","Validé ?");
+define("_ADMINISTRATEUR","Administrateur");
+define("_GESTIONNAIRE","Gestionnaire");
+define("_PILOTE","Pilote");
+define("_VALIDE","Validé");
+define("_NONVALIDE","Non Validé");
+define("_GESTIONTESTSPARTIELS","Gestion des tests partiels");
+define("_GESTIONTESTSCOMPLETS","Gestion des tests complets");
+
+//cgu.php
+define("_CGU","CGU");
+define("_ARTICLE1TITLE","Article 1 : Object");
+define("_ARTICLE1","Les présentes CGU ou Conditions Générales d’Utilisation encadrent juridiquement l’utilisation des services du site MedMeasure.
+
+          Constituant le contrat entre la société MedMeasure, l’Utilisateur, l’accès au site doit être précédé de l’acceptation de ces CGU. L’accès à cette plateforme signifie l’acceptation des présentes CGU.");
+define("_ARTICLE2TITLE","Article 2 : Mentions légales");
+define("_ARTICLE2","L’édition du site MedMeasure est assurée par la société MedMeasure, dont le siège social est localisé au 10 Rue de Vanves, 92130 Issy-les-Moulineaux France Métropolitaine.
+
+          L’hébergeur du site se fait pour l'instant en localhost.");
+define("_ARTICLE3TITLE","Article 3 : Accès au site");
+define("_ARTICLE3.1","Le site MedMeasure permet d’accéder gratuitement aux services suivants :");
+define("_ARTICLE3.2","D'effectuer des mesures psychotechniques.");
+define("_ARTICLE3.3","De voir ses résultats.");
+define("_ARTICLE3.4","D'avoir des graphiques sur ses résultats.");
+define("_ARTICLE3.5","Le site est accessible gratuitement depuis n’importe où par tout utilisateur disposant d’un accès à Internet. Tous les frais nécessaires pour l’accès aux services (matériel informatique, connexion Internet…) sont à la charge de l’utilisateur.
+
+            L’accès aux services dédiés aux membres s’effectue à l’aide d’un identifiant et d’un mot de passe.
+
+            Pour des raisons de maintenance ou autres, l’accès au site peut être interrompu ou suspendu par l’éditeur sans préavis ni justification.");
+define("_ARTICLE4TITLE","Article 4 : Collecte des données");
+define("_ARTICLE4.1","Pour la création du compte de l’Utilisateur, la collecte des informations au moment de l’inscription sur le site est nécessaire et obligatoire. Conformément à la loi n°78-17 du 6 janvier relative à l’informatique, aux fichiers et aux libertés, la collecte et le traitement d’informations personnelles s’effectuent dans le respect de la vie privée.");
+define("_ARTICLE4.2","De plus, les données seront gardées pendant une durée de 6 mois, puis elles seront supprimées.");
+define("_ARTICLE4.3","Suivant la loi Informatique et Libertés en date du 6 janvier 1978, articles 39 et 40, l’Utilisateur dispose du droit d’accéder, de rectifier, de supprimer et d’opposer ses données personnelles. L’exercice de ce droit s’effectue par :");
+define("_ARTICLE4.4","Le formulaire d'envoi de ticket.");
+define("_ARTICLE5TITLE","Article 5 : Propriété intellectuelle");
+define("_ARTICLE5.1","Les marques, logos ainsi que les contenus du site MedMeasure (illustrations graphiques, textes…) sont protégés par le Code de la propriété intellectuelle et par le droit d’auteur.");
+define("_ARTICLE5.2","La reproduction et la copie des contenus par l’Utilisateur requièrent une autorisation préalable du site. Dans ce cas, toute utilisation à des usages commerciaux ou à des fins publicitaires est proscrite.");
+
+//Boutons FAQ.php
+define("_ACCUEIL","Accueil");
+define("_BOUTONSFAQ","FAQ");
+define("_DECONNEXION","Déconnexion");
+
+define("_AUTRESQUESTIONS","D'autres questions ?");
+define("_CONTACTMAIL","Contactez-nous à l'adresse suivant ");
+define("_MAILMEDMEASURE","MedMeasure@gmail.com");
+define("_CONTACTTEL"," ou par téléphone au ");
+define("_TELMEDMEASURE","01 23 45 67 89");
+
+//Gestionnaire gestionnaire.php
+define("_GESTIONNAIRE","Gestionnaire");
+define("_RECHERCHERPILOTE","Rechercher un pilote");
+define("_STATISTIQUES","Statistiques -");
+define("_PROFIL","Profil");
+define("_TEST","Test");
+
+define("_NORESULT", "Pas de résultat pour");
+define("_RESULTATRECHERCHEPILOTE","Voici les pilotes qui correspondent à votre recherche :");
+define("_VALIDER","Valider");
+
+define("_SELECTSEXE","Sélectionner le sexe");
+define("_HOMME","Homme");
+define("_FEMME","Femme");
+define("_RYTHMECARDIAQUE","Rythme cardiaque");
+define("_PERCEPTIONAUDITIVE","Perception auditive");
+define("_STIMULUSVISUEL","Réaction à un stimulus visuel");
+define("_TEMPERATUREPEAU","Température de la peau");
+define("_RECOTONALITE","Reconnaissance de la tonalité");
+
+define("_CHOIXMESURE", "Choisissez un test pour afficher sa répartition");
+define("_REPARTITIONRYTHMECARDIAQUE","Répartition des fréquences cardiaques");
+define("_REPARTITIONPERCEPTIONAUDITIVE","Répartition des perceptions auditives");
+define("_REPARTITIONSTIMULUSVISUEL","Répartition des réactions à un stimulus visuel");
+define("_REPARTITIONTEMPERATUREPEAU","Répartition des températures de la peau");
+define("_REPARTITIONRECOTONALITE","Répartition des reconnaissances de la tonalité");
+
+//Historique.php
+define("_TITREHISTORIQUE","Historique des résultats");
+define("_ACCUEIL","Accueil");
+define("_BOUTONSFAQ","FAQ");
+define("_DECONNEXION","Déconnexion");
+
+define("_EVOLUTIONSCORE","Evolution des scores");
+define("_HISTORIQUE","Historique");
+define("_POINTS","Points");
+define("_DETAILS","Détails");
+
+//Menu.php
+define("_PILOTE","- Pilote");
+define("_NBTESTS","Nombre de tests :");
+define("_NBTESTSREUSSIS","Tests réussis :");
+define("_DATEDERNIERTESTPARTIEL","Date du dernier test partiel ");
+define("_DATEDERNIERTESTCOMPLET","Date du dernier test complet ");
+define("_PRETPOURUNTEST","Prêt pour un test ?");
+define("_LETSGO", "C'est parti");
+define("_MODIFIERPROFIL","Modifier le profil");
+define("_ENVOYERTICKET";"Envoyer un ticket");
+define("_DERNIERRESULTAT","Dernier résultat");
+define("_HISTORIQUE","Historique");
+
+//Modification-profil.php
+define("_PROFIL","Profil");
+define("_INFOPERSO","Informations personnelles");
+define("_NOM","Nom");
+define("_PRENOM","Prénom");
+define("_SEXE","Sexe");
+define("_HOMME","Homme");
+define("_FEMME","Femme");
+define("_DATENAISSANCE","Date de naissance");
+define("_ADRESSE","Adresse");
+define("_VILLE","Ville");
+define("_CODEPOSTAL","Code postal");
+define("_TELEPHONE","Téléphone");
+define("_ENREGISTRER","Enregistrer");
+define("_ANNULER","Annuler");
+
+//PageTest.php
+define("_TESTDESUIVI","Test de suivi");
+define("_TESTCOMPLET","Test complet");
+
+//resultat-test-partiel.php
+define("_DERNIERRESULTAT","Dernier résultat");
+define("_RESULTATTESTPARTIEL","Résultat du test partiel");
+define("_RESULTATTESTCOMPLET","Résultat du test complet");
+
+?>

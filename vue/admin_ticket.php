@@ -57,7 +57,7 @@ if ($_SESSION["type"]=="Administrateur"){
           while ($data = $nbTicketValide->fetch())
           {
           ?>
-          <p>Tickets traités: <?= htmlspecialchars($data['nbTicket']) ?> </p>
+          <p>Tickets traités : <?= htmlspecialchars($data['nbTicket']) ?> </p>
           <?php
           }
           $nbTicketValide->closeCursor();
