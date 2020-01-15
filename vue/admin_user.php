@@ -8,6 +8,7 @@ if ($_SESSION["type"]=="Administrateur"){
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="css/header1.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   <header>
     <div class="barre_navigation">
@@ -15,7 +16,7 @@ if ($_SESSION["type"]=="Administrateur"){
       <a href="index.php?page=admin_user">Gestion Utilisateur</a>
       <a href="index.php?page=admin_faq">Gestion FAQ</a>
       <a href="index.php?page=admin_ticket">Gestion Tickets</a>
-      <a href="index.php?deco=deconnexion">Déconnexion</a>
+      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
       <button class="test">FR</button>
       <button class="test">EN</button>
     </div>

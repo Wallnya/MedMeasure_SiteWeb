@@ -9,6 +9,8 @@ if ($_SESSION["type"]=="Pilote"){
     <meta charset="utf-8" />
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/css_ticket.css" />
+    <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
+
   </head>
 
   <header>
@@ -16,7 +18,7 @@ if ($_SESSION["type"]=="Pilote"){
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=user">Accueil</a>
     <a href="index.php?page=faq">FAQ</a>
-    <a href="index.php?deco=deconnexion">Déconnexion</a>
+    <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
     <button class="test">FR</button>
     <button class="test">EN</button>
   </div>

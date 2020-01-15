@@ -7,16 +7,7 @@ window.fbAsyncInit = function() {
         version    : 'v5.0'
     });
     FB.getLoginStatus(function(response){
-//                    if (response == "unknown"){
-                      statusChangeCallback(response);
-  //                  }
-    //                else{
-      //                FB.login(function(response){
-        //                statusChangeCallback(response);
-        //});
-          //          }
-            }, true);
-
+        statusChangeCallback(response), true);
     FB.AppEvents.logPageView();
 
 
@@ -33,7 +24,7 @@ window.fbAsyncInit = function() {
 
 // Renvoie le statut de connexion
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
+    console.log('statusChangeCallback :');
     console.log(response);
 
     // Connecté
@@ -53,7 +44,7 @@ function statusChangeCallback(response) {
             console.log(response.email);
             console.log("Photo :");
             console.log(response.picture.data.url);
-            console.log("reponse");
+            console.log("reponse :");
             console.log(response);
 
             var idFB = response.id,
@@ -70,6 +61,8 @@ function statusChangeCallback(response) {
                   console.log(data);
                   var words = data.split(':');
                   let type = words[2].substr(1, words[2].length-3);
+
+                  alert("Connecté (" + type + ")");
 
                   //<?php $_SESSION["type"] ="Pilote" ?>
 

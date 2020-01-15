@@ -13,13 +13,15 @@ if ($_SESSION["type"]=="Gestionnaire"){
 
   <link rel="stylesheet" href="./css/diagramme.css">
   <link rel="stylesheet" href="./css/histogramme.css">
+  <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
+
 </head>
 
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=gestionnaire">Accueil</a>
-    <a href="index.php?deco=deconnexion">Déconnexion</a>
+    <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
     <button class="test">FR</button>
     <button class="test">EN</button>
   </div>

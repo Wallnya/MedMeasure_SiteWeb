@@ -8,6 +8,8 @@ if ($_SESSION["type"]=="Pilote"){
         <title>Historique des résultats</title>
             <link rel="stylesheet" href="css/css_historique.css">
             <link rel="stylesheet" href="css/header2.css" />
+            <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
+
     </head>
     <body>
         <header>
@@ -15,7 +17,7 @@ if ($_SESSION["type"]=="Pilote"){
                 <img src="images/MedMeasure.png" alt="logo de MedMeasure">
                 <a href="index.php?page=user">Accueil</a>
                 <a href="index.php?page=faq">FAQ</a>
-                <a href="index.php?deco=deconnexion">Déconnexion</a>
+                <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
                 <button class="test">FR</button>
                 <button class="test">EN</button
             </div>
