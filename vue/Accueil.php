@@ -27,9 +27,9 @@ else{
     <div id="gauche">
       <p>
       <i class="fa fa-search-plus">  <?php echo _RESULTATS; ?></i><br><br>
-      <i class="fa fa-bar-chart-o">  Découvrez votre progression en temps réel.</i><br><br>
-      <i class="fa fa-comments">  Discutez pour en connaître plus</i><br><br>
-      <i class="fa fa-check">  Et montrez que vous êtes toujours apte à piloter!</i><br><br>
+      <i class="fa fa-bar-chart-o">  <?php echo _PROGRESSION; ?></i><br><br>
+      <i class="fa fa-comments">  <?php echo _CONNAITREPLUS; ?></i><br><br>
+      <i class="fa fa-check">  <?php echo _APTITUDE; ?></i><br><br>
       </p>
     </div>
     <div id="droite">
@@ -41,7 +41,7 @@ else{
         <input type="submit" name="connexion" value="Se connecter">
 
       <div class="reseaux">
-        <p>Connectez-vous également via les réseaux sociaux !</p>
+        <p><?php echo _RESEAUX; ?></p>
 
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0&appId=572612350206643&autoLogAppEvents=1"></script>
@@ -59,9 +59,9 @@ else{
       <div class="logodescription">
         <img class="logo" src="images/MedMeasureLogo.png" alt="Logo"/>
         <div class="desc">
-          Découvrez l'aventure MedMeasure pour connaître vos résultats en temps réel sur votre aptitude de vol<br><br>
+        <?php echo _AVENTURE; ?><br><br>
           <div class="lien">
-            Rejoignez nous aujourd'hui !
+          <?php echo _JOIN; ?>
             <a href="index.php?page=inscription"> <input type="submit" name="inscription" value="S'incrire"> </a>
           </div>
         </div>

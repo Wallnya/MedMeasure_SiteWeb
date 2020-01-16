@@ -1,5 +1,6 @@
 <?php
 if ($_SESSION["type"]=="Pilote"){
+  
   ?>
   <!DOCTYPE html>
   <html>
@@ -13,13 +14,30 @@ if ($_SESSION["type"]=="Pilote"){
   </head>
 
   <header>
+
+      <?php
+
+        if (isset($_SESSION['lang'])){
+          if($_SESSION['lang'] == "en")
+              include "langues/en.inc";
+          else if ($_SESSION['lang'] == "fr"){
+            include "langues/fr.inc";
+          }
+        }
+        else{
+          include "langues/en.inc";
+        }
+      ?>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-      <a href="index.php?page=user">Accueil</a>
-      <a href="index.php?page=faq">FAQ</a>
-      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
-      <button class="test">FR</button>
-      <button class="test">EN</button>
+      <a href="index.php?page=user"><?php echo _ACCUEIL; ?></a>
+      <a href="index.php?page=faq"><?php echo _BOUTONSFAQ; ?></a>
+      <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
+      <button class="lang" >FR</button>
+      <button class="lang" >EN</button>
+
+      
+
     </div>
   </header>
 
@@ -32,7 +50,7 @@ if ($_SESSION["type"]=="Pilote"){
         ?>
         <p> <?= htmlspecialchars($data['nom']) ?>
           <?= htmlspecialchars($data['prenom']) ?>
-          - Pilote </p>
+          <?php echo _PILOTE2; ?> </p>
           <?php
         }
         $datauser->closeCursor();
@@ -41,27 +59,27 @@ if ($_SESSION["type"]=="Pilote"){
           <div class="rectangle-donnee-ticket">
             <div class="rectangle-ticket">
               <img src="images/notes-medical-solid.svg" alt="logo test">
-              <p>Nombre de tests : <?= $nbtest?></p>
+              <p><?php echo _NBTESTS; ?><?= $nbtest?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-check"></i>
-              <p>Tests réussis : <?= $nbvalide ?></p>
+              <p><?php echo _NBTESTSREUSSIS; ?><?= $nbvalide ?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-calendar"></i>
-              <p>Date du dernier test partiel <?= $datepartiel ?></p>
+              <p><?php echo _DATEDERNIERTESTPARTIEL; ?><?= $datepartiel ?></p>
             </div>
             <div class="rectangle-ticket">
               <i class="fa fa-hourglass"></i>
-              <p>Date du dernier test complet <?= $datecomplet ?></p>
+              <p><?php echo _DATEDERNIERTESTCOMPLET; ?><?= $datecomplet ?></p>
             </div>
           </div>
           <div class="gauche">
             <p>
               <div class="formulaire">
-                Prêt pour un test ?
+              <?php echo _PRETPOURUNTEST; ?>
                 <form method="POST" action="index.php?page=user" id="formInscription">
-                  <button type="submit" name="test" id="test">C'est parti</button>
+                  <button type="submit" name="test" id="test"> <?php echo _LETSGO; ?></button>
                 </form>
               </div>
             </p>
@@ -69,16 +87,16 @@ if ($_SESSION["type"]=="Pilote"){
           <div class="droite">
             <div class="formulaireBouton">
               <form method="POST" action="index.php?page=user&traitement=modifProfil" id="formInscription">
-                <button type="submit" name="modifProfil">Modifier le profil</button>
+                <button type="submit" name="modifProfil"><?php echo _MODIFIERPROFIL; ?></button>
               </form>
               <form method="POST" action="index.php?page=user&traitement=ticket" id="formInscription">
-                <button type="submit" name="ticket" id="ticket">Envoyer un ticket</button>
+                <button type="submit" name="ticket" id="ticket"><?php echo _ENVOYERTICKET; ?></button>
               </form>
               <form method="POST" action="index.php?page=user&traitement=Dernierresultat" id="formInscription">
-                <button type="submit" name="Dernierresultat" id="Dernierresultat" onclick="myFunction()">Dernier résultat</button>
+                <button type="submit" name="Dernierresultat" id="Dernierresultat" onclick="myFunction()"><?php echo _DERNIERRESULTAT; ?></button>
               </form>
               <form method="POST" action="index.php?page=user&traitement=histo" id="formInscription">
-                <button type="submit" name="histo" id="histo" onclick="myFunction()">Historique</button>
+                <button type="submit" name="histo" id="histo" onclick="myFunction()"><?php echo _HISTORIQUE; ?></button>
               </form>
 
             </div>

@@ -14,6 +14,7 @@ define("_CONNAITREPLUS","Discutez pour en connaître plus");
 define("_APTITUDE","Et montrez que vous êtes toujours apte à piloter!");
 define("_AVENTURE","Découvrez l'aventure MedMeasure pour connaître vos résultats en temps réel sur votre aptitude de vol");
 define("_JOIN","Rejoignez nous aujourd'hui !");
+define("_RESEAUX","Connectez-vous également via les réseaux sociaux !");
 
 //admin_faq.php
 define("_QUESTIONS","Récapitulatif des questions de la FAQ");

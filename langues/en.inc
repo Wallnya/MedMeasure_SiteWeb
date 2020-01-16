@@ -13,6 +13,7 @@ define("_CONNAITREPLUS","Discuss to know more");
 define("_APTITUDE","And show that you are still able to fly!");
 define("_AVENTURE","Discover the MedMeasure adventure to know your results in real time on your flying ability");
 define("_JOIN","Join us today!");
+define("_RESEAUX","Connect also via social networks!");
 
 //admin_faq.php
 define("_QUESTIONS","FAQ questions summary");

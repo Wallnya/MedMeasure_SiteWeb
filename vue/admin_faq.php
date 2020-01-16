@@ -13,6 +13,20 @@ if ($_SESSION["type"]=="Administrateur"){
   <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   <header>
+
+    <?php
+
+      if (isset($_SESSION['lang'])){
+        if($_SESSION['lang'] == "en")
+            include "langues/en.inc";
+        else if ($_SESSION['lang'] == "fr"){
+          include "langues/fr.inc";
+        }
+      }
+      else{
+        include "langues/en.inc";
+      }
+    ?>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
       <a href="index.php?page=admin_user">Gestion Utilisateur</a>
