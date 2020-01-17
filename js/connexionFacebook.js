@@ -6,10 +6,12 @@ window.fbAsyncInit = function() {
         xfbml      : true,
         version    : 'v5.0'
     });
-    FB.getLoginStatus(function(response){
-        statusChangeCallback(response), true);
+
     FB.AppEvents.logPageView();
 
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
 
 };
 
