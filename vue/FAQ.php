@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_SESSION['lang'])){
+  if($_SESSION['lang'] == "en")
+      include "langues/en.inc";
+  else if ($_SESSION['lang'] == "fr"){
+    include "langues/fr.inc";
+  }
+}
+else{
+  include "langues/en.inc";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +24,9 @@
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-    <a href="index.php?page=user">Accueil</a>
-    <a href="index.php?page=faq">FAQ</a>
-    <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+    <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
+    <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
+    <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
     <button class="test">FR</button>
     <button class="test">EN</button>
   </div>
@@ -34,7 +48,7 @@
   $faq->closeCursor();
   ?>
   <div class="contact">
-    <strong>D'autres questions ?</strong> Contactez-nous à l'adresse suivant <strong>MedMeasure@gmail.com</strong> ou par téléphone au <strong>01 23 45 67 89</strong>
+    <strong><?php echo _AUTRESQUESTIONS?></strong> <?php echo _CONTACTMAIL?> <strong><?php echo _MAILMEDMEASURE?></strong> <?php echo _CONTACTTEL?> <strong><?php echo _TELMEDMEASURE?></strong>
   </div>
 
   <script>

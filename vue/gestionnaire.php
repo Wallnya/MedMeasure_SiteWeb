@@ -1,12 +1,22 @@
 <?php
 if ($_SESSION["type"]=="Gestionnaire"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <title>Gestionnaire</title>
+  <title><?php echo _GESTIONNAIRE ?></title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="./css/style_gestionnaire.css">
   <link rel="stylesheet" href="./css/header3.css">
@@ -20,8 +30,8 @@ if ($_SESSION["type"]=="Gestionnaire"){
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-    <a href="index.php?page=gestionnaire">Accueil</a>
-    <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+    <a href="index.php?page=gestionnaire"><?php echo _ACCUEIL ?></a>
+    <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION ?></a>
     <button class="test">FR</button>
     <button class="test">EN</button>
   </div>
@@ -67,19 +77,19 @@ if ($_SESSION["type"]=="Gestionnaire"){
     <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
       <button class="onglet" type="submit" name="recherchenom" id="validerFiltre"
       style="<?php if (isset($_POST["recherchenom"])) echo "background: #82A0B5" ?>">
-        Rechercher un pilote
+      <?php echo _RECHERCHERPILOTE ?>
       </button>
     </form>
     <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
       <button class="onglet" type="submit" name="statprofil" id="validerFiltre"
       style="<?php if (isset($_POST["statprofil"])) echo "background: #82A0B5" ?>">
-        Statistiques -<br/>Profil
+      <?php echo _STATISTIQUES ?><br/><?php echo _PROFIL ?>
       </button>
     </form>
     <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
       <button class="onglet" type="submit" name="stattest" id="validerFiltre"
       style="<?php if (isset($_POST["stattest"])) echo "background: #82A0B5" ?>">
-        Statistiques -<br/>Test
+      <?php echo _STATISTIQUES ?><br/><?php echo _TEST ?>
       </button>
     </form>
   </div>
@@ -119,7 +129,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
         ?>
         <div style="margin-top:30px">
           <div style="text-align:center">
-            <label>Pas de résultat pour "<?php echo $_GET["search"]; ?>".</label>
+            <label><?php echo _NORESULT ?> "<?php echo $_GET["search"]; ?>".</label>
           </div>
         </div>
         <?php
@@ -128,7 +138,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
 
         <div style="margin-top:30px">
           <div style="text-align:center">
-            <label>Voici les pilotes qui correspondent à votre recherche :</label>
+            <label><?php echo _RESULTATRECHERCHEPILOTE ?></label>
           </div>
           <div class="filtres">
             <form method="get" action="" style="margin:auto;margin-top:5px">
@@ -254,9 +264,9 @@ if (isset($_POST["statprofil"]) || (!isset($_POST["recherchenom"]) && !isset($_P
         <div style="float:left;margin-left:5px;margin-right:5px">
           <label for="sexe"></label>
           <select name="sexe" style="width:200px; height:30px; font-size: 15px;" id="sexe">
-            <option value="">Sélectionner le sexe</option>
-            <option value="Homme" <?php if (isset($_POST["sexe"]) && $_POST["sexe"] == "Homme") echo "selected"; ?>>Homme</option>
-            <option value="Femme" <?php if (isset($_POST["sexe"]) && $_POST["sexe"] == "Femme") echo "selected"; ?>>Femme</option>
+            <option value=""><?php echo _SELECTSEXE ?></option>
+            <option value="Homme" <?php if (isset($_POST["sexe"]) && $_POST["sexe"] == "Homme") echo "selected"; ?>><?php echo _HOMME ?></option>
+            <option value="Femme" <?php if (isset($_POST["sexe"]) && $_POST["sexe"] == "Femme") echo "selected"; ?>><?php echo _FEMME ?></option>
           </select>
         </div>
         <div style="float:right; margin:auto;margin-left:5px;margin-right:5px">
@@ -291,16 +301,16 @@ if (isset($_POST["stattest"])){
         <div style="float:left;margin-left:5px;margin-right:5px">
           <label for="test"></label>
           <select name="test" style="width:200px; height:30px; font-size: 15px;" id="test">
-            <option value="" selected>Sélectionner une mesure</option>
-            <option value="freq" <?php if (isset($_POST["test"]) && $_POST["test"] == "freq") echo "selected"; ?>>Rythme cardiaque</option>
-            <option value="audio" <?php if (isset($_POST["test"]) && $_POST["test"] == "audio") echo "selected"; ?>>Perception auditive</option>
-            <option value="visio" <?php if (isset($_POST["test"]) && $_POST["test"] == "visio") echo "selected"; ?>>Réaction à un stimulus visuel</option>
-            <option value="peau" <?php if (isset($_POST["test"]) && $_POST["test"] == "peau") echo "selected"; ?>>Température de la peau</option>
-            <option value="ton" <?php if (isset($_POST["test"]) && $_POST["test"] == "ton") echo "selected"; ?>>Reconnaissance de la tonalité</option>
+            <option value="" selected><?php echo _MESURE ?></option>
+            <option value="freq" <?php if (isset($_POST["test"]) && $_POST["test"] == "freq") echo "selected"; ?>><?php echo _RYTHMECARDIAQUE ?></option>
+            <option value="audio" <?php if (isset($_POST["test"]) && $_POST["test"] == "audio") echo "selected"; ?>><?php echo _PERCEPTIONAUDITIVE ?></option>
+            <option value="visio" <?php if (isset($_POST["test"]) && $_POST["test"] == "visio") echo "selected"; ?>><?php echo _STIMULUSVISUEL ?></option>
+            <option value="peau" <?php if (isset($_POST["test"]) && $_POST["test"] == "peau") echo "selected"; ?>><?php echo _TEMPERATUREPEAU ?></option>
+            <option value="ton" <?php if (isset($_POST["test"]) && $_POST["test"] == "ton") echo "selected"; ?>><?php echo _RECOTONALITE ?></option>
           </select>
         </div>
         <div style="float:right; margin:auto;margin-left:5px;margin-right:5px">
-          <button type="submit" name="validerFiltre" id="validerFiltre">Valider</button>
+          <button type="submit" name="validerFiltre" id="validerFiltre"><?php echo _VALIDER ?></button>
         </div>
       </div>
 
@@ -365,7 +375,7 @@ if (isset($_POST["stattest"])){
       ?>
       <ul id="bars"></ul>
       <div class="titre-histo">
-        <div style="text-align:center;">Choisissez un test pour afficher sa répartition</div>
+        <div style="text-align:center;"><?php echo _CHOIXMESURE ?></div>
       </div>
       <?php
     }
@@ -381,7 +391,7 @@ if (isset($_POST["stattest"])){
           <li><div data-percentage="<?php echo $pcFrequence6 ?>" class="bar"></div><span>> 120 bpm</span></li>
         </ul>
         <div class="titre-histo">
-          <div style="text-align:center;">Répartition des fréquences cardiaques</div>
+          <div style="text-align:center;"><?php echo _REPARTITIONRYTHMECARDIAQUE ?></div>
         </div>
         <?php
       }
@@ -399,7 +409,7 @@ if (isset($_POST["stattest"])){
           </li>
         </ul>
         <div class="titre-histo">
-          <div style="text-align:center;">Répartition des perceptions auditives</div>
+          <div style="text-align:center;"><?php echo _REPARTITIONPERCEPTIONAUDITIVE ?></div>
         </div>
         <?php
       }
@@ -414,7 +424,7 @@ if (isset($_POST["stattest"])){
           <li><div data-percentage="<?php echo $pcStimulusVisuel6 ?>" class="bar"></div><span>1000 - 1200 ms</span></li>
         </ul>
         <div class="titre-histo">
-          <div style="text-align:center;">Répartition des réactions à un stimulus visuel</div>
+          <div style="text-align:center;"><?php echo _REPARTITIONSTIMULUSVISUEL ?></div>
         </div>
         <?php
       }
@@ -429,7 +439,7 @@ if (isset($_POST["stattest"])){
           <li><div data-percentage="<?php echo $pcTemperaturePeau6 ?>" class="bar"></div><span>> 40°C</span></li>
         </ul>
         <div class="titre-histo">
-          <div style="text-align:center;">Répartition des températures de la peau</div>
+          <div style="text-align:center;"><?php echo _REPARTITIONTEMPERATUREPEAU ?></div>
         </div>
         <?php
       }
@@ -446,7 +456,7 @@ if (isset($_POST["stattest"])){
           <li><div data-percentage="<?php echo $pcReconnaissanceTonalite8 ?>" class="bar"></div><span>> 4000 Hz</span></li>
         </ul>
         <div class="titre-histo">
-          <div style="text-align:center;">Répartition des reconnaissances de tonalité</div>
+          <div style="text-align:center;"><?php echo _REPARTITIONRECOTONALITE ?></div>
         </div>
         <?php
       }

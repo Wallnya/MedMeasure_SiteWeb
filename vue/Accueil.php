@@ -38,7 +38,7 @@ else{
         <input type="text" name="mail" id="mail" placeholder="Adresse mail"/>
         <label for="mdp"></label>
         <input type="password" name="mdp" id="mdp" placeholder="Mot de passe"/>
-        <input type="submit" name="connexion" value="Se connecter">
+        <input type="submit" name="connexion" value="<?php echo _CONNEXION?>">
 
       <div class="reseaux">
         <p><?php echo _RESEAUX; ?></p>
@@ -62,7 +62,7 @@ else{
         <?php echo _AVENTURE; ?><br><br>
           <div class="lien">
           <?php echo _JOIN; ?>
-            <a href="index.php?page=inscription"> <input type="submit" name="inscription" value="S'incrire"> </a>
+            <a href="index.php?page=inscription"> <input type="submit" name="inscription" value="<?php echo _INSCRIPTION?>"> </a>
           </div>
         </div>
       </div>

@@ -7,6 +7,8 @@ define("_FAQ","FAQ management");
 define("_TICKETS","Ticket management");
 
 //Accueil.php
+define("_CONNEXION","Sign in");
+define("_INSCRIPTION","Sign up");
 define("_RESULTATS","Track your results");
 define("_PROGRESSION","Find out your progress in real time.");
 define("_CONNAITREPLUS","Discuss to know more");
@@ -21,14 +23,14 @@ define("_NUMBERQUESTION","Question number");
 
 define("_NOUVELLEQUESTION","Creation of a new question");
 define("_FORMNOUVELLEQUESTION","Question creation form");
-define("_INTITULENOUVELLESQUESTION","Question title");
+define("_INTITULENOUVELLEQUESTION","Question title");
 define("_REPONSENOUVELLEQUESTION","Question answer");
 
 //admin_ticket.php
 //TICKETS
-define("_NBTICKETS","Number of tickets :");
-define("_TICKETSENCOURS","Ongoing tickets :");
-define("_TICKETSTRAITES","Processed tickets:");
+define("_NBTICKETS","Number of tickets: ");
+define("_TICKETSENCOURS","Ongoing tickets: ");
+define("_TICKETSTRAITES","Processed tickets: ");
 define("_RECAPTICKETS","Tickets summary");
 define("_NOMUTILISATEUR","Username");
 define("_DATETICKET","Submission date");
@@ -53,7 +55,7 @@ define("_TELEPHONE","Telephone");
 define("_GESTIONUTILISATEURS","User management");
 define("_EMAIL","Email");
 define("_TYPE","Type");
-define("_VALIDE?","Confirmed ?");
+define("_VALIDEQ","Confirmed ?");
 define("_ADMINISTRATEUR","Administrator");
 define("_GESTIONNAIRE","Manager");
 define("_PILOTE","Pilot");
@@ -74,24 +76,24 @@ define("_ARTICLE2","The MedMeasure website is published and edited by the compan
 
           The web hosting service is currently done in localhost.");
 define("_ARTICLE3TITLE","Article 3 : Access to the site");
-define("_ARTICLE3.1","The MedMeasure site provides free access to the following services :");
-define("_ARTICLE3.2","To perform psychotechnical measurements");
-define("_ARTICLE3.3","To see one's results");
-define("_ARTICLE3.4","To obtain a graph of one's results");
-define("_ARTICLE3.5","The site is accessible free of charge from anywhere by any user with Internet access. All costs necessary for access to the services (computer equipment, Internet connection, etc.) are at the user's expense.
+define("_ARTICLE31","The MedMeasure site provides free access to the following services:");
+define("_ARTICLE32","To perform psychotechnical measurements");
+define("_ARTICLE33","To see one's results");
+define("_ARTICLE34","To obtain a graph of one's results");
+define("_ARTICLE35","The site is accessible free of charge from anywhere by any user with Internet access. All costs necessary for access to the services (computer equipment, Internet connection, etc.) are at the user's expense.
 
             Access to services dedicated to members is carried out using a username and a password.
 
             For maintenance or other reasons, access to the site may be interrupted or suspended by the publisher without notice or justification.");
 define("_ARTICLE4TITLE","Article 4 : Data collection");
-define("_ARTICLE4.1","For the creation of the User's account, the collection of information at the time of registration on the site is necessary and mandatory. According to the law n°78-17 of January 6 on information technology, data files and civil liberties, the collection and processing of personal information is carried out with respect for privacy.
+define("_ARTICLE41","For the creation of the User's account, the collection of information at the time of registration on the site is necessary and mandatory. According to the law n°78-17 of January 6 on information technology, data files and civil liberties, the collection and processing of personal information is carried out with respect for privacy.
 ");
-define("_ARTICLE4.2","In addition, the data will be kept for a period of 6 months, after which it will be deleted.");
-define("_ARTICLE4.3","According to the French Data Protection Act of January 6 1978, articles 39 and 40, the User has the right to access, rectify, delete and oppose his personal data. The exercise of this right is carried out by :");
-define("_ARTICLE4.4","The ticket submission form");
+define("_ARTICLE42","In addition, the data will be kept for a period of 6 months, after which it will be deleted.");
+define("_ARTICLE43","According to the French Data Protection Act of January 6 1978, articles 39 and 40, the User has the right to access, rectify, delete and oppose his personal data. The exercise of this right is carried out by :");
+define("_ARTICLE44","The ticket submission form");
 define("_ARTICLE5TITLE","Article 5 : Intellectual property");
-define("_ARTICLE5.1","The brands, logos and content of the MedMeasure site (graphic illustrations, texts, etc.) are protected by the Intellectual Property Code and by copyright.");
-define("_ARTICLE5.2","Reproduction and copy of content by the User requires prior authorization from the site. In this case, any use for commercial or advertising purposes is prohibited.");
+define("_ARTICLE51","The brands, logos and content of the MedMeasure site (graphic illustrations, texts, etc.) are protected by the Intellectual Property Code and by copyright.");
+define("_ARTICLE52","Reproduction and copy of content by the User requires prior authorization from the site. In this case, any use for commercial or advertising purposes is prohibited.");
 
 //Boutons FAQ.php
 
@@ -114,6 +116,7 @@ define("_VALIDER","Confirm");
 define("_SELECTSEXE","Select gender");
 define("_HOMME","Male");
 define("_FEMME","Female");
+define("_MESURE", "Choose a test");
 define("_RYTHMECARDIAQUE","Heart rate");
 define("_PERCEPTIONAUDITIVE","Auditory perception");
 define("_STIMULUSVISUEL","Reaction to a visual stimulus");

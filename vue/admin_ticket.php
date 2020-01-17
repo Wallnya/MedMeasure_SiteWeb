@@ -1,10 +1,20 @@
 <?php
 if ($_SESSION["type"]=="Administrateur"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
 ?>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-  <title>Page de l'administrateur</title>
+  <title><?php echo _ADMIN; ?></title>
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="css/css_ticket.css">
   <link rel="stylesheet" href="css/header1.css">
@@ -13,12 +23,13 @@ if ($_SESSION["type"]=="Administrateur"){
   <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   <header>
+
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-      <a href="index.php?page=admin_user">Gestion Utilisateur</a>
-      <a href="index.php?page=admin_faq">Gestion FAQ</a>
-      <a href="index.php?page=admin_ticket">Gestion Tickets</a>
-      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+      <a href="index.php?page=admin_user"><?php echo _UTILISATEURS; ?></a>
+      <a href="index.php?page=admin_faq"><?php echo _FAQ; ?></a>
+      <a href="index.php?page=admin_ticket"><?php echo _TICKETS; ?></a>
+      <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
       <button class="test">FR</button>
       <button class="test">EN</button>
     </div>
@@ -35,7 +46,7 @@ if ($_SESSION["type"]=="Administrateur"){
           while ($data = $nbTicket->fetch())
           {
           ?>
-          <p> Nombre de tickets : <?= htmlspecialchars($data['nbTicket']) ?></p>
+          <p> <?php echo _NBTICKETS; ?> <?= htmlspecialchars($data['nbTicket']) ?></p>
           <?php
           }
           $nbTicket->closeCursor();
@@ -47,7 +58,7 @@ if ($_SESSION["type"]=="Administrateur"){
           while ($data = $nbTicketEnCours->fetch())
           {
           ?>
-          <p>Tickets en cours : <?= htmlspecialchars($data['nbTicket']) ?></p>
+          <p><?php echo _TICKETSENCOURS; ?> <?= htmlspecialchars($data['nbTicket']) ?></p>
           <?php
           }
           $nbTicketEnCours->closeCursor();
@@ -59,7 +70,7 @@ if ($_SESSION["type"]=="Administrateur"){
           while ($data = $nbTicketValide->fetch())
           {
           ?>
-          <p>Tickets traités : <?= htmlspecialchars($data['nbTicket']) ?> </p>
+          <p><?php echo _TICKETSTRAITES; ?> <?= htmlspecialchars($data['nbTicket']) ?> </p>
           <?php
           }
           $nbTicketValide->closeCursor();
@@ -67,16 +78,16 @@ if ($_SESSION["type"]=="Administrateur"){
         </div>
       </div>
     </div>
-  <p>Récapitulatif des Tickets</p>
+  <p><?php echo _RECAPTICKETS; ?></p>
   <div class="container-fluid">
     <center>
       <table border='1' cellpadding='5' cellpacing='9'>
         <tr class="entete">
-          <td>Nom de l'utilisateur</td>
-          <td>Date d'envoi</td>
-          <td>Intitulé</td>
-          <td class="test">Réponse</td>
-          <td>Statut</td>
+          <td><?php echo _NOMUTILISATEUR; ?></td>
+          <td><?php echo _DATETICKET; ?></td>
+          <td><?php echo _INTITULE; ?></td>
+          <td class="test"><?php echo _REPONSE; ?></td>
+          <td><?php echo _STATUT; ?></td>
         </tr>
       <?php
       while ($data = $ticket->fetch())
@@ -101,15 +112,15 @@ if ($_SESSION["type"]=="Administrateur"){
             <?php if (strcmp (htmlspecialchars($data['statut']),"1") == 0)
             {
             ?>
-                <option value="1" selected>Terminé</option>
-                <option value="0" >En cours</option>
+                <option value="1" selected><?php echo _TERMINE; ?></option>
+                <option value="0" ><?php echo _ENCOURS; ?></option>
             <?php
             }
             else
             {
             ?>
-                <option value="1" >Terminé</option>
-                <option value="0" selected>En cours</option>
+                <option value="1" ><?php echo _TERMINE; ?></option>
+                <option value="0" selected><?php echo _ENCOURS; ?></option>
             <?php
             }
             ?>

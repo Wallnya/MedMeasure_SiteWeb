@@ -1,5 +1,15 @@
 <?php
 if ($_SESSION["type"]=="Administrateur"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,26 +23,12 @@ if ($_SESSION["type"]=="Administrateur"){
   <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   <header>
-
-    <?php
-
-      if (isset($_SESSION['lang'])){
-        if($_SESSION['lang'] == "en")
-            include "langues/en.inc";
-        else if ($_SESSION['lang'] == "fr"){
-          include "langues/fr.inc";
-        }
-      }
-      else{
-        include "langues/en.inc";
-      }
-    ?>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-      <a href="index.php?page=admin_user">Gestion Utilisateur</a>
-      <a href="index.php?page=admin_faq">Gestion FAQ</a>
-      <a href="index.php?page=admin_ticket">Gestion Tickets</a>
-      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+      <a href="index.php?page=admin_user"><?php echo _UTILISATEURS; ?></a>
+      <a href="index.php?page=admin_faq"><?php echo _FAQ; ?></a>
+      <a href="index.php?page=admin_ticket"><?php echo _TICKETS; ?></a>
+      <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
       <button class="test">FR</button>
       <button class="test">EN</button>
     </div>
@@ -41,14 +37,14 @@ if ($_SESSION["type"]=="Administrateur"){
     </div>
   </header>
   <body>
-  <p>Récapitulatif des questions de la FAQ</p>
+  <p><?php echo _QUESTIONS; ?></p>
   <div class="container-fluid">
   <center>
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
-        <td>Numéro question</td>
-        <td>Intitulé</td>
-        <td>Réponse</td>
+        <td><?php echo _NUMBERQUESTION; ?></td>
+        <td><?php echo _INTITULE; ?></td>
+        <td><?php echo _REPONSE; ?></td>
       </tr>
     <?php
     while ($data2 = $faq->fetch())
@@ -78,14 +74,14 @@ if ($_SESSION["type"]=="Administrateur"){
   </center>
 </div>
 
-  <p>Création d'une nouvelle question</p>
+  <p><?php echo _NOUVELLEQUESTION; ?></p>
   <center>
     <form method="POST" action="index.php?page=admin_faq">
       <fieldset>
-          <legend>Formulaire de la création d'une question</legend>
-            <label for="question">Intitulé de la question</label>
+          <legend><?php echo _FORMNOUVELLEQUESTION; ?></legend>
+            <label for="question"><?php echo _INTITULENOUVELLEQUESTION; ?></label>
             <textarea name="question"></textarea>
-            <label for="reponse">Réponse de la question</label>
+            <label for="reponse"><?php echo _REPONSENOUVELLEQUESTION; ?></label>
             <textarea name="reponse"></textarea>
             <br>
             <button type="submit" name="enregistrerFAQ"><i class="fa fa-save"></i></button>

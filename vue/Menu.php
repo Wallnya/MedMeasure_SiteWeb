@@ -1,5 +1,15 @@
 <?php
 if ($_SESSION["type"]=="Pilote"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
   
   ?>
   <!DOCTYPE html>
@@ -14,20 +24,6 @@ if ($_SESSION["type"]=="Pilote"){
   </head>
 
   <header>
-
-      <?php
-
-        if (isset($_SESSION['lang'])){
-          if($_SESSION['lang'] == "en")
-              include "langues/en.inc";
-          else if ($_SESSION['lang'] == "fr"){
-            include "langues/fr.inc";
-          }
-        }
-        else{
-          include "langues/en.inc";
-        }
-      ?>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
       <a href="index.php?page=user"><?php echo _ACCUEIL; ?></a>
@@ -75,12 +71,14 @@ if ($_SESSION["type"]=="Pilote"){
             </div>
           </div>
           <div class="gauche">
+            <p>
               <div class="formulaire">
-              <p><?php echo _PRETPOURUNTEST; ?></p>
+              <?php echo _PRETPOURUNTEST; ?>
                 <form method="POST" action="index.php?page=user" id="formInscription">
                   <button type="submit" name="test" id="test"> <?php echo _LETSGO; ?></button>
                 </form>
               </div>
+            </p>
           </div>
           <div class="droite">
             <div class="formulaireBouton">
@@ -98,23 +96,23 @@ if ($_SESSION["type"]=="Pilote"){
               </form>
 
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <script>
-        function myFunction(){
-          <?php if ($nbtest == 0){?>
-            document.getElementById("Dernierresultat").disabled = true;
-            document.getElementById("histo").disabled = true;
-            <?php } else { ?>
-              document.getElementById("Dernierresultat").disabled = false;
-              document.getElementById("histo").disabled = false;
+      function myFunction(){
+        <?php if ($nbtest == 0){?>
+          document.getElementById("Dernierresultat").disabled = true;
+          document.getElementById("histo").disabled = true;
+          <?php } else { ?>
+            document.getElementById("Dernierresultat").disabled = false;
+            document.getElementById("histo").disabled = false;
 
-              <?php } ?>
-            }
-      </script>
-    </body>
-  </html>
+            <?php } ?>
+          }
+          </script>
+        </body>
+        </html>
         <?php
       }
       else {

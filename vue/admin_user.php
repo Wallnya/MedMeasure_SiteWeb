@@ -1,10 +1,20 @@
 <?php
 if ($_SESSION["type"]=="Administrateur"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
   ?>
   <!DOCTYPE html>
   <html>
   <meta charset="utf-8">
-  <title>Page de l'administrateur</title>
+  <title><?php echo _ADMIN; ?></title>
   <link rel="stylesheet" href="css/css_admin.css">
   <link rel="stylesheet" href="css/header1.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,10 +23,10 @@ if ($_SESSION["type"]=="Administrateur"){
   <header>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-      <a href="index.php?page=admin_user">Gestion Utilisateur</a>
-      <a href="index.php?page=admin_faq">Gestion FAQ</a>
-      <a href="index.php?page=admin_ticket">Gestion Tickets</a>
-      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+      <a href="index.php?page=admin_user"><?php echo _UTILISATEURS; ?></a>
+      <a href="index.php?page=admin_faq"><?php echo _FAQ; ?></a>
+      <a href="index.php?page=admin_ticket"><?php echo _TICKETS; ?></a>
+      <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
       <button class="test">FR</button>
       <button class="test">EN</button>
     </div>
@@ -36,7 +46,7 @@ if ($_SESSION["type"]=="Administrateur"){
       while ($data = $nbuser->fetch())
       {
         ?>
-        <p> Nombre utilisateurs : <?= htmlspecialchars($data['uti']) ?></p>
+        <p> <?php echo _NBUTILISATEURS; ?> <?= htmlspecialchars($data['uti']) ?></p>
         <?php
       }
       $nbuser->closeCursor();
@@ -48,7 +58,7 @@ if ($_SESSION["type"]=="Administrateur"){
       while ($data = $nbpilote->fetch())
       {
         ?>
-        <p>Nombre de pilotes : <?= htmlspecialchars($data['uti']) ?></p>
+        <p><?php echo _NBPILOTES; ?> <?= htmlspecialchars($data['uti']) ?></p>
         <?php
       }
       $nbpilote->closeCursor();
@@ -56,27 +66,27 @@ if ($_SESSION["type"]=="Administrateur"){
     </div>
     <div class="rectangle">
       <img src="images/notes-medical-solid.svg" alt="logo test">
-      <p>Nombre de tests : <?= $nbTest ?> </p>
+      <p><?php echo _NBTESTS; ?> <?= $nbTest ?> </p>
     </div>
     <div class="rectangle">
       <i class="fa fa-check"></i>
-      <p>Tests réussis : <?= $nbTestReussis ?></p>
+      <p><?php echo _NBTESTSREUSSIS; ?> <?= $nbTestReussis ?></p>
     </div>
   </div>
 </div>
-<p>Récapitulatif des données générales</p>
+<p><?php echo _DONNEESGENERALES; ?></p>
 <div class="container-fluid">
   <center>
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
-        <td>Nom</td>
-        <td>Prenom</td>
-        <td>Date de Naissance</td>
-        <td>Sexe</td>
-        <td>Adresse</td>
-        <td>Ville</td>
-        <td>Code Postal</td>
-        <td>Téléphone</td>
+        <td><?php echo _NOM; ?></td>
+        <td><?php echo _PRENOM; ?></td>
+        <td><?php echo _DATENAISSANCE; ?></td>
+        <td><?php echo _SEXE; ?></td>
+        <td><?php echo _ADRESSE; ?></td>
+        <td><?php echo _VILLE; ?></td>
+      <td><?php echo _CODEPOSTAL; ?></td>
+        <td><?php echo _TELEPHONE; ?></td>
       </tr>
       <?php
       while ($data = $user->fetch())
@@ -116,14 +126,14 @@ if ($_SESSION["type"]=="Administrateur"){
   </center>
 </div>
 
-<p>Gestion des utilisateurs</p>
+<p><?php echo _GESTIONUTILISATEURS; ?></p>
 <div class="container-fluid">
   <center>
     <table border='1' cellpadding='5' cellpacing='9'>
       <tr class="entete">
-        <td>Email</td>
-        <td>Type</td>
-        <td>Validé ?</td>
+        <td><?php echo _EMAIL; ?></td>
+        <td><?php echo _TYPE; ?></td>
+        <td><?php echo _VALIDEQ; ?></td>
       </tr>
       <?php
       while ($data2 = $dataconnexion->fetch())
@@ -139,25 +149,25 @@ if ($_SESSION["type"]=="Administrateur"){
                 <?php if (strcmp (htmlspecialchars($data2['type']),"Administrateur") == 0)
                 {
                   ?>
-                  <option value="Administrateur" selected>Administrateur</option>
-                  <option value="Gestionnaire" >Gestionnaire</option>
-                  <option value="Pilote">Pilote</option>
+                  <option value="Administrateur" selected><?php echo _ADMINISTRATEUR; ?></option>
+                  <option value="Gestionnaire" ><?php echo _GESTIONNAIRE; ?></option>
+                  <option value="Pilote"><?php echo _PILOTE; ?></option>
                   <?php
                 }
                 else if (strcmp (htmlspecialchars($data2['type']),"Gestionnaire") == 0)
                 {
                   ?>
-                  <option value="Administrateur" >Administrateur</option>
-                  <option value="Gestionnaire" selected>Gestionnaire</option>
-                  <option value="Pilote">Pilote</option>
+                  <option value="Administrateur" selected><?php echo _ADMINISTRATEUR; ?></option>
+                  <option value="Gestionnaire" ><?php echo _GESTIONNAIRE; ?></option>
+                  <option value="Pilote"><?php echo _PILOTE; ?></option>
                   <?php
                 }
                 else
                 {
                   ?>
-                  <option value="Administrateur" >Administrateur</option>
-                  <option value="Gestionnaire" >Gestionnaire</option>
-                  <option value="Pilote" selected>Pilote</option>
+                  <option value="Administrateur" selected><?php echo _ADMINISTRATEUR; ?></option>
+                  <option value="Gestionnaire" ><?php echo _GESTIONNAIRE; ?></option>
+                  <option value="Pilote"><?php echo _PILOTE; ?></option>
                   <?php
                 }
                 ?>
@@ -172,15 +182,15 @@ if ($_SESSION["type"]=="Administrateur"){
                 <?php if (strcmp (htmlspecialchars($data2['valide']),"0") == 0)
                 {
                   ?>
-                  <option value="0" selected>Non validé</option>
-                  <option value="1" >Validé</option>
+                  <option value="0" selected><?php echo _NONVALIDE; ?></option>
+                  <option value="1" ><?php echo _VALIDE; ?></option>
                   <?php
                 }
                 else if (strcmp (htmlspecialchars($data2['valide']),"1") == 0)
                 {
                   ?>
-                  <option value="0" >Non validé</option>
-                  <option value="1" selected>Validé</option>
+                  <option value="0" selected><?php echo _NONVALIDE; ?></option>
+                  <option value="1" ><?php echo _VALIDE; ?></option>
                   <?php
                 }
                   ?>
@@ -198,7 +208,7 @@ if ($_SESSION["type"]=="Administrateur"){
 </div>
 <br>
 <div class="container-fluid">
-  <p>Gestion des tests partiels</p>
+  <p><?php echo _GESTIONTESTSPARTIELS; ?></p>
   <div class="container-fluid">
     <?php
     $numero_utilisateur = array();
@@ -254,7 +264,7 @@ $total->closeCursor();
 
 <br>
 <div class="container-fluid">
-  <p>Gestion des tests complets</p>
+  <p><?php echo _GESTIONTESTSCOMPLETS; ?></p>
     <?php
     $numero_utilisateur = array();
     while ($data = $total2->fetch()){

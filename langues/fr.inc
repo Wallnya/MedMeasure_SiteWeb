@@ -8,6 +8,8 @@ define("_TICKETS","Gestion Tickets");
 define("_DECONNEXION","Déconnexion");
 
 //Accueil.php
+define("_CONNEXION","Se connecter");
+define("_INSCRIPTION","S'inscrire");
 define("_RESULTATS","Suivez vos résultats");
 define("_PROGRESSION","Découvrez votre progression en temps réel.");
 define("_CONNAITREPLUS","Discutez pour en connaître plus");
@@ -19,12 +21,10 @@ define("_RESEAUX","Connectez-vous également via les réseaux sociaux !");
 //admin_faq.php
 define("_QUESTIONS","Récapitulatif des questions de la FAQ");
 define("_NUMBERQUESTION","Numéro question");
-define("_INTITULE","Intitulé");
-define("_REPONSE","Réponse");
 
 define("_NOUVELLEQUESTION","Création d'une nouvelle question");
 define("_FORMNOUVELLEQUESTION","Formulaire de la création d'une question");
-define("_INTITULENOUVELLESQUESTION","Intitulé de la question");
+define("_INTITULENOUVELLEQUESTION","Intitulé de la question");
 define("_REPONSENOUVELLEQUESTION","Réponse de la question");
 
 //admin_ticket.php
@@ -56,7 +56,7 @@ define("_TELEPHONE","Téléphone");
 define("_GESTIONUTILISATEURS","Gestion des utilisateurs");
 define("_EMAIL","Email");
 define("_TYPE","Type");
-define("_VALIDE?","Validé ?");
+define("_VALIDEQ","Validé ?");
 define("_ADMINISTRATEUR","Administrateur");
 define("_GESTIONNAIRE","Gestionnaire");
 define("_PILOTE","Pilote");
@@ -76,23 +76,23 @@ define("_ARTICLE2","L’édition du site MedMeasure est assurée par la sociét�
 
           L’hébergeur du site se fait pour l'instant en localhost.");
 define("_ARTICLE3TITLE","Article 3 : Accès au site");
-define("_ARTICLE3.1","Le site MedMeasure permet d’accéder gratuitement aux services suivants :");
-define("_ARTICLE3.2","D'effectuer des mesures psychotechniques.");
-define("_ARTICLE3.3","De voir ses résultats.");
-define("_ARTICLE3.4","D'avoir des graphiques sur ses résultats.");
-define("_ARTICLE3.5","Le site est accessible gratuitement depuis n’importe où par tout utilisateur disposant d’un accès à Internet. Tous les frais nécessaires pour l’accès aux services (matériel informatique, connexion Internet…) sont à la charge de l’utilisateur.
+define("_ARTICLE31","Le site MedMeasure permet d’accéder gratuitement aux services suivants :");
+define("_ARTICLE32","D'effectuer des mesures psychotechniques.");
+define("_ARTICLE33","De voir ses résultats.");
+define("_ARTICLE34","D'avoir des graphiques sur ses résultats.");
+define("_ARTICLE35","Le site est accessible gratuitement depuis n’importe où par tout utilisateur disposant d’un accès à Internet. Tous les frais nécessaires pour l’accès aux services (matériel informatique, connexion Internet…) sont à la charge de l’utilisateur.
 
             L’accès aux services dédiés aux membres s’effectue à l’aide d’un identifiant et d’un mot de passe.
 
             Pour des raisons de maintenance ou autres, l’accès au site peut être interrompu ou suspendu par l’éditeur sans préavis ni justification.");
 define("_ARTICLE4TITLE","Article 4 : Collecte des données");
-define("_ARTICLE4.1","Pour la création du compte de l’Utilisateur, la collecte des informations au moment de l’inscription sur le site est nécessaire et obligatoire. Conformément à la loi n°78-17 du 6 janvier relative à l’informatique, aux fichiers et aux libertés, la collecte et le traitement d’informations personnelles s’effectuent dans le respect de la vie privée.");
-define("_ARTICLE4.2","De plus, les données seront gardées pendant une durée de 6 mois, puis elles seront supprimées.");
-define("_ARTICLE4.3","Suivant la loi Informatique et Libertés en date du 6 janvier 1978, articles 39 et 40, l’Utilisateur dispose du droit d’accéder, de rectifier, de supprimer et d’opposer ses données personnelles. L’exercice de ce droit s’effectue par :");
-define("_ARTICLE4.4","Le formulaire d'envoi de ticket.");
+define("_ARTICLE41","Pour la création du compte de l’Utilisateur, la collecte des informations au moment de l’inscription sur le site est nécessaire et obligatoire. Conformément à la loi n°78-17 du 6 janvier relative à l’informatique, aux fichiers et aux libertés, la collecte et le traitement d’informations personnelles s’effectuent dans le respect de la vie privée.");
+define("_ARTICLE42","De plus, les données seront gardées pendant une durée de 6 mois, puis elles seront supprimées.");
+define("_ARTICLE43","Suivant la loi Informatique et Libertés en date du 6 janvier 1978, articles 39 et 40, l’Utilisateur dispose du droit d’accéder, de rectifier, de supprimer et d’opposer ses données personnelles. L’exercice de ce droit s’effectue par :");
+define("_ARTICLE44","Le formulaire d'envoi de ticket.");
 define("_ARTICLE5TITLE","Article 5 : Propriété intellectuelle");
-define("_ARTICLE5.1","Les marques, logos ainsi que les contenus du site MedMeasure (illustrations graphiques, textes…) sont protégés par le Code de la propriété intellectuelle et par le droit d’auteur.");
-define("_ARTICLE5.2","La reproduction et la copie des contenus par l’Utilisateur requièrent une autorisation préalable du site. Dans ce cas, toute utilisation à des usages commerciaux ou à des fins publicitaires est proscrite.");
+define("_ARTICLE51","Les marques, logos ainsi que les contenus du site MedMeasure (illustrations graphiques, textes…) sont protégés par le Code de la propriété intellectuelle et par le droit d’auteur.");
+define("_ARTICLE52","La reproduction et la copie des contenus par l’Utilisateur requièrent une autorisation préalable du site. Dans ce cas, toute utilisation à des usages commerciaux ou à des fins publicitaires est proscrite.");
 
 //Boutons FAQ.php
 define("_ACCUEIL","Accueil");
@@ -116,6 +116,7 @@ define("_VALIDER","Valider");
 define("_SELECTSEXE","Sélectionner le sexe");
 define("_HOMME","Homme");
 define("_FEMME","Femme");
+define("_MESURE", "Sélectionner une mesure");
 define("_RYTHMECARDIAQUE","Rythme cardiaque");
 define("_PERCEPTIONAUDITIVE","Perception auditive");
 define("_STIMULUSVISUEL","Réaction à un stimulus visuel");
