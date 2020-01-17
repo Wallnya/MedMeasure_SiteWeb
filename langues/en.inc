@@ -105,6 +105,7 @@ define("_TELMEDMEASURE","01 23 45 67 89");
 
 //Gestionnaire gestionnaire.php
 define("_RECHERCHERPILOTE","Search for a pilot");
+define("_RECHERCHERUSER","Search for a user");
 define("_STATISTIQUES","Statistics -");
 define("_PROFIL","Profile");
 define("_TEST","Test");
@@ -165,5 +166,18 @@ define("_TESTCOMPLET","Complete test");
 define("_DERNIERRESULTAT","Last result");
 define("_RESULTATTESTPARTIEL","Partial test result");
 define("_RESULTATTESTCOMPLET","Complete test result");
+
+//inscription.php
+define("_INSCRIPTIONTITLE","Sign up");
+define("_INFOCONNEXION","Sign in information");
+define("_MOTDEPASSE","Password");
+define("_CONFIRMEMDP","Confirm password");
+define("_LUETACCEPTE","I have read and accept the");
+define("_CONDITIONS","general terms and conditions of use");
+
+//ticket.php
+define("_QUESTIONOBJECT","What is your question about?");
+define("_DETAILQUESTION","Please detail the question");
+define("_ENVOYER","Send");
 
 ?>

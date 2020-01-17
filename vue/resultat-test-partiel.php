@@ -1,5 +1,15 @@
 <?php
 if ($_SESSION["type"]=="Pilote"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
   ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -15,9 +25,9 @@ if ($_SESSION["type"]=="Pilote"){
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-    <a href="index.php?page=user">Accueil</a>
-    <a href="index.php?page=faq">FAQ</a>
-    <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+    <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
+    <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
+    <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
     <button class="test">FR</button>
     <button class="test">EN</button>
   </div>
@@ -29,12 +39,12 @@ if ($_SESSION["type"]=="Pilote"){
 <body>
   <div class="main">
     <?php if ($resultat=="partiel") {?>
-      <label for="panel_size">Résultat du test partiel</label>
+      <label for="panel_size"><?php echo _RESULTATTESTPARTIEL?></label>
       <?php
     }
     else
     {?>
-      <label for="panel_size">Résultat du test complet</label>
+      <label for="panel_size"><?php echo _RESULTATTESTCOMPLET?></label>
       <?php
     }
     ?>
@@ -54,12 +64,12 @@ if ($_SESSION["type"]=="Pilote"){
       <span class="rangeslider__tooltip" id ="range-tooltip"></span>
       <input name="cliquez-ici" type="button" style="display:none;" id="click" value="cliquez ici" onclick="document.location.href='https://www.doctolib.fr'">
 
-      <p> Rythme cardiaque : <?php echo htmlspecialchars($data['Frequence']) ?> bpm </p>
-      <p> Perception auditive : <?php echo htmlspecialchars($data['PerceptionAuditive']) ?> dBA </p>
-      <p> Réaction à un stimulus visuel : <?php echo htmlspecialchars($data['StimulusVisuel']) ?> ms </p>
+      <p> <?php echo _RYTHMECARDIAQUE?> : <?php echo htmlspecialchars($data['Frequence']) ?> bpm </p>
+      <p> <?php echo _PERCEPTIONAUDITIVE?> : <?php echo htmlspecialchars($data['PerceptionAuditive']) ?> dBA </p>
+      <p> <?php echo _STIMULUSVISUEL?> : <?php echo htmlspecialchars($data['StimulusVisuel']) ?> ms </p>
       <?php if ($resultat=="complet") {?>
-        <p> Température superficielle de la peau : <?php echo htmlspecialchars($data['TemperaturePeau']) ?>°C </p>
-        <p> Reconnaissance de la tonalité : <?php echo htmlspecialchars($data['RecoTonalite']) ?> Hz </p>
+        <p> <?php echo _TEMPERATUREPEAU?> : <?php echo htmlspecialchars($data['TemperaturePeau']) ?>°C </p>
+        <p> <?php echo _RECOTONALITE?> : <?php echo htmlspecialchars($data['RecoTonalite']) ?> Hz </p>
       <?php } ?>
       <?php
     }

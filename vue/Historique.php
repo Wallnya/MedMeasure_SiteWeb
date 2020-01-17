@@ -5,7 +5,7 @@ if ($_SESSION["type"]=="Pilote"){
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Historique des résultats</title>
+        <title><?php echo _TITREHISTORIQUE?></title>
             <link rel="stylesheet" href="css/css_historique.css">
             <link rel="stylesheet" href="css/header2.css" />
             <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
@@ -15,31 +15,31 @@ if ($_SESSION["type"]=="Pilote"){
         <header>
             <div class="barre_navigation">
                 <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-                <a href="index.php?page=user">Accueil</a>
-                <a href="index.php?page=faq">FAQ</a>
-                <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+                <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
+                <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
+                <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
                 <button class="test">FR</button>
                 <button class="test">EN</button
             </div>
         </header>
-        <div id="titre">Historique des résultats</div>
+        <div id="titre"><?php echo _TITREHISTORIQUE?></div>
         <section id="graph">
             <div>
-                <h3>Evolution des scores</h3>
+                <h3><?php echo _EVOLUTIONSCORE?></h3>
                 <div id="area-chart"></div>
             </div>
         </section>
         <section id="histo">
-            <h3>Historique </h3>
+            <h3><?php echo _HISTORIQUE?> </h3>
             <div id="listeHisto">
                 <ol>
                 <?php foreach($tabTest as list($valeur1,$valeur2,$valeur3,$valeur4)){  ?>
                     <li style='color:black'>
                     <?php echo $valeur1. " : ". $valeur2;?>
-                        points <form method="POST" action="index.php?page=user&traitement=histo&bouton=details">
+                    <?php echo _POINTS?> <form method="POST" action="index.php?page=user&traitement=histo&bouton=details">
                           <input type="hidden"  name="type" value="<?= $valeur3 ?>">
                           <input type="hidden"  name="idTest" value="<?= $valeur4 ?>">
-                          <button class="button" name="detail">- Détails</buttons>
+                          <button class="button" name="detail">- <?php echo _DETAILS?></buttons>
                         </form>
                       </li>
                 <?php  }?>

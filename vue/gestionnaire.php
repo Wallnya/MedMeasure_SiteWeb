@@ -104,7 +104,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
       <form method="get" action="" style="margin:auto;">
         <div style="display:flex;margin-top:20px">
           <div style="float:left;margin-left:5px;margin-right:5px">
-            <input style="font-size:16px" type="text" name="search" placeholder="Rechercher un utilisateur"
+            <input style="font-size:16px" type="text" name="search" placeholder="<?php echo _RECHERCHERUSER?>"
             <?php if (isset($_GET["search"])) echo "value='".$_GET["search"]."'" ?>)>
           </div>
           <div style="float:right; margin:auto;margin-left:5px;margin-right:5px">
@@ -270,7 +270,7 @@ if (isset($_POST["statprofil"]) || (!isset($_POST["recherchenom"]) && !isset($_P
           </select>
         </div>
         <div style="float:right; margin:auto;margin-left:5px;margin-right:5px">
-          <button type="submit" name="validerFiltre" id="validerFiltre">Valider</button>
+          <button type="submit" name="validerFiltre" id="validerFiltre"><?php echo _VALIDER ?></button>
         </div>
       </div>
     </form>

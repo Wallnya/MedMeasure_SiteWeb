@@ -2,6 +2,17 @@
 <html>
 <?php
 if ($_SESSION["type"]=="Pilote"){
+
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+        include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/en.inc";
+  }
   ?>
   <!DOCTYPE html>
   <html>
@@ -17,9 +28,9 @@ if ($_SESSION["type"]=="Pilote"){
   <header>
     <div class="barre_navigation">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-      <a href="index.php?page=user">Accueil</a>
-      <a href="index.php?page=faq">FAQ</a>
-      <a style="cursor:pointer" onclick="deconnexionFB();">Déconnexion</a>
+      <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
+      <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
+      <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
       <button class="test">FR</button>
       <button class="test">EN</button>
     </div>
@@ -27,18 +38,18 @@ if ($_SESSION["type"]=="Pilote"){
   <form action="">
     <button type="submit" class="btn1">
       <div class="Test1">
-        <strong>Test de suivi</strong>
+        <strong><?php echo _TESTDESUIVI?></strong>
         <p>
           <img src="images/RythmeCardiaque.png">
-          Rythme cardiaque
+          <?php echo _RYTHMECARDIAQUE?>
         </p>
         <p>
           <img src="images/PerceptionAuditive.png">
-          Perception auditive
+          <?php echo _PERCEPTIONAUDITIVE?>
         </p>
         <p>
           <img src="images/StimulusVisuel.png">
-          Réaction à un stimulus visuel
+          <?php echo _STIMULUSVISUEL?>
         </p>
       </div>
     </button>
@@ -46,27 +57,27 @@ if ($_SESSION["type"]=="Pilote"){
   <form action="">
     <button type="submit" class="btn2">
       <div class="Test1">
-        <strong>Test complet</strong>
+        <strong><?php echo _TESTCOMPLET?></strong>
         <p>
           <img src="images/RythmeCardiaque.png">
-          Rythme cardiaque
+          <?php echo _RYTHMECARDIAQUE?>
 
         </p>
         <p>
           <img src="images/PerceptionAuditive.png">
-          Perception auditive
+          <?php echo _PERCEPTIONAUDITIVE?>
         </p>
         <p>
           <img src="images/StimulusVisuel.png">
-          Réaction à un stimulus visuel
+          <?php echo _STIMULUSVISUEL?>
         </p>
         <p>
           <img src="images/Température.png">
-          Température de la peau
+          <?php echo _TEMPERATUREPEAU?>
         </p>
         <p>
           <img src="images/ReconnaissanceTonalité.png">
-          Reconnaissance de tonalité
+          <?php echo _RECOTONALITE?>
         </p>
       </div>
     </button>
