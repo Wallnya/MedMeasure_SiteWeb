@@ -75,14 +75,12 @@ if ($_SESSION["type"]=="Pilote"){
             </div>
           </div>
           <div class="gauche">
-            <p>
               <div class="formulaire">
-              <?php echo _PRETPOURUNTEST; ?>
+              <p><?php echo _PRETPOURUNTEST; ?></p>
                 <form method="POST" action="index.php?page=user" id="formInscription">
                   <button type="submit" name="test" id="test"> <?php echo _LETSGO; ?></button>
                 </form>
               </div>
-            </p>
           </div>
           <div class="droite">
             <div class="formulaireBouton">
@@ -100,23 +98,23 @@ if ($_SESSION["type"]=="Pilote"){
               </form>
 
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <script>
-      function myFunction(){
-        <?php if ($nbtest == 0){?>
-          document.getElementById("Dernierresultat").disabled = true;
-          document.getElementById("histo").disabled = true;
-          <?php } else { ?>
-            document.getElementById("Dernierresultat").disabled = false;
-            document.getElementById("histo").disabled = false;
+        function myFunction(){
+          <?php if ($nbtest == 0){?>
+            document.getElementById("Dernierresultat").disabled = true;
+            document.getElementById("histo").disabled = true;
+            <?php } else { ?>
+              document.getElementById("Dernierresultat").disabled = false;
+              document.getElementById("histo").disabled = false;
 
-            <?php } ?>
-          }
-          </script>
-        </body>
-        </html>
+              <?php } ?>
+            }
+      </script>
+    </body>
+  </html>
         <?php
       }
       else {
