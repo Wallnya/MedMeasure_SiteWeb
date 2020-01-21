@@ -10,7 +10,7 @@ if ($_SESSION["type"]=="Pilote"){
   else{
     include "langues/en.inc";
   }
-  
+
   ?>
   <!DOCTYPE html>
   <html>
@@ -29,11 +29,10 @@ if ($_SESSION["type"]=="Pilote"){
       <a href="index.php?page=user"><?php echo _ACCUEIL; ?></a>
       <a href="index.php?page=faq"><?php echo _BOUTONSFAQ; ?></a>
       <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
-      <button class="lang" >FR</button>
-      <button class="lang" >EN</button>
-
-      
-
+      <form method="POST" action="index.php?page=user">
+        <button type="submit" class="test" name="FR">FR</button>
+        <button type="submit" class="test" name="EN">EN</button>
+      </form>
     </div>
   </header>
 

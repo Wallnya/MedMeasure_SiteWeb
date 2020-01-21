@@ -31,11 +31,13 @@ if ($_SESSION["type"]=="Pilote"){
       <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
       <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
       <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
-      <button class="test">FR</button>
-      <button class="test">EN</button>
+      <form method="POST" action="index.php?page=user">
+        <button type="submit" class="test" name="FR">FR</button>
+        <button type="submit" class="test" name="EN">EN</button>
+      </form>
     </div>
   </header>
-  <form action="">
+  <form action="index.php?page=user">
     <button type="submit" class="btn1">
       <div class="Test1">
         <strong><?php echo _TESTDESUIVI?></strong>
@@ -54,7 +56,7 @@ if ($_SESSION["type"]=="Pilote"){
       </div>
     </button>
   </form>
-  <form action="">
+  <form action="index.php?page=user">
     <button type="submit" class="btn2">
       <div class="Test1">
         <strong><?php echo _TESTCOMPLET?></strong>

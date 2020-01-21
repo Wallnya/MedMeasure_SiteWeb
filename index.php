@@ -144,10 +144,20 @@ if (isset($_GET['page'])) {
       }
     }
       else if ($_GET['traitement'] == "Dernierresultat"){
-        // if(isset($_POST['Dernierresultat'])){
-          $id=htmlspecialchars($_SESSION['id']);
-          page_dernierresultat($id);
-        //}
+          if(isset($_POST['FR'])){
+            $_SESSION['lang']="fr";
+            $id=htmlspecialchars($_SESSION['id']);
+            page_dernierresultat($id);
+            }
+          else if(isset($_POST['EN'])){
+            $_SESSION['lang']="en";
+            $id=htmlspecialchars($_SESSION['id']);
+            page_dernierresultat($id);
+          }
+          else {
+            $id=htmlspecialchars($_SESSION['id']);
+            page_dernierresultat($id);
+          }
       }
       else if ($_GET['traitement'] == "histo"){
         if (isset($_GET['bouton']) && $_GET['bouton'] == "details"){
@@ -173,11 +183,32 @@ if (isset($_GET['page'])) {
     }
 
     else if (isset($_POST['test'])){
-      $id=htmlspecialchars($_SESSION['id']);
-      page_test($id);
+      if(isset($_POST['FR'])){
+        $_SESSION['lang']="fr";
+        $id=htmlspecialchars($_SESSION['id']);
+        page_test($id);
+        }
+      else if(isset($_POST['EN'])){
+        $_SESSION['lang']="en";
+        $id=htmlspecialchars($_SESSION['id']);
+        page_test($id);
+      }
+      else {
+        $id=htmlspecialchars($_SESSION['id']);
+        page_test($id);
+      }
     }
-
-    else{
+    else if(isset($_POST['FR'])){
+      $_SESSION['lang']="fr";
+      $id=htmlspecialchars($_SESSION['id']);
+      page_user($id);
+        }
+    else if(isset($_POST['EN'])){
+      $_SESSION['lang']="en";
+      $id=htmlspecialchars($_SESSION['id']);
+      page_user($id);
+    }
+    else {
       $id=htmlspecialchars($_SESSION['id']);
       page_user($id);
     }
@@ -221,7 +252,17 @@ else if ($_GET['page']=='ticket'){
   /*            FAQ               */
   /********************************/
   else if ($_GET['page']== 'faq'){
+    if(isset($_POST['FR'])){
+      $_SESSION['lang']="fr";
       page_faq();
+    }
+    else if(isset($_POST['EN'])){
+      $_SESSION['lang']="en";
+      page_faq();
+    }
+    else {
+      page_faq();
+    }
   }
   /********************************/
   /*          INSCRIPTION         */
