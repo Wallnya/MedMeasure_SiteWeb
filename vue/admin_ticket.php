@@ -30,8 +30,10 @@ if ($_SESSION["type"]=="Administrateur"){
       <a href="index.php?page=admin_faq"><?php echo _FAQ; ?></a>
       <a href="index.php?page=admin_ticket"><?php echo _TICKETS; ?></a>
       <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
-      <button class="test">FR</button>
-      <button class="test">EN</button>
+      <form method="POST" action="index.php?page=admin_ticket">
+        <button type="submit" class="test" name="FR">FR</button>
+        <button type="submit" class="test" name="EN">EN</button>
+      </form>
     </div>
     <div class="texte">
       <img src="images/image_admin.jpg" alt="Image pour la page admin">
@@ -107,7 +109,7 @@ if ($_SESSION["type"]=="Administrateur"){
             <?= htmlspecialchars($data['contenu']) ?>
           </td>
           <td>
-            <form method="POST" action="index.php?page=admin_ticket">
+            <form class="formulaireTicket" method="POST" action="index.php?page=admin_ticket">
             <select class="Statut" name="Statut" id="Statut">
             <?php if (strcmp (htmlspecialchars($data['statut']),"1") == 0)
             {

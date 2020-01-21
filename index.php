@@ -50,6 +50,14 @@ if (isset($_GET['page'])) {
         deleteTestComplet($id,$idtest);
       }
     }
+    else if(isset($_POST['FR'])){
+      $_SESSION['lang']="fr";
+      dataUser();
+    }
+    else if(isset($_POST['EN'])){
+      $_SESSION['lang']="en";
+      dataUser();
+    }
     else {
       dataUser();
     }
@@ -61,6 +69,14 @@ if (isset($_GET['page'])) {
         $idTicket=htmlspecialchars($_POST['idtest']);
         modifyTicket($statut,$idTicket);
       }
+    }
+    else if(isset($_POST['FR'])){
+      $_SESSION['lang']="fr";
+      dataTicket();
+    }
+    else if(isset($_POST['EN'])){
+      $_SESSION['lang']="en";
+      dataTicket();
     }
     else{
       dataTicket();
@@ -88,6 +104,14 @@ if (isset($_GET['page'])) {
         $reponse=htmlspecialchars($_POST['reponse']);
         addFAQ($question,$reponse);
       }
+    }
+    else if(isset($_POST['FR'])){
+      $_SESSION['lang']="fr";
+      dataFAQ();
+    }
+    else if(isset($_POST['EN'])){
+      $_SESSION['lang']="en";
+      dataFAQ();
     }
     else {
       dataFAQ();

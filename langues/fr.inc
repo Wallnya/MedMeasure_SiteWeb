@@ -35,6 +35,8 @@ define("_TICKETSTRAITES","Tickets traités:");
 define("_RECAPTICKETS","Récapitulatif des Tickets");
 define("_NOMUTILISATEUR","Nom de l'utilisateur");
 define("_DATETICKET","Date d'envoi");
+define("_INTITULE","Intitulé");
+define("_REPONSE","Réponse");
 define("_STATUT","Statut");
 define("_TERMINE","Terminé");
 define("_ENCOURS","En cours");
