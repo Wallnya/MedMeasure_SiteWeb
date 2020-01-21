@@ -1,4 +1,14 @@
 <?php
+if (isset($_SESSION['lang'])){
+  if($_SESSION['lang'] == "en")
+      include "langues/en.inc";
+  else if ($_SESSION['lang'] == "fr"){
+    include "langues/fr.inc";
+  }
+}
+else{
+  include "langues/en.inc";
+}
 if ($_SESSION["type"]=="Pilote"){
 ?>
 <!DOCTYPE html>
@@ -9,7 +19,6 @@ if ($_SESSION["type"]=="Pilote"){
             <link rel="stylesheet" href="css/css_historique.css">
             <link rel="stylesheet" href="css/header2.css" />
             <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
-
     </head>
     <body>
         <header>
@@ -18,8 +27,10 @@ if ($_SESSION["type"]=="Pilote"){
                 <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
                 <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
                 <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
-                <button class="test">FR</button>
-                <button class="test">EN</button
+                <form method="POST" action="index.php?page=user&traitement=histo">
+                  <button type="submit" class="test" name="FR">FR</button>
+                  <button type="submit" class="test" name="EN">EN</button>
+                </form>
             </div>
         </header>
         <div id="titre"><?php echo _TITREHISTORIQUE?></div>

@@ -32,8 +32,10 @@ if ($_SESSION["type"]=="Gestionnaire"){
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=gestionnaire"><?php echo _ACCUEIL ?></a>
     <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION ?></a>
-    <button class="test">FR</button>
-    <button class="test">EN</button>
+    <form method="POST" action="index.php?page=gestionnaire">
+      <button type="submit" class="test" name="FR">FR</button>
+      <button type="submit" class="test" name="EN">EN</button>
+    </form>
   </div>
   <div class="texte">
     <img src="images/gestion.png" alt="Image pour la page resultat">

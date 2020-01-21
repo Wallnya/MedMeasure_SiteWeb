@@ -25,7 +25,7 @@ if (isset($_SESSION['lang'])){
                 <img class ="logo" src="images/MedMeasureLogo.png" alt="Logo" />
                   <h3><?php echo _INFOCONNEXION?></h3>
                   <div>
-                      <label for="test"><?php echo _INSCRIPTIONTITLE + _GESTIONNAIRE?></label>
+                      <label for="test"><?php echo _INSCRIPTIONTITLE , _GESTIONNAIRE?></label>
                       <input type='checkbox' name='case' value='on'>
                   </div>
                   <div>

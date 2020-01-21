@@ -170,6 +170,16 @@ if (isset($_GET['page'])) {
             }
           }
         }
+        else if(isset($_POST['FR'])){
+          $_SESSION['lang']="fr";
+          $id=htmlspecialchars($_SESSION['id']);
+          page_historique($id);
+        }
+        else if(isset($_POST['EN'])){
+          $_SESSION['lang']="en";
+          $id=htmlspecialchars($_SESSION['id']);
+          page_historique($id);
+        }
         else{
           $id=htmlspecialchars($_SESSION['id']);
           page_historique($id);
@@ -218,20 +228,50 @@ if (isset($_GET['page'])) {
   /********************************/
   else if ($_GET['page'] == 'gestionnaire'){
     if (isset($_GET['traitement']) && ($_GET['traitement'] == 'sexe')){
-      if (isset($_POST["sexe"]) && $_POST["sexe"] !== '')
+      if (isset($_POST["sexe"]) && $_POST["sexe"] !== ''){
           donnee_sexe_select_gestionnaire($_POST["sexe"]);
-      else
-        page_gestionnaire();
+        }
+        else if(isset($_POST['FR'])){
+          $_SESSION['lang']="fr";
+          page_gestionnaire();
+        }
+        else if(isset($_POST['EN'])){
+          $_SESSION['lang']="en";
+          page_gestionnaire();
+        }
+        else {
+          page_gestionnaire();
+        }
     }
     else if (isset($_GET['traitement']) && $_GET['traitement'] == 'test'){
           $_POST["stattest"] = true;
           page_gestionnaire();
+          if(isset($_POST['FR'])){
+            $_SESSION['lang']="fr";
+          }
+          else if(isset($_POST['EN'])){
+            $_SESSION['lang']="en";
+          }
     }
     else if (isset($_GET['traitement']) && $_GET['traitement'] == 'recherche'){
       $_POST['recherchenom'] = true;
           page_gestionnaire();
+          if(isset($_POST['FR'])){
+            $_SESSION['lang']="fr";
+          }
+          else if(isset($_POST['EN'])){
+            $_SESSION['lang']="en";
+          }
     }
-    else{
+    else if(isset($_POST['FR'])){
+      $_SESSION['lang']="fr";
+      page_gestionnaire();
+    }
+    else if(isset($_POST['EN'])){
+      $_SESSION['lang']="en";
+      page_gestionnaire();
+    }
+    else {
       page_gestionnaire();
     }
   }
@@ -243,7 +283,19 @@ else if ($_GET['page']=='ticket'){
    if (isset($_POST['EnvoyerTicket'])){
     if (isset($_POST["intitule"]) && isset($_POST["contenu"])){
       addTicket($_POST['intitule'],$_POST['contenu']);
+      if(isset($_POST['FR'])){
+        $_SESSION['lang']="fr";
+      }
+      else if(isset($_POST['EN'])){
+        $_SESSION['lang']="en";
+      }
     }
+  }
+  if(isset($_POST['FR'])){
+    $_SESSION['lang']="fr";
+  }
+  else if(isset($_POST['EN'])){
+    $_SESSION['lang']="en";
   }
   page_ticket();
 
