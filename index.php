@@ -1,6 +1,7 @@
 <?php
 require('controleur/controleur.php');
 session_start();
+header('Cache-Control: no cache');
 if (isset($_GET['page'])) {
   /********************************/
   /*            ADMIN             */
@@ -186,9 +187,7 @@ if (isset($_GET['page'])) {
         }
       }
       else if ($_GET['traitement'] == "ticket"){
-         //if(isset($_POST['ticket'])){
           page_ticket($_SESSION['id']);
-        //}
       }
     }
 
