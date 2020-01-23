@@ -423,7 +423,7 @@ function connexion($email,$mdp){
         }
         else if ($data['type'] == "Gestionnaire"){
           $_SESSION['type'] = "Gestionnaire";
-          header ('Location: index.php?page=gestionnaire');
+          header ('Location: index.php?page=gestionnaire&traitement=sexe');
         }
         else if ($data['type'] == "Pilote"){
           $_SESSION['type'] = "Pilote";
