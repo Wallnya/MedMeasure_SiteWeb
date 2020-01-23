@@ -63,6 +63,9 @@ define("_VALIDE","Validated");
 define("_NONVALIDE","Not validated");
 define("_GESTIONTESTSPARTIELS","Partial tests management");
 define("_GESTIONTESTSCOMPLETS","Complete tests management");
+define("_BANNIR", "Are you sure you want to BAN this user?");
+define("_DELETEUSER", "Are you sure you want to delete this user?");
+define("_DATETEST","Date of the test");
 
 //cgu.php
 define("_CGU","T&Cs");
@@ -180,4 +183,9 @@ define("_QUESTIONOBJECT","What is your question about?");
 define("_DETAILQUESTION","Please detail the question");
 define("_ENVOYER","Send");
 
+//messages dernier résultat
+define("_LOW","You may need to see a doctor");
+define("_MEDIUM","You're almost there, don't give up hope");
+define("_HIGH","Congratulations! You are fit to fly");
+define("_CLICK","Click here");
 ?>

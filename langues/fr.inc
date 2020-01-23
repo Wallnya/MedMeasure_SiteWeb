@@ -66,6 +66,9 @@ define("_VALIDE","Validé");
 define("_NONVALIDE","Non Validé");
 define("_GESTIONTESTSPARTIELS","Gestion des tests partiels");
 define("_GESTIONTESTSCOMPLETS","Gestion des tests complets");
+define("_BANNIR", "Êtes-vous sûr de vouloir BANNIR cet utilisateur ?");
+define("_DELETEUSER", "Êtes-vous sûr de vouloir supprimer cet utilisateur ?");
+define("_DATETEST","Date du test");
 
 //cgu.php
 define("_CGU","CGU");
@@ -176,5 +179,11 @@ define("_CONDITIONS","conditions générales d'utilisation");
 //ticket.php
 define("_QUESTIONOBJECT","Quel est l'objet de votre question ?");
 define("_DETAILQUESTION","Merci de détailler votre question");
-define("_ENVOYER","Envoyer")
+define("_ENVOYER","Envoyer");
+
+//messages dernier résultat
+define("_LOW","Il faudrait peut-être consulter un médecin");
+define("_MEDIUM","Vous y êtes presque, ne perdez pas espoir");
+define("_HIGH","Bravo ! Vous êtes apte à voler");
+define("_CLICK","Cliquez ici");
 ?>

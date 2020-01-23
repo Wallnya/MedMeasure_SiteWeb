@@ -159,24 +159,24 @@ if ($_SESSION["type"]=="Administrateur"){
                 else if (strcmp (htmlspecialchars($data2['type']),"Gestionnaire") == 0)
                 {
                   ?>
-                  <option value="Administrateur" selected><?php echo _ADMINISTRATEUR; ?></option>
-                  <option value="Gestionnaire" ><?php echo _GESTIONNAIRE; ?></option>
+                  <option value="Administrateur"><?php echo _ADMINISTRATEUR; ?></option>
+                  <option value="Gestionnaire" selected><?php echo _GESTIONNAIRE; ?></option>
                   <option value="Pilote"><?php echo _PILOTE; ?></option>
                   <?php
                 }
                 else
                 {
                   ?>
-                  <option value="Administrateur" selected><?php echo _ADMINISTRATEUR; ?></option>
+                  <option value="Administrateur" ><?php echo _ADMINISTRATEUR; ?></option>
                   <option value="Gestionnaire" ><?php echo _GESTIONNAIRE; ?></option>
-                  <option value="Pilote"><?php echo _PILOTE; ?></option>
+                  <option value="Pilote" selected><?php echo _PILOTE; ?></option>
                   <?php
                 }
                 ?>
               </select>
               <input type="hidden"  name="idUtilisateur" value="<?= htmlspecialchars($data2['idUtilisateur']) ?>">
-              <button type="submit"  onClick="return confirm('Êtes-vous sûr de vouloir BANNIR cet utilisateur?')" name="bannir"><i class="fa fa-ban"></i></button>
-              <button type="submit"  onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" name="supprimer"><i class="fa fa-trash"></i></button>
+              <button type="submit"  onClick="return confirm('<?php echo _BANNIR?>')" name="bannir"><i class="fa fa-ban"></i></button>
+              <button type="submit"  onClick="return confirm('<?php echo _DELETEUSER?>')" name="supprimer"><i class="fa fa-trash"></i></button>
               <button type="submit" name="modifier"><i class="fa fa-check"></i></button>
             </td>
             <td>
@@ -228,8 +228,8 @@ if ($_SESSION["type"]=="Administrateur"){
       echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$data['numero_test']."</button>";
       echo "<div class=\"content\">";
       echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-      echo "<tr class=\"entete\"><td>Date du test</td><td>Fréquence</td><td>Perception Auditive</td>
-      <td>Stimulus Visuel</td> <td>Score</td><td></td></tr>";
+      echo "<tr class=\"entete\"><td>_DATETEST</td><td>_RYTHMECARDIAQUE</td><td>_PERCEPTIONAUDITIVE</td>
+      <td>_STIMULUSVISUEL</td> <td>Score</td><td></td></tr>";
       echo "<tr>";
       ?>
       <td>
@@ -283,8 +283,8 @@ $total->closeCursor();
             echo "<button type=\"button\" class=\"collapsible\">Test complet n°".$data['Numero_Test']."</button>";
       echo "<div class=\"content\">";
       echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-      echo "<tr class=\"entete\"><td>Date du test</td><td>Fréquence</td><td>Perception Auditive</td>
-      <td>Stimulus Visuel</td><td>Temperature de la peau</td> <td>Reconnaissance de la tonalité</td><td>Score</td><td></td></tr>";
+      echo "<tr class=\"entete\"><td><?php echo _DATETEST?></td><td><?php echo _RYTHMECARDIAQUE?></td><td><?php echo _PERCEPTIONAUDITIVE?></td>
+      <td><?php echo _STIMULUSVISUEL?></td><td><?php echo _TEMPERATUREPEAU?></td> <td><?php echo _RECOTONALITE?></td><td>Score</td><td></td></tr>";
       echo "<tr>";
       ?>
       <td>

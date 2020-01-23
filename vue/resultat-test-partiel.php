@@ -64,7 +64,7 @@ if ($_SESSION["type"]=="Pilote"){
       value="<?php echo htmlspecialchars($data['score']) ?>"
       >
       <span class="rangeslider__tooltip" id ="range-tooltip"></span>
-      <input name="cliquez-ici" type="button" style="display:none;" id="click" value="cliquez ici" onclick="document.location.href='https://www.doctolib.fr'">
+      <input name="cliquez-ici" type="button" style="display:none;" id="click" value="<?php echo _CLICK?>" onclick="document.location.href='https://www.doctolib.fr'">
 
       <p> <?php echo _RYTHMECARDIAQUE?> : <?php echo htmlspecialchars($data['Frequence']) ?> bpm </p>
       <p> <?php echo _PERCEPTIONAUDITIVE?> : <?php echo htmlspecialchars($data['PerceptionAuditive']) ?> dBA </p>
