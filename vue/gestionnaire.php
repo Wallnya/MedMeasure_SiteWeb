@@ -32,7 +32,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=gestionnaire"><?php echo _ACCUEIL ?></a>
     <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION ?></a>
-    <form method="POST" action="index.php?page=gestionnaire">
+    <form method="POST">
       <button type="submit" class="test" name="FR">FR</button>
       <button type="submit" class="test" name="EN">EN</button>
     </form>
@@ -76,19 +76,19 @@ if ($_SESSION["type"]=="Gestionnaire"){
 
   <!-- Menu -->
   <div id="recherche" class="onglets">
-    <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
+    <form method="POST" style="margin:auto" action="index.php?page=gestionnaire&traitement=recherche">
       <button class="onglet" type="submit" name="recherchenom" id="validerFiltre"
       style="<?php if (isset($_POST["recherchenom"])) echo "background: #82A0B5" ?>">
       <?php echo _RECHERCHERPILOTE ?>
       </button>
     </form>
-    <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
+    <form method="POST" style="margin:auto" action="index.php?page=gestionnaire&traitement=sexe">
       <button class="onglet" type="submit" name="statprofil" id="validerFiltre"
       style="<?php if (isset($_POST["statprofil"])) echo "background: #82A0B5" ?>">
       <?php echo _STATISTIQUES ?><br/><?php echo _PROFIL ?>
       </button>
     </form>
-    <form method="POST" style="margin:auto" action="index.php?page=gestionnaire">
+    <form method="POST" style="margin:auto" action="index.php?page=gestionnaire&traitement=test">
       <button class="onglet" type="submit" name="stattest" id="validerFiltre"
       style="<?php if (isset($_POST["stattest"])) echo "background: #82A0B5" ?>">
       <?php echo _STATISTIQUES ?><br/><?php echo _TEST ?>
