@@ -1,57 +1,57 @@
- <?php
- function getNbUtilisateur(){
-   $db = dbConnect();
-   $requete = $db -> prepare("SELECT count(*)  as nb  FROM utilisateur;");
-   $requete -> execute();
-   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-   return $invNum['nb'];
- }
+<?php
+function getNbUtilisateur(){
+  $db = dbConnect();
+  $requete = $db -> prepare("SELECT count(*)  as nb  FROM utilisateur;");
+  $requete -> execute();
+  $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
+  return $invNum['nb'];
+}
 
- function getSexeFemme(){
-   $db = dbConnect();
-   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE Sexe = 'Femme'");
-   $requete -> execute();
-   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-   return $invNum['nb'];
- }
- function getSexeHomme(){
-   $db = dbConnect();
-   $requete = $db -> prepare("SELECT count(*)  as nb  FROM utilisateur WHERE Sexe = 'Homme';");
-   $requete -> execute();
-   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-   return $invNum['nb'];
-  }
+function getSexeFemme(){
+  $db = dbConnect();
+  $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE Sexe = 'Femme'");
+  $requete -> execute();
+  $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
+  return $invNum['nb'];
+}
+function getSexeHomme(){
+  $db = dbConnect();
+  $requete = $db -> prepare("SELECT count(*)  as nb  FROM utilisateur WHERE Sexe = 'Homme';");
+  $requete -> execute();
+  $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
+  return $invNum['nb'];
+}
 
- function getAge20(){
-   $db = dbConnect();
-   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 20");
-   $nbAge020 = $requete -> execute();
-   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
- }
+function getAge20(){
+  $db = dbConnect();
+  $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 20");
+  $nbAge020 = $requete -> execute();
+  $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
+  return $invNum['nb'];
+}
 
- function getAge2030(){
-   $db = dbConnect();
-   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 20 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 30");
-   $nbAge2030 = $requete -> execute();
-   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
- }
+function getAge2030(){
+  $db = dbConnect();
+  $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 20 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 30");
+  $nbAge2030 = $requete -> execute();
+  $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
+  return $invNum['nb'];
+}
 
- function getAge3040(){
-   $db = dbConnect();
-   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 30 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 40");
-   $nbAge3040 = $requete -> execute();
-   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
- }
+function getAge3040(){
+  $db = dbConnect();
+  $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 30 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 40");
+  $nbAge3040 = $requete -> execute();
+  $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
+  return $invNum['nb'];
+}
 
 function getAge4050(){
   $db = dbConnect();
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 40 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 50");
   $nbAge4050 =   $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAge5060(){
@@ -59,7 +59,7 @@ function getAge5060(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 50 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 60");
   $nbAge5060 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAge60(){
@@ -67,7 +67,7 @@ function getAge60(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 60");
   $nbAge60 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartiel(){
@@ -75,7 +75,7 @@ function getNbPartiel(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel;");
   $nbPartiel = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartiel25(){
@@ -83,7 +83,7 @@ function getNbPartiel25(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel WHERE score < 25;");
   $nbPartiel025 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartiel2550(){
@@ -91,7 +91,7 @@ function getNbPartiel2550(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel WHERE score >= 25 and score < 50;");
   $nbPartiel2550 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartiel5075(){
@@ -99,7 +99,7 @@ function getNbPartiel5075(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel WHERE score >= 50 and score < 75;");
   $nbPartiel5075 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartiel75(){
@@ -107,7 +107,7 @@ function getNbPartiel75(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel WHERE score >= 75;");
   $nbPartiel75100 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbComplet(){
@@ -115,7 +115,7 @@ function getNbComplet(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet;");
   $nbComplet = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbComplet25(){
@@ -123,7 +123,7 @@ function getNbComplet25(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE score < 25;");
   $nbComplet025 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbComplet2550(){
@@ -131,7 +131,7 @@ function getNbComplet2550(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE score >= 25 and score < 50;");
   $nbComplet2550 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbComplet5075(){
@@ -139,7 +139,7 @@ function getNbComplet5075(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE score >= 50 and score < 75;");
   $nbComplet5075 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbComplet75(){
@@ -147,7 +147,7 @@ function getNbComplet75(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE score >= 75;");
   $nbComplet75100 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 
@@ -160,7 +160,7 @@ function getNbUtilisateurSexe($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getSexeFemmeSelec($sexe){
@@ -168,7 +168,7 @@ function getSexeFemmeSelec($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE Sexe = 'Femme' and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getSexeHommeSelec($sexe){
@@ -176,7 +176,7 @@ function getSexeHommeSelec($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE Sexe = 'Homme' and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAgeSexe20($sexe){
@@ -184,7 +184,7 @@ function getAgeSexe20($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 20 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAgeSexe2030($sexe){
@@ -192,7 +192,7 @@ function getAgeSexe2030($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 20 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 30 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAgeSexe3040($sexe){
@@ -200,7 +200,7 @@ function getAgeSexe3040($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 30 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 40 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAgeSexe4050($sexe){
@@ -208,7 +208,7 @@ function getAgeSexe4050($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 40 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 50 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAgeSexe5060($sexe){
@@ -216,7 +216,7 @@ function getAgeSexe5060($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 50 and TIMESTAMPDIFF(year,DN,CURRENT_DATE) < 60 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getAgeSexe60($sexe){
@@ -224,7 +224,7 @@ function getAgeSexe60($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM utilisateur WHERE TIMESTAMPDIFF(year,DN,CURRENT_DATE) >= 60 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartielSexe($sexe){
@@ -232,7 +232,7 @@ function getNbPartielSexe($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartielSexe25($sexe){
@@ -240,7 +240,7 @@ function getNbPartielSexe25($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score < 25 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartielSexe2550($sexe){
@@ -248,7 +248,7 @@ function getNbPartielSexe2550($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 25 and score < 50 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartielSexe5075($sexe){
@@ -256,7 +256,7 @@ function getNbPartielSexe5075($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 50 and score < 75 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbPartielSexe75($sexe){
@@ -264,7 +264,7 @@ function getNbPartielSexe75($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel INNER JOIN utilisateur ON testpartiel.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 75 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbCompletSexe($sexe){
@@ -272,7 +272,7 @@ function getNbCompletSexe($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbCompletSexe25($sexe){
@@ -280,7 +280,7 @@ function getNbCompletSexe25($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score < 25 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbCompletSexe2550($sexe){
@@ -288,7 +288,7 @@ function getNbCompletSexe2550($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 25 and score < 50 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbCompletSexe5075($sexe){
@@ -296,7 +296,7 @@ function getNbCompletSexe5075($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 50 and score < 75 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getNbCompletSexe75($sexe){
@@ -304,7 +304,7 @@ function getNbCompletSexe75($sexe){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet INNER JOIN utilisateur ON testcomplet.idUtilisateur = utilisateur.idUtilisateur WHERE score >= 75 and Sexe = ?;");
   $requete->execute(array($sexe));
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 
@@ -316,14 +316,14 @@ function getNbTestPartiel(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testpartiel;");
   $nbPartiel = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 function getNbTestComplet(){
   $db = dbConnect();
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet;");
   $nbComplet = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 
@@ -453,28 +453,28 @@ function getPeau3(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE TemperaturePeau >= 25 and TemperaturePeau < 30;");
   $nbTemperaturePeau3 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 function getPeau4(){
   $db = dbConnect();
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE TemperaturePeau >= 30 and TemperaturePeau < 35;");
   $nbTemperaturePeau4 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 function getPeau5(){
   $db = dbConnect();
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE TemperaturePeau >= 35 and TemperaturePeau < 40;");
   $nbTemperaturePeau5 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 function getPeau6(){
   $db = dbConnect();
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE TemperaturePeau >= 40;");
   $nbTemperaturePeau6 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 /**********************************************/
@@ -485,7 +485,7 @@ function getTonalite1(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite < 130;");
   $nbReconnaissanceTonalite1 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite2(){
@@ -493,7 +493,7 @@ function getTonalite2(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 130 and RecoTonalite < 775;");
   $nbReconnaissanceTonalite2 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite3(){
@@ -501,7 +501,7 @@ function getTonalite3(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 775 and RecoTonalite < 1420;");
   $nbReconnaissanceTonalite3 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite4(){
@@ -509,7 +509,7 @@ function getTonalite4(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 1420 and RecoTonalite < 2065;");
   $nbReconnaissanceTonalite4 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite5(){
@@ -517,7 +517,7 @@ function getTonalite5(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 2065 and RecoTonalite < 2710;");
   $nbReconnaissanceTonalite5 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite6(){
@@ -525,7 +525,7 @@ function getTonalite6(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 2710 and RecoTonalite < 3355;");
   $nbReconnaissanceTonalite6 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite7(){
@@ -533,7 +533,7 @@ function getTonalite7(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 3355 and RecoTonalite < 4000;");
   $nbReconnaissanceTonalite7 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
 
 function getTonalite8(){
@@ -541,6 +541,81 @@ function getTonalite8(){
   $requete = $db -> prepare("SELECT count(*)  as nb FROM testcomplet WHERE RecoTonalite >= 4000;");
   $nbReconnaissanceTonalite8 = $requete -> execute();
   $invNum = $requete -> fetch(PDO::FETCH_ASSOC);
-return $invNum['nb'];
+  return $invNum['nb'];
 }
+
+/*RECHERCHE DES PILOTES*/
+function getNbPilotePossibles($recherche){
+  $db = dbConnect();
+  $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+  $listeUser = $db -> prepare("SELECT * FROM utilisateur WHERE nom LIKE ? or prenom LIKE ?;");
+  $listeUser -> execute(array('%'.$recherche.'%','%'.$recherche.'%'));
+  $listeUser -> setFetchMode(PDO::FETCH_ASSOC);
+  $nbUser = $listeUser -> rowCount();
+  return $nbUser;
+}
+
+function getListePilotesPossibles($recherche){
+  $db = dbConnect();
+  $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+  $listeUser = $db -> prepare("SELECT * FROM utilisateur WHERE nom LIKE ? or prenom LIKE ?;");
+  $listeUser -> execute(array('%'.$recherche.'%','%'.$recherche.'%'));
+  $listeUser -> setFetchMode(PDO::FETCH_ASSOC);
+  return $listeUser;
+}
+
+function getNbPilotesRecherche($recherche){
+  $db = dbConnect();
+  if ($recherche != ""){
+    $appelation_user = explode(" ", $recherche);
+    $listeUser2 = $db -> prepare("SELECT date, Frequence, PerceptionAuditive, StimulusVisuel, TemperaturePeau, RecoTonalite, score FROM testcomplet WHERE idUtilisateur = (select idUtilisateur from utilisateur where nom LIKE ? or prenom LIKE ?);");
+    $req = $listeUser2 -> execute(array($appelation_user[1],$appelation_user[0]));
+    $nb = $listeUser2 -> rowCount();
+    return $nb;
+  }
+  else{
+    return 0;
+  }
+}
+
+function getListePiloteRecherche($recherche){
+  $db = dbConnect();
+  if ($recherche != ""){
+    $appelation_user = explode(" ", $recherche);
+    $listeUser2 = $db -> prepare("SELECT date, Frequence, PerceptionAuditive, StimulusVisuel, TemperaturePeau, RecoTonalite, score FROM testcomplet WHERE idUtilisateur = (select idUtilisateur from utilisateur where nom LIKE ? or prenom LIKE ?);");
+    $req = $listeUser2 -> execute(array($appelation_user[1],$appelation_user[0]));
+    $listeUser2 -> setFetchMode(PDO::FETCH_ASSOC);
+    return $listeUser2;
+  }else{
+    return 0;
+  }
+}
+
+function getResultatPartiel($recherche){
+  $db = dbConnect();
+  if ($recherche != ""){
+    $appelation_user = explode(" ", $recherche);
+    $listeUser3 = $db -> prepare("SELECT date, Frequence, PerceptionAuditive, StimulusVisuel, score FROM testpartiel WHERE idUtilisateur = (select idUtilisateur from utilisateur where nom LIKE ? or prenom LIKE ?);");
+    $req = $listeUser3 -> execute(array($appelation_user[1],$appelation_user[0]));
+    $nb = $listeUser3 -> rowCount();
+    return $nb;
+  }
+  else{
+    return 0;
+  }
+}
+
+function getResultatComplet($recherche){
+  $db = dbConnect();
+  if ($recherche != ""){
+    $appelation_user = explode(" ", $recherche);
+    $listeUser3 = $db -> prepare("SELECT date, Frequence, PerceptionAuditive, StimulusVisuel, score FROM testpartiel WHERE idUtilisateur = (select idUtilisateur from utilisateur where nom LIKE ? or prenom LIKE ?);");
+    $req = $listeUser3 -> execute(array($appelation_user[1],$appelation_user[0]));
+    $listeUser3 -> setFetchMode(PDO::FETCH_ASSOC);
+    return $listeUser3;
+  }else{
+    return 0;
+  }
+}
+
 ?>

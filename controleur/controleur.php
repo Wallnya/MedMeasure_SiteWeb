@@ -204,11 +204,6 @@ function page_gestionnaire(){
   require('vue/gestionnaire.php');
 }
 
-/*function donnee_sexe_gestionnaire(){
-  $nbTotal = getNbUtilisateur();
-  $femme = getSexeFemme();
-  $homme = getSexeHomme();
-}*/
 
 function donnee_age_gestionnaire(){
   $nbAge20 = getAge20();
@@ -235,8 +230,6 @@ function donne_complet_gestionnaire(){
   $nbComplet75100 = getNbComplet75();
 }
 
-
-
 function donnee_sexe_select_gestionnaire($sexe){
   $nbTotal = getNbUtilisateurSexe($sexe);
   $femme = getSexeFemmeSelec($sexe);
@@ -262,8 +255,6 @@ function donnee_sexe_select_gestionnaire($sexe){
   $nbComplet75100 = getNbCompletSexe75($sexe);
 
   require('vue/gestionnaire.php');
-
-
 }
 function donnee_sexe_age_gestionnaire($sexe){
   $nbAge20 = getAgeSexe20($sexe);
@@ -325,7 +316,6 @@ function donne_mesures(){
   $nbReconnaissanceTonalite8 = getTonalite8();
 
   require('vue/gestionnaire.php');
-
 }
 
 function donne_cardiaque(){
@@ -371,6 +361,15 @@ function donne_tonalite(){
   $nbReconnaissanceTonalite8 = getTonalite8();
 }
 
+function myfunction($recherche,$user){
+  $nbUser = getNbPilotePossibles($recherche);
+  $listeUser = getListePilotesPossibles($recherche);
+  $nb1 = getNbPilotesRecherche($user);
+  $listeUser2 = getListePiloteRecherche($user);
+  $nb2 = getResultatPartiel($user);
+  $listeUser3 = getResultatComplet($user);
+  require('vue/gestionnaire.php');
+}
 /********************************/
 /*          CGU                 */
 /********************************/

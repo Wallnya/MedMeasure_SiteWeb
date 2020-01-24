@@ -30,7 +30,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
 <header>
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
-    <a href="index.php?page=gestionnaire"><?php echo _ACCUEIL ?></a>
+    <a href="index.php?page=gestionnaire&traitement=sexe"><?php echo _ACCUEIL ?></a>
     <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION ?></a>
     <form method="POST">
       <button type="submit" class="test" name="FR">FR</button>
@@ -100,10 +100,9 @@ if ($_SESSION["type"]=="Gestionnaire"){
   if (isset($_POST["recherchenom"])){
     #connexion à la base de données
     ?>
-
     <!-- Recherche -->
     <div class="filtres">
-      <form method="get" action="" style="margin:auto;">
+      <form method="GET" action="index.php?page=gestionnaire&traitement=recherche" style="margin:auto;">
         <div style="display:flex;margin-top:20px">
           <div style="float:left;margin-left:5px;margin-right:5px">
             <input style="font-size:16px" type="text" name="search" placeholder="<?php echo _RECHERCHERUSER?>"
@@ -121,12 +120,6 @@ if ($_SESSION["type"]=="Gestionnaire"){
     <?php
 
     if ((isset($_GET['validerRecherche']) && !empty($_GET['search']) && $_GET['search'] !== '  ') || isset($_GET['validerRecherche2'])) {
-      $errormanagement = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-      $db = new PDO('mysql:host=localhost;dbname=medmeasure', 'root', '', $errormanagement);
-      $listeUser = $db -> prepare("SELECT * FROM utilisateur WHERE nom LIKE ? or prenom LIKE ?;");
-      $listeUser -> execute(array('%'.$_GET["search"].'%','%'.$_GET["search"].'%'));
-      $listeUser -> setFetchMode(PDO::FETCH_ASSOC);
-      $nbUser = $listeUser -> rowCount();
       if ($nbUser == 0) {
         ?>
         <div style="margin-top:30px">
@@ -143,7 +136,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
             <label><?php echo _RESULTATRECHERCHEPILOTE ?></label>
           </div>
           <div class="filtres">
-            <form method="get" action="" style="margin:auto;margin-top:5px">
+            <form method="get" action="index.php?page=gestionnaire&traitement=recherche&validerRecherche=&search=<?php echo $_GET["search"]; ?>" style="margin:auto;margin-top:5px">
               <div style="display:flex;">
                 <div style="float:left;margin-left:5px;margin-right:5px">
                   <select style="width:200px; height:30px; font-size: 15px;" name="user">
@@ -168,15 +161,9 @@ if ($_SESSION["type"]=="Gestionnaire"){
         <?php
 
       }
-      $listeUser -> closeCursor();
     }
     if (isset($_GET['validerRecherche2']) && $_GET['validerRecherche2'] == "") {
-      $appelation_user = explode(" ", $_GET["user"]);
-      $listeUser2 = $db -> prepare("SELECT date, Frequence, PerceptionAuditive, StimulusVisuel, TemperaturePeau, RecoTonalite, score FROM testcomplet WHERE idUtilisateur = (select idUtilisateur from utilisateur where nom LIKE ? or prenom LIKE ?);");
-      $req = $listeUser2 -> execute(array($appelation_user[1],$appelation_user[0]));
-      $nb = $listeUser2 -> rowCount();
-      if ($nb != 0) {
-        $listeUser2 -> setFetchMode(PDO::FETCH_ASSOC);
+      if ($nb1 != 0) {
         echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
         echo "<tr class=\"entete\"><td>Date du test COMPLET</td><td>Fréquence</td><td>Perception Auditive</td>
         <td>Stimulus Visuel</td><td>Temperature de la peau</td> <td>Reconnaissance de la tonalité</td><td>Score</td><td></td></tr>";
@@ -205,22 +192,15 @@ if ($_SESSION["type"]=="Gestionnaire"){
           </td>
         </td>
       </form>
-
     </tr>
-
   <?php } ?>
 </table>
 </center>
 <br>
 <?php
 }
-$listeUser2 -> closeCursor();
 
-$listeUser3 = $db -> prepare("SELECT date, Frequence, PerceptionAuditive, StimulusVisuel, score FROM testpartiel WHERE idUtilisateur = (select idUtilisateur from utilisateur where nom LIKE ? or prenom LIKE ?);");
-$req = $listeUser3 -> execute(array($appelation_user[1],$appelation_user[0]));
-$nb = $listeUser3 -> rowCount();
-if ($nb != 0) {
-  $listeUser3 -> setFetchMode(PDO::FETCH_ASSOC);
+if ($nb2 != 0) {
   echo "<div class=\"container-fluid\">";
 
   echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
@@ -253,7 +233,6 @@ if ($nb != 0) {
 </center>
 <?php
 }
-$listeUser3 -> closeCursor();
 }
 echo "</div>";
 }

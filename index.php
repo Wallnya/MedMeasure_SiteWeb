@@ -271,19 +271,55 @@ if (isset($_GET['page'])) {
       }
     }
     else if (isset($_GET['traitement']) && $_GET['traitement'] == 'recherche'){
-      if(isset($_POST['FR'])){
-        $_SESSION['lang']="fr";
-        $_POST['recherchenom'] = true;
-        page_gestionnaire();
-      }
-      else if(isset($_POST['EN'])){
-        $_SESSION['lang']="en";
-        $_POST['recherchenom'] = true;
-        page_gestionnaire();
+      if ((isset($_GET['validerRecherche']) && !empty($_GET['search']) && $_GET['search'] !== '  ') || isset($_GET['validerRecherche2'])) {
+        if (isset($_GET['validerRecherche2']) && $_GET['validerRecherche2'] == "") {
+          if(isset($_POST['FR'])){
+            $_SESSION['lang']="fr";
+            $_POST['recherchenom'] = true;
+            myfunction($_GET['search'],$_GET['user']);
+          }
+          else if(isset($_POST['EN'])){
+            $_SESSION['lang']="en";
+            $_POST['recherchenom'] = true;
+            myfunction($_GET['search'],$_GET['user']);
+          }
+          else{
+            $_POST['recherchenom'] = true;
+            myfunction($_GET['search'],$_GET['user']);
+          }
+        }
+        else{
+          if(isset($_POST['FR'])){
+            $_SESSION['lang']="fr";
+            $_POST['recherchenom'] = true;
+            myfunction($_GET['search'],"");
+          }
+          else if(isset($_POST['EN'])){
+            $_SESSION['lang']="en";
+            $_POST['recherchenom'] = true;
+            myfunction($_GET['search'],"");
+          }
+          else{
+            $_POST['recherchenom'] = true;
+            myfunction($_GET['search'],"");
+          }
+        }
       }
       else{
-        $_POST['recherchenom'] = true;
-        page_gestionnaire();
+        if(isset($_POST['FR'])){
+          $_SESSION['lang']="fr";
+          $_POST['recherchenom'] = true;
+          page_gestionnaire();
+        }
+        else if(isset($_POST['EN'])){
+          $_SESSION['lang']="en";
+          $_POST['recherchenom'] = true;
+          page_gestionnaire();
+        }
+        else{
+          $_POST['recherchenom'] = true;
+          page_gestionnaire();
+        }
       }
     }
     else if(isset($_POST['FR'])){
