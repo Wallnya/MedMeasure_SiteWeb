@@ -276,32 +276,32 @@ if (isset($_GET['page'])) {
           if(isset($_POST['FR'])){
             $_SESSION['lang']="fr";
             $_POST['recherchenom'] = true;
-            myfunction($_GET['search'],$_GET['user']);
+            recherchePilote($_GET['search'],$_GET['user']);
           }
           else if(isset($_POST['EN'])){
             $_SESSION['lang']="en";
             $_POST['recherchenom'] = true;
-            myfunction($_GET['search'],$_GET['user']);
+            recherchePilote($_GET['search'],$_GET['user']);
           }
           else{
             $_POST['recherchenom'] = true;
-            myfunction($_GET['search'],$_GET['user']);
+            recherchePilote($_GET['search'],$_GET['user']);
           }
         }
         else{
           if(isset($_POST['FR'])){
             $_SESSION['lang']="fr";
             $_POST['recherchenom'] = true;
-            myfunction($_GET['search'],"");
+            recherchePilote($_GET['search'],"");
           }
           else if(isset($_POST['EN'])){
             $_SESSION['lang']="en";
             $_POST['recherchenom'] = true;
-            myfunction($_GET['search'],"");
+            recherchePilote($_GET['search'],"");
           }
           else{
             $_POST['recherchenom'] = true;
-            myfunction($_GET['search'],"");
+            recherchePilote($_GET['search'],"");
           }
         }
       }
