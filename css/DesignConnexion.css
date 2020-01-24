@@ -1,20 +1,18 @@
-/*STYLE POUR TOUT*/
 *{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-/*BODY*/
+
 html, body {
-  height: 100%;
+	height: 100%;
 }
 
-/*PARTIE GAUCHE*/
 div#gauche {
-  width: 50%;
-  height: 100%;
-  float: left;
-  background-color: #AED6F1;
+	width: 50%;
+	height: 100%;
+	float: left;
+	background-color: #AED6F1;
 }
 
 div#gauche p {
@@ -25,29 +23,29 @@ div#gauche p {
   font-size: 20px;
 }
 
-/*PARTIE DROITE*/
 div#droite {
-  width: 50%;
-  height: 100%;
-  float: left;
+	width: 50%;
+	height: 100%;
+	float: left;
   background-color: white;
 }
+
 #boutonsReseau{
   text-align: center;
   margin-top: 25px;
 }
+
 .boutonReseau{
   margin-left: 15px;
   margin-right: 15px;
 }
+
 .reseaux{
   margin: 20px 50px;
   font-size: 17px;
 }
-<<<<<<< Updated upstream
-=======
 
-#twitter-button, #facebook-button{
+#twitter-button{
   display: block;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -56,24 +54,13 @@ div#droite {
   padding: 10px 5px 10px 30px;
   border-radius : 3px;
   text-align: center;
-  margin: 5px auto;
-}
-
-#twitter-button{
   width: 250px;
-}
-
-#facebook-button{
-  background-color: #1877f2;
-  width: 280px;
+  margin: 5px auto;
 }
 
 #twitter-button:hover{
   background-color: #55acee;
 }
-
-
-
 
 .btn-social>:first-child{
   border-right: none !important;
@@ -83,36 +70,46 @@ div#droite {
 }
 
 
->>>>>>> Stashed changes
 .logodescription .logo {
+  /*position: absolute;
+  top: 40%;
+  left: 75%;
+  transform:translate(-50%, -50%);*/
   display: block;
   margin: auto;
   width: 200px;
   height: 200px;
 }
+
 .logodescription{
   margin: 50px 20px;
 }
+
 .logodescription .desc{
   font-size: 20px;
   margin: 20px 150px;
 }
+
 .logodescription .desc .lien{
   margin-left: 30px;
 }
-/*BOUTON MULTILANGUE*/
- .test{
-	float: right;
-	width:50px;
-	height:50px;
-	background:#fafafa;
-	box-shadow:2px 2px 8px #aaa;
-	font:bold 13px Arial;
-	border-radius:50%;
-	color:#555;
-}
 
-/*STYLE DES BOUTONS*/
+/*div#droite p  {
+  position: absolute;
+  top: 65%;
+  left: 75%;
+  transform:translate(-50%, -50%);
+  font-size: 20px;
+}*/
+
+/*div#droite input[name=inscription]  {
+  position: absolute;
+  top: 85%;
+  left: 81%;
+  transform:translate(-50%, -50%);
+  font-size: 20px;
+}*/
+
 input[type=text], input[type=password] {
   width: 12,5%;
   padding: 12px 20px;
@@ -122,6 +119,7 @@ input[type=text], input[type=password] {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 input[type=submit] {
   width: 12,5%;
   background-color: #AED6F1;
@@ -132,6 +130,7 @@ input[type=submit] {
   cursor: pointer;
   font-size: 18px;
 }
+
 input[type=submit]:hover {
   background-color: #70B1CB;
 }
