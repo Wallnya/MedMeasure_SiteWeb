@@ -60,6 +60,17 @@ div#droite {
 .logodescription .desc .lien{
   margin-left: 30px;
 }
+/*BOUTON MULTILANGUE*/
+ .test{
+	float: right;
+	width:50px;
+	height:50px;
+	background:#fafafa;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Arial;
+	border-radius:50%;
+	color:#555;
+}
 
 /*STYLE DES BOUTONS*/
 input[type=text], input[type=password] {

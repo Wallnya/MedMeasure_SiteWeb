@@ -22,7 +22,6 @@ else{
     <script src="js/connexionFacebook.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
-
   <body>
     <div id="gauche">
       <p>
@@ -64,6 +63,10 @@ else{
           <?php echo _JOIN; ?>
             <a href="index.php?page=inscription"> <input type="submit" name="inscription" value="<?php echo _INSCRIPTION?>"> </a>
           </div>
+          <form method="POST">
+            <button type="submit" class="test" name="FR">FR</button>
+            <button type="submit" class="test" name="EN">EN</button>
+          </form>
         </div>
       </div>
     </div>

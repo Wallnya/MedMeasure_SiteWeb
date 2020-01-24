@@ -394,8 +394,24 @@ else if (isset($_POST['connexion'])){
   accueil();
 }
 else{
-  $_SESSION = Array();
-  session_destroy();
-  session_start();
-  accueil();
+  if(isset($_POST['FR'])){
+    $_SESSION = Array();
+    session_destroy();
+    session_start();
+    $_SESSION['lang']="fr";
+    accueil();
+  }
+  else if(isset($_POST['EN'])){
+    $_SESSION = Array();
+    session_destroy();
+    session_start();
+    $_SESSION['lang']="en";
+    accueil();
+  }
+  else {
+    $_SESSION = Array();
+    session_destroy();
+    session_start();
+    accueil();
+  }
 }
