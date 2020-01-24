@@ -31,7 +31,7 @@ if ($_SESSION["type"]=="Gestionnaire"){
   <div class="barre_navigation">
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=gestionnaire&traitement=sexe"><?php echo _ACCUEIL ?></a>
-    <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION ?></a>
+    <a style="cursor:pointer" href="index.php?deco=deconnexion"><?php echo _DECONNEXION; ?></a>
     <form method="POST">
       <button type="submit" class="test" name="FR">FR</button>
       <button type="submit" class="test" name="EN">EN</button>

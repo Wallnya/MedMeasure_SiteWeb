@@ -95,3 +95,36 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #70B1CB;
 }
+.reseaux{
+  margin: 20px 50px;
+  font-size: 17px;
+}
+#twitter-button, #facebook-button{
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 5px 10px 30px;
+  border-radius : 3px;
+  text-align: center;
+  margin: 5px auto;
+}
+
+/*BOUTONS RESEAUX*/
+#twitter-button{
+  width: 250px;
+}
+#facebook-button{
+  background-color: #1877f2;
+  width: 280px;
+}
+#twitter-button:hover{
+  background-color: #55acee;
+}
+.btn-social>:first-child{
+  border-right: none !important;
+  left: 5px !important;
+  top: 2px !important;
+  right: 150px !important;
+}

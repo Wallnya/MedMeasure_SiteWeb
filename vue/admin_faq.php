@@ -28,7 +28,7 @@ if ($_SESSION["type"]=="Administrateur"){
       <a href="index.php?page=admin_user"><?php echo _UTILISATEURS; ?></a>
       <a href="index.php?page=admin_faq"><?php echo _FAQ; ?></a>
       <a href="index.php?page=admin_ticket"><?php echo _TICKETS; ?></a>
-      <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION; ?></a>
+      <a style="cursor:pointer" href="index.php?deco=deconnexion"><?php echo _DECONNEXION; ?></a>
       <form method="POST" action="index.php?page=admin_faq">
         <button type="submit" class="test" name="FR">FR</button>
         <button type="submit" class="test" name="EN">EN</button>
