@@ -19,7 +19,7 @@ else{
   <title><?php echo _CGU?></title>
 </head>
 <body>
-  <div class="formulaire-login">
+  <div class="formulaire-CGU">
     <div class="formulaire">
       <div>
         <label for="email"><?php echo _ARTICLE1TITLE?></label>

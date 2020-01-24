@@ -1,23 +1,17 @@
+/*      BODY      */
+body {
+	margin: 0;
+	min-height:7em;
+}
+/*BARRE DE NAVIGATION*/
 header{
 	background-color:#AED6F1;
 	height:250px;
 	min-height:15%;
 }
-
-.texte img{
-	height: 200px;
-	width: 100%;
-}
-
-.barre_navigation img {
-	height: 50px;
-	width: 50px;
-	float: left;
-}
 .barre_navigation {
 	overflow: hidden;
 }
-
 .barre_navigation a {
 	float: left;
 	color: black;
@@ -26,26 +20,39 @@ header{
 	text-decoration: none;
 	font-size: 17px;
 	font-weight: bold;
-
 }
-
+.barre_navigation img {
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+.texte img{
+	height: 200px;
+	width: 100%;
+}
 .barre_navigation a:hover {
 	border-bottom: 2px solid #82AFCC;
 	color: #82AFCC;
 }
-
+/*BOUTON MULTILANGUE*/
 .barre_navigation .test{
-    float: right;
-    width:50px;
-      height:50px;
-      background:#fafafa;
-      box-shadow:2px 2px 8px #aaa;
-      font:bold 13px Arial;
-      border-radius:50%;
-      color:#555;
- }
+	float: right;
+	width:50px;
+	height:50px;
+	background:#fafafa;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Arial;
+	border-radius:50%;
+	color:#555;
+}
 
-
+/*FORMULAIRE DU TICKET*/
+.formulaireTicket {
+	position: absolute;
+	top: 35%;
+	left: 35%;
+}
+/*DIFFERENTS INPUTS*/
 input[type=submit] {
 	width: 12,5%;
 	background-color: #AED6F1;
@@ -55,19 +62,11 @@ input[type=submit] {
 	cursor: pointer;
 	font-size: 18px;
 	display: block;
-  margin: auto;
+	margin: auto;
 }
-
 input[type=submit]:hover {
 	background-color: #70B1CB;
 }
-
-.formulaireTicket {
-  position: absolute;
-  top: 35%;
-  left: 35%;
-}
-
 textarea {
 	padding:5px;
 	border:1px solid #AED6F1;
@@ -77,22 +76,4 @@ textarea {
 	margin-top: 10px;
 	resize: none;
 	width: 500px;
-}
-
-td{
-	width:100px;
-}
-
-.Statut{
-	width:initial;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.check {
-	float:none;
 }

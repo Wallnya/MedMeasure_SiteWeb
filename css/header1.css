@@ -1,14 +1,13 @@
+/*BARRE DE NAVIGATION*/
 header{
   background-color:#AED6F1;
   height:250px;
   min-height:15%;
 }
-
 .texte img{
   height: 200px;
   width: 100%;
 }
-
 .barre_navigation img {
   height: 50px;
   width: 50px;
@@ -17,7 +16,6 @@ header{
 .barre_navigation {
   overflow: hidden;
 }
-
 .barre_navigation a {
   float: left;
   color: black;
@@ -27,7 +25,6 @@ header{
   font-size: 17px;
   font-weight: bold;
 }
-
 .barre_navigation a:hover {
   border-bottom: 2px solid #82AFCC;
   color: #82AFCC;

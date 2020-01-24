@@ -1,12 +1,17 @@
+/*      BODY      */
 body {
+  margin: 0;
+  min-height:7em;
   background: #AED6F1;
 }
 
-.formulaire-login {
+/*GRAND RECTANGLE*/
+.formulaire-CGU {
   width: 600px;
   padding: 8% 0 0;
   margin: auto;
 }
+/*INTERIEUR DU RECTANGLE*/
 .formulaire {
   position: relative;
   z-index: 1;
@@ -16,7 +21,6 @@ body {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
 .formulaire p {
   outline: 0;
   background: #f2f2f2;

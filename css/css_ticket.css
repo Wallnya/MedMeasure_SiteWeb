@@ -1,23 +1,18 @@
+/*      BODY      */
+body {
+	margin: 0;
+	min-height:7em;
+}
+
+/*BARRE DE NAVIGATION*/
 header{
 	background-color:#AED6F1;
 	height:250px;
 	min-height:15%;
 }
-
-.texte img{
-	height: 200px;
-	width: 100%;
-}
-
-.barre_navigation img {
-	height: 50px;
-	width: 50px;
-	float: left;
-}
 .barre_navigation {
 	overflow: hidden;
 }
-
 .barre_navigation a {
 	float: left;
 	color: black;
@@ -28,12 +23,21 @@ header{
 	font-weight: bold;
 
 }
-
 .barre_navigation a:hover {
 	border-bottom: 2px solid #82AFCC;
 	color: #82AFCC;
 }
+.barre_navigation img {
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+.texte img{
+	height: 200px;
+	width: 100%;
+}
 
+/*BOUTONS MULTILANGUES*/
 .barre_navigation .test{
     float: right;
    width:50px;
@@ -45,7 +49,15 @@ header{
       color:#555;
  }
 
+/*FORMULAIRE TICKET*/
+.formulaireTicket {
+  left:50%;
+	padding:10px;
+	width: 20px;
+	margin-top: 30px;
+}
 
+/*DIFFERENTS INPUTS*/
 input[type=submit] {
 	width: 12,5%;
 	background-color: #AED6F1;
@@ -57,18 +69,9 @@ input[type=submit] {
 	font-size: 18px;
 	display: block;
 }
-
 input[type=submit]:hover {
 	background-color: #70B1CB;
 }
-
-.formulaireTicket {
-  left:50%;
-	padding:10px;
-	width: 20px;
-	margin-top: 30px;
-}
-
 textarea {
 	padding:5px;
 	border:1px solid #AED6F1;
@@ -80,11 +83,11 @@ textarea {
 	resize: none;
 	width: 500px;
 }
-
 td{
 	width:100px;
 }
 
+/*TICKET VALIDE OU NON*/
 .Statut{
 	width:initial;
   padding: 12px 20px;
@@ -94,7 +97,6 @@ td{
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 .check {
 	float:none;
 }

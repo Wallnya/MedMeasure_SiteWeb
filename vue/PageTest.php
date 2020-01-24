@@ -5,7 +5,7 @@ if ($_SESSION["type"]=="Pilote"){
 
   if (isset($_SESSION['lang'])){
     if($_SESSION['lang'] == "en")
-        include "langues/en.inc";
+    include "langues/en.inc";
     else if ($_SESSION['lang'] == "fr"){
       include "langues/fr.inc";
     }
@@ -31,65 +31,73 @@ if ($_SESSION["type"]=="Pilote"){
       <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
       <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
       <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
-      <form method="POST" action="index.php?page=user">
+      <form method="POST" action="index.php?page=user&traitement=test">
         <button type="submit" class="test" name="FR">FR</button>
         <button type="submit" class="test" name="EN">EN</button>
       </form>
     </div>
   </header>
-  <form action="index.php?page=user">
-    <button type="submit" class="btn1">
-      <div class="Test1">
-        <strong><?php echo _TESTDESUIVI?></strong>
-        <p>
-          <img src="images/RythmeCardiaque.png">
-          <?php echo _RYTHMECARDIAQUE?>
-        </p>
-        <p>
-          <img src="images/PerceptionAuditive.png">
-          <?php echo _PERCEPTIONAUDITIVE?>
-        </p>
-        <p>
-          <img src="images/StimulusVisuel.png">
-          <?php echo _STIMULUSVISUEL?>
-        </p>
-      </div>
-    </button>
-  </form>
-  <form action="index.php?page=user">
-    <button type="submit" class="btn2">
-      <div class="Test1">
-        <strong><?php echo _TESTCOMPLET?></strong>
-        <p>
-          <img src="images/RythmeCardiaque.png">
-          <?php echo _RYTHMECARDIAQUE?>
+  <body>
 
-        </p>
-        <p>
-          <img src="images/PerceptionAuditive.png">
-          <?php echo _PERCEPTIONAUDITIVE?>
-        </p>
-        <p>
-          <img src="images/StimulusVisuel.png">
-          <?php echo _STIMULUSVISUEL?>
-        </p>
-        <p>
-          <img src="images/Température.png">
-          <?php echo _TEMPERATUREPEAU?>
-        </p>
-        <p>
-          <img src="images/ReconnaissanceTonalité.png">
-          <?php echo _RECOTONALITE?>
-        </p>
-      </div>
-    </button>
-  </form>
-</body>
+    <form>
+      <button type="submit" name="testSuivi" id="testSuivi" class="testSuivi" onclick="myFunction()">
+        <div class="tests">
+          <strong><?php echo _TESTDESUIVI?></strong>
+          <p>
+            <img src="images/RythmeCardiaque.png">
+            <?php echo _RYTHMECARDIAQUE?>
+          </p>
+          <p>
+            <img src="images/PerceptionAuditive.png">
+            <?php echo _PERCEPTIONAUDITIVE?>
+          </p>
+          <p>
+            <img src="images/StimulusVisuel.png">
+            <?php echo _STIMULUSVISUEL?>
+          </p>
+        </div>
+      </button>
+    </form>
+    <form>
+      <button type="submit" name="testComplet" id="testComplet" class="testComplet" onclick="myFunction()">
+        <div class="tests">
+          <strong><?php echo _TESTCOMPLET?></strong>
+          <p>
+            <img src="images/RythmeCardiaque.png">
+            <?php echo _RYTHMECARDIAQUE?>
 
-</html>
-<?php
+          </p>
+          <p>
+            <img src="images/PerceptionAuditive.png">
+            <?php echo _PERCEPTIONAUDITIVE?>
+          </p>
+          <p>
+            <img src="images/StimulusVisuel.png">
+            <?php echo _STIMULUSVISUEL?>
+          </p>
+          <p>
+            <img src="images/Température.png">
+            <?php echo _TEMPERATUREPEAU?>
+          </p>
+          <p>
+            <img src="images/ReconnaissanceTonalité.png">
+            <?php echo _RECOTONALITE?>
+          </p>
+        </div>
+      </button>
+    </form>
+    <script>
+    function myFunction(){
+      document.getElementById("testSuivi").disabled = true;
+      document.getElementById("testComplet").disabled = true;
+    }
+    </script>
+  </body>
+
+  </html>
+  <?php
 }
 else {
-header('Location: index.php');
+  header('Location: index.php');
 }
 ?>

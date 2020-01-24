@@ -1,12 +1,17 @@
+/*      BODY      */
 body {
+  margin: 0;
+  min-height:7em;
   background: #AED6F1;
 }
 
+/*GRAND RECTANGLE D INSCRIPTION*/
 .formulaire-login {
   width: 500px;
   padding: 8% 0 0;
   margin: auto;
 }
+/*RECTANGLE EN DESSOUS DU GRAND RECTANGLE INSCRIPTION*/
 .formulaire {
   position: relative;
   z-index: 1;
@@ -16,7 +21,6 @@ body {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
 .formulaire input, select{
   outline: 0;
   background: #f2f2f2;
@@ -43,7 +47,6 @@ body {
 .formulaire button:hover,.formulaire button:active,.formulaire button:focus {
   background: #70B1CB;
 }
-
 img{
 	width: 50px;
 	height: 50px;

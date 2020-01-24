@@ -1,61 +1,59 @@
-.Test1
-{
+/*      BODY      */
+body {
+  margin: 0;
+  min-height:7em;
+}
+
+/*      BOUTON MULTILANGUE      */
+.barre_navigation .test{
+	float: right;
+	width:50px;
+	height:50px;
+	background:#fafafa;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Arial;
+	border-radius:50%;
+	color:#555;
+}
+
+/*BOUTON DU TEST DE SUIVI*/
+.testSuivi{
+	position: absolute;
+	left: 25%;
+	width: 50%;
+	height: 350px;
+}
+/*BOUTON DU TEST COMPLET*/
+.testComplet{
+	position: absolute;
+	top: 50%;
+	left: 25%;
+	width: 50%;
+	height: 400px;
+}
+/*STYLE POUR CHAQUE MESURE*/
+.tests{
 	font-family: Arial;
 	line-height: 30px;
 	text-align: left;
 	font-size : large;
-
 }
 
-p
-{
+p{
 	margin-left: 100px;
 	display: flex;
 	align-items:center;
 }
 
-
-button
-{
+button{
 	background-color: #FFFFFF;
 	font-size : small;
 	font-family: Arial;
 	border-radius: 10px;
 }
 
-strong
-{
+strong{
 	font-size: xx-large;
 	display:block;
 	text-align: center;
-}
-
-.btn1
-{
-	margin-left: 275px;
-	margin-top: 40px;
-	margin-bottom: 40px;
-
-	width: 1000px;
-	height: 350px;
-}
-.btn2
-{
-	margin-left: 275px;
-	margin-top: 40px;
-	margin-bottom: 40px;
-
-	width: 1000px;
-	height: 500px;
-}
-
-.barre_navigation .test{
-   float: right;
-  width:50px;
- 	height:50px;
- 	background:#fafafa;
- 	box-shadow:2px 2px 8px #aaa;
- 	font:bold 13px Arial;
- 	border-radius:50%;
- 	color:#555;
 }

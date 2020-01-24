@@ -1,23 +1,18 @@
+/*      BODY      */
+body {
+	margin: 0;
+	min-height:7em;
+}
+
+/*BARRE DE NAVIGATION*/
 header{
 	background-color:#AED6F1;
 	height:250px;
 	min-height:15%;
 }
-
-.texte img{
-	height: 200px;
-	width: 100%;
-}
-
-.barre_navigation img {
-	height: 50px;
-	width: 50px;
-	float: left;
-}
 .barre_navigation {
 	overflow: hidden;
 }
-
 .barre_navigation a {
 	float: left;
 	color: black;
@@ -26,16 +21,35 @@ header{
 	text-decoration: none;
 	font-size: 17px;
 	font-weight: bold;
-
 }
-
 .barre_navigation a:hover {
 	border-bottom: 2px solid #82AFCC;
 	color: #82AFCC;
 }
+.barre_navigation img {
+	height: 50px;
+	width: 50px;
+	float: left;
+}
+.texte img{
+	height: 200px;
+	width: 100%;
+}
 
-.contact
-{
+/*BOUTONS MULTILANGUES*/
+.barre_navigation .test{
+   float: right;
+  width:50px;
+ 	height:50px;
+ 	background:#fafafa;
+ 	box-shadow:2px 2px 8px #aaa;
+ 	font:bold 13px Arial;
+ 	border-radius:50%;
+ 	color:#555;
+}
+
+/*BARRE DE CONTACT*/
+.contact{
 	font-family: Arial;
 	line-height: 100px;
 	text-align: left;
@@ -45,7 +59,8 @@ header{
 	font-size : large;
 	font-family: Arial;
 }
-/* Style the button that is used to open and close the collapsible content */
+
+/* BOUTON COLLAPSE*/
 .collapsible {
 	background-color: #fff;
 	color: black;
@@ -62,9 +77,8 @@ header{
 	margin-top: 50px;
 }
 
-/* Style the collapsible content. Note: hidden by default */
 .collapsible:after {
-	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	content: '\02795'; /*(+)*/
 	font-size: 13px;
 	color: white;
 	float: right;
@@ -72,9 +86,10 @@ header{
 }
 
 .active:after {
-	content: "\2796"; /* Unicode character for "minus" sign (-) */
+	content: "\2796"; /*(-)*/
 }
 
+/*CONTENU DU BOUTON COLLAPSE*/
 .content {
 	padding: 0 18px;
 	background-color: white;
@@ -84,15 +99,4 @@ header{
 	font-family: Arial;
 	color: black;
 	margin-left: 350px;
-}
-
-.barre_navigation .test{
-   float: right;
-  width:50px;
- 	height:50px;
- 	background:#fafafa;
- 	box-shadow:2px 2px 8px #aaa;
- 	font:bold 13px Arial;
- 	border-radius:50%;
- 	color:#555;
 }

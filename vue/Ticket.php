@@ -29,7 +29,7 @@ if ($_SESSION["type"]=="Pilote"){
     <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
     <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
     <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
-    <form method="POST" action="index.php?page=user">
+    <form method="POST">
       <button type="submit" class="test" name="FR">FR</button>
       <button type="submit" class="test" name="EN">EN</button>
     </form>

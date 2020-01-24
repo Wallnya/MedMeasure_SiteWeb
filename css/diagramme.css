@@ -17,10 +17,7 @@ body {
   max-width: 300px;
   display: inline-block;
   position: relative;
-  /*vertical-align: top;*/
 }
-
-
 .pie-chart + .pie-chart {
   margin-left: 40px;
 }

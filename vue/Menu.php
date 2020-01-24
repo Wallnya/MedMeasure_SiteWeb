@@ -2,7 +2,7 @@
 if ($_SESSION["type"]=="Pilote"){
   if (isset($_SESSION['lang'])){
     if($_SESSION['lang'] == "en")
-        include "langues/en.inc";
+    include "langues/en.inc";
     else if ($_SESSION['lang'] == "fr"){
       include "langues/fr.inc";
     }
@@ -37,7 +37,7 @@ if ($_SESSION["type"]=="Pilote"){
   </header>
 
   <body>
-    <div class="formulaire-login">
+    <div class="presentationPilote">
       <img src="images/MedMeasure.png" alt="logo de MedMeasure">
       <?php
       while ($data = $datauser->fetch())
@@ -50,21 +50,21 @@ if ($_SESSION["type"]=="Pilote"){
         }
         $datauser->closeCursor();
         ?>
-        <div class="container-fluid-ticket">
-          <div class="rectangle-donnee-ticket">
-            <div class="rectangle-ticket">
+        <div class="container-fluid-message">
+          <div class="rectangle-donnee-message">
+            <div class="rectangle-message">
               <img src="images/notes-medical-solid.svg" alt="logo test">
               <p><?php echo _NBTESTS; ?><?= $nbtest?></p>
             </div>
-            <div class="rectangle-ticket">
+            <div class="rectangle-message">
               <i class="fa fa-check"></i>
               <p><?php echo _NBTESTSREUSSIS; ?><?= $nbvalide ?></p>
             </div>
-            <div class="rectangle-ticket">
+            <div class="rectangle-message">
               <i class="fa fa-calendar"></i>
               <p><?php echo _DATEDERNIERTESTPARTIEL; ?><?= $datepartiel ?></p>
             </div>
-            <div class="rectangle-ticket">
+            <div class="rectangle-message">
               <i class="fa fa-hourglass"></i>
               <p><?php echo _DATEDERNIERTESTCOMPLET; ?><?= $datecomplet ?></p>
             </div>
@@ -72,8 +72,8 @@ if ($_SESSION["type"]=="Pilote"){
           <div class="gauche">
             <p>
               <div class="formulaire">
-              <?php echo _PRETPOURUNTEST; ?>
-                <form method="POST" action="index.php?page=user" id="formInscription">
+                <?php echo _PRETPOURUNTEST; ?>
+                <form method="POST" action="index.php?page=user&traitement=test" id="formInscription">
                   <button type="submit" name="test" id="test"> <?php echo _LETSGO; ?></button>
                 </form>
               </div>
@@ -110,11 +110,12 @@ if ($_SESSION["type"]=="Pilote"){
             <?php } ?>
           }
           </script>
-        </body>
-        </html>
-        <?php
-      }
-      else {
-        header('Location: index.php');
-      }
-      ?>
+        </div>
+      </body>
+      </html>
+      <?php
+    }
+    else {
+      header('Location: index.php');
+    }
+    ?>

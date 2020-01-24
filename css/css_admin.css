@@ -1,3 +1,4 @@
+/*      BODY      */
 body {
   margin: 0;
   min-height:7em;
@@ -9,22 +10,31 @@ body p {
   text-align: center;
 }
 
+/*BOUTONS MULTILANGUES*/
+.barre_navigation .test{
+   float: right;
+  width:50px;
+ 	height:50px;
+ 	background:#fafafa;
+ 	box-shadow:2px 2px 8px #aaa;
+ 	font:bold 13px Arial;
+ 	border-radius:50%;
+ 	color:#555;
+}
+/*TOUT CE QUI CONCERNE LES TABLES*/
 table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
   border: 1px solid #ddd;
 }
-
+.entete{
+  background:  #AED6F1;
+}
 th, td {
   text-align: left;
   padding: 16px;
 }
-
-.entete{
-  background:  #AED6F1;
-}
-
 .collapsible {
   background-color: #AED6F1;
   cursor: pointer;
@@ -36,50 +46,44 @@ th, td {
   font-size: 15px;
   border-bottom: 1px groove black;
 }
-
 .active, .collapsible:hover {
   background-color: #5890B6;
 }
-
 .content {
   padding: 0 18px;
   display: none;
   overflow: hidden;
   background-color: white;
 }
-
 .collapsible:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  content: '\02795'; /*(+)*/
   font-size: 13px;
   color: white;
   float: right;
   margin-left: 5px;
 }
-
 .active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  content: "\2796"; /*(-)*/
 }
-
 table button{
   background-color: #FFFFFF;
   border: none;
   float: right;
-  text-align: center; /* Center-align text */
-  padding: 16px; /* Add some padding */
-  transition: all 0.3s ease; /* Add transition for hover effects */
-  color: black; /* White text color */
-  font-size: 36px; /* Increased font-size */
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: black;
+  font-size: 36px;
 }
-
 table a{
   background-color: #FFFFFF;
   border: none;
   float: right;
-  text-align: center; /* Center-align text */
-  padding: 16px; /* Add some padding */
-  transition: all 0.3s ease; /* Add transition for hover effects */
-  color: black; /* White text color */
-  font-size: 36px; /* Increased font-size */
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: black;
+  font-size: 36px;
 }
 
 select{
@@ -96,7 +100,7 @@ button[type=submit]{
 font-size: bold 20px;
 display: inline-block;
 }
-
+/*ENTETE DE LA PAGE AVEC LES DIFFERENTS MESSAGES*/
 .rectangle{
     padding: 18px 25px;
     box-shadow: 0 10px 20px 0 rgba(26, 44, 57, 0.14);
@@ -107,7 +111,6 @@ display: inline-block;
     align-items: center;
     width: 20%;
 }
-
 .rectangle-donnee{
   display: -ms-flexbox;
   display: flex;
@@ -123,12 +126,10 @@ display: inline-block;
     margin-right: auto;
     margin-left: auto;
 }
-
 .rectangle img {
   width: 25px;
   height: 25px;
 }
-
 .rectangle-ticket{
     padding: 18px 25px;
     box-shadow: 0 10px 20px 0 rgba(26, 44, 57, 0.14);
@@ -139,7 +140,6 @@ display: inline-block;
     align-items: center;
     width: 20%;
 }
-
 .rectangle-donnee-ticket{
   display: -ms-flexbox;
   display: flex;
@@ -152,15 +152,4 @@ display: inline-block;
     width: 75%;
     left:22.5%;
     position: relative;
-}
-
-.barre_navigation .test{
-   float: right;
-  width:50px;
- 	height:50px;
- 	background:#fafafa;
- 	box-shadow:2px 2px 8px #aaa;
- 	font:bold 13px Arial;
- 	border-radius:50%;
- 	color:#555;
 }
