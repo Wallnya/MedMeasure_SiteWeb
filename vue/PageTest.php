@@ -21,7 +21,6 @@ if ($_SESSION["type"]=="Pilote"){
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/DesignTest.css" />
     <link rel="stylesheet" href="css/header2.css" />
-    <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   </head>
 

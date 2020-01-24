@@ -23,7 +23,6 @@ if ($_SESSION["type"]=="Gestionnaire"){
 
   <link rel="stylesheet" href="./css/diagramme.css">
   <link rel="stylesheet" href="./css/histogramme.css">
-  <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
 </head>
 

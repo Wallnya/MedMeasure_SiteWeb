@@ -19,7 +19,6 @@ if ($_SESSION["type"]=="Pilote"){
     <meta charset="utf-8" />
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/css_ticketUser.css" />
-    <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   </head>
 

@@ -18,7 +18,6 @@ if ($_SESSION["type"]=="Pilote"){
         <title><?php echo _TITREHISTORIQUE?></title>
             <link rel="stylesheet" href="css/css_historique.css">
             <link rel="stylesheet" href="css/header2.css" />
-            <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
     </head>
     <body>
         <header>

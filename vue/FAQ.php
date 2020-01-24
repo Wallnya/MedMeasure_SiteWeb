@@ -18,7 +18,6 @@ else{
   <meta charset="utf-8" />
   <title>MedMeasure</title>
   <link rel="stylesheet" href="css/DesignFAQ.css" />
-  <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
 </head>
 <header>
