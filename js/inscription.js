@@ -3,8 +3,7 @@
 var nom = document.getElementById("nom");
 nom.onchange = nomEnMaj;
 
-function nomEnMaj()
-{
+function nomEnMaj() {
 	nom.value = nom.value.toUpperCase();
 }
 
@@ -14,12 +13,11 @@ function nomEnMaj()
 var prenom = document.getElementById("prenom");
 prenom.onchange = prenomEnMaj;
 
-function prenomEnMaj()
-{
+function prenomEnMaj() {
 	// Pour les noms composés
 	var tabprenom1 = prenom.value.split('-');
 	var i = 0;
-	while (tabprenom1[i]){
+	while (tabprenom1[i]) {
 
 		tabprenom1[i] = PremiereLettreEnMaj(tabprenom1[i]);
 		i++;
@@ -29,7 +27,7 @@ function prenomEnMaj()
 	// Pour les noms multiples
 	var tabprenom2 = prenommaj.split(' ');
 	var i = 0;
-	while (tabprenom2[i]){
+	while (tabprenom2[i]) {
 
 		tabprenom2[i] = PremiereLettreEnMaj(tabprenom2[i]);
 		i++;
@@ -39,8 +37,8 @@ function prenomEnMaj()
 	prenom.value = prenommaj;
 }
 
-function PremiereLettreEnMaj(chaine){
-	return chaine.substr(0,1).toUpperCase() + chaine.substr(1,chaine.length);
+function PremiereLettreEnMaj(chaine) {
+	return chaine.substr(0, 1).toUpperCase() + chaine.substr(1, chaine.length);
 }
 
 
@@ -50,15 +48,23 @@ var bouton = document.getElementById('boutonInscription');
 bouton.onclick = verifValidite;
 
 
-function verifValidite(){
+function verifValidite() {
 
 	/* Correspondance des mdp */
 	var mdp1 = document.getElementById('mdp');
 	var mdp2 = document.getElementById('mdp2');
+	mdp2.setCustomValidity('');
 	if (mdp1.value != mdp2.value) {
 		mdp2.setCustomValidity('Les mots de passe ne correspondent pas.');
 		mdp2.value = "";
 	}
+
+	/* Pattern du mdp */
+	mdp1.setCustomValidity('');
+
+	if (mdp1.checkValidity() == false) {
+		mdp1.setCustomValidity('Veuillez saisir un mot de passe de 8 et 20 caractères et contenant au moins : une majuscule, une minuscule et un chiffre.');
+	};
 
 	/* Pattern du nom */
 	var nom = document.getElementById('nom');
@@ -85,7 +91,7 @@ function verifValidite(){
 	};
 
 	/* Sélection du sexe */
-	var sexe = document.getElementById('sexeH');
+	var sexe = document.getElementById('sexe');
 	sexe.setCustomValidity('');
 
 	if (sexe.checkValidity() == false) {

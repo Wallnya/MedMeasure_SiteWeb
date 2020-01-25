@@ -34,7 +34,10 @@ if (isset($_SESSION['lang'])){
                   </div>
                   <div>
                       <label for="mdp"><?php echo _MOTDEPASSE?></label>
-                      <input type="password" name="mdp" id="mdp" minlength="8" maxlength="20" required/>
+                      <input type="password" name="mdp" id="mdp" minlength="8" maxlength="20" 
+                            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){8,20}" required/>
+
+                      
                   </div>
                   <div>
                       <label for="mdp2"><?php echo _CONFIRMEMDP?></label>
