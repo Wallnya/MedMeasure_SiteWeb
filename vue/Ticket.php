@@ -19,7 +19,6 @@ if ($_SESSION["type"]=="Pilote"){
     <meta charset="utf-8" />
     <title>MedMeasure</title>
     <link rel="stylesheet" href="css/css_ticketUser.css" />
-    <script type="text/javascript" src="js/deconnexionFacebook.js"></script>
 
   </head>
 
@@ -28,8 +27,8 @@ if ($_SESSION["type"]=="Pilote"){
     <img src="images/MedMeasure.png" alt="logo de MedMeasure">
     <a href="index.php?page=user"><?php echo _ACCUEIL?></a>
     <a href="index.php?page=faq"><?php echo _BOUTONSFAQ?></a>
-    <a style="cursor:pointer" onclick="deconnexionFB();"><?php echo _DECONNEXION?></a>
-    <form method="POST" action="index.php?page=user">
+    <a style="cursor:pointer" href="index.php?deco=deconnexion"><?php echo _DECONNEXION; ?></a>
+    <form method="POST">
       <button type="submit" class="test" name="FR">FR</button>
       <button type="submit" class="test" name="EN">EN</button>
     </form>
@@ -48,8 +47,7 @@ if ($_SESSION["type"]=="Pilote"){
         <input type="submit" name="EnvoyerTicket" value="<?php echo _ENVOYER?>">
 </form>
 
-
-  <div class="container-fluid">
+<div class="container-fluid">
   <p><?php echo _RECAPTICKETS; ?></p>
     <center>
       <table cellpadding='10' cellpacing='9'>
@@ -80,9 +78,7 @@ if ($_SESSION["type"]=="Pilote"){
       </table>
     </center>
   </div>
-        
-
-
+  
 </body>
 <script>
 if ( window.history.replaceState ) {
