@@ -43,36 +43,6 @@ if ($_SESSION["type"]=="Gestionnaire"){
 
 <body>
   <br/><br/><br/><br/><br/><br/><br/>
-  <!-- Graphique sexe -->
-  <input type="hidden" id="pcFemmes" value="<?php echo round(($femme/$nbTotal)*100) ?>">
-  <input type="hidden" id="pcHommes" value="<?php echo round(($homme/$nbTotal)*100) ?>">
-
-  <!-- Graphique âge -->
-  <input type="hidden" id="pcAge1" value="<?php echo round(($nbAge20/$nbTotal)*100) ?>">
-  <input type="hidden" id="pcAge2" value="<?php echo round(($nbAge2030/$nbTotal)*100) ?>">
-  <input type="hidden" id="pcAge3" value="<?php echo round(($nbAge3040/$nbTotal)*100) ?>">
-  <input type="hidden" id="pcAge4" value="<?php echo round(($nbAge4050/$nbTotal)*100) ?>">
-  <input type="hidden" id="pcAge5" value="<?php echo round(($nbAge5060/$nbTotal)*100) ?>">
-  <input type="hidden" id="pcAge6" value="<?php echo round(($nbAge60/$nbTotal)*100) ?>">
-
-  <!-- Graphique score partiel -->
-  <input type="hidden" id="pcPartiel1" value="<?php echo round(($nbPartiel025/$nbPartiel)*100) ?>">
-  <input type="hidden" id="pcPartiel2" value="<?php echo round(($nbPartiel2550/$nbPartiel)*100) ?>">
-  <input type="hidden" id="pcPartiel3" value="<?php echo round(($nbPartiel5075/$nbPartiel)*100) ?>">
-  <input type="hidden" id="pcPartiel4" value="<?php echo round(($nbPartiel75100/$nbPartiel)*100) ?>">
-
-  <!-- Graphique score complet -->
-  <input type="hidden" id="pcComplet1" value="<?php echo round(($nbComplet025/$nbComplet)*100) ?>">
-  <input type="hidden" id="pcComplet2" value="<?php echo round(($nbComplet2550/$nbComplet)*100) ?>">
-  <input type="hidden" id="pcComplet3" value="<?php echo round(($nbComplet5075/$nbComplet)*100) ?>">
-  <input type="hidden" id="pcComplet4" value="<?php echo round(($nbComplet75100/$nbComplet)*100) ?>">
-
-  <!-- Graphique score total -->
-  <input type="hidden" id="pcTotal1" value="<?php echo round(($nbPartiel025+$nbComplet025)/($nbPartiel+$nbComplet)*100) ?>">
-  <input type="hidden" id="pcTotal2" value="<?php echo round(($nbPartiel2550+$nbComplet2550)/($nbPartiel+$nbComplet)*100) ?>">
-  <input type="hidden" id="pcTotal3" value="<?php echo round(($nbPartiel5075+$nbComplet5075)/($nbPartiel+$nbComplet)*100) ?>">
-  <input type="hidden" id="pcTotal4" value="<?php echo round(($nbPartiel75100+$nbComplet75100)/($nbPartiel+$nbComplet)*100) ?>">
-
   <!-- Menu -->
   <div id="recherche" class="onglets">
     <form method="POST" style="margin:auto" action="index.php?page=gestionnaire&traitement=recherche">
@@ -237,6 +207,37 @@ echo "</div>";
 }
 if (isset($_POST["statprofil"]) || (!isset($_POST["recherchenom"]) && !isset($_POST["statprofil"]) && !isset($_POST["stattest"]))){
   ?>
+
+  <!-- Graphique sexe -->
+  <input type="hidden" id="pcFemmes" value="<?php echo round(($femme/$nbTotal)*100) ?>">
+  <input type="hidden" id="pcHommes" value="<?php echo round(($homme/$nbTotal)*100) ?>">
+
+  <!-- Graphique âge -->
+  <input type="hidden" id="pcAge1" value="<?php echo round(($nbAge20/$nbTotal)*100) ?>">
+  <input type="hidden" id="pcAge2" value="<?php echo round(($nbAge2030/$nbTotal)*100) ?>">
+  <input type="hidden" id="pcAge3" value="<?php echo round(($nbAge3040/$nbTotal)*100) ?>">
+  <input type="hidden" id="pcAge4" value="<?php echo round(($nbAge4050/$nbTotal)*100) ?>">
+  <input type="hidden" id="pcAge5" value="<?php echo round(($nbAge5060/$nbTotal)*100) ?>">
+  <input type="hidden" id="pcAge6" value="<?php echo round(($nbAge60/$nbTotal)*100) ?>">
+
+  <!-- Graphique score partiel -->
+  <input type="hidden" id="pcPartiel1" value="<?php echo round(($nbPartiel025/$nbPartiel)*100) ?>">
+  <input type="hidden" id="pcPartiel2" value="<?php echo round(($nbPartiel2550/$nbPartiel)*100) ?>">
+  <input type="hidden" id="pcPartiel3" value="<?php echo round(($nbPartiel5075/$nbPartiel)*100) ?>">
+  <input type="hidden" id="pcPartiel4" value="<?php echo round(($nbPartiel75100/$nbPartiel)*100) ?>">
+
+  <!-- Graphique score complet -->
+  <input type="hidden" id="pcComplet1" value="<?php echo round(($nbComplet025/$nbComplet)*100) ?>">
+  <input type="hidden" id="pcComplet2" value="<?php echo round(($nbComplet2550/$nbComplet)*100) ?>">
+  <input type="hidden" id="pcComplet3" value="<?php echo round(($nbComplet5075/$nbComplet)*100) ?>">
+  <input type="hidden" id="pcComplet4" value="<?php echo round(($nbComplet75100/$nbComplet)*100) ?>">
+
+  <!-- Graphique score total -->
+  <input type="hidden" id="pcTotal1" value="<?php echo round(($nbPartiel025+$nbComplet025)/($nbPartiel+$nbComplet)*100) ?>">
+  <input type="hidden" id="pcTotal2" value="<?php echo round(($nbPartiel2550+$nbComplet2550)/($nbPartiel+$nbComplet)*100) ?>">
+  <input type="hidden" id="pcTotal3" value="<?php echo round(($nbPartiel5075+$nbComplet5075)/($nbPartiel+$nbComplet)*100) ?>">
+  <input type="hidden" id="pcTotal4" value="<?php echo round(($nbPartiel75100+$nbComplet75100)/($nbPartiel+$nbComplet)*100) ?>">
+  
   <!-- Filtres -->
   <div class="filtres">
     <form method="post" action="index.php?page=gestionnaire&traitement=sexe" style="margin:auto;">

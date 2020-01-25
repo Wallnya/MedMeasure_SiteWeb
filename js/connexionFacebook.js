@@ -36,18 +36,18 @@ $('#facebook-button').on('click', function() {
             //<?php $_SESSION["type"] ="Pilote" ?>
 
             if (type == "Pilote"){
-                window.location = "index.php?page=user";
+              window.location = "index.php?page=user";
             }
-            // else if(type == "Administrateur"){
-            //   window.location.href = "index.php?page=admin_user";
-            // }
-            // else {
-            //   window.location.href = "index.php?page=gestionnaire";
-            // }
-            },
-            error: function(){
-                alert('Erreur');
+            else if(type == "Administrateur"){
+              window.location = "index.php?page=admin_user";
             }
+            else {
+              window.location = "index.php?page=gestionnaire";
+            }
+          },
+          error: function(){
+              alert('Erreur');
+          }
         });
       });
       // Retrieves user data from OAuth provider by using #get() and
