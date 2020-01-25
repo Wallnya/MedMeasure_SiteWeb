@@ -282,8 +282,8 @@ $total->closeCursor();
             echo "<button type=\"button\" class=\"collapsible\">Test complet n°".$data['Numero_Test']."</button>";
       echo "<div class=\"content\">";
       echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-      echo "<tr class=\"entete\"><td><?php echo _DATETEST?></td><td><?php echo _RYTHMECARDIAQUE?></td><td><?php echo _PERCEPTIONAUDITIVE?></td>
-      <td><?php echo _STIMULUSVISUEL?></td><td><?php echo _TEMPERATUREPEAU?></td> <td><?php echo _RECOTONALITE?></td><td>Score</td><td></td></tr>";
+      echo "<tr class=\"entete\"><td>"._DATETEST."</td><td>"._RYTHMECARDIAQUE."</td><td>"._PERCEPTIONAUDITIVE."</td>
+      <td>"._STIMULUSVISUEL."</td><td>"._TEMPERATUREPEAU."</td> <td>"._RECOTONALITE."</td><td>Score</td><td></td></tr>";
       echo "<tr>";
       ?>
       <td>
