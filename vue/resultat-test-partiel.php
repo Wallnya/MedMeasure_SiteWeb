@@ -62,6 +62,17 @@ if ($_SESSION["type"]=="Pilote"){
       max="100"
       value="<?php echo htmlspecialchars($data['score']) ?>"
       >
+      <br/>
+      <?php 
+        if ($data['score'] < 33) {
+          echo _LOW;
+        } else if ($data['score'] >= 33 && $data['score'] < 75){
+          echo _MEDIUM;
+        } else if ($data['score'] >= 75){
+          echo _HIGH;
+        }
+      ?>
+
       <span class="rangeslider__tooltip" id ="range-tooltip"></span>
       <input name="cliquez-ici" type="button" style="display:none;" id="click" value="<?php echo _CLICK?>" onclick="document.location.href='https://www.doctolib.fr'">
 

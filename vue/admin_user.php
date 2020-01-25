@@ -227,8 +227,8 @@ if ($_SESSION["type"]=="Administrateur"){
       echo "<button type=\"button\" class=\"collapsible\">Test partiel n°".$data['numero_test']."</button>";
       echo "<div class=\"content\">";
       echo "<center><table border='1' cellpadding='5' cellpacing='9'>";
-      echo "<tr class=\"entete\"><td>_DATETEST</td><td>_RYTHMECARDIAQUE</td><td>_PERCEPTIONAUDITIVE</td>
-      <td>_STIMULUSVISUEL</td> <td>Score</td><td></td></tr>";
+      echo "<tr class=\"entete\"><td>"._DATETEST."</td><td>"._RYTHMECARDIAQUE."</td><td>"._PERCEPTIONAUDITIVE."</td>
+      <td>"._STIMULUSVISUEL."</td> <td>Score</td><td></td></tr>";
       echo "<tr>";
       ?>
       <td>
