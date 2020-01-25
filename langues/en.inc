@@ -16,6 +16,8 @@ define("_APTITUDE","And show that you are still able to fly!");
 define("_AVENTURE","Discover the MedMeasure adventure to know your results in real time on your flying ability");
 define("_JOIN","Join us today!");
 define("_RESEAUX","Connect also via social networks!");
+define("_RESEAUFB","Log in with Facebook");
+define("_RESEAUTW","Log in with Twitter");
 
 //admin_faq.php
 define("_QUESTIONS","FAQ questions summary");
@@ -174,6 +176,7 @@ define("_RESULTATTESTCOMPLET","Complete test result");
 define("_INSCRIPTIONTITLE","Sign up");
 define("_INFOCONNEXION","Sign in information");
 define("_MOTDEPASSE","Password");
+define("_ADDRESSEEMAIL","Email address");
 define("_CONFIRMEMDP","Confirm password");
 define("_LUETACCEPTE","I have read and accept the");
 define("_CONDITIONS","general terms and conditions of use");

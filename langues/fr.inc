@@ -17,6 +17,8 @@ define("_APTITUDE","Et montrez que vous êtes toujours apte à piloter!");
 define("_AVENTURE","Découvrez l'aventure MedMeasure pour connaître vos résultats en temps réel sur votre aptitude de vol");
 define("_JOIN","Rejoignez nous aujourd'hui !");
 define("_RESEAUX","Connectez-vous également via les réseaux sociaux !");
+define("_RESEAUFB","Se connecter avec Facebook");
+define("_RESEAUTW","Se connecter avec Twitter");
 
 //admin_faq.php
 define("_QUESTIONS","Récapitulatif des questions de la FAQ");
@@ -172,6 +174,7 @@ define("_RESULTATTESTCOMPLET","Résultat du test complet");
 define("_INSCRIPTIONTITLE","Inscription");
 define("_INFOCONNEXION","Information de connexion");
 define("_MOTDEPASSE","Mot de passe");
+define("_ADDRESSEEMAIL","Adresse mail");
 define("_CONFIRMEMDP","Confirmer le mot de passe");
 define("_LUETACCEPTE","J'ai lu et j'accepte les");
 define("_CONDITIONS","conditions générales d'utilisation");
