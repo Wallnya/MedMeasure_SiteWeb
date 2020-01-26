@@ -66,8 +66,8 @@ if (isset($_GET['page'])) {
   else if ($_GET['page']=='admin_ticket'){
     if (isset($_POST['modifier'])){
       if (isset($_POST['idTicket']) && $_POST['idTicket'] > 0) {
-        $statut=htmlspecialchars($_POST['idUtilisateur']);
-        $idTicket=htmlspecialchars($_POST['idtest']);
+        $statut=htmlspecialchars($_POST['Statut']);
+        $idTicket=htmlspecialchars($_POST['idTicket']);
         modifyTicket($statut,$idTicket);
       }
     }

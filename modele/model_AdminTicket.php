@@ -11,8 +11,8 @@ function getModifyTicket($statut,$id)
   $db = dbConnect();
   $req = $db->prepare('UPDATE Ticket SET Statut = ? WHERE idTicket = ?');
   $req->execute(array($statut,$id));
-  $modify = $req->fetch();
-  return $modify;
+  $req->execute();
+  return $req;
 }
 
 function getCountTicket(){
