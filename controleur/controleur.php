@@ -9,17 +9,6 @@ require('modele/model_Inscription.php');
 require('modele/model_Gestionnaire.php');
 require('modele/model_Ticket.php');
 
-
-function page_ticket(){
-  $ticket = getTicket();
-  require('vue/Ticket.php');
-}
-
-function addTicket($intitule,$contenu){
-  $add = createTicket($intitule,$contenu);
-  header('Location: index.php?page=ticket');
-}
-
 /********************************/
 /*            ADMIN             */
 /********************************/
@@ -140,6 +129,16 @@ function page_modif_profil($id){
 function modif_profil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel){
   $modifprofil = getModifProfil($id,$nom,$prenom,$dn,$sexe,$adresse,$ville,$cp,$tel);
   header('Location: index.php?page=user');
+}
+
+function ticket_perso($id){
+  $ticket = getTicketPerso($id);
+  require('vue/Ticket.php');
+}
+
+function addTicket($id,$intitule,$contenu){
+  $add = createTicket($id,$intitule,$contenu);
+  header('Location: index.php?page=user&traitement=ticket');
 }
 
 /********************************/
@@ -268,15 +267,6 @@ function donne_mesures(){
   require('vue/gestionnaire.php');
 }
 
-function recherchePilote($recherche,$user){
-  $nbUser = getNbPilotePossibles($recherche);
-  $listeUser = getListePilotesPossibles($recherche);
-  $nb1 = getNbPilotesRecherche($user);
-  $listeUser2 = getListePiloteRecherche($user);
-  $nb2 = getResultatPartiel($user);
-  $listeUser3 = getResultatComplet($user);
-  require('vue/gestionnaire.php');
-}
 /********************************/
 /*          CGU                 */
 /********************************/

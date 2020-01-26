@@ -190,16 +190,16 @@ if (isset($_GET['page'])) {
         if(isset($_POST['FR'])){
           $_SESSION['lang']="fr";
           $id=htmlspecialchars($_SESSION['id']);
-          page_ticket($id);
+          ticket_perso($id);
         }
         else if(isset($_POST['EN'])){
           $_SESSION['lang']="en";
           $id=htmlspecialchars($_SESSION['id']);
-          page_ticket($id);
+          ticket_perso($id);
         }
         else{
           $id=htmlspecialchars($_SESSION['id']);
-          page_ticket($id);
+          ticket_perso($id);
         }
       }
       else if ($_GET['traitement'] == "test"){
@@ -341,7 +341,10 @@ if (isset($_GET['page'])) {
   else if ($_GET['page']=='ticket'){
     if (isset($_POST['EnvoyerTicket'])){
       if (isset($_POST["intitule"]) && isset($_POST["contenu"])){
-        addTicket($_POST['intitule'],$_POST['contenu']);
+        $id=htmlspecialchars($_SESSION['id']);
+        $intitule=htmlspecialchars($_POST['intitule']);
+        $contenu=htmlspecialchars($_POST['contenu']);
+        addTicket($id,$intitule,$contenu);
         if(isset($_POST['FR'])){
           $_SESSION['lang']="fr";
         }
@@ -356,7 +359,8 @@ if (isset($_GET['page'])) {
     else if(isset($_POST['EN'])){
       $_SESSION['lang']="en";
     }
-    page_ticket();
+    $id=htmlspecialchars($_SESSION['id']);
+    ticket_perso($id);
 
   }
   /********************************/

@@ -42,11 +42,39 @@ if ($_SESSION["type"] == "Pilote") {
     <form class="formulaireTicket" method="POST" action="index.php?page=ticket">
       <textarea name="intitule" placeholder="<?php echo _QUESTIONOBJECT ?>"></textarea>
       <textarea name="contenu" placeholder="<?php echo _DETAILQUESTION ?>" style="height:200px"></textarea>
-
       <input type="submit" name="EnvoyerTicket" value="<?php echo _ENVOYER ?>">
     </form>
-
-
+    <div class="container-fluid">
+      <p><?php echo _RECAPTICKETS; ?></p>
+        <center>
+          <table cellpadding='10' cellpacing='9'>
+            <tr class="entete">
+              <td><?php echo _DATETICKET; ?></td>
+              <td><?php echo _INTITULE; ?></td>
+              <td class="test"><?php echo _REPONSE; ?></td>
+            </tr>
+          <?php
+          while ($data = $ticket->fetch())
+          {
+          ?>
+          <tr>
+              <td>
+                <?= htmlspecialchars($data['dateEnvoi']) ?>
+              </td>
+              <td>
+                <?= htmlspecialchars($data['intitule']) ?>
+              </td>
+              <td>
+                <?= htmlspecialchars($data['contenu']) ?>
+              </td>
+          </tr>
+          <?php
+          }
+          $ticket->closeCursor();
+          ?>
+          </table>
+        </center>
+      </div>
     <script>
       if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
