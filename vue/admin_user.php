@@ -190,8 +190,8 @@ if ($_SESSION["type"]=="Administrateur"){
                 else if (strcmp (htmlspecialchars($data2['valide']),"1") == 0)
                 {
                   ?>
-                  <option value="0" selected><?php echo _NONVALIDE; ?></option>
-                  <option value="1" ><?php echo _VALIDE; ?></option>
+                  <option value="0" ><?php echo _NONVALIDE; ?></option>
+                  <option value="1" selected><?php echo _VALIDE; ?></option>
                   <?php
                 }
                   ?>
