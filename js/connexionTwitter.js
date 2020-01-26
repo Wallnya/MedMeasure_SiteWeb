@@ -13,7 +13,6 @@ $('#twitter-button').on('click', function() {
         console.log("Nom : " + data.name);
         console.log("Email : " + data.email);
         console.log("Photo : " + data.avatar);
-        alert("Connecté");
 
         var idTW = data.id,
             emailTW = data.email,
@@ -28,8 +27,6 @@ $('#twitter-button').on('click', function() {
                 console.log(data);
                 var words = data.split(':');
                 let type = words[2].substr(1, words[2].length-3);
-
-                alert("Connecté (" + type + ")");
 
                 //<?php $_SESSION["type"] ="Pilote" ?>
 

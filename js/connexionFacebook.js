@@ -14,7 +14,6 @@ $('#facebook-button').on('click', function() {
         console.log("Prénom : " + data.firstname);
         console.log("Email : " + data.email);
         console.log("Photo : " + data.avatar);
-        alert("Connecté");
       
         var idFB = data.id,
         emailFB = data.email,
@@ -30,8 +29,6 @@ $('#facebook-button').on('click', function() {
             console.log(data);
             var words = data.split(':');
             let type = words[2].substr(1, words[2].length-3);
-
-            alert("Connecté (" + type + ")");
 
             //<?php $_SESSION["type"] ="Pilote" ?>
 
