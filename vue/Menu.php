@@ -1,5 +1,16 @@
 <?php
 if ($_SESSION["type"]=="Pilote"){
+  if (isset($_SESSION['lang'])){
+    if($_SESSION['lang'] == "en")
+    include "langues/en.inc";
+    else if ($_SESSION['lang'] == "fr"){
+      include "langues/fr.inc";
+    }
+  }
+  else{
+    include "langues/fr.inc";
+  }
+
   ?>
   <!DOCTYPE html>
   <html>
