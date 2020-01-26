@@ -7,7 +7,7 @@ if ($_SESSION["type"] == "Administrateur") {
       include "langues/fr.inc";
     }
   } else {
-    include "langues/en.inc";
+    include "langues/fr.inc";
   }
 ?>
   <!DOCTYPE html>

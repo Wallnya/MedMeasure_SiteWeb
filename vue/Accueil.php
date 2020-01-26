@@ -6,7 +6,7 @@ if (isset($_SESSION['lang'])) {
     include "langues/fr.inc";
   }
 } else {
-  include "langues/en.inc";
+  include "langues/fr.inc";
 }
 
 ?>

@@ -7,7 +7,7 @@ if ($_SESSION["type"] == "Pilote") {
       include "langues/fr.inc";
     }
   } else {
-    include "langues/en.inc";
+    include "langues/fr.inc";
   }
 
 ?>

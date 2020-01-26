@@ -7,7 +7,7 @@ if ($_SESSION["type"] == "Gestionnaire") {
       include "langues/fr.inc";
     }
   } else {
-    include "langues/en.inc";
+    include "langues/fr.inc";
   }
 ?>
   <!DOCTYPE html>
@@ -162,6 +162,9 @@ if ($_SESSION["type"] == "Gestionnaire") {
           <br>
           <?php
         }
+        else{
+          echo "Pas de test complet malheureusement. <br/>";
+        }
 
         if ($nb2 != 0) {
           echo "<div class=\"container-fluid\">";
@@ -195,6 +198,9 @@ if ($_SESSION["type"] == "Gestionnaire") {
           </table>
           </center>
       <?php
+        }
+        else{
+          echo "Pas de test partiel malheureusement.";
         }
       }
       echo "</div>";
