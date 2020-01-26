@@ -163,7 +163,7 @@ if ($_SESSION["type"] == "Gestionnaire") {
           <?php
         }
         else{
-          echo "Pas de test complet malheureusement. <br/>";
+          echo _NOTESTCOMPLET;
         }
 
         if ($nb2 != 0) {
@@ -200,7 +200,7 @@ if ($_SESSION["type"] == "Gestionnaire") {
       <?php
         }
         else{
-          echo "Pas de test partiel malheureusement.";
+          echo _NOTESTPARTIEL;
         }
       }
       echo "</div>";

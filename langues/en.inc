@@ -136,6 +136,9 @@ define("_REPARTITIONSTIMULUSVISUEL","Distribution of reaction to a visual stimul
 define("_REPARTITIONTEMPERATUREPEAU","Distribution of skin temperature");
 define("_REPARTITIONRECOTONALITE","Distribution of tone recognition");
 
+define("_NOTESTPARTIEL","No partial test unfortunately.");
+define("_NOTESTCOMPLET","No complete test unfortunately.<br/>");
+
 //Historique.php
 define("_TITREHISTORIQUE","History of results");
 define("_ACCUEIL","Home");

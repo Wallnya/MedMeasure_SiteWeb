@@ -267,6 +267,15 @@ function donne_mesures(){
   require('vue/gestionnaire.php');
 }
 
+function recherchePilote($recherche,$user){
+  $nbUser = getNbPilotePossibles($recherche);
+  $listeUser = getListePilotesPossibles($recherche);
+  $nb1 = getNbPilotesRecherche($user);
+  $listeUser2 = getListePiloteRecherche($user);
+  $nb2 = getResultatPartiel($user);
+  $listeUser3 = getResultatComplet($user);
+  require('vue/gestionnaire.php');
+}
 /********************************/
 /*          CGU                 */
 /********************************/

@@ -138,6 +138,9 @@ define("_REPARTITIONSTIMULUSVISUEL","Répartition des réactions à un stimulus 
 define("_REPARTITIONTEMPERATUREPEAU","Répartition des températures de la peau");
 define("_REPARTITIONRECOTONALITE","Répartition des reconnaissances de la tonalité");
 
+define("_NOTESTPARTIEL","Pas de test partiel malheureusement.");
+define("_NOTESTCOMPLET","Pas de test complet malheureusement.<br/>");
+
 //Historique.php
 define("_TITREHISTORIQUE","Historique des résultats");
 
